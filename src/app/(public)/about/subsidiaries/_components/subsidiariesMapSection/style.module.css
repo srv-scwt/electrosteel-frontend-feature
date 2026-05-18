@@ -1,0 +1,269 @@
+.containerLg {
+    max-width: 86.67vw;
+    margin: auto auto;
+    padding-block: clamp(32px, 5.5vw, 96px);
+}
+
+.sectionContent h2 {
+    font-family: var(--font-bebas-neue), sans-serif;
+    font-weight: 400;
+    font-size: clamp(24px, 4.5vw, 57px);
+    line-height: 97%;
+    width: 95%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    margin-bottom: clamp(8px, 1.8vw, 32px);
+}
+
+.sectionContent p {
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    font-style: Medium;
+    font-size: clamp(14px, 2.5vw, 18px);
+    line-height: 32px;
+    width: 98%;
+    letter-spacing: 0%;
+    color: #545454;
+}
+
+.sectionContent h2 span {
+    color: #004aa1;
+}
+
+/* Map shell */
+.mapMainHolder {
+    overflow-x: auto;
+}
+.mapWrapper {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.mapBox {
+  position: relative;
+  height: auto;
+  aspect-ratio: 16 / 9; 
+  overflow: auto;
+}
+
+.mapImage {
+    position: absolute;
+    inset: 0;
+    width: 1280px;
+}
+
+.legend {
+    margin-top: .5rem;
+    font-size: .9rem;
+    color: #9ca3af;
+    text-align: center;
+}
+
+/* Pin styles */
+.pin {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    border: 2px solid #004aa1;
+    background: url(/images/map_pointer.png) no-repeat center;
+    cursor: pointer;
+    outline: none;
+}
+
+.pin:focus-visible {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
+    /* blue-600 ring */
+}
+
+.pin::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, .4);
+}
+
+.pinLabel {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: #111827;
+    color: #e5e7eb;
+    border: 1px solid #374151;
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 12px;
+    line-height: 1;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s ease, transform .15s ease;
+}
+
+.pin:hover .pinLabel,
+.pin:focus-visible .pinLabel {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-8px);
+}
+
+.sr {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Popover (tooltip-like card) */
+.popover {
+    position: absolute;
+    display: none;
+    max-width: 290px;
+    background: #ffffff;
+    color: #004aa1;
+    border: 1px solid #cccccc;
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .5);
+    padding: 12px 14px;
+    z-index: 5;
+}
+
+.open {
+    display: block;
+}
+
+.popContent h3 {
+    margin: 0 0 .25rem;
+    font-size: 1rem;
+}
+
+.popContent p {
+    margin: .25rem 0;
+    font-size: 14px !important;
+    line-height: 24px !important;
+}
+
+.popContent a {
+    color: #93c5fd;
+    text-decoration: underline;
+}
+
+.popContent a:hover {
+    color: #004aa1;
+}
+
+/* Close button */
+.closeBtn {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: transparent;
+    border: 0;
+    color: #000000;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.closeBtn:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* Arrow directions (added dynamically) */
+.popover::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-left: 1px solid #374151;
+    border-top: 1px solid #374151;
+    transform: rotate(45deg);
+}
+
+/* Top variants: arrow at bottom */
+.dirTopRight::after,
+.dirTopLeft::after {
+    bottom: -6px;
+}
+
+.dirTopRight::after {
+    left: 16px;
+}
+
+.dirTopLeft::after {
+    right: 16px;
+}
+
+/* Bottom variants: arrow at top (flipped) */
+.dirBottomRight::after,
+.dirBottomLeft::after {
+    top: -6px;
+    transform: rotate(225deg);
+}
+
+.dirBottomRight::after {
+    left: 16px;
+}
+
+.dirBottomLeft::after {
+    right: 16px;
+}
+
+@media (max-width: 1800px) {
+    .sectionContent h2 {
+        font-size: clamp(24px, 4.5vw, 52px);
+    }
+
+    .sectionContent p {
+        /* font-size: clamp(14px, 2.5vw, 16px); */
+        line-height: clamp(26px, 2vw, 32px);
+        /* line-height: 1.4; */
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .sectionContent h2 {
+        width: 100%;
+    }
+
+    .sectionContent p {
+        line-height: 1.5;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .sectionContent h2 {
+        width: 85%;
+    }
+
+    .containerLg {
+        max-width: 100vw;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+@media (max-width: 576px) {
+    .containerLg {
+        max-width: 100vw;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .sectionContent p {
+        line-height: 22px;
+    }
+}

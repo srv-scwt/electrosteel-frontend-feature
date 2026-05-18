@@ -1,0 +1,77 @@
+.sectionTopTitleGap {
+  padding-bottom: clamp(24px, 4vw, 48px);
+  /* padding-inline: clamp(16px, 2.4vw, 32px); */
+}
+.sectionContentTitle h2 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-size: clamp(24px, 4.5vw, 57px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: start;
+  width: 50%;
+  text-transform: uppercase;
+  color: #000205;
+}
+.titleCenter > *{
+  width: 100% !important;
+  text-align: center !important;
+}
+.sectionContentTitle h2 span {
+  color: #004aa1;
+}
+
+.buttonLink {
+  justify-self: end;
+}
+.sectionContentPara {
+  width: 590px;
+}
+.sectionContentPara p {
+  font-family: var(--font-montserrat);
+  font-weight: 400;
+  font-size: clamp(14px, 1.5vw, 22px);
+  line-height: clamp(20px, 2vw, 37px);
+  letter-spacing: 0%;
+  text-align: start;
+  color: #545454;
+}
+
+@media (max-width: 1560px) {
+  .sectionContentTitle h2 {
+    font-size: clamp(24px, 2.8vw, 42px);
+    width: 65%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .sectionContentPara {
+    width: 60%;
+  }
+}
+
+@media (max-width:720px) {
+  .sectionTopTitleGap{
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sectionTopTitleGap {
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-inline: 0px;
+  }
+  .sectionContentPara {
+    width: 100%;
+  }
+  .sectionContentTitle {
+    width: 100%;
+  }
+  .sectionContentTitle h2 {
+    width: 90%;
+    padding-bottom: 0.4rem;
+  }
+}

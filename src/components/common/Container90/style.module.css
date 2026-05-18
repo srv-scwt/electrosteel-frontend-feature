@@ -1,0 +1,23 @@
+.containerLg {
+  width: 90vw;
+  margin: auto auto;
+  max-width:1920px
+}
+
+@media (max-width: 768px) {
+  .containerLg {
+    width: 100%;
+    max-width: 100vw;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .containerLg {
+      width: 100%;
+    max-width: 100vw;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

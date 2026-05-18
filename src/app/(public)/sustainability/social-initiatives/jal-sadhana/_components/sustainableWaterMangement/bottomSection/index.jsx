@@ -1,0 +1,96 @@
+"use client";
+import Image from "next/image";
+import styles from "./style.module.css";
+import { OutlineButtonLink } from "@/components/ui/Button";
+import newsData from "./m.data";
+import { Autoplay, A11y, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+export default function BottomSection() {
+
+  return (
+    <div className="">
+      <div className={styles.containerLg}>
+        <div className={`flex gap-2 ${styles.sectionTopTitleGap}`}>
+          <div
+            className={`${styles.sectionContentTitle} ${styles.sectionContentTitlemain} flex-1`}
+          >
+            <h2>
+              Case <span>Studies</span>
+            </h2>
+            <p>
+              Suspendisse lacinia interdum diam, in semper erat egestas nec.
+              Aenean fermentum tellus tortor, non sagittis eros venenatis sit
+              amet.
+            </p>
+          </div>
+        </div>
+          <Swiper
+            modules={[Autoplay, A11y, Pagination]}
+            slidesPerView={3}
+            spaceBetween={40}
+            loop={true}
+            autoplay={{ delay: 2000, disableOnInteraction: false }}
+            speed={1000}
+                  pagination={{ clickable: true , dynamicBullets : true }}
+            observer={true}
+            observeParents={true}
+            breakpoints={{
+              1280: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
+              768: {
+                slidesPerView: 1.8,
+                spaceBetween: 30,
+              },
+              576: {
+                slidesPerView: 1.6,
+                spaceBetween: 20,
+              },
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+            }}
+          >
+            {newsData.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className={styles.testimonialsCardWrappers}>
+                  <div className="grid grid-cols-1">
+                    <div className="">
+                      <div className={styles.caseStudyCard}>
+                        <Image
+                          src={item.img}
+                          alt={item.title}
+                          fill
+                          className="absolute h-[100%] w-[100%] object-cover object-center"
+                        />
+                      </div>
+                    </div>
+                    <div className={styles.sectionCardContent}>
+                      <h3>{item.title}</h3>
+                      <div className={styles.cardLink}>
+                        <OutlineButtonLink
+                          goto={"/"}
+                          title={"read more"}
+                          className={"btn-white"}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+      </div>
+    </div>
+  );
+}

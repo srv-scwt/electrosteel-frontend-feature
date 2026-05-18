@@ -1,0 +1,285 @@
+@import "tailwindcss";
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+nav {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.navtext {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  color: #545454;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover and Active state */
+.navtext:hover,
+.navtext.active {
+  background-color: #003366;
+  /* Dark Blue background */
+  color: white;
+}
+
+.navheadertext {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--font-montserrat), sans-serif;
+  color: #ffffff;
+}
+
+.navsubtext {
+  text-transform: uppercase;
+  line-height: 100%;
+  font-size: 33px;
+  font-weight: 400;
+  font-family: var(--font-bebas-neue), sans-serif;
+}
+
+.navlistheadernametext {
+  text-transform: uppercase;
+  line-height: 100%;
+  font-size: 24px;
+  color: #fdd307;
+  font-weight: 200;
+  font-family: var(--font-bebas-neue), sans-serif;
+}
+
+.navlistnametext {
+  font-size: clamp(11px, 1vw, 16px);
+  font-weight: 300;
+  font-family: var(--font-montserrat), sans-serif;
+}
+.btn {
+  padding: clamp(8.5px, 1.4vw, 18px) clamp(8px, 1.4vw, 16px);
+  width: clamp(127px, 18vw, 212px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: justify-content 0.4s ease-in-out;
+}
+
+@media (max-width: 1400px) {
+  .btn {
+    padding: 14px 12px;
+    width: 196px;
+  }
+}
+@media (max-width: 1024px) {
+  .btn {
+    padding: clamp(8.5px, 1.5vw, 12px) clamp(8px, 1.4vw, 10px);
+    width: clamp(127px, 16vw, 170px);
+  }
+}
+.btn-primary span {
+  color: #000000;
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: clamp(12px, 1vw, 16px);
+  line-height: 100%;
+  text-transform: uppercase;
+  transition: color 0.4s ease-in-out;
+}
+
+.btn span,
+.btn svg {
+  color: #000000 !important;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+
+.btn:hover span {
+  transform: translateX(30px);
+}
+
+.btn:hover svg {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+.bottom-end {
+  align-content: end;
+}
+
+.btn-primary {
+  background-color: #fdd307;
+  border: 2px solid #fdd307;
+  border-radius: 50px;
+}
+.btn-green {
+  background-color: #3aa364;
+  border: 2px solid #3aa364;
+  /* border-radius: 8px; */
+}
+.btn-Outlined{
+  border: 1px solid #004aa1;
+  color: #004aa1;
+    border-radius: 8px;
+}
+.btn-white * {
+  color: #ffffff !important;
+}
+.btn-white span {
+  color: #ffffff !important;
+}
+.fontF-primary{
+    font-family: var(--font-bebas-neue), sans-serif !important;
+}
+.fontF-secondary{
+  font-family: var(--font-montserrat) !important;
+}
+
+p,
+table,
+ul,
+li{
+  font-family: var(--font-montserrat) ;
+}
+.btn-outline-text {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 100%;
+  color: #004aa1;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.3rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  width: max-content;
+}
+.btn-outline-view-archive {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: clamp(14px, 1vw, 16px);
+  color: #004aa1;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.3rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  width: max-content;
+}
+
+.btn-text{
+    font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: clamp(14px, 1vw, 16px);
+    line-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn-outline-text svg,
+.btn-outline-text span {
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+.btn-outline-text:hover{
+  padding-right: 30px;
+}
+.btn-outline-text:hover span {
+  transform: translateX(30px);
+}
+
+.btn-outline-text:hover svg {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+
+.btn-back-outline-text:hover span {
+  transform: translateX(-20px);
+}
+
+.btn-back-outline-text:hover svg {
+  transform: translateX(20px);
+  opacity: 0;
+}
+.know-more-btn-font span{
+  font-size: 12px !important;
+}
+
+/* ============= ripple effect ============= */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+/* Enable touch scrolling smoothly */
+html, body {
+  overscroll-behavior-x: contain;
+}
+
+div {
+  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+}
+
+.react-select-container {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #545454;
+}
+
+.react-select-container .react-select__control {
+    height: 56px;
+    border-radius: 0;
+    border: 2px #CDCCCC solid;
+}
+
+input {
+    font-family: Montserrat;
+}
+
+
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modalFadeIn {
+  animation: modalFadeIn 0.25s ease-out;
+}

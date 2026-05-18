@@ -1,0 +1,72 @@
+.officeOverseasSwiper {
+    height: 100%;
+}
+
+.officeOverseasSwiper :global(.swiper-wrapper) {
+    align-items: stretch;
+}
+
+.officeOverseasSwiper :global(.swiper-slide) {
+    height: auto;
+}
+
+.officeOverseasSwiper :global(.swiper-button-next),
+.officeOverseasSwiper :global(.swiper-button-prev) {
+
+    top: 50%;
+    margin-top: 0;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background: #fdd307;
+    border-radius: 50%;
+    color: #00418e;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+}
+
+.officeOverseasSwiper :global(.swiper-button-prev) {
+    left: 3px;
+}
+
+.officeOverseasSwiper :global(.swiper-button-next) {
+    right: 3px;
+}
+
+.officeOverseasSwiper :global(.swiper-button-next::after),
+.officeOverseasSwiper :global(.swiper-button-prev::after) {
+    font-size: 16px;
+    color: #00418e;
+}
+
+.officeBox h4 {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.officeBox h4::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 1px;
+    background-color: #00418e;
+}
+
+.manualCSSBTN {
+    font-size: 12px !important;
+    padding: unset;
+    padding: 13px 8px !important;
+    width: clamp(127px, 18vw, 106px) !important;
+}
+
+.manualCSSBTN span {
+    font-size: 12px !important;
+}
+
+.manualReadMore {
+    font-size: 12px;
+    color: white;
+}

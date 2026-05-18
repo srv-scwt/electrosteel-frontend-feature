@@ -1,0 +1,90 @@
+.sectionContent h1 {
+  font-family: var(--font-bebas-neue), sans-serif;
+  font-weight: 400;
+  font-size: clamp(24px, 3.5vw, 57px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #00418e;
+  padding-top: clamp(6px, 2.5vw, 18px);
+}
+
+.angledSection {
+  padding-left: clamp(16px, 7vw, 128px);
+}
+
+@media (max-width: 1800px) {
+  .sectionContent h1 {
+    font-size: clamp(24px, 4.5vw, 52px);
+  }
+}
+
+@media (max-width:1650px) {
+  .angledSection {
+    padding-left: 95px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .sectionContent h1 {
+    font-size: clamp(24px, 4.5vw, 42px);
+  }
+
+  .angledSection {
+    padding-left: 92px;
+  }
+}
+
+@media (max-width: 1305px) {
+  .angledSection {
+    padding-left: 84px;
+  }
+}
+
+@media (max-width: 1205px) {
+  .angledSection {
+    padding-left: 78px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .angledSection {
+    padding-left: 72px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .angledSection {
+    padding-left: 68px;
+  }
+}
+
+@media (max-width: 965px) {
+  .angledSection {
+    padding-left: 62px;
+  }
+}
+
+@media (max-width: 910px) {
+  .angledSection {
+    padding-left: 58px;
+  }
+}
+
+@media (max-width: 850px) {
+  .angledSection {
+    padding-left: 53px;
+  }
+}
+
+@media (max-width: 768px) {
+  .angledSection {
+    padding-left: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .angledSection {
+    padding-left: 16px;
+  }
+}

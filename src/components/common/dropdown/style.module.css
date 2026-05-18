@@ -1,0 +1,9 @@
+.searchYear {
+    width: 200px;
+}
+
+@media screen and (max-width: 520px) {
+    .searchYear {
+        width: 100% !important;
+    }
+}

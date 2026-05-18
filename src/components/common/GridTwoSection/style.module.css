@@ -1,0 +1,19 @@
+.darkGridContent h1,
+.darkGridContent h2,
+.darkGridContent h3,
+.darkGridContent h4,
+.darkGridContent h5,
+.darkGridContent h6 {
+  color: #FDD307 !important;
+}
+
+.darkGridContent p,
+.darkGridContent span,
+.darkGridContent li,
+.darkGridContent div {
+  color: #ffffff !important;
+}
+
+.darkGridContent ul li::before {
+  filter: brightness(0) invert(1);
+}

@@ -1,0 +1,186 @@
+.container {
+    background-color: #004AA1;
+    max-width: 99vw;
+    overflow: hidden;
+    color: white;
+}
+
+.container h2 {
+    color: #FDD307;
+}
+
+.Listing ul li {
+    color: white !important;
+}
+
+.leftUlList {
+    border-left: 1px dotted white;
+    padding-left: 32px;
+}
+
+.leftUlList ul li {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 29px 30px 29px 0;
+    width: 80%;
+    position: relative;
+    border-bottom: 1px dotted white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.leftUlList ul li::after,
+.leftUlList ul li::before {
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.leftUlList ul li::after {
+    position: absolute;
+    content: '';
+    background-image: url('/images/application/arr.png');
+    background-size: cover;
+    top: 45%;
+    right: 20px;
+    width: 8px;
+    height: 8px;
+}
+
+.leftUlList ul li::before {
+    position: absolute;
+    content: '';
+    background-color: #FDD307;
+    border-radius: 50%;
+    top: 45%;
+    left: -37px;
+    width: 10px;
+    height: 10px;
+}
+
+.leftUlList ul li.active::after,
+.leftUlList ul li.active::before {
+    opacity: 1;
+}
+
+.leftUlList ul li.active {
+    padding: 29px 31px;
+}
+
+.circle {
+    width: 540px;
+    height: 520px;
+    border: 2px solid rgb(7, 105, 220);
+    border-radius: 50%;
+    position: relative;
+    right: -50%;
+    transition: transform 0.8s ease;
+}
+
+.iconCircle.activeCircle {
+    border: 2px solid #FDD307;
+    transform: scale(1.30);
+    z-index: 2;
+}
+
+.iconCircle {
+    position: absolute;
+    border: 2px solid rgb(7, 105, 220);
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    background-color: #004AA1;
+    transition: all 0.8s ease;
+}
+
+.iconbg {
+    padding: 15px;
+}
+
+/* -------- MEDIA QUERIES -------- */
+
+@media (max-width: 1280px) {
+    .circle {
+        right: -40%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .circle {
+        right: -20%;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .containerLg {
+        padding: 70px 40px;
+    }
+
+    .circle {
+        right: -5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .containerLg {
+        padding: 60px 30px;
+    }
+
+    .sectionList {
+        gap: 24px;
+    }
+
+    .sectionList ul {
+        padding-left: 20px;
+    }
+
+    .circle {
+        right: 20%;
+    }
+}
+
+@media (max-width: 639px) {
+    .circle {
+        width: 100%;
+        height: auto;
+        border: none;
+        border-radius: 0;
+        right: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 32px;
+    }
+
+    .iconCircle {
+        position: relative;
+        left: unset !important;
+        top: unset !important;
+
+        height: 70px;
+        width: 70px;
+        margin-right: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .containerLg {
+        padding: 32px 20px;
+    }
+
+    .sectionList ul {
+        padding-left: 16px;
+    }
+
+    .sectionList ul li {
+        padding-left: 22px;
+    }
+
+    .iconCircle {
+        height: 60px;
+        width: 60px;
+    }
+}

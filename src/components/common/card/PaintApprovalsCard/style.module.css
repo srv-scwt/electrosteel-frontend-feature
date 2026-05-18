@@ -1,0 +1,25 @@
+.sectionContent {
+    width: 100%;
+    height: 100%;
+}
+
+.sectionContent .card {
+    /* background-color: #0D2B58; */
+    padding: 30px;
+    border-radius: 6px;
+    height: 100%;
+}
+
+.sectionContent .card h4 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-size: clamp(20px, 3.5vw, 28px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-bottom: 16px;
+}
+
+.sectionContent .card p {
+    line-height: 1.3;
+    font-size: clamp(14px, 1.3vw, 18px);
+}

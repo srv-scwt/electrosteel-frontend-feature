@@ -1,0 +1,46 @@
+.bannerSectionSwiper :global(.swiper-button-next),
+.bannerSectionSwiper :global(.swiper-button-prev) {
+  width: 40px;
+  height: 40px;
+  background: #fdd307;
+  border-radius: 50%;
+  color: #00418e;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.bannerSectionSwiper :global(.swiper-button-next) {
+  right: 3px;
+}
+
+.bannerSectionSwiper :global(.swiper-button-prev) {
+  left: 3px;
+}
+
+.bannerSectionSwiper :global(.swiper-button-next:hover),
+.bannerSectionSwiper :global(.swiper-button-prev:hover) {
+  background: #00418e;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.bannerSectionSwiper :global(.swiper-button-next::after),
+.bannerSectionSwiper :global(.swiper-button-prev::after) {
+  font-size: 8px;
+  /* font-weight: 700; */
+}
+
+@media (max-width: 768px) {
+
+  .bannerSectionSwiper :global(.swiper-button-next),
+  .bannerSectionSwiper :global(.swiper-button-prev) {
+    width: 40px;
+    height: 40px;
+  }
+
+  .bannerSectionSwiper :global(.swiper-button-next::after),
+  .bannerSectionSwiper :global(.swiper-button-prev::after) {
+    font-size: 14px;
+  }
+}

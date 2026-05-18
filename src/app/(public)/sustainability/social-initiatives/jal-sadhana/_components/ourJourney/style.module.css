@@ -1,0 +1,226 @@
+.ourMilestoneSection {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /* overflow: hidden; */
+  padding-top: clamp(32px, 4vw, 48px);
+  padding-bottom: clamp(48px, 4vw, 64px);
+}
+
+.mileStoneBannerWrapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.mileStoneBanner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 120px solid #ffffff;
+  border-right: 120px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.sectionContentTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: clamp(16px, 2.5vw, 32px);
+  margin-bottom: clamp(16px, 2.6vw, 48px);
+}
+
+.sectionContentTitle h2 {
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-size: clamp(14px, 2.5vw, 20px);
+  line-height: 100%;
+  letter-spacing: 6%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #444348;
+}
+.sectionContentTitle h3 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-size: clamp(24px, 4.5vw, 57px);
+  line-height: 1.2;
+  letter-spacing: 0%;
+  text-align: start;
+  color: #004aa1;
+}
+.sectionContentTitle h3 span {
+  color: #108f6e;
+}
+
+.tracker {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.journeyCardWrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.journeyCard {
+  position: absolute;
+}
+
+.journeyCard:nth-child(1) {
+  left: 6%;
+  bottom: 0px;
+}
+.journeyCard:nth-child(2) {
+  left: 30%;
+  top: 0px;
+}
+.journeyCard:nth-child(3) {
+  right: 30%;
+  bottom: 0px;
+}
+.journeyCard:nth-child(4) {
+  right: 6%;
+  top:0px;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(280px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-280px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.journeyCardWrapper > div:nth-child(odd) {
+  animation: fadeUp 1.5s ease-in-out; 
+}
+.journeyCardWrapper > div:nth-child(even) {
+  animation: fadeDown 1.5s ease-in-out; 
+}
+
+
+.journeyCard {
+  width: 249px;
+  height: 249px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.cardContent {
+  width: 60%;
+}
+.cardContent p {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #108f6e;
+}
+.cardContent h4 {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #444348;
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
+
+
+.pipeGifContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  scrollbar-width: none;
+
+}
+
+.pipeGifContainer::-webkit-scrollbar {
+  display: none;
+}
+.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+/* comment */
+.pipeGifWrapper {
+  position: relative;
+  height: 402px;
+  flex: 0 0 1920px;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  pointer-events: auto;
+    margin-block: clamp(32px, 4vw, 48px);
+}
+
+.pipeGifWrapper:not(:first-child) {
+  position: relative;
+  top: 35px;
+  left: -20px;
+}
+
+@media (max-width: 1800px) {
+  .sectionContentTitle h3 {
+    font-size: clamp(24px, 4.5vw, 52px);
+  }
+}
+
+@media (max-width: 1400px) {
+  .sectionContentTitle h3 {
+    font-size: clamp(24px, 4.5vw, 42px);
+  }
+}
+
+@media (max-width: 576px) {
+  .sectionContentTitle h3 {
+    width: 70%;
+    text-align: center;
+  }
+  .triangle {
+
+  border-top: 60px solid #ffffff;
+  border-right: 60px solid transparent;
+}
+
+}
+

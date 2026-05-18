@@ -1,0 +1,285 @@
+.ourMilestoneSection {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding-block: clamp(32px, 4vw,48px);
+}
+
+.pipeGifWrapper {
+  position: relative;
+  left: -30px;
+}
+.pipeGifWrapper:not(:first-child) {
+  position: relative;
+  left: -60px;
+}
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 120px solid #ffffff; 
+  border-right: 120px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.mileStoneBannerWrapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.mileStoneBanner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+/* .pipeGifContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.pipeGifWrapper {
+  position: relative;
+  height: 591px;
+  flex: 0 0 1920px;
+} */
+
+.pipeGifContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  scrollbar-width: none; /* Firefox */
+}
+
+.pipeGifContainer::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.pipeGifWrapper {
+  position: relative;
+  height: 597px;
+  flex: 0 0 1920px;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  pointer-events: auto;
+}
+
+.sectionContentTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: clamp(16px, 2.5vw, 32px);
+  margin-bottom: clamp(16px, 2.6vw, 48px);
+}
+.finalButton{
+    margin-top: clamp(16px, 2.6vw, 48px);
+
+}
+.sectionContentTitle h2 {
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-size: clamp(14px, 2.5vw, 20px);
+  line-height: 100%;
+  letter-spacing: 6%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #444348;
+}
+.sectionContentTitle h3 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-size: clamp(24px, 4.5vw, 57px);
+  line-height: 1.2;
+  letter-spacing: 0%;
+  text-align: start;
+}
+.sectionContentTitle h3 span {
+  color: #004aa1;
+}
+
+.sectionContent p {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: clamp(14px, 2.5vw, 22px);
+  line-height: 37px;
+  letter-spacing: 0%;
+  color: #545454;
+}
+
+.mileStoneContent {
+  height: 100%;
+  width: 100%;
+}
+.mileStoneContent ul {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.mileStoneContent ul li {
+  position: absolute;
+  font-weight: 700;
+  max-width: 185px;
+  z-index: 10;
+}
+
+.mileStoneContent ul li p {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #004aa1;
+}
+.mileStoneContent ul li h4 {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #444348;
+  padding-block: 8px;
+}
+
+.mileStoneContent ul li:nth-child(1) {
+  top: 24%;
+  left: 7.5%;
+}
+.mileStoneContent ul li:nth-child(2) {
+  top: 52%;
+  left: 12.8%;
+  width: 200px;
+}
+.mileStoneContent ul li:nth-child(3) {
+  top: 65%;
+  left: 25.5%;
+}
+.mileStoneContent ul li:nth-child(4) {
+  top: 42%;
+  left: 33%;
+
+}
+.mileStoneContent ul li:nth-child(5) {
+  top: 16%;
+  right: 70.5%;
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.mileStoneContent ul li:nth-child(6) {
+  top: 16%;
+  right: 53.5%;
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+}
+.mileStoneContent ul li:nth-child(7) {
+  top: 71%;
+  left: 43%;
+}
+.mileStoneContent ul li:nth-child(8) {
+  top: 43%;
+  left: 52%;
+}
+.mileStoneContent ul li:nth-child(9) {
+  top: 10%;
+  right: 42.5%;
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+}
+.mileStoneContent ul li:nth-child(10) {
+  top: 10%;
+  right: 31.5%;
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 150px;
+}
+.mileStoneContent ul li:nth-child(11) {
+  top: 68%;
+  right: 32%;
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 180px;
+}
+.mileStoneContent ul li:nth-child(12) {
+  top: 50%;
+  left: 71%;
+   width: 164px;
+     display: flex;
+  text-align: right;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.mileStoneContent ul li:nth-child(13) {
+  top: 28%;
+  left: 83%;
+  width: 185px;
+}
+.mileStoneContent ul li:nth-child(14) {
+  top: 0%;
+  right: 5%;
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+@media (max-width: 1800px) {
+  .sectionContentTitle h3 {
+    font-size: clamp(24px, 4.5vw, 52px);
+  }
+}
+
+@media (max-width: 1400px) {
+  .sectionContentTitle h3 {
+    font-size: clamp(24px, 4.5vw, 42px);
+  }
+}
+
+@media (max-width: 576px) {
+  .sectionContentTitle h3 {
+    width: 70%;
+    text-align: center;
+  }
+}

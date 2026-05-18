@@ -1,0 +1,10 @@
+.investorTable td,
+.investorTable th {
+    text-align:  center !important;
+}
+
+.investorTable th {
+    background: #fdd307;
+    color: #545454;
+    font-weight: 500;
+}

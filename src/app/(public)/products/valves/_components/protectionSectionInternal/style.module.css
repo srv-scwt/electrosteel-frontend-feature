@@ -1,0 +1,12 @@
+.tableBorder {
+    border: 1px solid #CDCCCC;
+    border-radius: 32px;
+    padding: 32px;
+}
+
+@media screen and (max-width: 960px) {
+    .tableBorder {
+        border: none;
+        padding: 0;
+    }
+}

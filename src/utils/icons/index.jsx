@@ -1,0 +1,73 @@
+export const Calender = (({ color }) => <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect y="0.5" width="12" height="12" fill={color ?? "#545454"} />
+</svg>)
+
+
+
+const BusinessIcon = () => (
+  <svg width="61" height="60" viewBox="0 0 61 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.140625" width="60" height="60" fill="#004AA1" />
+  </svg>
+
+);
+
+const WorldIcon = () => (
+  <svg width="61" height="60" viewBox="0 0 61 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.429688" width="60" height="60" fill="#004AA1" />
+  </svg>
+);
+
+const ConferenceIcon = () => (
+  <svg width="61" height="60" viewBox="0 0 61 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.710938" width="60" height="60" fill="#004AA1" />
+  </svg>
+);
+
+const SportsIcon = () => (
+  <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="60" height="60" fill="#004AA1" />
+  </svg>
+);
+
+const EnvironmentIcon = () => (
+  <svg width="61" height="60" viewBox="0 0 61 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.28125" width="60" height="60" fill="#004AA1" />
+  </svg>
+);
+
+const SocialIcon = () => (
+  <svg width="61" height="60" viewBox="0 0 61 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.570312" width="60" height="60" fill="#004AA1" />
+  </svg>
+);
+
+const VideoIcon = () => (
+  <svg width="61" height="60" viewBox="0 0 61 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.851562" width="60" height="60" fill="#004AA1" />
+  </svg>
+);
+
+const Calendar = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.5 4H16.5V2.5C16.5 2.36739 16.4473 2.24021 16.3536 2.14645C16.2598 2.05268 16.1326 2 16 2C15.8674 2 15.7402 2.05268 15.6464 2.14645C15.5527 2.24021 15.5 2.36739 15.5 2.5V4H8.5V2.5C8.5 2.36739 8.44732 2.24021 8.35355 2.14645C8.25979 2.05268 8.13261 2 8 2C7.86739 2 7.74021 2.05268 7.64645 2.14645C7.55268 2.24021 7.5 2.36739 7.5 2.5V4H4.5C3.8372 4.00079 3.20178 4.26444 2.73311 4.73311C2.26444 5.20178 2.00079 5.8372 2 6.5V19.5C2.00079 20.1628 2.26444 20.7982 2.73311 21.2669C3.20178 21.7356 3.8372 21.9992 4.5 22H19.5C20.163 22 20.7989 21.7366 21.2678 21.2678C21.7366 20.7989 22 20.163 22 19.5V6.5C22 5.83696 21.7366 5.20107 21.2678 4.73223C20.7989 4.26339 20.163 4 19.5 4ZM21 19.5C21 19.8978 20.842 20.2794 20.5607 20.5607C20.2794 20.842 19.8978 21 19.5 21H4.5C4.10218 21 3.72064 20.842 3.43934 20.5607C3.15804 20.2794 3 19.8978 3 19.5V11H21V19.5ZM21 10H3V6.5C3 5.672 3.67 5 4.5 5H7.5V6.5C7.5 6.63261 7.55268 6.75979 7.64645 6.85355C7.74021 6.94732 7.86739 7 8 7C8.13261 7 8.25979 6.94732 8.35355 6.85355C8.44732 6.75979 8.5 6.63261 8.5 6.5V5H15.5V6.5C15.5 6.63261 15.5527 6.75979 15.6464 6.85355C15.7402 6.94732 15.8674 7 16 7C16.1326 7 16.2598 6.94732 16.3536 6.85355C16.4473 6.75979 16.5 6.63261 16.5 6.5V5H19.5C19.8978 5 20.2794 5.15804 20.5607 5.43934C20.842 5.72064 21 6.10218 21 6.5V10Z" fill="black" />
+  </svg>
+);
+
+const BackIcon = () => (
+  <svg width="22" height="10" viewBox="0 0 22 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 1L1 5M1 5L5 9M1 5H21" stroke="#00418E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+
+);
+
+export {
+  BusinessIcon,
+  WorldIcon,
+  ConferenceIcon,
+  SportsIcon,
+  EnvironmentIcon,
+  SocialIcon,
+  VideoIcon,
+  Calendar,
+  BackIcon,
+};

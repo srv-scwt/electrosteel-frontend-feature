@@ -1,0 +1,52 @@
+.container {
+  background-color: #004aa1;
+  max-width: 99vw;
+  overflow: hidden;
+  color: white;
+}
+
+.container h2 {
+  color: #fdd307;
+}
+
+.Listing ul li {
+  color: white !important;
+}
+
+/* -------- MEDIA QUERIES -------- */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .containerLg {
+    padding: 70px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerLg {
+    padding: 60px 30px;
+  }
+
+  .sectionList {
+    gap: 24px;
+  }
+
+  .sectionList ul {
+    padding-left: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .containerLg {
+    padding: 32px 20px;
+  }
+
+  .sectionList ul {
+    padding-left: 16px;
+  }
+
+  .sectionList ul li {
+    padding-left: 22px;
+  }
+}

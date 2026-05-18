@@ -1,0 +1,25 @@
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.tableWrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.blueTableBody:nth-child(odd) {
+  background-color: #c7d7ef;
+}
+
+.blueTableBody:nth-child(even) {
+  background-color: #fff;
+}
+
+.tableTopTitle p {
+  color: white !important;
+  white-space: nowrap;
+}

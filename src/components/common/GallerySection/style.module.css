@@ -1,0 +1,192 @@
+.carouselContainer {
+  width: 100%;
+  height: clamp(540px, 40vw, 774px);
+  max-height: 774px;
+}
+
+.gridContainer {
+  gap: 32px;
+}
+
+/* .actionBtn {
+    height: clamp(40px, 3.45vw, 66px);
+    width: clamp(42px, 3.5417vw, 68px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in-out 0.5s;
+    cursor: pointer;
+}
+
+.actionBtn svg {
+    transition: transform 0.5s ease-in-out;
+    font-size: 30px;
+}
+
+.actionBtn:hover svg {
+    transform: translateX(-10px);
+}
+
+.actionBtn2:hover svg {
+    transform: translateX(10px);
+} */
+
+.actionBtn {
+  height: clamp(56px, 4vw, 72px);
+  width: clamp(56px, 4vw, 72px);
+  min-width: clamp(56px, 4vw, 72px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #fdd307;
+  border-radius: 50%;
+  border: none;
+  overflow: hidden;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+
+  transition: all 0.4s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.actionBtn svg {
+  color: #00418e;
+  font-size: clamp(24px, 1.8vw, 34px);
+  font-weight: 700;
+  transition: transform 0.4s ease;
+}
+
+.actionBtn:hover {
+  background: #e8c300;
+  transform: scale(1.05);
+}
+
+.actionBtn:hover svg {
+  transform: translateX(-4px);
+}
+
+.actionBtn2:hover svg {
+  transform: translateX(4px);
+}
+
+.sectionContentTitle h3 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-size: clamp(24px, 4.5vw, 57px);
+  line-height: 1.2;
+  letter-spacing: 0%;
+  text-align: start;
+  width: 90%;
+}
+
+.sectionContent {
+  padding-inline: 32px;
+}
+
+.sectionContent p {
+  font-family: var(--font-montserrat);
+  font-weight: 400;
+  font-style: Medium;
+  font-size: clamp(14px, 2.5vw, 22px);
+  line-height: 37px;
+  letter-spacing: 0%;
+  color: #545454;
+}
+
+.sectionContent ul {
+  list-style: none;
+  padding: 16px;
+  border: 1px solid #8e8e8e;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.5vw, 32px);
+}
+
+.sectionContent ul li {
+  position: relative;
+  padding-left: 28px;
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: normal;
+  font-size: clamp(14px, 2.5vw, 20px);
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #004aa1;
+}
+
+/* Custom tick icon */
+.sectionContent ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(18px, 2vw, 25px);
+  height: clamp(18px, 2vw, 25px);
+  background: url("/images/tickblue.png") no-repeat center center;
+  background-size: contain;
+}
+
+@media (max-width: 1800px) {
+  .sectionContentTitle h3 {
+    font-size: clamp(24px, 4.5vw, 52px);
+  }
+
+  .sectionContent p {
+    font-size: clamp(14px, 2.5vw, 22px);
+    line-height: 1.4;
+  }
+
+  .sectionContent ul {
+    gap: clamp(16px, 2.5vw, 22px);
+  }
+
+  .sectionContent ul li {
+    font-size: clamp(14px, 2.4vw, 17px);
+  }
+}
+
+@media (max-width: 1560px) {
+  .sectionContentTitle h3 {
+    font-size: clamp(24px, 2.8vw, 42px);
+  }
+
+  .sectionContent p {
+    font-size: clamp(14px, 1.2vw, 17px);
+    line-height: 1.5;
+  }
+
+  .sectionContent ul {
+    gap: clamp(16px, 2.5vw, 22px);
+  }
+
+  .sectionContent ul li {
+    font-size: clamp(14px, 1.2vw, 16px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .gridContainer > div:nth-child(1) {
+    order: 2;
+  }
+
+  .gridContainer > div:nth-child(1) {
+    order: 1;
+  }
+
+  .sectionContent {
+    padding-inline: 0px;
+  }
+}
+
+@media (max-width: 720px) {
+  .carouselContainer {
+    width: 100%;
+    height: clamp(340px, 20vw, 540px);
+    max-height: 540px;
+  }
+}

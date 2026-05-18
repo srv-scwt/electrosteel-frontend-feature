@@ -1,0 +1,106 @@
+.sectionSpacing {
+  padding-block: clamp(32px, 5.5vw, 96px);
+  background-color: #F5F5F5;
+}
+
+/* ----------------------- card css ---------------- */
+
+.socialCardWrapper {
+  border: 1px solid #dedede;
+  padding: 16px;
+  padding-bottom: 8px;
+  border-radius: 16px;
+  max-height: 514px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.socialCardImage {
+  position: relative;
+  height: clamp(185px, 17vw, 320px);
+  width: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.socialCardImage img {
+  transition: all 0.5s ease-in-out;
+}
+.socialCardWrapper:hover .socialCardImage img {
+  scale: 1.1;
+}
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}
+
+.sectionContent > span {
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #034ea1;
+}
+.sectionContent h3 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-style: Regular;
+  font-size: clamp(18px, 1.6vw, 28px);
+  line-height: 1.2;
+  letter-spacing: 0%;
+  color: #004aa1;
+}
+.eventsContainer {
+  gap: clamp(24px, 2.6vw, 48px);
+}
+.eventDetails {
+  row-gap: 8px;
+  column-gap: 16px;
+}
+
+.cardLink {
+  padding-top: 16px;
+}
+
+.eventDetails li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  gap: 8px;
+}
+.eventDetails li span {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #7b7b7b;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: clamp(24px, 2.6vw, 48px);
+}
+@media (max-width: 639px) {
+  .eventsContainer {
+    padding-inline: clamp(16px, 9vw, 54px);
+  }
+  .socialCardImage {
+    height: clamp(185px, 36vw, 230px);
+  }
+}
+@media (max-width: 460px) {
+  .eventsContainer {
+    padding-inline: 0px;
+  }
+}

@@ -1,0 +1,142 @@
+.containerLg {
+  max-width: 86.67vw;
+  margin: auto auto;
+  padding-block: clamp(32px, 5.5vw, 96px);
+}
+
+.sectionTopTitleGap {
+  /* padding-bottom: clamp(32px, 5.5vw, 96px); */
+  padding-bottom: 32px;
+}
+.sectionContentTitle h2 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-size: clamp(24px, 4.5vw, 57px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: start;
+  width: 48%;
+  text-transform: uppercase;
+  color: #004AA1;
+}
+.sectionContentTitle h2 span {
+  color: #48CCA9;
+}
+
+.sectionCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding:16px;
+}
+.sectionContentTitlemain{
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+
+}
+.testimonialsCardWrappers{
+  margin-bottom: 20px;
+}
+.cardLink {
+  padding-block: 14px;
+}
+.sectionCardContent > span {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: clamp(12px, 1.9vw, 14px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #004aa1;
+}
+.sectionCardContent h3 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-style: Regular;
+  font-size: clamp(16px, 2.8vw, 28px);
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.testimonialsCardWrapper div {
+  width: 100%;
+  height: 100%;
+}
+.caseStudyCard {
+  position: relative;
+  width: 100%;
+  height: clamp(275px , 15vw , 336px);
+  overflow: hidden;
+}
+.caseStudyCard img{
+  transition: transform 0.5s ease-in-out;
+}
+.testimonialsCardWrappers:hover .caseStudyCard img{
+  transform: scale(1.1);
+}
+.buttonLink {
+  justify-self: end;
+}
+
+@media (max-width: 1800px) {
+  .sectionContentTitle p {
+    font-size: clamp(14px, 2.5vw, 22px);
+  }
+}
+
+@media (max-width: 1520px) {
+  .sectionContentTitle h2 {
+    width: 65%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .sectionContentTitle h2 {
+    font-size: clamp(24px, 2.8vw, 45px);
+  }
+  .sectionCardContent h3 {
+    font-size: clamp(16px, 2vw, 25px);
+  }
+    .sectionContentTitle p {
+    font-size: clamp(14px, 1.3vw, 18px);
+    line-height: 1.4;
+  }
+  .sectionTopTitleGap {
+    padding-bottom: clamp(32px, 3vw, 45px);
+  }
+}
+
+@media (max-width: 768px) {
+  .containerLg {
+    max-width: 100vw;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .electroSteelContent {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .electrosteelVideo {
+    padding-block: 0px;
+  }
+  .sectionContentTitlemain{
+    gap: 1rem;
+
+}
+}
+@media (max-width: 576px) {
+  .containerLg {
+    max-width: 100vw;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .sectionTopTitleGap {
+    flex-direction: column;
+  }
+  .sectionContentTitle h2 {
+    width: 100%;
+    padding-bottom: 0.4rem;
+  }
+}

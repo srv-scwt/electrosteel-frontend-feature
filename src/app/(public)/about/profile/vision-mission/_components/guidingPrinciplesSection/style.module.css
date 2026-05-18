@@ -1,0 +1,14 @@
+.totalBox,
+.guideingImg {
+    transition: all 0.3s ease-in-out;
+}
+
+.totalBox:hover .guideingImg {
+    background-color: #004aa1;
+}
+
+.totalBox:hover .guideingImg img {
+    filter: invert(100%) !important;
+}
+
+

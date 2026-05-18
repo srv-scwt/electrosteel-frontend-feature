@@ -1,0 +1,94 @@
+.heroContainer {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1920px;
+}
+
+.sectionContent {
+  padding-block: clamp(16px, 4vw, 36px);
+  padding-left: clamp(0px, calc(2.4vw - 10.08px), 36px);
+  padding-right: clamp(0px, calc(2.4vw - 10.08px), 36px);
+}
+
+.heroSectionWrapper {
+  padding-top: clamp(20px, calc(19.6vw - 62.32px), 314px);
+  padding-bottom: clamp(30px, calc(22.33vw - 63.79px), 365px);
+}
+
+.bgArrowHeroCut {
+  position: absolute;
+  width: 95%;
+  top: 1px;
+  right: 0;
+  height: 100%;
+  background-color: #ffffff;
+  clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
+  z-index: -1;
+}
+.bgArrowHeroCutFull {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  height: 100%;
+  background-color: #ffffff;
+  /* clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%); */
+  z-index: -1;
+}
+
+.bgCutArrowIcon {
+  height: clamp(42px, 4vw, 60px);
+  width: clamp(42px, 4vw, 60px);
+}
+.bgArrowContainer {
+  padding-top: clamp(10px, 2.5vw, 45px);
+  width: 87vw;
+  margin-right: 0px;
+  margin-left: auto;
+  position: relative;
+}
+@media (max-width: 1120px) {
+  .bgArrowContainer {
+    padding-top: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .slotsContainerBox {
+    position: relative;
+    top: -50px;
+    bottom: auto;
+  }
+  .bgArrowHeroCut {
+    width: 100%;
+    height: 70%;
+  }
+   .slotsBox4Wrapper{
+    gap: 1rem;
+  }
+}
+@media (max-width: 576px) {
+  .slotsContainerBox {
+    position: relative;
+    top: -20px;
+    bottom: auto;
+  }
+  .sectionContent {
+    width: 40%;
+  }
+  .bgArrowHeroCut {
+    height: 18%;
+    width: 100%;
+    clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  .bgArrowContainer {
+    padding-top: clamp(10px, 2.5vw, 45px);
+    width: 90vw;
+    padding-top: 18px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+  }
+ 
+  .slotsBox4Wrapper > div{
+    width: 80%;
+  }
+}

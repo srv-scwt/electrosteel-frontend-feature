@@ -1,0 +1,100 @@
+.commonTab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.tabEachLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: #00418e;
+    padding: 14px 25px;
+    color: #ffffff;
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    font-style: Medium;
+    font-size: clamp(14px, 2.5vw, 18px);
+    line-height: 32px;
+    position: relative;
+    min-height: 67px;
+    cursor: pointer !important;
+}
+
+.commonTab li.active .tabEachLink,
+.tabEachLink:hover {
+    background-color: #000000;
+    transition: all ease-in-out 0.5s;
+}
+
+.commonTab li.active .tabEachLink::after {
+    content: '';
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    background-color: #000000;
+    bottom: -10px;
+    left: 45%;
+    transform: rotate(225deg);
+}
+
+@media (max-width: 1800px) {
+
+    .tabEachLink {
+        line-height: clamp(26px, 2vw, 32px);
+    }
+}
+
+@media (max-width: 1560px) {
+
+    .tabEachLink {
+        font-size: clamp(14px, 1.3vw, 16px);
+    }
+
+    .commonTab {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .tabEachLink {
+        line-height: 1.5;
+    }
+
+    .commonTab {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 840px) {
+
+    .tabEachLink {
+        padding: 14px 10px;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .commonTab {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+    .containerLg {
+        max-width: 100vw;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .tabEachLink {
+        line-height: 22px;
+    }
+}

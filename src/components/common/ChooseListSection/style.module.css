@@ -1,0 +1,86 @@
+.backgroundImg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: auto auto;
+  padding: 90px;
+}
+
+.backgroundImg::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 74, 161, 0.8);
+  z-index: 1;
+  margin: auto auto;
+}
+
+.container {
+  position: relative;
+  z-index: 9;
+  color: white;
+}
+
+.container h2 span {
+  color: #fdd307;
+}
+
+.textwhite * {
+  color: white !important;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+@media (max-width: 992px) {
+  .backgroundImg {
+    padding: 70px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .backgroundImg {
+    padding: 60px 30px;
+  }
+
+  .sectionList ul {
+    padding-left: 24px;
+  }
+
+  .sectionList ul li::before {
+    left: -24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .backgroundImg {
+    padding: 40px 20px;
+  }
+
+  .title h2 {
+    font-size: 28px;
+    line-height: 1.1;
+    padding: 0 10px;
+  }
+
+  .sectionList {
+    padding: 16px 10px;
+  }
+
+  .sectionList ul {
+    padding-left: 18px;
+  }
+
+  .sectionList ul li {
+    padding: 10px 0;
+  }
+
+  .sectionList ul li::before {
+    left: -18px;
+    width: 16px;
+    height: 16px;
+  }
+}

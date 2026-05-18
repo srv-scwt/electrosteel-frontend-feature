@@ -1,0 +1,6 @@
+.newsLetterCardWrapper {
+    background-color: #ffffff;
+    border: 1px #cccccc solid;
+    border-radius: 32px;
+     padding: clamp(16px, 2.8vw, 24px);
+}

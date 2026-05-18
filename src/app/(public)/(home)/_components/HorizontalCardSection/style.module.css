@@ -1,0 +1,193 @@
+.containerLg {
+  width: 86.67vw;
+  margin: auto auto;
+  padding-block: clamp(32px, 5.5vw, 96px);
+  max-width: 1920px;
+}
+
+.buttonLink {
+  justify-self: end;
+}
+
+.cardSlide {
+  display: flex;
+  /* height: auto; */
+}
+
+.sectionTopTitleGap {
+  padding-bottom: clamp(32px, 5.5vw, 96px);
+}
+
+.socialCardImage {
+  position: relative;
+  height: clamp(180px, 17vw, 321px);
+  /* height: 300px; */
+  width: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 16px;
+  padding: 16px;
+  padding-top: clamp(16px, 2.9vw, 32px);
+  padding-bottom: 0;
+}
+
+.sectionContentTitle h2 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-size: clamp(24px, 4.5vw, 57px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: start;
+  text-transform: uppercase;
+  color: #000205;
+  /* padding-bottom: clamp(16px, 3.8vw, 48px); */
+}
+
+.sectionContentTitle h2 span {
+  color: #004aa1;
+}
+
+.cardLink {
+  padding-block: 12px;
+  /* margin-top: auto; */
+}
+
+.contentHeight {
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.sectionContent h3 {
+  flex: 1;
+}
+
+.sectionContent>span {
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: clamp(12px, 1.9vw, 16px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #034ea1;
+}
+
+.sectionContent h3 {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: clamp(14px, 2.8vw, 26px);
+  line-height: 1.2;
+  letter-spacing: 0%;
+  color: #545454;
+  word-break: break-all;
+}
+
+.socialCardWrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #c7c7c7;
+  padding: clamp(16px, 2.8vw, 24px);
+  border-radius: 32px;
+  /* height: 100%; */
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.socialCardWrapper1 {
+  /* height: 600px; */
+  min-height: 557px;
+}
+
+@media (max-width: 1680px) {
+  .sectionContent h3 {
+    font-size: clamp(14px, 1.5vw, 22px);
+  }
+
+  .socialCardWrapper1 {
+    min-height: 507px;
+  }
+}
+
+@media (max-width: 1560px) {
+  .sectionContentTitle h2 {
+    font-size: clamp(24px, 2.8vw, 42px);
+  }
+
+  .sectionTopTitleGap {
+    padding-bottom: clamp(32px, 4vw, 45px);
+  }
+
+  .sectionContent h3 {
+    font-size: clamp(14px, 1.5vw, 20px);
+    line-height: 1.2;
+  }
+
+  .socialCardWrapper1 {
+    min-height: 481px;
+  }
+}
+
+@media (max-width: 1390px) {
+  .socialCardWrapper1 {
+    min-height: 457px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .socialCardWrapper1 {
+    min-height: 436px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .socialCardWrapper1 {
+    min-height: 413px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .socialCardWrapper1 {
+    min-height: 389px;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerLg {
+    width: 100%;
+    max-width: 100vw;
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  .cardLink {
+    padding-block: 0px;
+    padding-bottom: 12px;
+  }
+
+  .socialCardWrapper1 {
+    min-height: 357px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sectionTopTitleGap {
+    flex-direction: column;
+  }
+
+  .sectionContentTitle h2 {
+    width: 90%;
+    padding-bottom: 0.4rem;
+  }
+
+  .socialCardWrapper1 {
+    min-height: 340px;
+  }
+
+}

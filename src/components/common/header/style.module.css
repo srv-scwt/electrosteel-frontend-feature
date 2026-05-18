@@ -1,0 +1,286 @@
+.logo {
+  position: relative;
+  height: clamp(28px, 4vw, 39px);
+  width: clamp(231px, 17vw, 317px);
+  margin-bottom: 26px;
+}
+
+.flagWrapper {
+  position: relative;
+  padding-left: 1rem;
+  padding-bottom: 22px;
+}
+
+.flagWrapper::before {
+  content: "";
+  height: 35px;
+  padding: 0.2px;
+  background-color: #c7c7c7;
+  position: relative;
+  right: 10px;
+}
+
+.flagWrapper2 {
+  position: relative;
+  height: 30px;
+  padding-right: 0.4rem;
+  border-right: 1px solid #c7c7c7;
+}
+
+.navLinksText {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: clamp(10px, 4.5vw, 16px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #545454;
+  padding: 36px clamp(10px, 4.5vw, 16px);
+  cursor: pointer;
+}
+
+.buttonIconPadding {
+  padding: 32px clamp(10px, 4.5vw, 16px);
+}
+
+.navLinkActive {
+  background-color: #00418e;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: #ffffff;
+}
+
+.navLinksText:hover {
+  background-color: #00418e;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: #ffffff;
+}
+
+.active {
+  background-color: #00418e;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: #ffffff;
+  transition: all ease-in-out .3s;
+}
+
+.headerContainer {
+  padding-top: 10px;
+}
+
+.rightIcons button {
+  position: relative;
+  cursor: pointer;
+  /* padding: 0px clamp(10px, 4.5vw, 16px); */
+  padding-left: clamp(10px, 4.5vw, 16px);
+}
+
+.hamburger,
+.hamburger2 {
+  display: none;
+}
+
+.headerSearchContainer {
+  height: clamp(50px, 5vw, 90px);
+}
+
+.sectionContentFlag h5 {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 8px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #545454;
+  cursor: pointer;
+}
+
+.sectionContentFlag h5:hover {
+  color: #00418e;
+  font-weight: 700;
+}
+
+.sectionContentFlag h4 {
+  text-transform: uppercase;
+  line-height: 100%;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 200;
+  margin-bottom: 1rem;
+  font-family: var(--font-bebas-neue), sans-serif;
+}
+
+.flagContainer {
+  padding: 2.5rem 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.categoryContainer {
+  padding: 1.5rem 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.sectionContentCategory h4 {
+  text-transform: capitalize;
+  line-height: 100%;
+  font-size: 26px;
+  color: #000000;
+  font-weight: 200;
+  margin-bottom: 1rem;
+  font-family: var(--font-montserrat);
+}
+
+.navSubSubList {
+  padding-left: 25px;
+}
+
+.angleIcon {
+  min-width: 16px;
+  margin-top: 4px;
+}
+
+.smallSubNav {
+  /* left: calc(1 / 1.5 * 100%) !important; */
+  left: 64.6667% !important;
+}
+
+.smallSubNav2 {
+  /* left: calc(1 / 1.34 * 100%) !important; */
+  left: 70.6269% !important;
+
+}
+
+.smallSubNav3 {
+  /* left: calc(1 / 1.23 * 100%) !important; */
+  left: 76.3008% !important;
+}
+
+.searchBtn svg {
+  width: 26px;
+  height: 26px;
+}
+
+@media (max-width: 576px) {
+  .flagContainer {
+    padding: 1.5rem 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .flagImage {
+    width: 20vw;
+  }
+
+  .flagImage img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger2 {
+    display: flex;
+  }
+
+  .rightIcons {
+    display: none;
+  }
+
+  .logoFlag {
+    display: none;
+  }
+
+  .headerContainer {
+    padding: 0.4rem 0rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navLinksContainer {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .logo {
+    margin-bottom: 6px;
+  }
+
+  .flagWrapper {
+    padding-bottom: 5px;
+  }
+}
+
+@media (max-width: 1360px) {
+
+
+  .headerSearchContainer {
+    height: 70px;
+  }
+}
+
+@media (max-width: 1290px) {
+  .navLinksText {
+    padding: 24px 10px !important;
+  }
+
+  .buttonIconPadding {
+    padding-block: 10px !important;
+  }
+}
+
+@media (max-width: 1400px) {
+  .navLinksText {
+    font-size: 12px;
+    padding: 24px 20px;
+  }
+
+  .buttonIconPadding {
+    padding-block: 16px;
+  }
+
+  .rightIcons button {
+    /* padding: 0px 10px; */
+    padding-inline: 10px;
+  }
+}
+
+@media (min-width: 1400px) and (max-width: 1692px) {
+  .navLinksText {
+    font-size: 13px;
+    padding: 24px 20px;
+  }
+
+  .buttonIconPadding {
+    padding-block: 16px;
+  }
+}
+
+@media (min-width: 1692px) and (max-width: 1900px) {
+  .navLinksText {
+    font-size: clamp(12px 2.2vw, 16px);
+    padding: 24px 20px;
+  }
+
+  .buttonIconPadding {
+    padding-block: 16px;
+  }
+
+  .searchBtn svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1900px) {
+  .logo {
+    margin-bottom: 12px;
+  }
+
+  .flagWrapper {
+    padding-bottom: 10px;
+  }
+}

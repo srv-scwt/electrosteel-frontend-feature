@@ -1,0 +1,16 @@
+.twentyFiveYearsSwiper :global(.swiper-button-next),
+.twentyFiveYearsSwiper :global(.swiper-button-prev) {
+    width: 40px;
+    height: 40px;
+    background: #fdd307;
+    border-radius: 50%;
+    color: #00418e;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    padding: 7px;
+}
+
+.twentyFiveYearsSwiper :global(.swiper-button-next::after),
+.twentyFiveYearsSwiper :global(.swiper-button-prev::after) {
+    font-size: 16px;
+    color: #00418e;
+}

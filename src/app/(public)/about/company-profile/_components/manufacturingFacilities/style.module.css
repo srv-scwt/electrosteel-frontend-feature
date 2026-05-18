@@ -1,0 +1,470 @@
+.containerLg {
+  width: 86.67vw;
+  max-width: 1920px;
+  margin: auto auto;
+}
+
+.spacingTop {
+  padding-top: clamp(32px, 5.5vw, 96px);
+}
+
+.spacingBottom {
+  /* padding-bottom: clamp(32px, 8.5vw, 161px); */
+  padding-bottom: clamp(32px, 5.5vw, 96px);
+}
+
+.sectionContent h2 {
+  font-family: var(--font-bebas-neue), sans-serif;
+  font-weight: 400;
+  font-size: clamp(24px, 4.5vw, 57px);
+  line-height: 97%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  margin-bottom: clamp(16px, 2.5vw, 32px);
+}
+
+.sectionContent h4 {
+  font-family: var(--font-bebas-neue), sans-serif;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: clamp(22px, 3.5vw, 32px);
+  line-height: 97%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #004aa1;
+}
+
+.sectionContent p {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: clamp(14px, 2.6vw, 22px);
+  line-height: 37px;
+  letter-spacing: 0%;
+  color: #545454;
+}
+
+.sectionContentAddress ul li {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: clamp(12px, 2.5vw, 22px);
+  line-height: 1.4;
+  letter-spacing: 0%;
+  color: #545454;
+}
+
+.sectionContent ul {
+  margin-top: 20px;
+}
+
+.sectionContent ul li {
+  display: flex;
+  align-items: start;
+  color: #00418e !important;
+  margin-top: 0 !important;
+  font-weight: 500 !important;
+  font-size: clamp(14px, 1.1vw, 20px) !important;
+}
+
+.sectionContent h2 span {
+  color: #004aa1;
+}
+
+.sectionBtn {
+  margin-top: clamp(8px, 1.8vw, 46px);
+}
+
+.bubble {
+  position: relative;
+}
+
+.bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -95px;
+  left: -60px;
+  width: 34px;
+  height: 111px;
+  background: #ffffff;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  z-index: 100;
+  transform: rotate(50deg);
+}
+
+.carousel {
+  /* padding-top: clamp(20px, 6.2vw, 136px); */
+  /* padding-top: clamp(20px, 4.5vw, 76px); */
+  padding-top: 45px;
+}
+
+.carouselItem {
+  gap: clamp(25px, 2vw, 56px);
+}
+
+.addressCard {
+  width: 496px;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px #0000002d;
+  margin: clamp(32px, 3vw, 76px);
+  margin-block: 0px;
+  position: relative;
+  top: -45px;
+}
+
+.carouselItemRight {
+  overflow-y: scroll;
+  height: 180px;
+  width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.carouselItemRight > div {
+  width: 100%;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+.carouselItemRight::-webkit-scrollbar {
+  width: 8px;
+  /* Width of scrollbar */
+}
+
+.carouselItemRight::-webkit-scrollbar-track {
+  background: transparent;
+  /* Track hidden */
+}
+
+.carouselItemRight::-webkit-scrollbar-thumb {
+  background: transparent;
+  /* Thumb hidden */
+  border-radius: 4px;
+}
+
+/* Show thumb only on hover */
+.carouselItemRight:hover::-webkit-scrollbar-thumb {
+  background: #004aa1;
+  /* Visible on hover */
+}
+
+.carouselItemRight:hover {
+  scrollbar-color: #004aa1 transparent;
+  /* Firefox */
+}
+
+.carouselItem > div:nth-child(1) {
+  width: 470px;
+}
+
+.carouselItem > div:nth-child(1) > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16.5px;
+  margin-top: clamp(12px, 1.3vw, 24px);
+}
+
+.carouselItem > div:nth-child(1) > ul > li {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: clamp(14px, 1.1vw, 20px);
+  line-height: 1.4;
+  letter-spacing: 0%;
+}
+
+.carouselItem > div:nth-child(2) > div > p > span {
+  font-weight: 700;
+  color: #004aa1;
+}
+
+/* .roadContainer{
+  margin-top: clamp(20px,4.5vw,86px);
+} */
+.roadContainer {
+  margin-top: 30px;
+}
+
+.roadContainer > div:nth-child(1) {
+  margin-left: 150px;
+  position: relative;
+  top: 55px;
+}
+
+.imageTruck {
+  height: 115px;
+  width: 250px;
+}
+.imageTruck img {
+  height: 60% !important;
+  width: 60% !important;
+}
+@media (max-width: 1920px){
+ .imageTruck {
+    top:30%;
+  }
+  .roadContainer {
+  margin-top: 40px;
+}
+}
+
+@media (max-width: 1800px) {
+  .sectionContent h2 {
+    font-size: clamp(24px, 4.5vw, 52px);
+  }
+
+  .sectionContent p {
+    font-size: clamp(14px, 2.5vw, 20px);
+    line-height: 1.4;
+  }
+
+  .sectionContentAddress ul li {
+    font-size: clamp(12px, 2.5vw, 20px);
+    line-height: 1.4;
+  }
+
+  .carouselItem > div:nth-child(1) {
+    width: 420px;
+  }
+
+  .flagContainer img {
+    height: 140px;
+    width: 140px;
+  }
+
+  .bubble::before {
+    content: "";
+    position: absolute;
+    bottom: -78px;
+    left: -45px;
+    width: 29px;
+    height: 86px;
+    background: #ffffff;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    z-index: 100;
+    transform: rotate(43deg);
+  }
+   /* .imageTruck img {
+     height: 80%;
+     width: 80%;
+  } */
+}
+
+@media (max-width: 1620px) {
+  .flagContainer img {
+    height: 120px;
+    width: 120px;
+  }
+
+  .roadContainer > div:nth-child(1) {
+    top: 40px;
+  }
+}
+
+@media (max-width: 1560px) {
+  .sectionContent h2 {
+    font-size: clamp(24px, 2.8vw, 42px);
+  }
+
+  .sectionContent p {
+    font-size: clamp(14px, 1.3vw, 16px);
+    line-height: 1.4;
+  }
+
+  .sectionContentAddress ul li {
+    font-size: clamp(12px, 1.2vw, 16px);
+    line-height: 1.4;
+  }
+
+  .carouselItem > div:nth-child(1) {
+    width: 340px;
+  }
+
+  .carouselItem > div:nth-child(1) > ul {
+    gap: 11.5px;
+  }
+
+  .flagContainer img {
+    height: 90px;
+    width: 90px;
+  }
+
+  .roadContainer > div:nth-child(1) {
+    top: 40px;
+  }
+
+  .addressCard {
+    width: max-content;
+    top: -30px;
+    padding-right: 32px;
+  }
+
+  .bubble::before {
+    content: "";
+    position: absolute;
+    bottom: -56px;
+    left: -34px;
+    width: 19px;
+    height: 60px;
+    background: #ffffff;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    z-index: 100;
+    transform: rotate(43deg);
+  }
+}
+
+@media (max-width: 1200px) {
+  .roadContainer > div:nth-child(1) {
+    top: 30px;
+  }
+
+  .roadContainer {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .imageTruck {
+     top:30%;
+    height: 100px;
+    width: 200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .roadContainer > div:nth-child(1) {
+    top: 25px;
+    margin-left: 200px;
+  }
+
+  .carouselItemRight {
+    height: 100%;
+    max-height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .carousel {
+    padding-top: clamp(20px, 4.2vw, 136px);
+  }
+
+  .imageTruck {
+    top: 20%;
+  }
+}
+
+@media (max-width: 900px) {
+  .imageTruck {
+    /* top: 0%; */
+    top:20%;
+    height: 80px;
+    width: 170px;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerLg {
+    width: 100%;
+    max-width: 100vw;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .roadContainer {
+    display: flex;
+    flex-direction: column;
+    /* gap: 50px; */
+  }
+
+  .carouselItemRight {
+    height: 100%;
+    max-height: 100px;
+  }
+
+  .addressCard {
+    width: max-content;
+  }
+
+  .roadContainer img {
+    width: 100%;
+    height: 70px;
+  }
+
+  .roadContainer > div:nth-child(1) {
+    top: 35px;
+    margin-left: 0px;
+  }
+
+  .spacingBottom {
+    padding-bottom: clamp(32px, 5.5vw, 161px);
+  }
+
+  .roadContainer img {
+    height: 110px;
+  }
+
+  .imageTruck {
+    /* top: 10%; */
+     top:30%;
+    height: 70px;
+    width: 160px;
+  }
+}
+
+@media (max-width: 576px) {
+  .containerLg {
+    width: 100%;
+    max-width: 100vw;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .bubble::before {
+    content: "";
+    position: absolute;
+    bottom: -45px;
+    left: -25px;
+    width: 18px;
+    height: 50px;
+    background: #ffffff;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    z-index: 100;
+    transform: rotate(43deg);
+  }
+
+  .addressCard {
+    padding: 12px;
+    margin: 0px;
+    margin-left: 20px;
+  }
+
+  .flagContainer img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .carouselItemRight {
+    height: 100%;
+    max-height: 150px;
+  }
+
+  .addressCard {
+    border-radius: 8px;
+  }
+
+  .addressCard p svg {
+    height: 12px;
+    width: 12px;
+  }
+
+  .roadContainer img {
+    height: 80px;
+  }
+
+  .roadContainer {
+    margin-top: 10px;
+  }
+
+  .roadContainer > div:nth-child(1) {
+    top: 20px;
+  }
+}

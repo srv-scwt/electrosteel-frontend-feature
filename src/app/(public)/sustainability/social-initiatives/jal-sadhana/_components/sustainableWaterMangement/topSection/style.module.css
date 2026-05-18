@@ -1,0 +1,161 @@
+.containerLg {
+  max-width: 86.67vw;
+  margin: auto auto;
+}
+.spacingX {
+  padding: clamp(32px, 7vw, 126.5px);
+}
+.sectionContent {
+  padding-left: 96px;
+  padding-right: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.sectionContent h2 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-size: clamp(24px, 4.5vw, 57px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: start;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.sectionContent h2 span {
+  color: #108f6e;
+}
+.sectionContent p {
+  font-family: var(--font-montserrat);
+  font-weight: 400;
+  font-style: Medium;
+  font-size: clamp(14px, 2.5vw, 22px);
+  line-height: 37px;
+  letter-spacing: 0%;
+  color: #ffffff;
+}
+
+.sectionContent ul {
+  list-style: none;
+  gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 48.5px;
+  /* gap: 0.5rem; */
+}
+
+.sectionContent ul li {
+  position: relative;
+  padding-left: 28px;
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: normal;
+  font-size: clamp(14px, 2.5vw, 20px);
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.sectionContent ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(18px,2vw,25px);
+  height: clamp(18px,2vw,25px);
+  background: url("/images/whiteCheck.png") no-repeat center center;
+  background-size: contain;
+}
+.cardLink {
+  padding-block: 16px;
+}
+@media (max-width: 1800px) {
+  .sectionContent {
+    padding-left: 70px;
+    padding-right: 0;
+  }
+  .sectionContent h3 {
+    font-size: clamp(24px, 4.5vw, 52px);
+  }
+  .sectionContent ul li {
+    font-size: clamp(14px, 2.4vw, 17px);
+  }
+  .sectionContent p {
+    font-size: clamp(14px, 2.5vw, 22px);
+    line-height: 1.4;
+  }
+}
+
+@media (max-width:1600px){
+  .sectionContent{
+    padding-left: 40px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .sectionContent h2 {
+    font-size: clamp(24px, 2.8vw, 45px);
+  }
+  .sectionContent h3 {
+    font-size: clamp(22px, 2.6vw, 42px);
+  }
+  .sectionContent {
+    padding-left: 0;
+    padding-right: 0;
+    gap: clamp(20px, 1.8vw, 28px);
+  }
+  .sectionContent ul {
+    list-style: none;
+    gap: clamp(20px, 1.8vw, 28px);
+  }
+  .sectionContent ul li {
+    font-size: clamp(14px, 1.3vw, 18px);
+  }
+  .sectionContent p {
+    font-size: clamp(14px, 1.3vw, 18px);
+    line-height: 1.4;
+  }
+  .containerLg > div {
+    gap: 50px;
+  }
+}
+
+@media (max-width:1280px){
+    .sectionContent{
+    padding-left: 0px;
+  }
+  .sectionContent ul {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerLg {
+    max-width: 100vw;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .sectionContent {
+    gap: clamp(15px, 2.5vw, 25px);
+  }
+  .containerLg > div {
+    gap: 20px;
+  }
+  .sectionContent ul {
+    margin-top: 20px;
+    gap: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .containerLg {
+    max-width: 100vw;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .sectionContent ul {
+    gap: 10px;
+  }
+}

@@ -1,0 +1,29 @@
+
+.sectionCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.8vw, 32px);
+  padding-block: 32px;
+  padding-right: clamp(16px, 2.9vw, 32px);
+  padding-left: clamp(16px, 2.9vw, 32px);
+}
+
+
+/* .sectionCardContent p {
+ font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Regular;
+   font-size: clamp(14px, 2.5vw, 18px);
+  line-height: 1.4;
+  letter-spacing: 0%;
+} */
+
+
+
+
+@media (max-width:576px) {
+  .paddingF{
+    padding-top: 8px;
+    padding-bottom: 24px;
+  }
+}

@@ -1,0 +1,150 @@
+.containerLg {
+  max-width: 86.67vw;
+  margin: auto auto;
+  padding-block: clamp(32px, 5.5vw, 96px);
+}
+.testimonialsCardWrapper {
+  height: clamp(157px, 21vw, 384px);
+  background-color: #fdfaf6;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+.testimonialCarouselContainer {
+  gap: clamp(15px, 2.6vw, 48px);
+}
+.sectionTopTitleGap {
+  padding-bottom: clamp(32px, 5.5vw, 96px);
+}
+.sectionContentTitle h2 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-size: clamp(24px, 4.5vw, 57px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: start;
+  width: 48%;
+  text-transform: uppercase;
+  color: #000205;
+}
+.sectionContentTitle h2 span {
+  color: #004aa1;
+}
+.sectionCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.8vw, 32px);
+  padding-block: 32px;
+  padding-right: clamp(16px, 2.9vw, 32px);
+  padding-left: clamp(16px, 2.9vw, 32px);
+}
+.cardLink {
+  padding-block: 14px;
+}
+.sectionCardContent > span {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: clamp(12px, 1.9vw, 14px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #004aa1;
+}
+.sectionCardContent h3 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-style: Regular;
+  font-size: clamp(16px, 2.8vw, 28px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #545454;
+}
+
+.testimonialsCardWrapper div {
+  width: 100%;
+  height: 100%;
+}
+.testimonialsCardImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.testimonialsCardImage img{
+  transition: transform 0.5s ease-in-out;
+}
+.testimonialsCardWrapper:hover .testimonialsCardImage img{
+  transform: scale(1.1);
+}
+.buttonLink {
+  justify-self: end;
+}
+
+@media (max-width: 1520px) {
+  .sectionContentTitle h2 {
+    width: 65%;
+  }
+  .testimonialsCardWrapper {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .sectionContentTitle h2 {
+       font-size: clamp(24px, 2.8vw, 45px);
+  }
+  .sectionCardContent h3 {
+    font-size: clamp(16px, 2vw, 25px);
+  }
+  .sectionCardContent {
+    padding-right: clamp(16px, 2.4vw, 21px);
+    padding-left: clamp(16px, 2.4vw, 21px);
+  }
+  .sectionTopTitleGap {
+    padding-bottom: clamp(32px, 4vw, 45px);
+  }
+}
+@media (max-width: 1280px) {
+  .testimonialsCardWrapper {
+    height: clamp(157px, 26vw, 384px);
+  }
+}
+@media (max-width: 960px) {
+  .testimonialsCardWrapper {
+    height: clamp(157px, 32vw, 384px);
+  }
+}
+
+@media (max-width: 768px) {
+  .containerLg {
+    max-width: 100vw;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .electroSteelContent {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .electrosteelVideo {
+    padding-block: 0px;
+  }
+  .testimonialsCardWrapper {
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 576px) {
+  /* .containerLg {
+    max-width: 100vw;
+    padding-left: 16px;
+    padding-right: 16px;
+  } */
+  .sectionTopTitleGap {
+    flex-direction: column;
+  }
+  .sectionContentTitle h2 {
+    width: 100%;
+    padding-bottom: 0.4rem;
+  }
+}

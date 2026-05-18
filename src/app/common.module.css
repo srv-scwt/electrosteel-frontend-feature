@@ -1,0 +1,174 @@
+.containerLg {
+  width: 86vw;
+  max-width: 1920px;
+  margin: auto auto;
+  /* padding-block: clamp(32px, 5.5vw, 96px); */
+  padding-block: clamp(32px, 4vw, 96px);
+}
+/* comment */
+.sectionContent h2,
+.sectionContent h3,
+.sectionContent h4 {
+  font-family: var(--font-bebas-neue), sans-serif;
+  font-weight: 400;
+  font-size: clamp(24px, 4.5vw, 57px);
+  line-height: 97%;
+  width: 95%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  margin-bottom: clamp(8px, 1.8vw, 32px);
+}
+
+.sectionContent h3 {
+  font-size: clamp(22px, 3.5vw, 32px);
+  margin-bottom: clamp(8px, 1.8vw, 15px);
+}
+.sectionContent h4 {
+  font-size: clamp(18px, 2vw, 25px);
+  margin-block: clamp(8px, 1.8vw, 15px);
+}
+
+.sectionContent p,
+.sliderTextContent,
+.customUlListing ul li {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: clamp(14px, 2.5vw, 18px);
+  line-height: 32px;
+  width: 98%;
+  letter-spacing: 0%;
+  color: #545454;
+  position: relative;
+}
+
+.sectionContent > div > p {
+  padding-bottom: 1rem;
+}
+
+.sectionParaH2Type p {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-size: clamp(16px, 3vw, 28px);
+  line-height: 1.4;
+  letter-spacing: 0%;
+  /* margin-bottom: clamp(8px, 1.8vw, 32px); */
+}
+
+.customUlListing ul li {
+  padding-left: 30px;
+}
+
+.customUlListing ul li + li {
+  margin-top: 15px;
+}
+
+.customUlListing ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: clamp(18px, 2vw, 25px);
+  height: clamp(18px, 2vw, 25px);
+  background: url(/images/tickblue.png) no-repeat center center;
+  background-size: contain;
+}
+.customUlListingWhite li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: clamp(18px, 2vw, 25px);
+  height: clamp(18px, 2vw, 25px);
+  background: url(/images/whiteCheck.png) no-repeat center center !important;
+  background-size: contain;
+}
+
+.sectionContent h2 span,
+.sectionContentSpanDark h3 span,
+.sectionContentSpanDark h4 span,
+.sectionContentSpanDark h5 span,
+.sectionContentSpanDark h6 span,
+.sectionContent h4 span {
+  color: #004aa1;
+}
+
+.customSelectDropdown {
+  appearance: none;
+  background: url(/images/icons/caretBlue.png) no-repeat center right 30px;
+}
+
+@media (max-width: 1800px) {
+  .sectionContent h2 {
+    font-size: clamp(24px, 4.5vw, 52px);
+  }
+
+  .sectionContent p,
+  .customUlListing ul li,
+  .sectionContent {
+    /* font-size: clamp(14px, 2.5vw, 16px); */
+    line-height: clamp(26px, 2vw, 32px);
+    /* line-height: 1.4; */
+  }
+}
+
+@media (max-width: 1560px) {
+  .sectionContent h2 {
+    font-size: clamp(24px, 2.8vw, 42px);
+  }
+
+  .sectionContent p,
+  .sliderTextContent,
+  .customUlListing ul li {
+    font-size: clamp(14px, 1.3vw, 16px);
+  }
+
+  .customUlListing ul li::before {
+    top: 2px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .sectionContent h2 {
+    width: 100%;
+  }
+
+  .sectionContent p,
+  .sliderTextContent,
+  .customUlListing ul li {
+    line-height: 1.5;
+    width: 100%;
+  }
+
+  .sectionContent h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionContent h2 {
+    width: 85%;
+  }
+
+  .containerLg {
+    width: 100%;
+    max-width: 100vw;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .containerLg {
+    width: 100%;
+    max-width: 100vw;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .sectionContent p,
+  .sliderTextContent,
+  .customUlListing ul li {
+    line-height: 22px;
+  }
+}

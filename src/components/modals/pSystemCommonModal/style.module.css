@@ -1,0 +1,34 @@
+.SysthemModal {
+    height: 600px;
+    overflow-y: scroll;
+}
+/* Scroll container */
+.modalBox {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+/* Chrome, Edge, Safari */
+.modalBox::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modalBox::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modalBox::-webkit-scrollbar-thumb {
+  background: transparent; /* important */
+  border-radius: 10px;
+}
+
+/* show on hover */
+.modalBox:hover::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Firefox hover */
+.modalBox:hover {
+  scrollbar-color: rgba(0,0,0,0.4) transparent;
+}

@@ -1,0 +1,44 @@
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vw, 1rem);
+}
+
+.sectionContent h4 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-size: clamp(20px, 2.5vw, 28px);
+  line-height: 1.1;
+  color: #05509E;
+}
+
+.sectionContent p {
+  font-family: var(--font-montserrat);
+  color: #545454;
+  font-size: clamp(14px, 1.2vw, 18px);
+  line-height: 1.5;
+}
+
+/* Card */
+.productBoxContainer {
+  padding: clamp(16px, 2.5vw, 32px);
+  font-family: var(--font-montserrat);
+}
+
+/* Icon wrapper */
+.productIcon {
+  width: clamp(80px, 20vw, 160px);
+  height: clamp(80px, 20vw, 160px);
+}
+
+/* Mobile tweaks */
+@media (max-width: 767px) {
+  .productBoxContainer {
+    align-items: center;
+    text-align: center;
+  }
+
+  .sectionContent {
+    align-items: center;
+  }
+}

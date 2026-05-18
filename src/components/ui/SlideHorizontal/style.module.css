@@ -1,0 +1,79 @@
+/* Testimonials Card Wrapper */
+.testimonialsCardWrapper {
+  height: clamp(157px, 21vw, 384px);
+  background-color: #fdfaf6;
+  width: 100%;
+  overflow: hidden;
+}
+.testimonialsCardWrapper div {
+  width: 100%;
+  height: 100%;
+}
+/* Left content section */
+.testimonialsCardWrapper .sectionCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.8vw, 32px);
+  padding-block: 32px;
+  padding-right: clamp(16px, 2.9vw, 32px);
+  padding-left: clamp(16px, 2.9vw, 32px);
+}
+
+.testimonialsCardWrapper .sectionCardContent > span {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: clamp(12px, 1.9vw, 14px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #004aa1;
+}
+
+.testimonialsCardWrapper .sectionCardContent h3 {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  font-style: Regular;
+  font-size: clamp(16px, 2.8vw, 28px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #545454;
+}
+
+/* Read More button */
+.testimonialsCardWrapper .cardLink {
+  padding-block: 14px;
+}
+
+/* Right image section */
+.testimonialsCardWrapper .testimonialsCardImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.testimonialsCardWrapper .testimonialsCardImage{
+    overflow: hidden;
+}
+
+.testimonialsCardWrapper .testimonialsCardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  transition: transform 0.5s ease-in-out;
+}
+.testimonialsCardWrapper:hover .testimonialsCardImage img {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .testimonialsCardWrapper .sectionCardContent h3 {
+    font-size: clamp(16px, 2.8vw, 25px);
+  }
+  .testimonialsCardWrapper .sectionCardContent {
+    padding-right: clamp(16px, 2.4vw, 21px);
+    padding-left: clamp(16px, 2.4vw, 21px);
+  }
+}

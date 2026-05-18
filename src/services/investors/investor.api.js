@@ -1,0 +1,134 @@
+// import { ServerFetch } from "../../actions/server-fetch";
+
+import { ServerFetch } from "../../../actions/server-fetch";
+
+export async function getInvestorResponse({
+  category,
+  year,
+  is_latest,
+} = {}) {
+  try {
+    const params = new URLSearchParams();
+    const normalizedCategory = category === "quartely" ? "quarterly" : category;
+    const normalizedYear = Array.isArray(year) ? year[0] : year;
+    const normalizedIsLatest = Array.isArray(is_latest)
+      ? is_latest[0]
+      : is_latest;
+
+    if (normalizedCategory) {
+      params.set("category", normalizedCategory);
+    }
+
+    if (normalizedYear) {
+      params.set("year", normalizedYear);
+    }
+
+    if (
+      normalizedIsLatest !== undefined &&
+      normalizedIsLatest !== null &&
+      normalizedIsLatest !== ""
+    ) {
+      params.set("is_latest", String(normalizedIsLatest));
+    }
+
+    const queryString = params.toString();
+    const endpoint = queryString
+      ? `/frontend/investor/investors?${queryString}`
+      : `/frontend/investor/investors`;
+
+    const response = await ServerFetch(endpoint, { mode: "SSR"});
+    if (!response) {
+      return { data: null, error: "NO_DATA" };
+    }
+
+    if (response.error) {
+      return {
+        data: null,
+        error: response.error,
+        status: response.status ?? null,
+      };
+    }
+
+    return {
+      data: response,
+      error: null,
+      status: response.statusCode===200 ? true : false,
+    };
+  } catch (error) {
+    console.error("getInvestorResponse:", error);
+
+    return {
+      data: null,
+      error: "API_DOWN",
+    };
+  }
+}
+
+export async function getNodalOfficerResponse() {
+  try {
+    const response = await ServerFetch(`/frontend/investor/nodal-officer`, {
+      mode: "SSR",
+    });
+
+    if (!response) {
+      return { data: null, error: "NO_DATA" };
+    }
+
+    if (response.error) {
+      return {
+        data: null,
+        error: response.error,
+        status: response.status ?? null,
+      };
+    }
+
+    return {
+      data: response.data,
+      error: null,
+      status: response.statusCode === 200,
+    };
+  } catch (error) {
+    console.error("getNodalOfficerResponse:", error);
+
+    return {
+      data: null,
+      error: "API_DOWN",
+    };
+  }
+}
+
+export async function getUnclaimedDividendsResponse() {
+  try {
+    const response = await ServerFetch(
+      `/frontend/investor/unclaimed-dividends`,
+      {
+        mode: "SSR",
+      }
+    );
+
+    if (!response) {
+      return { data: null, error: "NO_DATA" };
+    }
+
+    if (response.error) {
+      return {
+        data: null,
+        error: response.error,
+        status: response.status ?? null,
+      };
+    }
+
+    return {
+      data: response.data,
+      error: null,
+      status: response.statusCode === 200,
+    };
+  } catch (error) {
+    console.error("getUnclaimedDividendsResponse:", error);
+
+    return {
+      data: null,
+      error: "API_DOWN",
+    };
+  }
+}

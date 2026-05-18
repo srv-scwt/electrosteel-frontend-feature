@@ -1,0 +1,245 @@
+.containerLg {
+  max-width: 70.23vw;
+  margin: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.containerModelWrapper {
+  display: flex;
+  gap: 0;
+  border-radius: 16px;
+  /* padding-top: clamp(32px, 10vw, 76px);
+  padding-right: clamp(16px, 20vw, 48px);
+  padding-bottom: clamp(32px, 10vw, 88px);
+  padding-left: clamp(16px, 20vw, 48px); */
+    padding-top:54px;
+  padding-left: clamp(16px, 3.5vw, 64px);
+  padding-right: clamp(16px, 3.5vw, 48px);
+  padding-bottom: clamp(16px, 3.5vw, 64px);
+  width: 100%;
+}
+
+.imageContainer {
+  position: relative;
+  width: 23vw;
+  height: clamp(222px, 22vw, 346px);
+  border-radius: 16px;
+}
+
+.imageContainer img {
+  border-radius: 16px;
+}
+
+.textSection {
+  width: 50%;
+  padding-block: clamp(16px, 1.8vw, 32px);
+  padding-right: clamp(16px, 2.2vw, 48px);
+  padding-left: clamp(16px, 2.2vw, 48px);
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  height: auto;
+  max-height: clamp(222px, 22vw, 346px);
+  overflow-y: scroll;
+}
+
+/* hide scrollbar */
+.textSection::-webkit-scrollbar {
+  width: 6px;
+  opacity: 0;
+}
+
+/* show scrollbar on hover */
+.textSection:hover::-webkit-scrollbar {
+  opacity: 1;
+}
+
+/* optional styling */
+.textSection:hover::-webkit-scrollbar-thumb {
+  background: #bfbfbf;
+  border-radius: 6px;
+}
+
+.textSection:hover::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sectionContent {
+  flex: 1;
+}
+
+/* Typography reused from your system */
+.sectionContent h5 {
+  font-family: var(--font-bebas-neue), sans-serif;
+  font-weight: 400;
+  font-size: clamp(24px, 2.5vw, 54px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #004aa1;
+  margin-bottom: clamp(8px, 1vw, 12px);
+}
+
+.sectionContent h6 {
+  font-family: var(--font-bebas-neue), sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 1.9vw, 37px);
+  text-transform: uppercase;
+  color: #ffc727;
+  margin-bottom: clamp(8px, 2vw, 16px);
+  line-height: 1.2;
+}
+
+/* .sectionContent p {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-size: clamp(12px, 1.2vw, 20px);
+  line-height: 1.2 !important;
+  letter-spacing: 0%;
+  color: #545454;
+} */
+
+.sectionContent p {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-style: Regular;
+  /* font-size: clamp(14px, 2.5vw, 20px); */
+          font-size: clamp(14px, 1.3vw, 18px);
+  /* font-size: 16px; */
+  line-height: 1.4;
+  letter-spacing: 0%;
+  color: #545454;
+}
+@media (max-width:1620px) {}
+
+
+@media (max-width: 1260px) {
+  .containerModelWrapper {
+    flex-direction: column;
+  }
+
+  .imageContainer,
+  .textSection {
+    width: 100%;
+  }
+
+  .containerLg button {
+    right: 20px;
+    top: 20px;
+  }
+
+  .containerLg button svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .containerModelWrapper {
+    padding-top: clamp(32px, 10vw, 65px);
+    padding-right: clamp(16px, 20vw, 48px);
+    padding-bottom: clamp(32px, 10vw, 40px);
+    padding-left: clamp(16px, 20vw, 48px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .containerLg {
+    max-width: 100%;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  .containerModelWrapper {
+    flex-direction: column;
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: 200px;
+  }
+
+  .textSection {
+    width: 100%;
+    border-left: none;
+    padding: clamp(16px, 4vw, 24px);
+  }
+}
+
+@media (max-width: 576px) {
+  .containerLg {
+    max-width: 100%;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .containerModel {
+    padding: 0px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .containerModelWrapper {
+    display: flex;
+    gap: 0;
+    border-radius: 16px;
+    padding-block: 38px;
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 100%;
+  }
+
+  .textSection {
+    padding-bottom: 0px;
+  }
+
+  .containerLg button {
+    right: 10px;
+    top: 10px;
+  }
+
+  .containerLg button svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .containerLg {
+    max-width: 100%;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .containerModel {
+    padding: 0px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .containerModelWrapper {
+    display: flex;
+    gap: 0;
+    border-radius: 16px;
+    padding-block: 38px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 100%;
+  }
+
+  .textSection {
+    padding-bottom: 0px;
+  }
+
+  .containerLg button {
+    right: 10px;
+    top: 10px;
+  }
+
+  .containerLg button svg {
+    width: 22px;
+    height: 22px;
+  }
+}

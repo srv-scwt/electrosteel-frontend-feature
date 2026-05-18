@@ -1,0 +1,37 @@
+import HeroSection from "@/components/common/heroSection";
+import React from "react";
+import EventDetails from "../_components/eventDetails";
+import GallerySection from "@/components/common/GallerySection";
+import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import { createImageSourceURL } from "@/utils";
+import { getEventsDetailsBySlug } from "@/services/events.api";
+
+const page = async ({ params }) => {
+  const { id } = await params;
+  const PageDetails = await getEventsDetailsBySlug(id);
+  if (!PageDetails || PageDetails?.error) return <SomethingWentWrong />;
+
+  const heroData = {
+    banner:
+      createImageSourceURL(PageDetails?.data?.banner_image) ??
+      "/images/events/eventsBanner.jpg",
+    title: PageDetails?.data?.banner_title ?? "Events Details",
+    imageFit: "object-cover",
+    opacity: "opacity-30",
+  };
+
+  const imageArr = PageDetails?.data?.files?.map((item) => ({
+    type: item?.type || "image",
+    path: item?.path,
+  })) || [];
+  
+  return (
+    <>
+      <HeroSection data={heroData} />
+      <EventDetails data={PageDetails?.data} />
+      <GallerySection contentHidden={true} imageData={imageArr} />
+    </>
+  );
+};
+
+export default page;
