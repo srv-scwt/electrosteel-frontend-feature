@@ -3,10 +3,14 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import "./style.css";
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
-import styles from './style.module.css'
+import styles from "./style.module.css";
 import { ButtonLink } from "@/components/ui/Button";
 import CountUp from "react-countup";
-import { createImageSourceURL, createVideoSourceURL, parseCapacity } from "@/utils";
+import {
+  createImageSourceURL,
+  createVideoSourceURL,
+  parseCapacity,
+} from "@/utils";
 
 export default function HeroSection({ slides, miniStats }) {
   const [current, setCurrent] = useState(0);
@@ -42,73 +46,91 @@ export default function HeroSection({ slides, miniStats }) {
     <>
       <div className="relative w-full max-w-[1920px] m-auto overflow-hidden">
         {/* Slides */}
-        {Array.isArray(slides) ? slides?.map((slide, index) => (
-          <div
-            key={slide?.id}
-            className={`absolute inset-0 w-full transition-opacity duration-700 ${index === current
-              ? "opacity-100 relative z-20"
-              : "opacity-0 pointer-events-none z-0"
-              }`}
-          >
-            {/* Background: Image or Video */}
-            {slide?.type === "video" ? (
-              <video
-                ref={videoRef}
-                src={createVideoSourceURL(slide?.src)}
-                autoPlay
-                muted={isMuted}
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-fill object-bottom z-0"
-              />
-            ) : (
-              <Image
-                src={createImageSourceURL(slide?.src)}
-                alt={""}
-                fill
-                className="absolute inset-0 object-fill object-center z-0"
-              />
-            )}
-
-            {/* Overlay */}
-
-
-            {/* Content Section */}
+        {Array.isArray(slides) ? (
+          slides?.map((slide, index) => (
             <div
-              className={`relative z-30 heroSectionWrapper ${styles.heroSectionWrapper}`}
+              key={slide?.id}
+              className={`absolute inset-0 w-full transition-opacity duration-700 ${
+                index === current
+                  ? "opacity-100 relative z-20"
+                  : "opacity-0 pointer-events-none z-0"
+              }`}
             >
-              {/* <Container> */}
-              <div className={`${styles.heroContainer}`}>
-                <div className="flex justify-between items-start">
-                  <div className={`sectionContent ${styles.sectionContent}`}>
-                    <h1>
-                      {slide?.title ?? ""} <br />
-                      <span>{slide?.highlight ?? ""}</span>
-                    </h1>
-                    <ButtonLink goto={slide?.url} title={"view more"} />
-                  </div>
+              {/* Background: Image or Video */}
+              {slide?.type === "video" ? (
+                // <video
+                //   ref={videoRef}
+                //   src={createVideoSourceURL(slide?.src)}
+                //   autoPlay
+                //   muted={isMuted}
+                //   loop
+                //   playsInline
+                //   className="absolute inset-0 w-full h-full object-fill object-bottom z-0"
+                // />
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  muted={isMuted}
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="absolute inset-0 w-full h-full object-fill object-bottom z-0"
+                >
+                  <source
+                    src={createVideoSourceURL(slide?.src)}
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <Image
+                  src={createImageSourceURL(slide?.src)}
+                  alt={""}
+                  fill
+                  className="absolute inset-0 object-fill object-center z-0"
+                />
+              )}
 
-                  {/* Controller */}
-                  <div className="hidden md:flex lg:flex actionBtn flex-col gap-3">
-                    <button
-                      onClick={prevSlide}
-                      className="bg-yellow-400 text-black hover:bg-yellow-500 transition"
-                    >
-                      <GoArrowLeft />
-                    </button>
-                    <button
-                      onClick={nextSlide}
-                      className="bg-yellow-400 text-black hover:bg-yellow-500 transition"
-                    >
-                      <GoArrowRight />
-                    </button>
+              {/* Overlay */}
+
+              {/* Content Section */}
+              <div
+                className={`relative z-30 heroSectionWrapper ${styles.heroSectionWrapper}`}
+              >
+                {/* <Container> */}
+                <div className={`${styles.heroContainer}`}>
+                  <div className="flex justify-between items-start">
+                    <div className={`sectionContent ${styles.sectionContent}`}>
+                      <h1>
+                        {slide?.title ?? ""} <br />
+                        <span>{slide?.highlight ?? ""}</span>
+                      </h1>
+                      <ButtonLink goto={slide?.url} title={"view more"} />
+                    </div>
+
+                    {/* Controller */}
+                    <div className="hidden md:flex lg:flex actionBtn flex-col gap-3">
+                      <button
+                        onClick={prevSlide}
+                        className="bg-yellow-400 text-black hover:bg-yellow-500 transition"
+                      >
+                        <GoArrowLeft />
+                      </button>
+                      <button
+                        onClick={nextSlide}
+                        className="bg-yellow-400 text-black hover:bg-yellow-500 transition"
+                      >
+                        <GoArrowRight />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        )) : (<></>)}
-
+          ))
+        ) : (
+          <></>
+        )}
       </div>
 
       <div className="relative bg-white">
@@ -124,16 +146,15 @@ export default function HeroSection({ slides, miniStats }) {
                 className={`${styles.slotsBox4Wrapper} grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4`}
               >
                 {miniStats?.map((items, index) => {
-
                   // const capacityData = parseCapacity(items?.statsCount);
                   const capacityData = parseCapacity(items?.statsCount);
-                  
+
                   return (
                     <div key={index} className="flex items-center space-x-3">
                       <div className={`${styles.bgCutArrowIcon} relative`}>
                         <Image
                           src={createVideoSourceURL(items?.cardImage)}
-                          alt={''}
+                          alt={""}
                           fill
                           className="absolute w-full h-full object-contain object-center"
                         />
@@ -152,7 +173,7 @@ export default function HeroSection({ slides, miniStats }) {
                         <p>{items?.title ?? ""}</p>
                       </div>
                     </div>
-                  )
+                  );
                 })}
               </div>
             </div>

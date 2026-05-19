@@ -12,6 +12,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "**.fbcdn.net",
       },
+        {
+        protocol: "https",
+        hostname: "electrosteel.onrender.com",
+        pathname: "/uploads/**",
+      },
     ],
   },
 };
