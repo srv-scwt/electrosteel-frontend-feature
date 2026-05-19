@@ -2,23 +2,6 @@
 
 import styles from "@/app/common.module.css";
 import InvestorCard from "@/components/common/card/InvestorCard";
-import HTMLRender from "@/components/ui/HTMLRender";
-
-function isFinancialYearLabel(value) {
-  return value?.toString().trim().toLowerCase().includes("fy");
-}
-
-function getSectionTitle(activeYear, fallbackTitle) {
-  if (!activeYear || activeYear === "all" || !isFinancialYearLabel(activeYear)) {
-    return fallbackTitle;
-  }
-
-  if (activeYear.startsWith("FY ")) {
-    return `FY <span>${activeYear.slice(3)}</span>`;
-  }
-
-  return `<span>${activeYear}</span>`;
-}
 
 function groupSectionsBySectionTitle(sections) {
   const groupedSections = [];
@@ -76,7 +59,6 @@ function groupSectionsBySectionTitle(sections) {
 export default function SrikalahasthiPipesSection({
   data,
   searchParams,
-  titleYearExceptional,
 }) {
   const selectedYearParam = Array.isArray(searchParams?.year)
     ? searchParams.year[0]
@@ -101,7 +83,6 @@ export default function SrikalahasthiPipesSection({
       ? normalizedSections
       : normalizedSections.filter((section) => section.year === activeYear);
   const groupedSections = groupSectionsBySectionTitle(filteredSections);
-  const pageTitle = getSectionTitle(activeYear, titleYearExceptional);
 
   const renderInvestorCards = (results = []) => (
     <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
@@ -114,10 +95,6 @@ export default function SrikalahasthiPipesSection({
   return (
     <section className={styles.containerLg}>
       <div className={styles.sectionContent}>
-        <HTMLRender
-          htmlString={`<h2 class="whitespace-nowrap">${pageTitle}</h2>`}
-        />
-
         {groupedSections.length ? (
           <div className="space-y-10">
             {groupedSections.map((sectionGroup, sectionGroupIndex) => (
