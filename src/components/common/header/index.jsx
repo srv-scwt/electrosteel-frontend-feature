@@ -2262,7 +2262,7 @@ export default function Navbar() {
           {/* NEWS ROOM Dropdown */}
           {hoveredLink === "NEWS ROOM" && (
             <div
-              className={`${styles.smallSubNav} absolute left-1/2 transform -translate-x-1/2 bg-[#00418E] text-white py-4 px-6 w-60 z-50 rounded-[12px] shadow-lg`}
+              className={`${styles.smallSubNav} absolute left-1/1 transform -translate-x-1/1 bg-[#00418E] text-white py-4 px-6 w-60 z-50 rounded-[12px] shadow-lg`}
               onMouseEnter={() => handleLinkHover("NEWS ROOM")}
               onMouseLeave={handleLinkLeave}
             >
@@ -2380,7 +2380,7 @@ export default function Navbar() {
           {/* CAREER Dropdown */}
           {hoveredLink === "CAREER" && (
             <div
-              className={`${styles.smallSubNav2} absolute left-1/2 transform -translate-x-1/2 bg-[#00418E] text-white py-4 px-6 w-60 z-50 rounded-[12px] shadow-lg`}
+              className={`${styles.smallSubNav2} absolute left-1/1 transform -translate-x-1/1 bg-[#00418E] text-white py-4 px-6 w-60 z-50 rounded-[12px] shadow-lg`}
               onMouseEnter={() => handleLinkHover("CAREER")}
               onMouseLeave={handleLinkLeave}
             >
@@ -2408,7 +2408,7 @@ export default function Navbar() {
           {/* CONNECT Dropdown */}
           {hoveredLink === "CONNECT" && (
             <div
-              className={`${styles.smallSubNav3} absolute left-1/2 transform -translate-x-1/2 bg-[#00418E] text-white py-4 px-6 w-60 z-50 rounded-[12px] shadow-lg`}
+              className={`${styles.smallSubNav3} absolute left-1/1 transform -translate-x-1/1 bg-[#00418E] text-white py-4 px-6 w-60 z-50 rounded-[12px] shadow-lg`}
               onMouseEnter={() => handleLinkHover("CONNECT")}
               onMouseLeave={handleLinkLeave}
             >
