@@ -218,7 +218,7 @@ export default function Navbar() {
                     </Link>
                   </li>
                 ) : (
-                  <li key={link.name} className={`flex`}>
+                  <li key={link.name} className={`flex relative`}>
                     <button
                       onMouseEnter={() => handleLinkHover(link.name)}
                       onMouseLeave={handleLinkLeave}
@@ -227,6 +227,7 @@ export default function Navbar() {
                     >
                       {link.name}
                     </button>
+                         {link.href === "/sustainability" && <Image className="absolute bottom-0 right-0" width={30} height={60} alt="plant" src="/images/plantgrow.gif" />}
                   </li>
                 ),
               )}
