@@ -13,10 +13,20 @@ const OurJourney = ({ label, data = [] }) => {
   const containerRef = useRef(null);
 
   const totalSteps = data.flat().length;
-  console.log(totalSteps , "slider data ");
   
   const [completedCount, setCompletedCount] = useState(0);
+const chunkSize = 4;
 
+const groupedData = data.reduce((result, item, index) => {
+  const chunkIndex = Math.floor(index / chunkSize);
+
+  if (!result[chunkIndex]) {
+    result[chunkIndex] = [];
+  }
+
+  result[chunkIndex].push(item);
+  return result;
+}, []);
   useEffect(() => {
     const interval = setInterval(() => {
       setCompletedCount((prev) =>
@@ -84,7 +94,7 @@ const OurJourney = ({ label, data = [] }) => {
         <HTMLRender htmlString={`<h3>${label?.description}</h3>`} />
       </div>
       <div ref={containerRef} className={styles.pipeGifContainer}>
-        {Array.isArray(data) && data?.map((slides, slideIndex) => {
+        {Array.isArray(groupedData) && groupedData?.map((slides, slideIndex) => {
           const slideCompletedCount = Math.min(
             Math.max(completedCount - slideIndex * ITEMS_PER_SLIDE, 0),
             ITEMS_PER_SLIDE
