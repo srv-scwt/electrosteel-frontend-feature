@@ -48,8 +48,8 @@ export default function JolStuti({ data = [] }) {
                 {/* Left Content */}
                 <div className={styles.electroSteelContent}>
                   <div className={`${styles.sectionContentTitle} ${styles.sectionContent}`}>
-                    <HTMLRender htmlString={`<h3>${slides?.title ?? ""}</h3>`} className={"w-full"} />
-                    <HTMLRender htmlString={slides?.description ?? ""} className={"w-full"} />
+                    <HTMLRender htmlString={`<h3>${slides?.title ?? ""}</h3>`} className={`${styles.sectionContentTitle} ${styles.sectionContent} w-full`} />
+                    <HTMLRender htmlString={slides?.description ?? ""} className={`${styles.sectionContentTitle} ${styles.sectionContent} w-full`} />
                   </div>
                   <div>
                     <OutlineButtonLink goto={slides?.link ?? "#"} title={"Explore Jal Stuti"} />
