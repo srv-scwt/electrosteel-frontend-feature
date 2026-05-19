@@ -2398,8 +2398,13 @@ export default function Navbar() {
                   <span className="ml-1">Khoj- The Campus Drive</span>
                 </li>
                 <li className="flex items-start">
+                    <Link
+                    href={"/career/career-enquiry"}
+                    className="hover:text-yellow-400 flex items-start"
+                  >
                   <ChevronRight size={16} className={styles.angleIcon} />
                   <span className="ml-1">Career Enquiry</span>
+                  </Link>
                 </li>
               </ul>
             </div>

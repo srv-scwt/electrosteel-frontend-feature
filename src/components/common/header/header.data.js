@@ -330,7 +330,7 @@ const careersData = [
       { label: "Overview", url: "/career/overview" },
       { label: "Join Us", url: "/career/join-us" },
       { label: "Khoj – The Campus Drive", url: "/career/khoj-campus-drive" },
-      { label: "Career Enquiry", url: "/career/enquiry" },
+      { label: "Career Enquiry", url: "/career/career-enquiry" },
     ],
   },
 ];
