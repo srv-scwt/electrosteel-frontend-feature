@@ -1,8 +1,8 @@
-import SrikalahasthiPipesPage from "./_components/SrikalahasthiPipesPage";
+import SrikalahasthiPipesMainPage from "./_components/SrikalahasthiPipesMainPage";
 import { InvestorPageConfigObject } from "../../_components/investorpage.data";
 
 const page = ({ searchParams }) => (
-  <SrikalahasthiPipesPage
+  <SrikalahasthiPipesMainPage
     searchParams={searchParams}
     {...InvestorPageConfigObject.amalgamationSrikalahasthiPipesLtd}
   />

@@ -133,10 +133,6 @@ export default function SrikalahasthiPipesSection({
 
                 <div className="space-y-10">
                   {sectionGroup.headings.map((headingGroup, headingIndex) => {
-                    const mergedResults = headingGroup.years.flatMap(
-                      (yearBlock) => yearBlock.results
-                    );
-
                     return (
                       <div
                         key={
@@ -153,29 +149,25 @@ export default function SrikalahasthiPipesSection({
                           </h4>
                         )}
 
-                        {activeYear === "all" ? (
-                          <div className="space-y-8">
-                            {headingGroup.years.map((yearBlock, yearIndex) => (
-                              <div
-                                key={
-                                  yearBlock.year ||
-                                  `${headingGroup.heading || "year"}-${yearIndex}`
-                                }
-                                className="space-y-5"
-                              >
-                                {isFinancialYearLabel(yearBlock.year) && (
-                                  <h5 className="text-xl font-semibold text-[#545454]">
-                                    {yearBlock.year}
-                                  </h5>
-                                )}
+                        <div className="space-y-8">
+                          {headingGroup.years.map((yearBlock, yearIndex) => (
+                            <div
+                              key={
+                                yearBlock.year ||
+                                `${headingGroup.heading || "year"}-${yearIndex}`
+                              }
+                              className="space-y-5"
+                            >
+                              {yearBlock.year && (
+                                <h4>
+                                  <span>{yearBlock.year}</span>
+                                </h4>
+                              )}
 
-                                {renderInvestorCards(yearBlock.results)}
-                              </div>
-                            ))}
-                          </div>
-                        ) : (
-                          renderInvestorCards(mergedResults)
-                        )}
+                              {renderInvestorCards(yearBlock.results)}
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     );
                   })}

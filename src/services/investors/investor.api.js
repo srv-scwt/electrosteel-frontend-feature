@@ -64,6 +64,45 @@ export async function getInvestorResponse({
   }
 }
 
+export async function getSrikalahasthiMainResponse() {
+  try {
+    const response = await ServerFetch(`/frontend/investor/srikalsti-main/all`, {
+      mode: "SSR",
+    });
+
+    if (!response) {
+      return { data: null, error: "NO_DATA" };
+    }
+
+    if (response.error) {
+      return {
+        data: null,
+        error: response.error,
+        status: response.status ?? null,
+      };
+    }
+
+    const responseData = Array.isArray(response?.data)
+      ? response.data
+      : Array.isArray(response)
+        ? response
+        : [];
+
+    return {
+      data: responseData,
+      error: null,
+      status: response?.statusCode === 200 || Array.isArray(response),
+    };
+  } catch (error) {
+    console.error("getSrikalahasthiMainResponse:", error);
+
+    return {
+      data: null,
+      error: "API_DOWN",
+    };
+  }
+}
+
 export async function getNodalOfficerResponse() {
   try {
     const response = await ServerFetch(`/frontend/investor/nodal-officer`, {
