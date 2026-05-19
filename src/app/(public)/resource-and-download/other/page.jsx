@@ -1,49 +1,27 @@
-"use client";
-
 import HeroSection from "@/components/common/heroSection";
-import { OutlineButton } from "@/components/ui/Button";
+import { OutlineButtonLink } from "@/components/ui/Button";
 import Image from "next/image";
-import { useState } from "react";
 import styles from "@/app/common.module.css";
+import { createImageSourceURL } from "@/utils";
+import { getCommonBanner } from "@/services/commonBanner/commonBanner.api";
+import { getCommonProductsCategory } from "@/services/commonP/commonProductsCat";
 
-const data = {
-  financialYears: [
-    {
-      year: "FY 2025 - 26",
-      results: [
-        {
-          fileName: "Documents",
-          filelink: "/filelinks/financial-results-june-2025.pdf",
-        },
-        {
-          fileName: "Documents",
-          filelink: "/filelinks/financial-results-sept-2025.pdf",
-        },
-      ],
-    },
-  ],
-};
 
-const Page = () => {
-  const [selectedYear, setSelectedYear] = useState(data.financialYears[0]);
+const Page = async() => {
+  const homeBanner = await getCommonBanner("assets-others");
+  const data = await getCommonProductsCategory("assestsothers");
 
-  const currentData = data.financialYears.find(
-    (y) => y.year === selectedYear.year
-  );
-
+  const heroData = {
+    banner: createImageSourceURL(homeBanner?.data?.image) ?? "/images/board/policies_banner_large.jpg",
+    title: homeBanner?.data?.title ?? "Policy",
+  };
   return (
     <>
-      <HeroSection
-        data={{
-          title: "Other",
-          banner: `/images/board/policies_banner_large.jpg`,
-        }}
-      />
+      <HeroSection data={heroData} />
 
       <div className={styles.containerLg}>
         <div className={styles.sectionContent}>
-          
-          {currentData?.results?.map((item, index) => (
+          {data?.data?.map((item, index) => (
             <div
               key={index}
               className="flex flex-col md:flex-row justify-between md:items-center gap-5 mt-[26px] pb-4"
@@ -56,13 +34,12 @@ const Page = () => {
                   alt="pdf"
                   className="object-contain"
                 />
-                <p className="text-gray-700">{item.fileName}</p>
+                <p className="text-gray-700">{item?.title}</p>
               </div>
 
-              <OutlineButton goto={item.filelink} title="Download" />
+              <OutlineButtonLink action={"_blank"} goto={createImageSourceURL(item?.download_link)} title="Download" />
             </div>
           ))}
-
         </div>
       </div>
     </>

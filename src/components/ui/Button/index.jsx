@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import React from "react";
 import { FiDownload } from "react-icons/fi";
@@ -26,7 +27,7 @@ const Button = ({ action, title , className, iconActive = true  }) => {
 const OutlineButtonLink = ({ goto, title, className , action }) => {
   return (
     <>
-      <Link href={goto} action={action} className={`btn-outline-text ${className}`}>
+      <Link href={goto} target={action} className={`btn-outline-text ${className}`}>
         <span>{title}</span>
          {title?.toLowerCase() === "download" ? <FiDownload size={20} /> :     <HiOutlineArrowLongRight size={20} />}
       </Link>
