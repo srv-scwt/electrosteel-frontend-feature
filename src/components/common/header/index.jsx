@@ -25,7 +25,6 @@ import { IoSearch } from "react-icons/io5";
 import { GoSearch } from "react-icons/go";
 
 const navLinks = [
-  // { name: "HOME", href: "/", tagType: "link", children: false },
   { name: "ABOUT", href: "/", tagType: "button", children: aboutUsData },
   {
     name: "PRODUCTS",
@@ -33,57 +32,31 @@ const navLinks = [
     tagType: "button",
     children: productsData,
   },
-  // {
-  //   name: "QUALITY",
-  //   href: "/quality",
-  //   tagType: "button",
-  //   children: qualityData,
-  // },
-  {
-    name: "SUSTAINABILITY",
-    href: "/sustainability",
-    tagType: "button",
-    children: sustainabilityData,
-  },
-  // {
-  //   name: "FACILITIES",
-  //   href: "/facilities",
-  //   tagType: "button",
-  //   children: facilitiesData,
-  // },
-  // {
-  //   name: "CSR",
-  //   href: "/csr",
-  //   tagType: "button",
-  //   children: csrData,
-  // },
-
   {
     name: "INVESTORS",
     href: "/investors",
     tagType: "button",
     children: investorData,
   },
-  {
+   {
     name: "NEWS ROOM",
     href: "/news-room",
     tagType: "button",
     children: newsRoomData,
   },
-  // {
-  //   name: "DIGITAL",
-  //   href: "/digital",
-  //   tagType: "button",
-  //   children: digitalData,
-  // },
-  // { name: "PEOPLE", href: "/people", tagType: "button", children: false },
-  { name: "CAREER", href: "/career", tagType: "button", children: careersData },
+   { name: "CAREER", href: "/career", tagType: "button", children: careersData },
   {
     name: "CONNECT",
     href: "/connect",
     tagType: "button",
     children: connectData,
   },
+  {
+    name: "SUSTAINABILITY",
+    href: "/sustainability",
+    tagType: "button",
+    children: sustainabilityData,
+  }
 ];
 
 export default function Navbar() {
@@ -223,7 +196,7 @@ export default function Navbar() {
                       onMouseEnter={() => handleLinkHover(link.name)}
                       onMouseLeave={handleLinkLeave}
                       onClick={() => handleLinkHover(link.name)}
-                      className={`${styles.navLinksText} ${hoveredLink == link.name ? styles.active : ""} ${["/sustainability", "/news-room", "/connect"].some((item) => link.href.includes(item)) ? "bg-[#ccccccb7] rounded-t-[8px]" : ""}`}
+                      className={`${styles.navLinksText} ${hoveredLink == link.name ? styles.active : ""}`}
                     >
                       {link.name}
                     </button>
