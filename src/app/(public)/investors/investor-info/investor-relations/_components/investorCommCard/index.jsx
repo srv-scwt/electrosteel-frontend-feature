@@ -1,93 +1,94 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import styles from "@/app/common.module.css";
+import HTMLRender from "@/components/ui/HTMLRender";
 
-const overseasData = [
+const RegistrarGrievance = ({ section1, section2 }) => {
+
+  const overseasData = [
     {
-        cardName: [
-            {
-                heading: "Registrar and Share Transfer Agent",
-                company: "Maheshwari Datamatics Pvt. Ltd.",
-                address: [
-                    "23 R. N. Mukherjee Road, 5th Floor,",
-                    "Kolkata - 700 001,",
-                ],
-                phone: "(033) 2243 5029/ 2248 2248 / 2231 6839,",
-                fax: "(033) 2248 4787",
-                email: "info@mdpl.in , mdpldc@yahoo.com",
-            },
-        ],
+      cardName: [
+        {
+          heading: section1?.data?.[0]?.heading ?? "",
+          heading2:"",
+          company: section1?.data?.[0]?.company ?? "",
+          post: section1?.data?.[0]?.post ?? "",
+          address: section1?.data?.[0]?.address,
+          phone: section1?.data?.[0]?.phone ?? "",
+          email:  section1?.data?.[0]?.email ?? "",
+        },
+      ],
     },
     {
-        cardName: [
-            {
-                heading: "Grievance Redressal",
-                company: "Mr. Indranil Mitra",
-                address: [
-                    "Company Secretary",
-                    "Electrosteel Castings Limited",
-                    "G.K Tower, 19, Camac Street",
-                    "Kolkata - 700017",
-                ],
-                email: "companysecretary@electrosteel.com",
-            },
-        ],
+      cardName: [
+        {
+          heading: section2?.title ?? "",
+          heading2: section2?.data?.[0]?.heading ?? "",
+          company: section2?.data?.[0]?.company ?? "",
+          post: section2?.data?.[0]?.post ?? "",
+          address: section2?.data?.[0].address,
+          email:  section2?.data?.[0]?.email ?? "",
+        },
+      ],
     },
-];
+  ];
 
-const RegistrarGrievance = () => {
+  return (
+    <section className="bg-white" id="cardName">
+      <div className={styles.containerLg}>
+        <div className={styles.sectionContent}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {overseasData.map((item, idx) => (
+              <div
+                key={idx}
+                className={`bg-[#004aa1] p-5 shadow-md border border-[#00000029] rounded-[12px]`}
+              >
+                {item.cardName.map((cards, index) => (
+                  <div key={index} className="p-[40px]">
+                    <h4 className="text-sm md:text-lg font-semibold mb-2 !text-white">
+                      {cards.heading}
+                    </h4>
 
-    return (
-        <section className="bg-white" id="cardName">
-            <div className={styles.containerLg}>
-                <div className={styles.sectionContent}>
-                    
+                    <p className="!text-white">
+                      <strong>{cards.heading2}</strong>
+                    </p>
+                     <p className="!text-white">
+                      {cards.post}
+                    </p>
+                    <p className="!text-white">
+                     <strong>{cards.company}</strong> 
+                    </p>
+                   
+                    <HTMLRender
+                      htmlString={cards?.address}
+                       className="[&_*]:!text-white"
+                    />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {overseasData.map((item, idx) => (
-                            <div
-                                key={idx}
-                                className={`bg-[#004aa1] p-5 shadow-md border border-[#00000029] rounded-[12px]`}
-                            >
-                                {item.cardName.map((cards, index) => (
-                                    <div key={index} className="p-[40px]">
-                                        <h4 className="text-sm md:text-lg font-semibold mb-2 !text-white">
-                                            {cards.heading}
-                                        </h4>
+                    {cards.phone && (
+                      <p className="!text-white">
+                        <strong>Phone:</strong> {cards.phone}
+                      </p>
+                    )}
 
-                                        <p className="!text-white"><strong>{cards.company}</strong></p>
-
-                                        <div>
-                                            {cards.address.map((line, i) => (
-                                                <p className="!text-white" key={i}>{line}</p>
-                                            ))}
-                                        </div>
-
-                                        {cards.phone && (
-                                            <p className="!text-white">
-                                                <strong>Phone:</strong> {cards.phone}
-                                            </p>
-                                        )}
-
-                                        <p className="!text-white">
-                                            <strong>Email:</strong>{" "}
-                                            <a
-                                                href={`mailto:${cards.email}`}
-                                                className="!text-gray-200 hover:underline break-all"
-                                            >
-                                                {cards.email}
-                                            </a>
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
-}
+                    <p className="!text-white">
+                      <strong>Email:</strong>{" "}
+                      <a
+                        href={`mailto:${cards.email}`}
+                        className="!text-gray-200 hover:underline break-all"
+                      >
+                        {cards.email}
+                      </a>
+                    </p>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default RegistrarGrievance;
