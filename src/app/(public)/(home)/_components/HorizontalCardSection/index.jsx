@@ -76,7 +76,7 @@ export default function HorizontalCardSection({ cardData = [] }) {
                       }
                     </h3>`} />
                     <div className={styles.cardLink}>
-                      <OutlineButtonLink goto={post?.slug ?? '#'} title={"Read More"} />
+                      <OutlineButtonLink goto={`newsroom/blog/${post.slug}` ?? '#'} title={"Read More"} />
                     </div>
                   </div>
                   </div>
