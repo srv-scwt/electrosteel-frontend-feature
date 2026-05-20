@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { OutlineButton } from "@/components/ui/Button";
+import { OutlineButtonLink } from "@/components/ui/Button";
 import { SlCalender } from "react-icons/sl";
 import { createImageSourceURL } from "@/utils";
 
@@ -11,7 +11,7 @@ export default function InvestorCard({ post }) {
   const date = post?.date || "";
   const src = post?.src || post?.pdf || post?.filelink || post?.audio || "";
 
-  const extension = src.split(".").pop()?.toLowerCase() || "";
+  const extension = src?.split(".").pop()?.toLowerCase() || "";
 
   const audioTypes = ["mp3", "wav", "ogg", "m4a", "aac"];
   const pdfTypes = ["pdf"];
@@ -57,8 +57,9 @@ export default function InvestorCard({ post }) {
           {isPdf ? (
             <div className="flex items-end justify-between gap-3">
               <div className="w-[calc(100%-46px)] sm:w-[calc(100%-58px)] xl:w-[calc(100%-67px)]">
-                <OutlineButton
-                  action={() => window.open(createImageSourceURL(src), "_blank")}
+                <OutlineButtonLink
+                  goto={createImageSourceURL(src)}
+                  action={"_blank"}
                   title="Download"
                   className="!text-white !text-xs sm:!text-sm whitespace-nowrap"
                 />
