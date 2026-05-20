@@ -20,24 +20,6 @@ const page = async ({ params }) => {
     title: BlogDetails?.data?.banner_title ?? "Blog",
   };
 
-  // const slides = [
-  //   { img: "/images/blog/blogDetailsBanner.png", title: "Slide 1" },
-  //   { img: "/images/blog/blogDetailsBanner.png", title: "Slide 2" },
-  //   { img: "/images/blog/blogDetailsBanner.png", title: "Slide 3" },
-  // ];
-
-  // const imageData = [
-  //   { type: "image", path: "/images/blog/cimage.png" },
-  //   { type: "video", path: "/videos/our_peopleVideo.mp4" },
-  //   { type: "image", path: "/images/blog/cimage.png" },
-  // ];
-
-  // const data = {
-  //   description: `Electrosteel Castings Ltd has always championed women empowerment, at their plants and boardrooms across 110-plus countries.
-  //   Electrosteel is proud to partner with the Daamini Foundation's 'Daamini Supports - HER Enterprise', an endeavour designed to foster an ecosystem where women entrepreneurs are encouraged to participate, grow, and succeed. Our Whole-Time Director, Mrs Nityangi Kejriwal Jaiswal , a long-time supporter of women in the workplace, is a Nominated Mentor. 
-  //   In a recorded video played at the launch of 'Daamini Supports - HER Enterprise' yesterday, she expresses her support for the noble initiative. <br /> At the event, Ms Sanchita Kushary Bose, Founder, Daamini, also expressed her gratitude to Electrosteel and Mrs Nityangi Kejriwal Jaiswal. <br /> This marks the beginning of a journey filled with strength, innovation and limitless possibilities. Onward, forward!`
-  // }
-
   const blogArr = [
     {
       img: "/images/blog/card/img1.png",

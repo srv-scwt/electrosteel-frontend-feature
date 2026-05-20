@@ -10,6 +10,14 @@
     height: auto;
 }
 
+.addr div p {
+    color: #ffffff;
+}
+
+.addr div p a {
+    color: #dcecff !important;
+}
+
 .officeOverseasSwiper :global(.swiper-button-next),
 .officeOverseasSwiper :global(.swiper-button-prev) {
 

@@ -11,11 +11,11 @@
 
 /* ----------------------- card css ---------------- */
 
-.playButton{
+.playButton {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50% , -50%);
+  transform: translate(-50%, -50%);
   z-index: 10;
 }
 
@@ -32,42 +32,48 @@
   cursor: pointer;
 }
 
-.containerLeft > div > article:last-child{
+.containerLeft>div>article:last-child {
   margin-right: 20px;
 }
 
-.socialCardImage svg{
-  width: clamp(55px,5.5vw,110px);
-  height: clamp(55px,5.5vw,110px);
+.socialCardImage svg {
+  width: clamp(55px, 5.5vw, 110px);
+  height: clamp(55px, 5.5vw, 110px);
 }
 
 .socialCardImage,
 .socialCardImage svg,
-.socialCardImage svg circle{
+.socialCardImage svg circle {
   transition: all ease-in-out .5s;
 }
-.socialCardImage:hover svg circle{
-  fill : #000000;
+
+.socialCardImage:hover svg circle {
+  fill: #000000;
 }
-.socialCardImage:hover svg path{
-  fill : #034ea1;
+
+.socialCardImage:hover svg path {
+  fill: #034ea1;
 }
+
 .socialCardImage {
   position: relative;
   height: clamp(185px, 17vw, 320px);
-  width: 100%;
+  width: 400px;
   border-radius: 32px;
   overflow: hidden;
   border-radius: 24px;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
 }
+
 .socialCardImage img {
   transition: all 0.5s ease-in-out;
 }
+
 .socialCardWrapper:hover .socialCardImage img {
   scale: 1.1;
 }
+
 .sectionContent {
   display: flex;
   flex-direction: column;
@@ -75,7 +81,7 @@
   padding: 16px;
 }
 
-.sectionContent > span {
+.sectionContent>span {
   font-family: var(--font-montserrat);
   font-weight: 600;
   font-style: SemiBold;
@@ -85,6 +91,7 @@
   text-transform: uppercase;
   color: #ffffff;
 }
+
 .sectionContent h3 {
   font-family: var(--font-bebas-neue);
   font-weight: 400;
@@ -94,9 +101,11 @@
   letter-spacing: 0%;
   color: #ffffff;
 }
+
 .eventsContainer {
   gap: clamp(24px, 2.6vw, 48px);
 }
+
 .eventDetails {
   row-gap: 8px;
   column-gap: 16px;
@@ -113,6 +122,7 @@
   list-style: none;
   gap: 8px;
 }
+
 .eventDetails li span {
   font-family: var(--font-montserrat);
   font-weight: 500;
@@ -122,9 +132,22 @@
   letter-spacing: 0%;
   color: #ffffff;
 }
+
 .buttonContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: clamp(24px, 2.6vw, 48px);
+}
+
+@media (max-width: 1250px) {
+  .socialCardImage {
+    width: 340px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .socialCardImage {
+    width: 280px;
+  }
 }

@@ -10,6 +10,7 @@ import { countrieData, IndiaOffice, OfficeData, OperationalUnits, OverseasData, 
 import CountriesAbout from './_components/countriesAbout'
 import { getGlobalPresence } from '@/services/global-presence.api'
 import SomethingWentWrong from '@/components/common/SomethingWentsWrong'
+import { getGlobalOverseas } from '@/services/globalOverseas.api'
 
 const heroData = {
   title: "Global Presence",
@@ -29,8 +30,8 @@ const page = async ({ searchParams }) => {
   const indiaData = await getGlobalPresence("global-offices-india");
   const officesOverseasData = await getGlobalPresence("global-offices-overseas");
   const unitsData = await getGlobalPresence("global-operational-units");
-  const overseasData = await getGlobalPresence("global-overseas");
-  console.log(overseasData);
+  const GlobalOverseas = await getGlobalOverseas();
+  console.log(GlobalOverseas?.data, "GlobalOverseas=========");
   
 
   const registeredOffice = RegisteredData?.data?.data?.[0];
@@ -64,7 +65,7 @@ const page = async ({ searchParams }) => {
         officesOverseasData={officesOverseasData?.data}
       />
       <OperationalUnitsIndia operationalUnits={unitsData?.data?.data || []} heading={unitsData?.heading} />
-      <OptionalUnitsOverseas operationalUnits={overseasData?.data?.data || []} heading={overseasData?.heading} />
+      <OptionalUnitsOverseas data={GlobalOverseas?.data} />
     </>
   )
 }
