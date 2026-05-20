@@ -1,4 +1,4 @@
-import { ServerFetch } from "../../actions/server-fetch";
+import { handleServerFetchError, ServerFetch } from "../../actions/server-fetch";
 
 export async function getPeoplePageData() {
   try {
@@ -22,11 +22,6 @@ export async function getPeoplePageData() {
       status: response.statusCode===200 ? true : false,
     };
   } catch (error) {
-    console.error("PEOPLE_SSR_ERROR:", error);
-
-    return {
-      data: null,
-      error: "API_DOWN",
-    };
+    return handleServerFetchError(error, "PEOPLE_SSR_ERROR");
   }
 }

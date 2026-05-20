@@ -1,6 +1,6 @@
 // import { ServerFetch } from "../../actions/server-fetch";
 
-import { ServerFetch } from "../../../actions/server-fetch";
+import { handleServerFetchError, ServerFetch } from "../../../actions/server-fetch";
 
 export async function getInvestorResponse({
   category,
@@ -55,12 +55,7 @@ export async function getInvestorResponse({
       status: response.statusCode===200 ? true : false,
     };
   } catch (error) {
-    console.error("getInvestorResponse:", error);
-
-    return {
-      data: null,
-      error: "API_DOWN",
-    };
+    return handleServerFetchError(error, "getInvestorResponse");
   }
 }
 
@@ -94,12 +89,7 @@ export async function getSrikalahasthiMainResponse() {
       status: response?.statusCode === 200 || Array.isArray(response),
     };
   } catch (error) {
-    console.error("getSrikalahasthiMainResponse:", error);
-
-    return {
-      data: null,
-      error: "API_DOWN",
-    };
+    return handleServerFetchError(error, "getSrikalahasthiMainResponse");
   }
 }
 
@@ -127,12 +117,7 @@ export async function getNodalOfficerResponse() {
       status: response.statusCode === 200,
     };
   } catch (error) {
-    console.error("getNodalOfficerResponse:", error);
-
-    return {
-      data: null,
-      error: "API_DOWN",
-    };
+    return handleServerFetchError(error, "getNodalOfficerResponse");
   }
 }
 
@@ -163,11 +148,6 @@ export async function getUnclaimedDividendsResponse() {
       status: response.statusCode === 200,
     };
   } catch (error) {
-    console.error("getUnclaimedDividendsResponse:", error);
-
-    return {
-      data: null,
-      error: "API_DOWN",
-    };
+    return handleServerFetchError(error, "getUnclaimedDividendsResponse");
   }
 }

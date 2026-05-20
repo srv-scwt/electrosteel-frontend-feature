@@ -9,9 +9,7 @@ import { createImageSourceURL } from "@/utils";
 const page = async() => {
       const homeBanner = await getCommonBanner("DisclaimerHeroSection");
       const data1 = await getCommonProductsCategory("SettingsDisclaimerContent");
-  
-    console.log(data1?.data , "d");
-    
+
       const heroData = {
         banner: createImageSourceURL(homeBanner?.data?.image) ?? "/images/board/policies_banner_large.jpg",
         title: homeBanner?.data?.title ?? "Disclaimer",

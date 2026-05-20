@@ -1,4 +1,4 @@
-import { ServerFetch } from "../../actions/server-fetch";
+import { handleServerFetchError, ServerFetch } from "../../actions/server-fetch";
 
 export async function getExternalSocial() {
   try {
@@ -22,11 +22,6 @@ export async function getExternalSocial() {
       status: response.statusCode===200 ? true : false,
     };
   } catch (error) {
-    console.error("EXTERNAL_SOCIAL_SUPPORT_ERROR:", error);
-
-    return {
-      data: null,
-      error: "API_DOWN",
-    };
+    return handleServerFetchError(error, "EXTERNAL_SOCIAL_SUPPORT_ERROR");
   }
 }

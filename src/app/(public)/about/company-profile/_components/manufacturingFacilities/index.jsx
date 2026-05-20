@@ -50,9 +50,6 @@ export default function ManufacturingFacilities({ data, facilities = [] }) {
         >
           {Array.isArray(facilities) &&
             facilities.map((f, index) => {
-              const truckClass = `left-[${((index + 1) / facilities.length) * 100}%]`;
-              console.log(truckClass, "truck");
-
               return (
                 <SwiperSlide key={index}>
                   <div className="snap-start flex-shrink-0 w-screen justify-between flex flex-col relative z-20">

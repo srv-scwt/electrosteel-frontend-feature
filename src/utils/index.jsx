@@ -1,8 +1,33 @@
+function buildAssetUrl(path, fallback = "") {
+  if (!path) {
+    return fallback;
+  }
+
+  const normalizedPath = String(path).replaceAll("\\", "/");
+
+  if (
+    normalizedPath.startsWith("/") ||
+    normalizedPath.startsWith("http://") ||
+    normalizedPath.startsWith("https://") ||
+    normalizedPath.startsWith("data:")
+  ) {
+    return normalizedPath;
+  }
+
+  const baseUrl = process.env.NEXT_PUBLIC_IMAGE_URL?.trim();
+
+  if (!baseUrl) {
+    return fallback;
+  }
+
+  return `${baseUrl.replace(/\/+$/, "")}/${normalizedPath.replace(/^\/+/, "")}`;
+}
+
 export const createVideoSourceURL = (path , fallback = "") => {
-    return `${process.env.NEXT_PUBLIC_IMAGE_URL}/${path}` ?? fallback
+    return buildAssetUrl(path, fallback);
 }
 export const createImageSourceURL = (path , fallback = "") => {
-    return `${process.env.NEXT_PUBLIC_IMAGE_URL}/${path}` ?? fallback
+    return buildAssetUrl(path, fallback);
 }
 
 export function parseCapacity(input) {

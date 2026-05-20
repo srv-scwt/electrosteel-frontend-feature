@@ -10,8 +10,6 @@ const page = async () => {
   const homeBanner = await getCommonBanner("PrivacyPolicyHeroSection");
   const data1 = await getCommonProductsCategory("SettingsPrivacyPolicyContent");
 
-  console.log(data1?.data, "d");
-
   const heroData = {
     banner:
       createImageSourceURL(homeBanner?.data?.image) ??

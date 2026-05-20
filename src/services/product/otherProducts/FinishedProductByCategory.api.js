@@ -1,4 +1,4 @@
-import { ServerFetch } from "../../../../actions/server-fetch";
+import { handleServerFetchError, ServerFetch } from "../../../../actions/server-fetch";
 
 
 export async function getFinishedProductByCategory(categoryName) {
@@ -23,11 +23,6 @@ export async function getFinishedProductByCategory(categoryName) {
       status: response.statusCode===200 ? true : false,
     };
   } catch (error) {
-    console.error("ABOUTUS_SSR_ERROR:", error);
-
-    return {
-      data: null,
-      error: "API_DOWN",
-    };
+    return handleServerFetchError(error, "ABOUTUS_SSR_ERROR");
   }
 }

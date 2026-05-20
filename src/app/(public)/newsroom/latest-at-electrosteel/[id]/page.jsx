@@ -10,7 +10,6 @@ import { getBlogDetailsBySlug } from "@/services/blogs/blog-slug.api";
 const page = async({ params }) => {
   const { id } = await params;
   const PageDetails = await getBlogDetailsBySlug(id)
-  console.log(PageDetails?.data, "PageDetails=====");
 
     if (!PageDetails || PageDetails?.error) return <SomethingWentWrong />;
     

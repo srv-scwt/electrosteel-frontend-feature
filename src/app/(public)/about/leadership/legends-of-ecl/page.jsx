@@ -7,7 +7,6 @@ import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
 
 const page = async () => {
   const eventsData = await getEclLegends();
-  console.log(eventsData, "eventsData");
   if (!eventsData || eventsData?.error) return <SomethingWentWrong />
   return (
     <>

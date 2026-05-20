@@ -20,8 +20,6 @@ import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
 const page = async () => {
   const jolsadhanaData = await getJolsadhana();
   if (!jolsadhanaData || jolsadhanaData.error) return <SomethingWentWrong />
-  console.log(jolsadhanaData, "jolsadhanaDatajolsadhanaData=====");
-
 
   return (
     <>

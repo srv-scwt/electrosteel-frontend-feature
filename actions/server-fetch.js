@@ -1,6 +1,25 @@
-"use server"
+function isDynamicServerUsageError(error) {
+  return (
+    error?.digest === "DYNAMIC_SERVER_USAGE" ||
+    error?.description?.includes("Dynamic server usage") ||
+    error?.message?.includes("Dynamic server usage")
+  );
+}
 
-export async function ServerFetch(  path,
+export function handleServerFetchError(error, label = "SERVER_FETCH_ERROR") {
+  if (isDynamicServerUsageError(error)) {
+    throw error;
+  }
+
+  console.error(`${label}:`, error);
+
+  return {
+    data: null,
+    error: "API_DOWN",
+  };
+}
+
+export async function ServerFetch(path,
   config,
   init) {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -11,7 +30,7 @@ export async function ServerFetch(  path,
   }
 
   try {
-    const API_PAGE = `${baseUrl}${path}`
+    const API_PAGE = `${baseUrl}${path}`;
     const res = await fetch(API_PAGE, {
       headers: {
         Accept: "application/json",
@@ -31,8 +50,12 @@ export async function ServerFetch(  path,
     if (json?.status === false) return null;
 
     // return (json?.data ?? json) as T;
-    return (json) ;
+    return json;
   } catch (err) {
+    if (isDynamicServerUsageError(err)) {
+      throw err;
+    }
+
     console.error("fetchServer exception:",path, err);
     return null;
   }

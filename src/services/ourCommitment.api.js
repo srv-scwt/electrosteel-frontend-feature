@@ -1,4 +1,4 @@
-import { ServerFetch } from "../../actions/server-fetch";
+import { handleServerFetchError, ServerFetch } from "../../actions/server-fetch";
 
 export async function getOurCommitments() {
   try {
@@ -22,11 +22,6 @@ export async function getOurCommitments() {
       status: response.statusCode===200 ? true : false,
     };
   } catch (error) {
-    console.error("OUR_COMMITMENT_ERROR:", error);
-
-    return {
-      data: null,
-      error: "API_DOWN",
-    };
+    return handleServerFetchError(error, "OUR_COMMITMENT_ERROR");
   }
 }

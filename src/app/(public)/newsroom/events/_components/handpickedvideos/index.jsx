@@ -12,8 +12,6 @@ import cstyles from "@/app/common.module.css";
 import { createImageSourceURL } from "@/utils";
 
 const HandPickedVideos = ({ data = [] }) => {
-  console.log(data);
-
   const [isOpen, setIsOpen] = useState(false)
   return (
     <section className={styles.sectionSpacing}>

@@ -1,6 +1,6 @@
 // import { ServerFetch } from "../../actions/server-fetch";
 
-import { ServerFetch } from "../../../actions/server-fetch";
+import { handleServerFetchError, ServerFetch } from "../../../actions/server-fetch";
 
 export async function getBlogResponseByCategory({
   category,
@@ -59,11 +59,6 @@ export async function getBlogResponseByCategory({
       status: response.statusCode===200 ? true : false,
     };
   } catch (error) {
-    console.error("getBlogResponseByCategory:", error);
-
-    return {
-      data: null,
-      error: "API_DOWN",
-    };
+    return handleServerFetchError(error, "getBlogResponseByCategory");
   }
 }

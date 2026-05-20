@@ -15,7 +15,11 @@ export default function CardSectionGrid({data , CardTitle="Product Broucher"}) {
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Array.isArray(data?.data) && data?.data?.map((post) => (
+          {Array.isArray(data?.data) && data?.data?.map((post) => {
+            const imageSrc = createImageSourceURL(post?.image, "/images/logo.png");
+            const downloadHref = createImageSourceURL(post?.download_link);
+
+            return (
             <div key={post.id} className={styles.socialCardWrapper}>
               <div className={`${styles.sectionContent} min-h-[90px]`}>
                 <h3>{post?.title}</h3>
@@ -24,7 +28,7 @@ export default function CardSectionGrid({data , CardTitle="Product Broucher"}) {
                 className={`${styles.socialCardImage} relative w-full aspect-square`}
               >
                 <Image
-                  src={createImageSourceURL(post?.image)}
+                  src={imageSrc}
                   alt={post?.title}
                   fill
                   className="object-contain"
@@ -32,16 +36,18 @@ export default function CardSectionGrid({data , CardTitle="Product Broucher"}) {
               </div>
               <div className={styles.sectionContent}>
                 <div className={styles.cardLink}>
-                  <OutlineButtonLink
-                    goto={createImageSourceURL(post?.download_link)}
-                    action={"_blank"}
-                    title={"Download"}
-                    className={"!text-white"}
-                  />
+                  {downloadHref ? (
+                    <OutlineButtonLink
+                      goto={downloadHref}
+                      action={"_blank"}
+                      title={"Download"}
+                      className={"!text-white"}
+                    />
+                  ) : null}
                 </div>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

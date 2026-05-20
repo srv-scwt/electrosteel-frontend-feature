@@ -5,10 +5,19 @@ import { FiDownload } from "react-icons/fi";
 import { HiOutlineArrowLongLeft, HiOutlineArrowLongRight } from "react-icons/hi2";
 import { IoReload } from "react-icons/io5";
 
+const normalizeHref = (goto, fallback = "#") => {
+  if (typeof goto === "string") {
+    const trimmedGoto = goto.trim();
+    return trimmedGoto || fallback;
+  }
+
+  return goto ?? fallback;
+};
+
 const ButtonLink = ({ goto, title, className , iconActive = true }) => {
   return (
     <>
-      <Link href={goto} className={`btn btn-primary ${className}`}>
+      <Link href={normalizeHref(goto)} className={`btn btn-primary ${className}`}>
         <span>{title}</span>
                  {/* {title?.toLowerCase() === "load more" ? <IoReload size={20} /> :     <HiOutlineArrowLongRight size={20} />} */}
         {iconActive ?  <HiOutlineArrowLongRight size={20} /> : "" }
@@ -27,7 +36,7 @@ const Button = ({ action, title , className, iconActive = true  }) => {
 const OutlineButtonLink = ({ goto, title, className , action }) => {
   return (
     <>
-      <Link href={goto} target={action} className={`btn-outline-text ${className}`}>
+      <Link href={normalizeHref(goto)} target={action} className={`btn-outline-text ${className}`}>
         <span>{title}</span>
          {title?.toLowerCase() === "download" ? <FiDownload size={20} /> :     <HiOutlineArrowLongRight size={20} />}
       </Link>
@@ -39,7 +48,7 @@ const OutlineButtonLink = ({ goto, title, className , action }) => {
 const OutlineBackButtonLink = ({ goto, title, className }) => {
   return (
     <>
-      <Link href={goto} className={`btn-outline-text ${className}`}>
+      <Link href={normalizeHref(goto)} className={`btn-outline-text ${className}`}>
       <HiOutlineArrowLongLeft size={20} />
         <span>{title}</span>
       </Link>
@@ -63,7 +72,7 @@ const OutlineButton = ({ action, title , className }) => {
 const ButtonLinkOutlineWithBorder = ({ goto, title, className , iconActive = true }) => {
   return (
     <>
-      <Link href={goto} className={`btn btn-Outlined !w-max gap-2 btn-text ${className}`}>
+      <Link href={normalizeHref(goto)} className={`btn btn-Outlined !w-max gap-2 btn-text ${className}`}>
         <span>{title}</span>
         {iconActive ?  <HiOutlineArrowLongRight size={20} /> : "" }
       </Link>

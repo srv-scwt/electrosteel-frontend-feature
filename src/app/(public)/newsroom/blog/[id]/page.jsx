@@ -10,8 +10,6 @@ import { createImageSourceURL } from '@/utils';
 const page = async ({ params }) => {
   const { id } = await params;
   const BlogDetails = await getBlogDetailsBySlug(id);
-  console.log(BlogDetails, "BlogDetails----------");
-
 
   if (!BlogDetails || BlogDetails?.error) return <SomethingWentWrong />;
 

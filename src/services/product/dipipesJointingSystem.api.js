@@ -1,4 +1,4 @@
-import { ServerFetch } from "../../../actions/server-fetch";
+import { handleServerFetchError, ServerFetch } from "../../../actions/server-fetch";
 
 export async function getDipipesJointingSystem() {
   try {
@@ -22,11 +22,6 @@ export async function getDipipesJointingSystem() {
       status: response.statusCode===200 ? true : false,
     };
   } catch (error) {
-    console.error("JOINTING_SYSTEM_SSR_ERROR:", error);
-
-    return {
-      data: null,
-      error: "API_DOWN",
-    };
+    return handleServerFetchError(error, "JOINTING_SYSTEM_SSR_ERROR");
   }
 }
