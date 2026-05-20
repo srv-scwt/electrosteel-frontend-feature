@@ -41,10 +41,10 @@ const UpcomingEvents = ({ data = [] }) => {
                     <SlCalender size={14} />
                     <span>{post?.date}</span>
                   </li>
-                  <li className="w-max">
+                 {post?.time && <li className="w-max">
                     <MdOutlineWatchLater size={16} />
                     <span>{post?.time}</span>
-                  </li>
+                  </li>}
                   <li className="col-span-12">
                     <IoLocationOutline size={16} />
                     <span>{post?.location}</span>
