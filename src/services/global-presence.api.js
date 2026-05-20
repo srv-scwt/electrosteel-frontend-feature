@@ -3,7 +3,8 @@ import { handleServerFetchError, ServerFetch } from "../../actions/server-fetch"
 export async function getGlobalPresence(category) {
   try {
     const response = await ServerFetch(`/frontend/about/office/unique/${category}`, { mode: "SSR"});
-  
+    console.log(response);
+    
     if (!response) {
       return { data: null, error: "NO_DATA" };
     }

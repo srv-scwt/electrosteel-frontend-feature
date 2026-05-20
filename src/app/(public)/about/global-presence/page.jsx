@@ -30,6 +30,7 @@ const page = async ({ searchParams }) => {
   const officesOverseasData = await getGlobalPresence("global-offices-overseas");
   const unitsData = await getGlobalPresence("global-operational-units");
   const overseasData = await getGlobalPresence("global-overseas");
+  console.log(overseasData);
   
 
   const registeredOffice = RegisteredData?.data?.data?.[0];
@@ -62,8 +63,8 @@ const page = async ({ searchParams }) => {
         indiaData={indiaData?.data}
         officesOverseasData={officesOverseasData?.data}
       />
-      <OperationalUnitsIndia operationalUnits={unitsData?.data?.data || []} />
-      <OptionalUnitsOverseas operationalUnits={overseasData?.data?.data || []} />
+      <OperationalUnitsIndia operationalUnits={unitsData?.data?.data || []} heading={unitsData?.heading} />
+      <OptionalUnitsOverseas operationalUnits={overseasData?.data?.data || []} heading={overseasData?.heading} />
     </>
   )
 }

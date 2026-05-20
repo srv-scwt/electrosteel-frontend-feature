@@ -1,15 +1,13 @@
 "use client"
-import Container90 from "@/components/common/Container90";
 import React, { useState } from "react";
 import styles from "./style.module.css";
 import { SlCalender } from "react-icons/sl";
-import { events } from "./m.data";
 import Image from "next/image";
 import HorizontalSwipe from "@/components/ui/HorizontalSwipe";
 import VideoModal from "@/components/modals/VideoModel";
 import SectionTitleWithButton from "@/components/ui/sectionTitleWithButton";
 import cstyles from "@/app/common.module.css";
-import { createImageSourceURL } from "@/utils";
+import { createImageSourceURL, formatDate } from "@/utils";
 
 const HandPickedVideos = ({ data = [] }) => {  
   const [isOpen, setIsOpen] = useState(false)
@@ -62,7 +60,7 @@ const HandPickedVideos = ({ data = [] }) => {
                 <ul className={`${styles.eventDetails} flex flex-wrap gap-1 `}>
                   <li>
                     <SlCalender size={14} color="white" />
-                    <span>{post?.date}</span>
+                    <span>{formatDate(post?.date)}</span>
                   </li>
                 </ul>
               </div>

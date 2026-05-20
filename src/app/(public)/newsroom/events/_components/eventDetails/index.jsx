@@ -8,6 +8,7 @@ import commonStyles from "@/app/common.module.css";
 
 import React from "react";
 import HTMLRender from "@/components/ui/HTMLRender";
+import { formatDate } from "@/utils";
 
 const EventDetails = ({ data }) => {
   if (!data) return null;
@@ -27,7 +28,7 @@ const EventDetails = ({ data }) => {
                     <div className="flex gap-3 mb-0">
                       <Calendar />
                       <span className="text-[#004AA1] uppercase">
-                        {data?.date}
+                        {formatDate(data?.date)}
                       </span>
                     </div>
                   )}
