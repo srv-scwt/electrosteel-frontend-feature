@@ -31,8 +31,8 @@ const GallerySection = ({ contentHidden = false, imageData = [], data }) => {
   };
 
   return (
-    <section className="py-0 w-full">
-      <div className={commonStyles.containerLg}>
+    <section className=" w-full">
+      <div className={`${commonStyles.containerLg} py-0!`}>
         <div
           className={`grid ${!contentHidden ? "grid-cols-1 lg:grid-cols-2" : "grid-cols-1"} ${styles.gridContainer}`}
         >

@@ -125,7 +125,7 @@ const ApplicationSection = ({ sectionID, data = [] }) => {
                                         src={createImageSourceURL(item?.icon)}
                                         alt={item?.title}
                                         fill
-                                        className={`object-cover ${styles.iconbg}`}
+                                        className={`object-cover p-4 ${styles.iconbg} invert-100`}
                                     />
                                 </div>
                             );
