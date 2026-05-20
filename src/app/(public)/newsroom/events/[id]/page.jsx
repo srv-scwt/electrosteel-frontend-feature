@@ -9,13 +9,15 @@ import { getEventsDetailsBySlug } from "@/services/events.api";
 const page = async ({ params }) => {
   const { id } = await params;
   const PageDetails = await getEventsDetailsBySlug(id);
+  console.log(PageDetails);
+  
   if (!PageDetails || PageDetails?.error) return <SomethingWentWrong />;
 
   const heroData = {
     banner:
-      createImageSourceURL(PageDetails?.data?.banner_image) ??
+      createImageSourceURL(PageDetails?.data?.bannerImage) ??
       "/images/events/eventsBanner.jpg",
-    title: PageDetails?.data?.banner_title ?? "Events Details",
+    title: PageDetails?.data?.bannerTitle ?? "Events Details",
     imageFit: "object-cover",
     opacity: "opacity-30",
   };
