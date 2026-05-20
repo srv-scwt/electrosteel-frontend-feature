@@ -8,6 +8,9 @@ const LegendVideoCard = ({ className, events = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [videoLink, setVideoLink] = useState(null);
 
+  console.log(events );
+  
+
   const handleVideoOpen = (id) => {
     setVideoLink(id);
     setIsOpen(true);
@@ -20,7 +23,7 @@ const LegendVideoCard = ({ className, events = [] }) => {
           <VideoImageBadgeCard
             key={index}
             post={post}
-            onVideo={() => handleVideoOpen(post?.videoLink)}
+            onVideo={() => handleVideoOpen(post?.link)}
           />
         ))}
       </div>

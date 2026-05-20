@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./style.module.css";
-import Link from "next/link";
 import VideoModal from "@/components/modals/VideoModel";
 import { createImageSourceURL } from "../../../../utils";
 
@@ -47,21 +46,20 @@ export default function VideoImageBadgeCard({ post }) {
         </div>
 
         {/* CONTENT SECTION */}
-        <Link href={post?.link ?? ""}>
+        {/* <Link href={post?.link ?? ""}> */}
+        <div>
           <div className={`${styles.sectionContent} mt-3 `}>
-            {/* <h3 className={styles.title}>{post.title}</h3> */}
-            {/* <p className={`${styles.eventDetails}`}>{post.content}</p> */}
             <h3 >{post?.title ?? ""}</h3>
             <p>{post?.content ?? ""}</p>
           </div>
-        </Link>
+        </div>
       </article>
 
       <VideoModal
         isModelOpen={isOpen}
         onClose={handleVideoModal}
         title="Watch Our Latest Video"
-        videoLink={post?.video_link}
+        videoLink={post?.link}
       />
     </>
   );
