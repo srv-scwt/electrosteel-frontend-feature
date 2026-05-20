@@ -1,17 +1,60 @@
-import BlogDetailsSlider from '../_components/blogDetailsSlider';
 import BlogDetailsContent from '../_components/blogDetailsContent';
 import HeroSection from '@/components/common/heroSection';
 import GallerySection from '@/components/common/GallerySection';
 import BlogWrapper from '../_components/blogWrapper';
 import { getBlogDetailsBySlug } from '@/services/blogs/blog-slug.api';
+import { getBlogResponseByCategory } from '@/services/blogs/blog.api';
 import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
 import { createImageSourceURL } from '@/utils';
+
+const getAdjacentBlogs = ({ currentSlug, blogDetails, blogList }) => {
+  const previousBlog =
+    blogDetails?.previousBlog ??
+    blogDetails?.prevBlog ??
+    blogDetails?.previous_post ??
+    blogDetails?.previousPost ??
+    null;
+  const nextBlog =
+    blogDetails?.nextBlog ??
+    blogDetails?.next_post ??
+    blogDetails?.nextPost ??
+    null;
+
+  if (previousBlog || nextBlog) {
+    return { previousBlog, nextBlog };
+  }
+
+  if (Array.isArray(blogList) && blogList.length > 0) {
+    const currentIndex = blogList.findIndex((item) => item?.slug === currentSlug);
+
+    if (currentIndex !== -1) {
+      return {
+        previousBlog: currentIndex > 0 ? blogList[currentIndex - 1] : null,
+        nextBlog:
+          currentIndex < blogList.length - 1 ? blogList[currentIndex + 1] : null,
+      };
+    }
+  }
+
+  const fallbackRelatedBlogs = Array.isArray(blogDetails?.relatedBlogs)
+    ? blogDetails.relatedBlogs.filter((item) => item?.slug !== currentSlug)
+    : [];
+
+  return {
+    previousBlog: fallbackRelatedBlogs[0] ?? null,
+    nextBlog: fallbackRelatedBlogs[1] ?? null,
+  };
+};
 
 const page = async ({ params }) => {
   const { id } = await params;
   const BlogDetails = await getBlogDetailsBySlug(id);
 
   if (!BlogDetails || BlogDetails?.error) return <SomethingWentWrong />;
+
+  const BlogListResponse = await getBlogResponseByCategory({
+    category: "blogListPage",
+  });
 
   const heroData = {
     banner:
@@ -20,66 +63,31 @@ const page = async ({ params }) => {
     title: BlogDetails?.data?.banner_title ?? "Blog",
   };
 
-  // const slides = [
-  //   { img: "/images/blog/blogDetailsBanner.png", title: "Slide 1" },
-  //   { img: "/images/blog/blogDetailsBanner.png", title: "Slide 2" },
-  //   { img: "/images/blog/blogDetailsBanner.png", title: "Slide 3" },
-  // ];
-
-  // const imageData = [
-  //   { type: "image", path: "/images/blog/cimage.png" },
-  //   { type: "video", path: "/videos/our_peopleVideo.mp4" },
-  //   { type: "image", path: "/images/blog/cimage.png" },
-  // ];
-
-  // const data = {
-  //   description: `Electrosteel Castings Ltd has always championed women empowerment, at their plants and boardrooms across 110-plus countries.
-  //   Electrosteel is proud to partner with the Daamini Foundation's 'Daamini Supports - HER Enterprise', an endeavour designed to foster an ecosystem where women entrepreneurs are encouraged to participate, grow, and succeed. Our Whole-Time Director, Mrs Nityangi Kejriwal Jaiswal , a long-time supporter of women in the workplace, is a Nominated Mentor. 
-  //   In a recorded video played at the launch of 'Daamini Supports - HER Enterprise' yesterday, she expresses her support for the noble initiative. <br /> At the event, Ms Sanchita Kushary Bose, Founder, Daamini, also expressed her gratitude to Electrosteel and Mrs Nityangi Kejriwal Jaiswal. <br /> This marks the beginning of a journey filled with strength, innovation and limitless possibilities. Onward, forward!`
-  // }
-
-  const blogArr = [
-    {
-      img: "/images/blog/card/img1.png",
-      date: `September ${16 - (1 % 10)}, 2024`,
-      title: `Blog title ${1 + 1}`,
-      desc: "The 10th Water Innovation Summit 'Viksit Bharat @2024, Water Partnerships..",
-      link: "#",
-    },
-    {
-      img: "/images/blog/card/img1.png",
-      date: `September ${16 - (1 % 10)}, 2024`,
-      title: `Blog title ${1 + 1}`,
-      desc: "The 10th Water Innovation Summit 'Viksit Bharat @2024, Water Partnerships..",
-      link: "#",
-    },
-    {
-      img: "/images/blog/card/img1.png",
-      date: `September ${16 - (1 % 10)}, 2024`,
-      title: `Blog title ${1 + 1}`,
-      desc: "The 10th Water Innovation Summit 'Viksit Bharat @2024, Water Partnerships..",
-      link: "#",
-    },
-    {
-      img: "/images/blog/card/img1.png",
-      date: `September ${16 - (1 % 10)}, 2024`,
-      title: `Blog title ${1 + 1}`,
-      desc: "The 10th Water Innovation Summit 'Viksit Bharat @2024, Water Partnerships..",
-      link: "#",
-    }
-  ]
-
   const imageArr = BlogDetails?.data?.images?.map((item) => ({
     type: "image",
     path: item,
   })) || [];
+  const currentSlug = BlogDetails?.data?.slug ?? id;
+  const relatedBlogs = Array.isArray(BlogDetails?.data?.relatedBlogs)
+    ? BlogDetails.data.relatedBlogs
+    : [];
+  const blogList = Array.isArray(BlogListResponse?.data) ? BlogListResponse.data : [];
+  const { previousBlog, nextBlog } = getAdjacentBlogs({
+    currentSlug,
+    blogDetails: BlogDetails?.data,
+    blogList,
+  });
 
   return (
     <>
       <HeroSection data={heroData} />
       <BlogDetailsContent data={BlogDetails?.data} />
       <GallerySection imageData={imageArr} data={BlogDetails?.data} />
-      <BlogWrapper data={blogArr} />
+      <BlogWrapper
+        data={relatedBlogs}
+        previousBlog={previousBlog}
+        nextBlog={nextBlog}
+      />
     </>
   );
 };
