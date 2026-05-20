@@ -4,6 +4,7 @@ import { FaXTwitter, FaYoutube } from "react-icons/fa6";
 import styles from "@/app/common.module.css";
 import Link from "next/link";
 import { getSocialIconsData } from "@/services/social-icons/socialIcons.api";
+import HTMLRender from "@/components/ui/HTMLRender";
 
 const FollowUsSocialmedia = async() => {
 const socialData = await getSocialIconsData()
@@ -54,10 +55,7 @@ const socialData = await getSocialIconsData()
     <section>
       <div className={styles.containerLg}>
         <div className={styles.sectionContent}>
-          <h2>
-            <span>Follow</span> Us on
-          </h2>
-
+          <HTMLRender htmlString={`<h2>${socialData?.data?.[0]?.title}</h2>`} />
           {/* Grid of social icons */}
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 md:gap-5 lg:gap-8 items-start">
             {socialLinks.map((social) => (

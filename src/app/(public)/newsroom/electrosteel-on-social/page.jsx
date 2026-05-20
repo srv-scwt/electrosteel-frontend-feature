@@ -1,11 +1,11 @@
 import HeroSection from '@/components/common/heroSection'
 import React from 'react'
-import FollowUsSocialmedia from './_components/followUsSection'
 import SocialSection from './_components/socialSection'
 import { getSocialData } from '@/services/socialData.api'
 import SomethingWentWrong from '@/components/common/SomethingWentsWrong'
 import { getCommonBanner } from '@/services/commonBanner/commonBanner.api'
 import { createImageSourceURL } from '@/utils'
+import FollowUsSocialmedia from '@/components/common/followUsSection'
 
 const page = async () => {
   const homeBanner = await getCommonBanner("ElectrosteelonSocial");
