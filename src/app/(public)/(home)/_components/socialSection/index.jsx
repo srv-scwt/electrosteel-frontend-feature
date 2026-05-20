@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import SectionTitleWithButton from "@/components/ui/sectionTitleWithButton";
+import { createImageSourceURL } from "@/utils";
 
 export default function SocialSection({ data }) {
   return (
@@ -53,32 +54,48 @@ export default function SocialSection({ data }) {
               },
             }}
           >
-            {Array.isArray(data) && data?.map((post, index) => (
-              <SwiperSlide key={index}>
-                <div key={post?.id} className={`shadow-xl ${styles.socialCardWrapper}`}>
-                  <div className={styles.socialCardImage}>
-                    <Image
-                      src={post?.full_picture}
-                      alt={post?.title}
-                      fill
-                      className="w-full h-full absolute object-cover"
-                    />
-                  </div>
-                  <div className={styles.sectionContent}>
-                    <span>{post?.date}</span>
-                    <h3>
-                      {post?.message.length >= 100
-                        ? `${post?.message.slice(0, 100)}...`
-                        : post?.message
-                      }
-                    </h3>
-                    <div className={styles.cardLink}>
-                      <OutlineButtonLink goto={post?.permalink_url ?? "/"} title={"Read More"} />
+            {Array.isArray(data) && data?.map((post, index) => {
+              const imageSrc = createImageSourceURL(
+                post?.full_picture,
+                "/images/blog/card/img1.png"
+              );
+              const message = post?.message ?? "";
+
+              return (
+                <SwiperSlide key={index}>
+                  <div key={post?.id} className={`shadow-xl ${styles.socialCardWrapper}`}>
+                    <div className={styles.socialCardImage}>
+                      <Image
+                        src={imageSrc}
+                        alt=""
+                        fill
+                        aria-hidden="true"
+                        className={styles.socialCardImageBg}
+                      />
+                      <div className={styles.socialCardImageOverlay} />
+                      <Image
+                        src={imageSrc}
+                        alt={post?.title || "Social post"}
+                        fill
+                        className={styles.socialCardImageMain}
+                      />
+                    </div>
+                    <div className={styles.sectionContent}>
+                      <span>{post?.date}</span>
+                      <h3>
+                        {message.length >= 100
+                          ? `${message.slice(0, 100)}...`
+                          : message
+                        }
+                      </h3>
+                      <div className={styles.cardLink}>
+                        <OutlineButtonLink goto={post?.permalink_url ?? "/"} title={"Read More"} />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
       </div>

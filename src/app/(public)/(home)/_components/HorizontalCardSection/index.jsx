@@ -2,7 +2,7 @@
 import Image from "next/image";
 import styles from "./style.module.css";
 import cstyles from "@/app/common.module.css"
-import { ButtonLink, OutlineButtonLink } from "@/components/ui/Button";
+import { OutlineButtonLink } from "@/components/ui/Button";
 import { Autoplay, A11y, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -70,8 +70,8 @@ export default function HorizontalCardSection({ cardData = [] }) {
                   <div className={styles.sectionContent}>
                     <span>{formatDate(post?.date)}</span>
                     <HTMLRender htmlString={`<h3>
-                      ${post?.description.length >= 120
-                        ? `${post?.description.slice(0, 120)}...`
+                      ${post?.description.length >= 80
+                        ? `${post?.description.slice(0, 80)}...`
                         : post?.description
                       }
                     </h3>`} />
@@ -79,9 +79,10 @@ export default function HorizontalCardSection({ cardData = [] }) {
                       <OutlineButtonLink goto={post?.link ?? '#'} title={"Read More"} />
                     </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
+                  </div>
+                </SwiperSlide>
+              )
+            )}
           </Swiper>
         </div>
         <div className={`${cstyles.containerLg} pb-0! w-full flex items-center justify-center`}>
