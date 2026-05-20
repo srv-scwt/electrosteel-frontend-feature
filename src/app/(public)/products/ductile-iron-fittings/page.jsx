@@ -6,7 +6,6 @@ import CardSection from './_components/cardSection';
 import JointingSystemSection from '../_components/jointingSystemsSection';
 import ApplicationSection from '../_components/applicationSection';
 import ProtectionSystemSection from '../_components/protectionSystemSection';
-import { ductileIronFittingPExternal, ductileIronFittingPInternal, ductileIronFittingsJointingSystem, ductileIronPipesJointingSystem } from '../data/m.data';
 import { getDuctileIronFittings } from '@/services/product/ductileIronFittings.api';
 import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
 import { createImageSourceURL } from '@/utils';

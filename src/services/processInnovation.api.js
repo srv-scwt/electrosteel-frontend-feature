@@ -2,7 +2,7 @@ import { handleServerFetchError, ServerFetch } from "../../actions/server-fetch"
 
 export async function getProcessInnovation() {
   try {
-    const response = await ServerFetch(`/frontend/about/all-ProcessInnovationData`, { mode: "SSR"});
+    const response = await ServerFetch(`/frontend/about/all-ProcessInnovationData`, { mode: "SSR"});    
 
     if (!response) {
       return { data: null, error: "NO_DATA" };

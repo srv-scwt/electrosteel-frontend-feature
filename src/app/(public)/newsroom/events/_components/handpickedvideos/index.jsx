@@ -11,7 +11,7 @@ import SectionTitleWithButton from "@/components/ui/sectionTitleWithButton";
 import cstyles from "@/app/common.module.css";
 import { createImageSourceURL } from "@/utils";
 
-const HandPickedVideos = ({ data = [] }) => {
+const HandPickedVideos = ({ data = [] }) => {  
   const [isOpen, setIsOpen] = useState(false)
   return (
     <section className={styles.sectionSpacing}>
@@ -70,8 +70,8 @@ const HandPickedVideos = ({ data = [] }) => {
                 isModelOpen={isOpen}
                 onClose={() => setIsOpen(false)}
                 title="Watch Our Latest Video"
-                isIframe={false}
-                videoLink={post?.files?.[0]?.path}
+                isIframe={true}
+                videoLink={post?.link}
               />
             </article>
           ))}

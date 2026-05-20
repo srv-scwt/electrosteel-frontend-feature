@@ -1,9 +1,8 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './style.module.css';
 import { ButtonLink } from '@/components/ui/Button';
 import Image from 'next/image';
-import style from "@/app/common.module.css"
 import cstyle from '@/app/common.module.css'
 import { createImageSourceURL } from '@/utils';
 import HTMLRender from '@/components/ui/HTMLRender';
@@ -39,7 +38,7 @@ const CardSection = ({ data = [] }) => {
 
                                 <div className={cstyle.sectionContent}>
                                     <h4 className='text-[#05509E]'>{product?.title}</h4>
-                                    <HTMLRender htmlString={`<p>${product?.description}</p>`} />
+                                    <HTMLRender htmlString={`${product?.description}`} />
                                     <ButtonLink goto={"/"} title={"View Product Brochures"} className={`${styles.viewBtn} mt-[16px]`} />
                                 </div>
                             </div>
