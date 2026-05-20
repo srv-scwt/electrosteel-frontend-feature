@@ -2,7 +2,7 @@
 import Image from "next/image";
 import styles from "./style.module.css";
 import cstyles from "@/app/common.module.css"
-import { ButtonLink, OutlineButtonLink } from "@/components/ui/Button";
+import { OutlineButtonLink } from "@/components/ui/Button";
 import { Autoplay, A11y, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -55,32 +55,48 @@ export default function HorizontalCardSection({ cardData = [] }) {
               },
             }}
           >
-            {Array.isArray(cardData) && cardData?.map((post, index) => (
-              <SwiperSlide key={index} className={`pb-[10px] ${styles.cardSlide}`}>
-                <div key={post.id} className={`${styles.socialCardWrapper} ${styles.socialCardWrapper1} shadow-xl`}>
-                  <div className={styles.socialCardImage}>
-                    <Image
-                      src={post?.full_picture}
-                      alt={post?.title}
-                      fill
-                      className="w-full h-full absolute object-cover"
-                    />
-                  </div>
-                  <div className={styles.sectionContent}>
-                    <span>{post?.date}</span>
-                    <h3>
-                      {post?.message.length >= 120
-                        ? `${post?.message.slice(0, 120)}...`
-                        : post?.message
-                      }
-                    </h3>
-                    <div className={styles.cardLink}>
-                      <OutlineButtonLink goto={post?.permalink_url ?? '#'} title={"Read More"} />
+            {Array.isArray(cardData) && cardData?.map((post, index) => {
+              const imageSrc = createImageSourceURL(
+                post?.full_picture,
+                "/images/blog/card/img1.png"
+              );
+              const message = post?.message ?? "";
+
+              return (
+                <SwiperSlide key={index} className={`pb-[10px] ${styles.cardSlide}`}>
+                  <div key={post.id} className={`${styles.socialCardWrapper} ${styles.socialCardWrapper1} shadow-xl`}>
+                    <div className={styles.socialCardImage}>
+                      <Image
+                        src={imageSrc}
+                        alt=""
+                        fill
+                        aria-hidden="true"
+                        className={styles.socialCardImageBg}
+                      />
+                      <div className={styles.socialCardImageOverlay} />
+                      <Image
+                        src={imageSrc}
+                        alt={post?.title || "Business post"}
+                        fill
+                        className={styles.socialCardImageMain}
+                      />
+                    </div>
+                    <div className={styles.sectionContent}>
+                      <span>{post?.date}</span>
+                      <h3>
+                        {message.length >= 120
+                          ? `${message.slice(0, 120)}...`
+                          : message
+                        }
+                      </h3>
+                      <div className={styles.cardLink}>
+                        <OutlineButtonLink goto={post?.permalink_url ?? '#'} title={"Read More"} />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
         <div className={`${cstyles.containerLg} pb-0! w-full flex items-center justify-center`}>
