@@ -138,7 +138,6 @@
 
   .sectionContent p {
     font-size: clamp(14px, 2.5vw, 22px);
-    line-height: 1.4;
   }
 
   .sectionContent ul {
@@ -157,7 +156,7 @@
 
   .sectionContent p {
     font-size: clamp(14px, 1.2vw, 17px);
-    line-height: 1.5;
+    line-height: 1.65;
   }
 
   .sectionContent ul {

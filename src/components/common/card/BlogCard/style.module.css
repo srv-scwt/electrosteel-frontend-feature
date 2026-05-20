@@ -1,9 +1,17 @@
 
+.cardItem {
+  height: 100%;
+}
+
 .blogCard {
   border: 1px solid #dedede;
   padding: 16px;
   border-radius: 16px;
   background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 320px;
 }
 
 .blogCard img {
@@ -43,6 +51,14 @@
   transition: all ease-in-out 0.5s;
 }
 
+.blogPostTitle h4 a {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 .blogPostTitle h4:hover {
   /* color: #fafafa; */
   transition: all ease-in-out 0.5s;
@@ -55,6 +71,16 @@
   line-height: 26px;
   color: #545454;
   margin-bottom: 20px;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  min-height: 78px;
+}
+
+.blogPostReakd {
+  margin-top: auto;
 }
 
 
@@ -68,14 +94,21 @@
   .blogPostDescription p {
     font-size: 17px;
     line-height: 25px;
+    min-height: 75px;
   }
 }
 
+@media (max-width: 991.98px) {
+  .blogPostTitle h4 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
 
 @media (max-width: 680.98px) {
   .blogPostDescription p {
     font-size: 16px;
     line-height: 24px;
+    min-height: 72px;
   }
-
 }

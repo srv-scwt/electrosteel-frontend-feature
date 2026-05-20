@@ -2,16 +2,21 @@ import React from 'react'
 import styles from './style.module.css'
 import Link from 'next/link'
 import { OutlineButtonLink } from '@/components/ui/Button'
-import { createImageSourceURL, formatDate, truncateText } from '@/utils'
-
-const BLOG_TITLE_WORD_LIMIT = 5;
-const BLOG_DESCRIPTION_WORD_LIMIT = 12;
+import { createImageSourceURL, formatDate } from '@/utils'
 
 const stripHtml = (value = "") =>
     String(value)
         .replace(/<[^>]+>/g, " ")
         .replace(/\s+/g, " ")
         .trim();
+
+const truncateCharacters = (value = "", maxLength = 20) => {
+    if (value.length <= maxLength) {
+        return value;
+    }
+
+    return `${value.slice(0, maxLength).trimEnd()}...`;
+};
 
 const getBlogHref = (blog) => {
     if (blog?.slug) {
@@ -38,12 +43,12 @@ const BlogCard = ({ blog = {} }) => {
     const href = getBlogHref(blog);
     const imageSrc = createImageSourceURL(blog?.image || blog?.img, blog?.img || "/images/blog/card/img1.png");
     const formattedDate = formatDate(blog?.date || blog?.created_at);
-    const title = stripHtml(blog?.title);
-    const description = stripHtml(blog?.description || blog?.desc);
+    const title = truncateCharacters(stripHtml(blog?.title));
+    const description = truncateCharacters(stripHtml(blog?.description || blog?.desc) , 40);
 
     return (
         <>
-            <article>
+            <article className={styles.cardItem}>
                 <div className={styles.blogCard}>
                     <Link href={href}>
                         <img src={imageSrc} alt={blog?.title || "Blog"} />
@@ -53,11 +58,11 @@ const BlogCard = ({ blog = {} }) => {
                     ) : null}
                     <div className={styles.blogPostTitle}>
                         <h4>
-                            <Link href={href}>{truncateText(title, BLOG_TITLE_WORD_LIMIT)}</Link>
+                            <Link href={href}>{title}</Link>
                         </h4>
                     </div>
                     <div className={styles.blogPostDescription}>
-                        <p>{truncateText(description, BLOG_DESCRIPTION_WORD_LIMIT)}</p>
+                        <p>{description}</p>
                     </div>
                     <div className={styles.blogPostReakd}>
                         <OutlineButtonLink
