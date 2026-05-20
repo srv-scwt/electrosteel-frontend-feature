@@ -28,9 +28,9 @@ const page = async () => {
       <OurProductSection data={HomeData?.data?.ecl_products} />
       <ElectroSteelSection data={HomeData?.data?.growing_from_strength?.[0]} />
       <VideoWaterSection waterSectionData={HomeData?.data?.water_section} />
-      <HorizontalCardSection title={businessTitle} cardData={HomeData?.data?.facebook_posts ?? ''} headerButton={"#"} />
+      <HorizontalCardSection title={businessTitle} cardData={HomeData?.data?.business_world ?? ''} headerButton={"#"} />
       <OurMileStoneSection data={HomeData?.data?.milestones} timelineData={HomeData?.data?.milestones?.milestones_data || []} />
-      <SocialSection data={SocialData?.data || []} />
+      <SocialSection data={HomeData?.data?.facebook_posts ?? ''} />
       <AdvertiseSection
         AdvertiseData={HomeData?.data?.advertisements?.[0]}
         ulData={HomeData?.data?.advertisements?.[0]?.box_data}

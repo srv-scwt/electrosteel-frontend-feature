@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import SectionTitleWithButton from "@/components/ui/sectionTitleWithButton";
 
-export default function SocialSection({ data = [] }) {
+export default function SocialSection({ data }) {
   return (
     <section className="bg-[#f9f9f9]">
       <div className={styles.containerLg}>

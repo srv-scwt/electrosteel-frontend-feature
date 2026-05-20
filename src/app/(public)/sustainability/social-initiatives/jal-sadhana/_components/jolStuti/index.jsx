@@ -40,7 +40,7 @@ export default function JolStuti({ data = [] }) {
                       src={createImageSourceURL(slides?.image)}
                       alt={slides?.title ?? "Jal Stuti"}
                       fill
-                      className="rounded-[12px] w-[100%] h-[100%] object-contain"
+                      className="rounded-[12px] w-[100%] h-[100%] object-cover"
                     />
                   </div>
                 </div>

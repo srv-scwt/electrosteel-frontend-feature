@@ -8,7 +8,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import SectionTitleWithButton from "@/components/ui/sectionTitleWithButton";
-import { createImageSourceURL } from "@/utils";
+import { createImageSourceURL, formatDate } from "@/utils";
+import HTMLRender from "@/components/ui/HTMLRender";
 // import HTMLRender from "@/components/ui/HTMLRender";
 
 export default function HorizontalCardSection({ cardData = [] }) {
@@ -60,22 +61,22 @@ export default function HorizontalCardSection({ cardData = [] }) {
                 <div key={post.id} className={`${styles.socialCardWrapper} ${styles.socialCardWrapper1} shadow-xl`}>
                   <div className={styles.socialCardImage}>
                     <Image
-                      src={post?.full_picture}
+                      src={createImageSourceURL(post?.image)}
                       alt={post?.title}
                       fill
                       className="w-full h-full absolute object-cover"
                     />
                   </div>
                   <div className={styles.sectionContent}>
-                    <span>{post?.date}</span>
-                    <h3>
-                      {post?.message.length >= 120
-                        ? `${post?.message.slice(0, 120)}...`
-                        : post?.message
+                    <span>{formatDate(post?.date)}</span>
+                    <HTMLRender htmlString={`<h3>
+                      ${post?.description.length >= 120
+                        ? `${post?.description.slice(0, 120)}...`
+                        : post?.description
                       }
-                    </h3>
+                    </h3>`} />
                     <div className={styles.cardLink}>
-                      <OutlineButtonLink goto={post?.permalink_url ?? '#'} title={"Read More"} />
+                      <OutlineButtonLink goto={post?.link ?? '#'} title={"Read More"} />
                     </div>
                   </div>
                 </div>
