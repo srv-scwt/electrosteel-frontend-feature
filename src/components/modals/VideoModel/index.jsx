@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import styles from "./style.module.css";
 import { createVideoSourceURL } from "@/utils";
+import HTMLRender from "@/components/ui/HTMLRender";
 
 const VideoModal = ({
   isModelOpen,
@@ -36,14 +37,15 @@ const VideoModal = ({
 
         <div className={styles.videoContainer}>
           {isIframe ? (
-            <iframe
-              width="100%"
-              height="89%"
-              src={`https://www.youtube.com/embed/${videoLink}`}
-              title="YouTube video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
+            <HTMLRender htmlString={videoLink} />
+            // <iframe
+            //   width="100%"
+            //   height="89%"
+            //   src={`https://www.youtube.com/embed/${videoLink}`}
+            //   title="YouTube video"
+            //   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            //   allowFullScreen
+            // ></iframe>
           ) : (
             <video
               src={createVideoSourceURL(videoLink)}

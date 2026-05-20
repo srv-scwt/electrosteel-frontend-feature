@@ -3,7 +3,7 @@ import VideoModal from "@/components/modals/VideoModel";
 import Image from "next/image";
 import React, { useState } from "react";
 
-const VideoWithModal = ({ thumbnail, title }) => {
+const VideoWithModal = ({ thumbnail, title , videoLink , isIFrame }) => {
   const [openVideo, setOpenVideo] = useState(false);
 
   const handleVideoModalOpen = () => {
@@ -44,6 +44,8 @@ const VideoWithModal = ({ thumbnail, title }) => {
           isModelOpen={openVideo}
           onClose={handleVideoModalOpen}
           title={title}
+          videoLink={videoLink}
+          isIframe={isIFrame}
         />
       )}
     </>

@@ -24,8 +24,10 @@ const GridTwoSection = ({
   objectPosition = "object-cover",
   isDownloadLink = false,
   isDarkSection = false,
+  isIFrame=false,
 }) => {
   if (!data) return null;
+console.log(data);
 
   return (
     <section id={sectionID} className={isDarkSection ? "bg-[#00418e]" : ""}>
@@ -34,8 +36,8 @@ const GridTwoSection = ({
           <div
             className={`relative w-full flex items-center justify-center h-64 md:h-80 lg:h-full min-h-[320px] lg:min-h-[420px] overflow-hidden ${bannerOrder}`}
           >
-            {isVideo && data?.video ? (
-              <VideoWithModal thumbnail={createVideoSourceURL(data?.video)} title="Video" />
+            {isVideo && data?.link ? (
+              <VideoWithModal thumbnail={createVideoSourceURL(data?.image)} title="Video" videoLink={data?.link} isIFrame={isIFrame}/>
             ) : (
               Array.isArray(data?.image ?? data.images) ? (
                 <BannerSectionCarousel images={data?.image ?? data?.images} />
