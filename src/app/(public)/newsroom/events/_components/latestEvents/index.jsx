@@ -1,17 +1,22 @@
+"use client"
 import SectionTitleWithButton from "@/components/ui/sectionTitleWithButton";
 import React from "react";
 import styles from "./style.module.css";
 import cstyles from "@/app/common.module.css";
 // import { events, latestEvents } from "./m.data";
 import {
+  OutlineButton,
   OutlineButtonLink,
 } from "@/components/ui/Button";
 import { IoLocationOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
 import Image from "next/image";
-import { createImageSourceURL } from "@/utils";
+import { createImageSourceURL, formatDate } from "@/utils";
+import useLoadMoreData from "@/hooks/useLoadMoreData";
+
 const LatestEvents = ({ data = [] }) => {
-  
+  const { visibleData, hasMore, handleLoadMore } = useLoadMoreData(data, 6);
+
   return (
     <>
       <section className={`${styles.sectionSpacing}`}>
@@ -24,8 +29,11 @@ const LatestEvents = ({ data = [] }) => {
           <div
             className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ${styles.eventsContainer}`}
           >
-            {Array.isArray(data) && data?.map((post, index) => (
-              <article key={index} className={styles.socialCardWrapper}>
+            {visibleData?.map((post, index) => (
+              <article
+                key={post?.id ?? post?.slug ?? index}
+                className={styles.socialCardWrapper}
+              >
                 <div className={styles.socialCardImage}>
                   <Image
                     src={createImageSourceURL(post?.image)}
@@ -42,7 +50,7 @@ const LatestEvents = ({ data = [] }) => {
                   >
                     <li>
                       <SlCalender size={14} />
-                      <span>{post?.date}</span>
+                      <span>{formatDate(post?.date)}</span>
                     </li>
                     <li>
                       <IoLocationOutline size={16} />
@@ -60,14 +68,15 @@ const LatestEvents = ({ data = [] }) => {
               </article>
             ))}
           </div>
-          <div className={styles.buttonContainer}>
-            <OutlineButtonLink
-              goto={"/"}
-              title={"load more"}
-              iconActive={true}
-              className={"flex items-center !justify-center"}
-            />
-          </div>
+          {hasMore ? (
+            <div className={styles.buttonContainer}>
+              <OutlineButton
+                action={handleLoadMore}
+                title={"load more"}
+                className={"flex items-center !justify-center"}
+              />
+            </div>
+          ) : null}
         </div>
       </section>
     </>

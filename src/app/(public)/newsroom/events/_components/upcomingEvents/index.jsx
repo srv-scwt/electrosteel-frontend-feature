@@ -1,17 +1,20 @@
+"use client";
+
 import React from "react";
 import styles from "./style.module.css";
 import cstyles from "@/app/common.module.css";
-import { ButtonLink, OutlineButtonLink } from "@/components/ui/Button";
+import { OutlineButton, OutlineButtonLink } from "@/components/ui/Button";
 import Image from "next/image";
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
-import { events } from "./m.data";
 import SectionTitleWithButton from "@/components/ui/sectionTitleWithButton";
-import { createImageSourceURL } from "@/utils";
+import { createImageSourceURL, formatDate } from "@/utils";
+import useLoadMoreData from "@/hooks/useLoadMoreData";
 
 const UpcomingEvents = ({ data = [] }) => {
-  
+  const { visibleData, hasMore, handleLoadMore } = useLoadMoreData(data, 6);
+
   return (
     <section className="bg-[#F5F5F5]">
       <div className={cstyles.containerLg}>
@@ -22,8 +25,11 @@ const UpcomingEvents = ({ data = [] }) => {
           />
        
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${styles.eventsContainer}`} >
-          {Array.isArray(data) && data?.map((post , index) => (
-            <article key={index} className={styles.socialCardWrapper}>
+          {visibleData?.map((post , index) => (
+            <article
+              key={post?.id ?? post?.slug ?? index}
+              className={styles.socialCardWrapper}
+            >
               {/* Image Section */}
               <div className={styles.socialCardImage}>
                 <Image
@@ -39,7 +45,7 @@ const UpcomingEvents = ({ data = [] }) => {
                 <div className={`${styles.eventDetails} grid `}>
                   <li className="w-max">
                     <SlCalender size={14} />
-                    <span>{post?.date}</span>
+                    <span>{formatDate(post?.date)}</span>
                   </li>
                  {post?.time && <li className="w-max">
                     <MdOutlineWatchLater size={16} />
@@ -57,9 +63,15 @@ const UpcomingEvents = ({ data = [] }) => {
             </article>
           ))}
         </div>
-             <div className={`${cstyles.containerLg} pb-0! w-full flex items-center justify-center`}>
-            <OutlineButtonLink goto={"/"} title={"load more"} iconActive={true} className={"flex items-center !justify-center"} />
+        {hasMore ? (
+          <div className={`${cstyles.containerLg} pb-0! w-full flex items-center justify-center`}>
+            <OutlineButton
+              action={handleLoadMore}
+              title={"load more"}
+              className={"flex items-center !justify-center"}
+            />
           </div>
+        ) : null}
       </div>
     </section>
   );
