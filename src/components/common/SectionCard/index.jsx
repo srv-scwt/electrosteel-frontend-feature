@@ -19,7 +19,7 @@ const SectionCard = ({ data = [] }) => {
             <div className={`${styles.side} ${isLeft ? styles.hasCard : styles.empty}`}>
               {isLeft ? (
                 <div className={styles.cardShell}>
-                  <PaintApprovalsCard data={item} isLeft={isLeft}/>
+                  <PaintApprovalsCard data={item} isLeft={isLeft} point={`${index < 10 ? `0${index + 1}` : index + 1}`}/>
                 </div>
               ) : null}
             </div>
@@ -33,7 +33,7 @@ const SectionCard = ({ data = [] }) => {
             <div className={`${styles.side} ${!isLeft ? styles.hasCard : styles.empty}`}>
               {!isLeft ? (
                 <div className={styles.cardShell}>
-                  <PaintApprovalsCard data={item} />
+                  <PaintApprovalsCard data={item} point={`${index < 10 ? `0${index + 1}` : index + 1}`}/>
                 </div>
               ) : null}
             </div>

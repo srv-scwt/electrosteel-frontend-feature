@@ -11,12 +11,23 @@
   padding: 48px 0;
 }
 
+.blogWrapper > article {
+  height: 100%;
+}
+
 .blogCard {
-      background: #004aa1;
-    border: 1px solid #dedede;
-    border-radius: 32px;
-    padding: clamp(16px, 2.8vw, 24px);
-    padding: 24px 16px;
+  background: #004aa1;
+  border: 1px solid #dedede;
+  border-radius: 32px;
+  padding: clamp(16px, 2.8vw, 24px);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.blogCard > a {
+  display: block;
 }
 
 .blogCard img {
@@ -92,7 +103,16 @@
   font-size: 14px;
   line-height: 26px;
   color: #FFFFFF;
-  margin-bottom: 20px;
+  margin-bottom: 0;
+}
+
+.blogPostDescription {
+  flex: 1;
+}
+
+.blogPostReakd {
+  margin-top: auto;
+  padding-top: 8px;
 }
 
 .loadBtn {

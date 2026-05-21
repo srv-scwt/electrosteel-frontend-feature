@@ -102,14 +102,12 @@ export default function VideoGallery({ sectionId, data = [] }) {
             {data.map((item, index) => {
               const videoSrc = item?.link || item?.video || item?.image;
 
-console.log("Video error########:", videoSrc)
-
               if (!videoSrc) return null;
 
               return (
                 <a
                   key={item?.id || index}
-                  href={videoSrc}
+                  href={createVideoSourceURL(videoSrc)}
                   data-fancybox="video-gallery"
                   data-type="html5video"
                   data-caption={item?.title || ""}
