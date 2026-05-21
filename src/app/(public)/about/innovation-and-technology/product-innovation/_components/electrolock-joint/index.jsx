@@ -3,18 +3,14 @@ import Image from "next/image";
 import styles from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
 import {
-  ButtonLinkOutlineWithBorder,
-  ButtonWithIcon,
-  OutlineButton,
   OutlineButtonLink,
 } from "@/components/ui/Button";
-import { AiOutlinePlayCircle } from "react-icons/ai";
-import { HiDownload } from "react-icons/hi";
 import WatchVideoButton from "@/components/ui/WatchVideoButton";
 import { createImageSourceURL } from "../../../../../../../utils";
 // comment
 
 export default function ElectrolockJoint({ data }) {
+  
   return (
     <section className="">
       <div className={styles.containerLg}>
@@ -32,7 +28,7 @@ export default function ElectrolockJoint({ data }) {
             <HTMLRender htmlString={`<p>${data?.desc ?? ""}</p>`} />
             <div className="flex flex-wrap justify-between flex-row gap-1 lg:gap-3 mt-6">
                <div className="flex-1 flex items-center justify-center">
-              <WatchVideoButton />
+              <WatchVideoButton  videoLink={data?.videoLink}/>
               </div>
               <div className="w-[2px] bg-[#ccc]"></div>
               <div className="flex-1 flex items-center justify-center">
