@@ -35,7 +35,7 @@ export default function ManufacturingFacilities({ data, facilities = [] }) {
           </div>
 
           <div className={styles.sectionBtn}>
-            <OutlineButtonLink goto={"/"} title={"read more"} />
+            <OutlineButtonLink goto={data?.link} title={"read more"} />
           </div>
         </div>
       </div>

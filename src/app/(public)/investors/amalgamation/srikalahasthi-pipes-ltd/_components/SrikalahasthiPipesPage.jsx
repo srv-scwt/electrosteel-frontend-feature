@@ -11,6 +11,7 @@ export default async function SrikalahasthiPipesPage({
   titleYearExceptional,
   isLatestValue,
   commonBannerPageName,
+  showYearField = true,
 }) {
   const resolvedSearchParams = await searchParams;
   const selectedYearParam = Array.isArray(resolvedSearchParams?.year)
@@ -58,6 +59,7 @@ export default async function SrikalahasthiPipesPage({
         data={investors?.data?.statusCode == 200 ? investors?.data?.data : investors?.data }
         searchParams={resolvedSearchParams}
         titleYearExceptional={titleYearExceptional}
+        showYearField={showYearField}
       />
     </>
   );

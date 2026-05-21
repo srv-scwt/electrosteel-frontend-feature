@@ -59,6 +59,7 @@ function groupSectionsBySectionTitle(sections) {
 export default function SrikalahasthiPipesSection({
   data,
   searchParams,
+  showYearField = true,
 }) {
   const selectedYearParam = Array.isArray(searchParams?.year)
     ? searchParams.year[0]
@@ -135,7 +136,7 @@ export default function SrikalahasthiPipesSection({
                               }
                               className="space-y-5"
                             >
-                              {yearBlock.year && (
+                              {showYearField && yearBlock.year && (
                                 <h4>
                                   <span>{yearBlock.year}</span>
                                 </h4>
