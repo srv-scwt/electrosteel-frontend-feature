@@ -83,7 +83,7 @@ export default function InvestorCard({ post }) {
                   preload="metadata"
                   className="h-[39px] w-full overflow-hidden rounded-[12px]"
                 >
-                  <source src={src} type={`audio/${extension}`} />
+                  <source src={createImageSourceURL(src)} type={`audio/${extension}`} />
                   Your browser does not support the audio element.
                 </audio>
               </div>
