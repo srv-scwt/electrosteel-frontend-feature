@@ -17,7 +17,7 @@ export async function getBlogDetailsBySlug(slug) {
     }
 
     return {
-      data: response.data?.[0],
+      data: response.data?.[0] ?? response.data,
       error: null,
       status: response.statusCode===200 ? true : false,
     };

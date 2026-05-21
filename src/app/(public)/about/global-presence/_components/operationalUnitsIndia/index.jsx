@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Tooltip from "@/components/ui/Tooltip";
 import ProductModal from "@/components/modals/productmodal";
+import HTMLRender from "@/components/ui/HTMLRender";
 
 const toArray = (value) => {
   if (!value) return [];
@@ -73,9 +74,10 @@ const OperationalUnitsIndia = ({ operationalUnits = [] }) => {
                   </h4>
 
                   <div className="!text-[#00418e] whitespace-pre-line mb-3 leading-relaxed">
-                    {toArray(unit?.address).map((line, i) => (
+                     <HTMLRender htmlString={unit?.address} />
+                    {/* {toArray(unit?.address).map((line, i) => (
                       <p key={i}>{line}</p>
-                    ))}
+                    ))} */}
                   </div>
 
                   <div className="mt-3 flex gap-4 justify-between items-center">

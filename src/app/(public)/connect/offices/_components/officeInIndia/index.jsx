@@ -98,15 +98,11 @@ const OfficeInIndia = ({ selectedCountryParam, indiaData, officesOverseasData })
                         </h4>
 
                         <div className="text-[#545454] mb-4">
-                          {toArray(office?.address).map((line, i) => (
-                            <p key={i}>{line}</p>
-                          ))}
+                          <HTMLRender htmlString={office?.address} />
                         </div>
 
                         <div className="text-[#545454] mb-5">
-                          {toArray(office?.contact).map((line, i) => (
-                            <p key={i}>{line}</p>
-                          ))}
+                           <HTMLRender htmlString={office?.contact} />
                         </div>
 
                         {office?.map_link && office?.map_link !== "/" && (

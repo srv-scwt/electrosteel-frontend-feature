@@ -6,6 +6,8 @@ import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
 
   const page = async () => {
   const committeesData = await getBoardCommittee();
+  console.log(committeesData);
+  
   if(!committeesData || committeesData.error) return <SomethingWentWrong />
 
   return (

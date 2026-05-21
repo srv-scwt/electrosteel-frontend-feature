@@ -57,7 +57,7 @@ export default function PressMediaCard({ goTo , post, onVideoOpen }) {
         )}
 
         <div className={styles.sectionContent}>
-          {post.category && <span>{post.category}</span>}
+          {post?.subtitle && <span>{post?.subtitle}</span>}
 
           <h3 className={styles.title}>{post.title}</h3>
 

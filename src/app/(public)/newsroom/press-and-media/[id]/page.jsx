@@ -36,7 +36,7 @@ const page = async ({ params }) => {
             </h2>
           </div>
           <PressClient
-            data={LatestEclCardData?.data || []}
+            data={PageDetails?.data?.relatedBlogs || []}
             className={"!pt-0"} />
         </div>
       </section>
