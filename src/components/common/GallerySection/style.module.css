@@ -1,11 +1,47 @@
 .carouselContainer {
   width: 100%;
-  height: clamp(540px, 40vw, 774px);
-  max-height: 774px;
+  height: clamp(420px, 34vw, 620px);
+  max-height: 620px;
+  /* border-radius: 28px; */
+  overflow: hidden;
+  /* background: linear-gradient(180deg, #f7f9fc 0%, #eef4f9 100%); */
 }
 
 .gridContainer {
-  gap: 32px;
+  gap: clamp(24px, 2.5vw, 40px);
+  align-items: center;
+}
+
+.gridFull {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.gridSplit {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.carouselColumn,
+.textColumn {
+  min-width: 0;
+}
+
+.carouselColumnSplit .carouselContainer {
+  height: clamp(420px, 32vw, 560px);
+  max-height: 560px;
+}
+
+.carouselColumnFull .carouselContainer {
+  height: clamp(520px, 40vw, 774px);
+  max-height: 774px;
+}
+
+.swiperSurface {
+  border-radius: 28px;
+}
+
+.textColumn {
+  display: flex;
+  align-items: center;
 }
 
 /* .actionBtn {
@@ -83,7 +119,14 @@
 }
 
 .sectionContent {
-  padding-inline: 32px;
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+  padding: clamp(20px, 2vw, 32px);
+}
+
+.sectionContent > div {
+  width: 100%;
 }
 
 .sectionContent p {
@@ -91,7 +134,7 @@
   font-weight: 400;
   font-style: Medium;
   font-size: clamp(14px, 2.5vw, 22px);
-  line-height: 37px;
+  line-height: 1.7;
   letter-spacing: 0%;
   color: #545454;
 }
@@ -169,16 +212,26 @@
 }
 
 @media (max-width: 1024px) {
-  .gridContainer > div:nth-child(1) {
-    order: 2;
+  .gridSplit {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .gridContainer > div:nth-child(1) {
     order: 1;
   }
 
+  .gridContainer > div:nth-child(2) {
+    order: 2;
+  }
+
   .sectionContent {
     padding-inline: 0px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .gridSplit {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 }
 
