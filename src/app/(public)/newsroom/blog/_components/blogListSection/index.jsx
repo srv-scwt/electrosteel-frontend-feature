@@ -1,19 +1,22 @@
 "use client";
 import styles from "./style.module.css";
-import { OutlineButtonLink } from "@/components/ui/Button";
+import { OutlineButton, OutlineButtonLink } from "@/components/ui/Button";
 import Link from "next/link";
 import cstyles from "@/app/common.module.css";
 import { SlCalender } from "react-icons/sl";
 import { createImageSourceURL, formatDate, truncateText } from "@/utils";
+import useLoadMoreData from "@/hooks/useLoadMoreData";
 
 const BlogListSection = ({ data }) => {
+  const { visibleData, hasMore, handleLoadMore } = useLoadMoreData(data, 6);
+
   return (
     <>
       <section className={`py-0! ${cstyles.containerLg}`}>
         <>
           <div className={styles.blogWrapper}>
-            {Array.isArray(data) &&
-              data?.map((blog) => (
+            {Array.isArray(visibleData) &&
+              visibleData?.map((blog) => (
                 <article key={blog.id}>
                   <div className={styles.blogCard}>
                     <Link href={`/newsroom/blog/${blog?.slug}`}>
@@ -52,17 +55,17 @@ const BlogListSection = ({ data }) => {
                 </article>
               ))}
           </div>
-
-          <div
-            className={`${styles.buttonContainer} flex justify-center items-center pb-8`}
-          >
-            <OutlineButtonLink
-              goto="#"
-              title="Load More"
-              iconActive={false}
-              className="flex items-center !justify-center"
-            />
-          </div>
+          {hasMore ? (
+            <div
+              className={`${styles.buttonContainer} flex justify-center items-center pb-8`}
+            >
+              <OutlineButton
+                action={handleLoadMore}
+                title={"load more"}
+                className={"flex items-center !justify-center"}
+              />
+            </div>
+          ) : null}
         </>
       </section>
     </>

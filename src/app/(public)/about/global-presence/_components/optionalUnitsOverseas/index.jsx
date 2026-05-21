@@ -3,16 +3,17 @@
 import React from "react";
 import styles from "@/app/common.module.css";
 import commonStyles from "./style.module.css";
-import { ButtonLink, OutlineButtonLink } from "@/components/ui/Button";
+import { ButtonLink, OutlineButton, OutlineButtonLink } from "@/components/ui/Button";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import HTMLRender from "@/components/ui/HTMLRender";
+import useLoadMoreData from "@/hooks/useLoadMoreData";
 
 const OptionalUnitsOverseas = ({data}) => {
-  
+    const { visibleData, hasMore, handleLoadMore } = useLoadMoreData(data?.data, 6);
   return (
     <section className="bg-[#fafafa]" id="operational-units-overseas">
       <div className={`${styles.containerLg}`}>
@@ -22,7 +23,7 @@ const OptionalUnitsOverseas = ({data}) => {
           </h3>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-8 lg:gap-x-[22px] lg:gap-y-[30px] items-start">
-            {Array.isArray(data?.data) && data?.data?.map((unit, index) => {
+            {Array.isArray(visibleData) && visibleData?.map((unit, index) => {
               const offices = Array.isArray(unit?.data) ? unit.data : [];
 
               return (
@@ -112,6 +113,15 @@ const OptionalUnitsOverseas = ({data}) => {
               );
             })}
           </div>
+           {hasMore ? (
+            <div className={`flex w-full items-center justify-center pt-8`}>
+              <OutlineButton
+                action={handleLoadMore}
+                title={"load more"}
+                className={"flex items-center !justify-center"}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </section>
