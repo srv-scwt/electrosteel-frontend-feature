@@ -7,16 +7,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { SlCalender } from "react-icons/sl";
-import { formatDate } from "@/utils";
+import { formatDate, truncateText } from "@/utils";
 
 export default function SocialSection({ data = [] }) {
-
-  const truncateText = (text, minWords = 12) => {
-    const words = text.split(" ");
-    if (words.length <= minWords) return text;
-    return words.slice(0, minWords).join(" ") + "...";
-  };
-
   return (
     <section className="bg-[#f9f9f9]">
       <div className={styles.containerLg}>

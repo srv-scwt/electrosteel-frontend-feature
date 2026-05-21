@@ -73,8 +73,25 @@ export const formatDate = (date) => {
 };
 
 
-export  const truncateText = (text, minWords = 10) => {
-    const words = text.split(" ");
-    if (words.length <= minWords) return text;
-    return words.slice(0, minWords).join(" ") + "...";
-  };
+export const truncateText = (text, minWords = 10) => {
+  if (text === null || text === undefined) return "";
+
+  const normalizedText = String(text).trim().replace(/\s+/g, " ");
+
+  if (!normalizedText) return "";
+
+  const wordLimit = Number(minWords);
+  const safeWordLimit = Number.isFinite(wordLimit)
+    ? Math.max(0, Math.floor(wordLimit))
+    : 10;
+
+  if (safeWordLimit === 0) return "...";
+
+  const words = normalizedText.split(/\s+/);
+
+  if (words.length <= safeWordLimit) {
+    return normalizedText;
+  }
+
+  return `${words.slice(0, safeWordLimit).join(" ")}...`;
+};

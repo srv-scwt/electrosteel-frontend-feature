@@ -5,6 +5,7 @@ import Image from "next/image";
 import { OutlineButton, OutlineButtonLink } from "@/components/ui/Button";
 import HistoryModal from "@/components/modals/historymodal";
 import HTMLRender from "@/components/ui/HTMLRender";
+import { truncateText } from "@/utils";
  
 const chunkArray = (array = [], size = 14) => {
   if (!Array.isArray(array)) return [];
@@ -31,6 +32,7 @@ const OurMileStoneSection = ({ isBottomLinkActive = true, data, timelineData = [
 
     return chunkArray(timelineData, 14);
   }, [timelineData]);
+console.log(groupedTimelineData);
 
  
   const handleModal = (selected, open) => {
@@ -113,7 +115,7 @@ const OurMileStoneSection = ({ isBottomLinkActive = true, data, timelineData = [
                 {timelineGroup.map((item, itemIndex) => (
                   <li key={item?.id ?? `${groupIndex}-${itemIndex}`}>
                     <p>{item?.year ?? ""}</p>
-                    <h4>{item?.title ?? ""}</h4>
+                    <h4>{truncateText(item?.title , 10) ?? ""}</h4>
                     <OutlineButton
                       action={() => handleModal(item, true)}
                       title={"know More"}
