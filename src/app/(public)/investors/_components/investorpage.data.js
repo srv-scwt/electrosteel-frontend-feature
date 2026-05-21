@@ -219,6 +219,7 @@ export const InvestorPageConfigObject = {
     yearFieldDropdown: true,
     headingField: false,
     latestFeild: true,
+        // sectionTitle: false
   },
 
   shareholderInformationExtractOfAnnualReturn: {
