@@ -33,6 +33,7 @@ export default function HorizontalCardSection({ cardData = [] }) {
             pagination={{ clickable: true, dynamicBullets: true }}
             observer={true}
             observeParents={true}
+            className={styles.horizontalCardSwiper}
             breakpoints={{
               1280: {
                 slidesPerView: 3,
@@ -56,33 +57,35 @@ export default function HorizontalCardSection({ cardData = [] }) {
               },
             }}
           >
-            {Array.isArray(cardData) && cardData?.map((post, index) => (
-              <SwiperSlide key={index} className={`pb-[10px] ${styles.cardSlide}`}>
-                <div key={post.id} className={`${styles.socialCardWrapper} ${styles.socialCardWrapper1} shadow-xl`}>
-                  <div className={styles.socialCardImage}>
-                    <Image
-                      src={createImageSourceURL(post?.image)}
-                      alt={post?.title}
-                      fill
-                      className="w-full h-full absolute object-cover"
-                    />
-                  </div>
-                  <div className={styles.sectionContent}>
-                    <span>{formatDate(post?.date)}</span>
-                    <HTMLRender htmlString={`<h3>
-                      ${post?.description.length >= 80
-                        ? `${post?.description.slice(0, 80)}...`
-                        : post?.description
-                      }
-                    </h3>`} />
-                    <div className={styles.cardLink}>
-                      <OutlineButtonLink goto={`newsroom/blog/${post.slug}` ?? '#1'} title={"Read More"} />
+            {Array.isArray(cardData) && cardData?.map((post, index) => {
+              const description = post?.description ?? "";
+
+              return (
+                <SwiperSlide key={index} className={styles.cardSlide}>
+                  <div key={post.id} className={`${styles.socialCardWrapper} ${styles.socialCardWrapper1} shadow-xl`}>
+                    <div className={styles.socialCardImage}>
+                      <Image
+                        src={createImageSourceURL(post?.image)}
+                        alt={post?.title}
+                        fill
+                        className="w-full h-full absolute object-cover"
+                      />
+                    </div>
+                    <div className={styles.sectionContent}>
+                      <span>{formatDate(post?.date)}</span>
+                      <HTMLRender htmlString={`<h3>${description.length >= 80
+                          ? `${description.slice(0, 80)}...`
+                          : description
+                        }
+                      </h3>`} />
+                      <div className={styles.cardLink}>
+                        <OutlineButtonLink goto={`newsroom/blog/${post.slug}` ?? '#1'} title={"Read More"} />
+                      </div>
                     </div>
                   </div>
-                  </div>
                 </SwiperSlide>
-              )
-            )}
+              );
+            })}
           </Swiper>
         </div>
         <div className={`${cstyles.containerLg} pb-0! w-full flex items-center justify-center`}>

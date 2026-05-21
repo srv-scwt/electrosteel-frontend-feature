@@ -114,15 +114,17 @@ const OverseasOffices = ({ selectedCountryParam, data }) => {
                 </h4>
 
                 <div className="text-[#545454] mb-4">
-                  {toArray(office?.address).map((line, i) => (
+                  <HTMLRender htmlString={office?.address} />
+                  {/* {toArray(office?.address).map((line, i) => (
                     <p key={i}>{line}</p>
-                  ))}
+                  ))} */}
                 </div>
 
                 <div className="text-[#545454]">
-                  {toArray(office?.contact).map((line, i) => (
+                     <HTMLRender htmlString={office?.contact} />
+                  {/* {toArray(office?.contact).map((line, i) => (
                     <p key={i}>{line}</p>
-                  ))}
+                  ))} */}
                 </div>
               </div>
             </SwiperSlide>
