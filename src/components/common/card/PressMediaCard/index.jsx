@@ -5,7 +5,7 @@ import Image from "next/image";
 import { SlCalender } from "react-icons/sl";
 import styles from "./style.module.css";
 import Link from "next/link";
-import { createImageSourceURL, formatDate } from "@/utils";
+import { createImageSourceURL, formatDate, truncateText } from "@/utils";
 
 export default function PressMediaCard({ goTo , post, onVideoOpen }) {
   const isVideo = post?.type === "video"; // "video" or "image"
@@ -59,7 +59,7 @@ export default function PressMediaCard({ goTo , post, onVideoOpen }) {
         <div className={styles.sectionContent}>
           {post?.subtitle && <span>{post?.subtitle}</span>}
 
-          <h3 className={styles.title}>{post.title}</h3>
+          <h3 className={styles.title}>{truncateText(post?.title, 10)}</h3>
 
           <ul className={`${styles.eventDetails} flex flex-wrap gap-1`}>
             <li>

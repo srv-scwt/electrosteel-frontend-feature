@@ -103,6 +103,15 @@
   color: #ffffff;
 }
 
+.title {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  min-height: 3.6em;
+}
+
 .eventsContainer {
   gap: clamp(24px, 2.6vw, 48px);
 }

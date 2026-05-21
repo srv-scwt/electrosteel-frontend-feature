@@ -2,21 +2,7 @@ import React from 'react'
 import styles from './style.module.css'
 import Link from 'next/link'
 import { OutlineButtonLink } from '@/components/ui/Button'
-import { createImageSourceURL, formatDate } from '@/utils'
-
-const stripHtml = (value = "") =>
-    String(value)
-        .replace(/<[^>]+>/g, " ")
-        .replace(/\s+/g, " ")
-        .trim();
-
-const truncateCharacters = (value = "", maxLength = 20) => {
-    if (value.length <= maxLength) {
-        return value;
-    }
-
-    return `${value.slice(0, maxLength).trimEnd()}...`;
-};
+import { createImageSourceURL, formatDate, truncateText } from '@/utils'
 
 const getBlogHref = (blog) => {
     if (blog?.slug) {
@@ -43,8 +29,8 @@ const BlogCard = ({ blog = {} }) => {
     const href = getBlogHref(blog);
     const imageSrc = createImageSourceURL(blog?.image || blog?.img, blog?.img || "/images/blog/card/img1.png");
     const formattedDate = formatDate(blog?.date || blog?.created_at);
-    const title = truncateCharacters(stripHtml(blog?.title));
-    const description = truncateCharacters(stripHtml(blog?.description || blog?.desc) , 40);
+    const title = truncateText(blog?.title, 8);
+    const description = truncateText(blog?.description || blog?.desc, 18);
 
     return (
         <>

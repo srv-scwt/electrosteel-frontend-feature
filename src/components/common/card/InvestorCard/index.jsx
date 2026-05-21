@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { OutlineButtonLink } from "@/components/ui/Button";
 import { SlCalender } from "react-icons/sl";
-import { createImageSourceURL } from "@/utils";
+import { createImageSourceURL, truncateText } from "@/utils";
 
 export default function InvestorCard({ post }) {
   const title = post?.title || post?.fileName || "";
@@ -18,11 +18,6 @@ export default function InvestorCard({ post }) {
 
   const isAudio = audioTypes.includes(extension);
   const isPdf = pdfTypes.includes(extension);
-
-  // Title truncate logic
-  const truncateTitle = (text) => {
-    return text.length > 80 ? text.slice(0, 60) + "..." : text;
-  };
 
   return (
     <article
@@ -44,7 +39,7 @@ export default function InvestorCard({ post }) {
             xl:!text-[28px]
           "
         >
-          {truncateTitle(title)}
+          {truncateText(title, 10)}
         </h3>
 
         <div className="mt-5 flex items-center gap-2 text-[16px] leading-[1.4] text-[#9cc0f0]">

@@ -72,11 +72,53 @@ export const formatDate = (date) => {
   });
 };
 
+const HTML_ENTITY_MAP = {
+  "&nbsp;": " ",
+  "&amp;": "&",
+  "&lt;": "<",
+  "&gt;": ">",
+  "&quot;": '"',
+  "&#39;": "'",
+};
 
-export const truncateText = (text, minWords = 10) => {
+const decodeHtmlEntities = (value = "") => {
+  return String(value).replace(
+    /&nbsp;|&amp;|&lt;|&gt;|&quot;|&#39;|&#\d+;|&#x[\da-f]+;/gi,
+    (entity) => {
+      const mappedEntity = HTML_ENTITY_MAP[entity.toLowerCase()];
+
+      if (mappedEntity) {
+        return mappedEntity;
+      }
+
+      try {
+        if (/^&#\d+;$/i.test(entity)) {
+          return String.fromCodePoint(Number(entity.slice(2, -1)));
+        }
+
+        if (/^&#x[\da-f]+;$/i.test(entity)) {
+          return String.fromCodePoint(parseInt(entity.slice(3, -1), 16));
+        }
+      } catch {
+        return " ";
+      }
+
+      return " ";
+    }
+  );
+};
+
+export const sanitizeTextContent = (text) => {
   if (text === null || text === undefined) return "";
 
-  const normalizedText = String(text).trim().replace(/\s+/g, " ");
+  return decodeHtmlEntities(String(text))
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+};
+
+export const truncateText = (text, minWords = 10) => {
+  const normalizedText = sanitizeTextContent(text);
 
   if (!normalizedText) return "";
 
