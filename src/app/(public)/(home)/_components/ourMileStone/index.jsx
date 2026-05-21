@@ -109,7 +109,7 @@ const OurMileStoneSection = () => {
       </div>
       <div className={`flex items-center justify-center ${styles.finalButton}`}>
         <OutlineButtonLink
-          goto={"/"}
+          goto={"/about/profile/milestones"}
           title={"Read History In Detail"}
           className={"font-700"}
         />

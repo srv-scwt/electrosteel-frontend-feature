@@ -7,6 +7,8 @@ import { createVideoSourceURL } from "@/utils";
 
 export default function VideoWaterSection({ waterSectionData }) {
   const dropWaterSectionData = waterSectionData?.[0];
+  console.log(dropWaterSectionData);
+  
   return (
     <section className="relative w-full overflow-hidden">
       {/* Background Video */}
@@ -30,7 +32,7 @@ export default function VideoWaterSection({ waterSectionData }) {
               <h3>{dropWaterSectionData?.sub_title ?? ""}</h3>
               <p>{dropWaterSectionData?.description ?? ""}</p>
               <div className="flex-1">
-                <ButtonLink goto={"/"} title={"view more"} />
+                <ButtonLink goto={dropWaterSectionData?.url} title={"view more"} />
               </div>
             </div>
 

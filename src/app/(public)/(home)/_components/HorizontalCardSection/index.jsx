@@ -89,7 +89,7 @@ export default function HorizontalCardSection({ cardData = [] }) {
           </Swiper>
         </div>
         <div className={`${cstyles.containerLg} pb-0! w-full flex items-center justify-center`}>
-          <OutlineButtonLink goto={"/"} title={"load more"} iconActive={true} className={"flex items-center !justify-center"} />
+          <OutlineButtonLink goto={"/newsroom/blog"} title={"load more"} iconActive={true} className={"flex items-center !justify-center"} />
         </div>
       </div>
     </section>

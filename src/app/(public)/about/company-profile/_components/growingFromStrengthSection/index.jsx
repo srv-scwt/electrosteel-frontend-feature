@@ -7,7 +7,7 @@ import { createImageSourceURL } from "../../../../../../utils";
 export default function GrowingFromStrengthSection({ data }) {
   const strengthData = data?.[0];
   return (
-    <section className="">
+    <section id="#growing-from-strength" className="">
       <div className={`${styles.containerLg} pb-0!`}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-8 lg:gap-12 items-start">
           {/* Left Content */}

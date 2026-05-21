@@ -89,7 +89,7 @@ export default function SocialSection({ data }) {
                         }
                       </h3>
                       <div className={styles.cardLink}>
-                        <OutlineButtonLink goto={post?.permalink_url ?? "/"} title={"Read More"} />
+                        <OutlineButtonLink goto={post?.permalink_url ?? "/"} action={"_blank"} title={"Read More"} />
                       </div>
                     </div>
                   </div>

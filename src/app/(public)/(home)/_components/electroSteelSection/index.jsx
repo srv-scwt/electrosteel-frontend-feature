@@ -8,6 +8,8 @@ import HTMLRender from "@/components/ui/HTMLRender";
 import { createImageSourceURL, createVideoSourceURL } from "../../../../../utils";
 
 export default function ElectroSteelSection({ data }) {
+  console.log(data);
+  
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
@@ -31,7 +33,7 @@ export default function ElectroSteelSection({ data }) {
             </div>
             <div className="pt-4 pb-8">
               <OutlineButtonLink
-                goto={data?.button_link ?? "#"}
+                goto={`/about#growing-from-strength`}
                 title={"read more"}
               />
             </div>

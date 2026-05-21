@@ -1,15 +1,37 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./style.module.css";
 import Image from "next/image";
 import { OutlineButton, OutlineButtonLink } from "@/components/ui/Button";
 import HistoryModal from "@/components/modals/historymodal";
 import HTMLRender from "@/components/ui/HTMLRender";
  
+const chunkArray = (array = [], size = 14) => {
+  if (!Array.isArray(array)) return [];
+
+  const result = [];
+
+  for (let i = 0; i < array.length; i += size) {
+    result.push(array.slice(i, i + size));
+  }
+
+  return result;
+};
+
 const OurMileStoneSection = ({ isBottomLinkActive = true, data, timelineData = [] }) => {
   const [isModelOpen, setModelOpen] = useState(false);
   const [selectModal, setSelectModal] = useState(null);
   const containerRef = useRef(null);
+  const groupedTimelineData = useMemo(() => {
+    if (!Array.isArray(timelineData)) return [];
+
+    if (Array.isArray(timelineData[0])) {
+      return timelineData;
+    }
+
+    return chunkArray(timelineData, 14);
+  }, [timelineData]);
+
  
   const handleModal = (selected, open) => {
     setSelectModal(selected);
@@ -78,37 +100,38 @@ const OurMileStoneSection = ({ isBottomLinkActive = true, data, timelineData = [
       </div>
  
       <div ref={containerRef} className={`${styles.pipeGifContainer}`}>
-        <div className={`${styles.pipeGifWrapper}`}>
-          <Image
-            src={"/images/gif/rp.gif"}
-            fill
-            alt="pipe"
-            className="absolute object-fill object-center"
-          />
-          <div className={styles.mileStoneContent}>
-            <ul>
-              {Array.isArray(timelineData) && timelineData?.map((item, i) => (
-                <li key={i}>
-                  <p>{item?.year ?? ""}</p>
-                  <h4>{item?.title ?? ""}</h4>
-                  <OutlineButton
-                    action={() => handleModal(item, true)}
-                    title={"know More"}
-                    className={"font-700 know-more-btn-font"}
-                  />
-                </li>
-              ))}
-            </ul>
+        {groupedTimelineData.map((timelineGroup, groupIndex) => (
+          <div key={groupIndex} className={`${styles.pipeGifWrapper}`}>
+            <Image
+              src={"/images/gif/rp.gif"}
+              fill
+              alt="pipe"
+              className="absolute object-fill object-center"
+            />
+            <div className={styles.mileStoneContent}>
+              <ul>
+                {timelineGroup.map((item, itemIndex) => (
+                  <li key={item?.id ?? `${groupIndex}-${itemIndex}`}>
+                    <p>{item?.year ?? ""}</p>
+                    <h4>{item?.title ?? ""}</h4>
+                    <OutlineButton
+                      action={() => handleModal(item, true)}
+                      title={"know More"}
+                      className={"font-700 know-more-btn-font"}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-        {/* ))} */}
+        ))}
       </div>
       {isBottomLinkActive && (
         <div
           className={`flex items-center justify-center ${styles.finalButton}`}
         >
           <OutlineButtonLink
-            goto={"/"}
+            goto={`/about/profile/milestones`}
             title={"Read History In Detail"}
             className={"font-700"}
           />
