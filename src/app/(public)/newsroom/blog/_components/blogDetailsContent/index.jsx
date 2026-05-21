@@ -4,7 +4,7 @@ import React from "react";
 import styles from "./style.module.css";
 import { OutlineBackButtonLink } from "@/components/ui/Button";
 import HTMLRender from "@/components/ui/HTMLRender";
-import { createImageSourceURL } from "@/utils";
+import { createImageSourceURL, formatDate } from "@/utils";
 import commonStyles from "@/app/common.module.css";
  
 const BlogDetailsContent = ({ data }) => {
@@ -21,7 +21,7 @@ const BlogDetailsContent = ({ data }) => {
                   <div className="flex gap-3 mb-0">
                     <Calendar />{" "}
                     <span className="text-[#004AA1] uppercase">
-                      {data?.date}
+                      {formatDate(data?.date)}
                     </span>
                   </div>
                   <div className="flex gap-3 mb-0">
