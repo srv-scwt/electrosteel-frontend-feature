@@ -11,6 +11,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { createImageSourceURL } from "@/utils";
+import VideoModal from "@/components/modals/VideoModel";
 
 const fallbackImage = "/images/board/policies_banner_large.jpg";
 

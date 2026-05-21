@@ -7,6 +7,8 @@ import { createImageSourceURL } from "@/utils";
 
 
 const AdvertiseSection = ({ AdvertiseData, ulData }) => {
+  console.log(AdvertiseData);
+  
   return (
     <section className={`bg-[#FFF8ED] ${styles.adSection}`}>
       <div className={`relative ${styles.containerLg}`}>
