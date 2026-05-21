@@ -76,8 +76,8 @@ export default async function InvestorCategoryPage({
         showTitle={showTitle}
         sectionTitle={sectionTitle}
         titleYearExceptional={titleYearExceptional}
-        data={Investors?.data}
-        yearData={InvestorsYear?.data}
+        data={Investors?.data?.data}
+        yearData={InvestorsYear?.data?.data}
         yearFieldDropdown={yearFieldDropdown}
         searchParams={resolvedSearchParams}
       />
