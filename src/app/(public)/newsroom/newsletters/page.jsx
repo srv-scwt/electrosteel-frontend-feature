@@ -41,8 +41,8 @@ const page = async ({ searchParams }) => {
         }}
       />
       <NewslettersListingSection
-        data={newsletters?.data}
-        yearData={newslettersYear?.data}
+        data={newsletters?.data?.data}
+        yearData={newslettersYear?.data?.data}
         searchParams={resolvedSearchParams}
       />
     </>
