@@ -54,6 +54,14 @@
   color: #545454;
 }
 
+.sectionContent div ul li p {
+  margin-top: 10px;
+}
+
+.sectionContent div ul li::before {
+  top: 7px !important;
+}
+
 .sectionContent ul {
   margin-top: 20px;
 }
@@ -206,7 +214,17 @@
   .roadContainer {
   margin-top: 40px;
 }
+  .sectionContent div ul li::before {
+  top: 15px !important;
 }
+}
+
+@media (max-width: 1650px) {
+    .sectionContent div ul li::before {
+  top: 12px !important;
+}
+}
+
 
 @media (max-width: 1800px) {
   .sectionContent h2 {
@@ -311,6 +329,13 @@
     z-index: 100;
     transform: rotate(43deg);
   }
+
+
+}
+@media (max-width: 1400px) {
+    .sectionContent div ul li::before {
+  top: 8px !important;
+}
 }
 
 @media (max-width: 1200px) {
@@ -430,6 +455,10 @@
     z-index: 100;
     transform: rotate(43deg);
   }
+
+      .sectionContent div ul li::before {
+  top: 9px !important;
+      }
 
   .addressCard {
     padding: 12px;

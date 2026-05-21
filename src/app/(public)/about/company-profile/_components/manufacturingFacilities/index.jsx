@@ -14,6 +14,8 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 
 export default function ManufacturingFacilities({ data, facilities = [] }) {
+  console.log(data);
+  
   return (
     <section className={`relative ${styles.spacingTop} ${styles.spacingBottom}`}>
       <div className="absolute inset-0 z-10 bg-[#F5F5F5] opacity-[38%] pointer-events-none"></div>
@@ -45,7 +47,7 @@ export default function ManufacturingFacilities({ data, facilities = [] }) {
           modules={[Autoplay, A11y]}
           slidesPerView={1}
           loop={true}
-          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          // autoplay={{ delay: 2000, disableOnInteraction: false }}
           speed={1000}
         >
           {Array.isArray(facilities) &&
