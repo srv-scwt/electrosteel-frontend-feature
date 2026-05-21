@@ -2,10 +2,16 @@ import React from 'react'
 import styles from './style.module.css';
 import cstyle from '@/app/common.module.css';
 import HTMLRender from '@/components/ui/HTMLRender';
+import { createImageSourceURL } from '@/utils';
 
 const ChooseElectrosteel = ({data}) => {
+  console.log(data);
+  
   return (
-    <div className={`${styles.backgroundImg} bg-[url('/images/product-details/background-img.jpg')]`}>
+   <div
+  style={{ backgroundImage: `url(${createImageSourceURL(data?.image)})` }}
+  className={styles.backgroundImg}
+>
       <div className={styles.container}>
         <div className={`${cstyle.sectionContent} ${styles.title}`}>
           <HTMLRender htmlString={`<h2>${data?.title}</h2>`} />

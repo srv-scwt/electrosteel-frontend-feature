@@ -20,12 +20,14 @@ const page = async () => {
       title: DuctileIronFittingsData?.data?.exploreProductRange[0]?.title,
       description: DuctileIronFittingsData?.data?.exploreProductRange[0]?.description,
       image: DuctileIronFittingsData?.data?.exploreProductRange[0]?.image,
+      link: DuctileIronFittingsData?.data?.exploreProductRange[0]?.url,
       btn_title: "View Product Brochures",
     },
     {
       title: DuctileIronFittingsData?.data?.gotAQuery[0]?.title,
       description: DuctileIronFittingsData?.data?.gotAQuery[0]?.description,
       image: DuctileIronFittingsData?.data?.gotAQuery[0]?.image,
+      link: DuctileIronFittingsData?.data?.gotAQuery[0]?.url,
       btn_title: "Connect Us Now",
     },
   ];

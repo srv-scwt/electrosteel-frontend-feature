@@ -40,7 +40,7 @@ const CardSection = ({ data }) => {
                                 <div className={cstyle.sectionContent}>
                                     <HTMLRender htmlString={`<h4>${product?.title}</h4>`} />
                                     <HTMLRender htmlString={`${product?.description}`} />
-                                    <ButtonLink goto={product?.buttonLink} title={product?.btn_title} className={`${styles.viewBtn} mt-[16px]`} />
+                                    <ButtonLink goto={product?.link} title={product?.btn_title} className={`${styles.viewBtn} mt-[16px]`} />
                                 </div>
                             </div>
                         );

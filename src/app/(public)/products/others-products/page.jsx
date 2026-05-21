@@ -89,13 +89,7 @@ const Page = async () => {
                   ?.toLowerCase()
                   ?.replace(/\s+/g, "-")
               }
-              className={
-                index === 1
-                  ? "!pt-4"
-                  : index !== SemiFinishedProductData?.data?.length - 1
-                    ? "!py-2"
-                    : ""
-              }
+              className={index === 1 ? "!pt-4" : index !== SemiFinishedProductData?.data?.length - 1 ? "!py-3": ""}
             />
           );
         })}

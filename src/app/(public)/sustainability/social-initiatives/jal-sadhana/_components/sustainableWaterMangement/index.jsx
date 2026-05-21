@@ -3,6 +3,7 @@ import TopSection from "./topSection";
 import BottomSection from "./bottomSection";
 import { getJolsadhana } from "@/services/jolsadhana.api";
 import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import { createVideoSourceURL } from "@/utils";
 
 const SustainableWaterMangement = async () => {
   const jolsadhanaData = await getJolsadhana();
@@ -12,7 +13,7 @@ const SustainableWaterMangement = async () => {
     <section className="relative w-full overflow-hidden">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-        src="/videos/sustainableDev.mp4"
+        src={createVideoSourceURL(jolsadhanaData?.data?.sustainableWaterManagement?.[0]?.video_link)}
         autoPlay
         loop
         muted

@@ -6,6 +6,8 @@ import HTMLRender from "@/components/ui/HTMLRender";
 import { createImageSourceURL } from "@/utils";
 
 const JalSevakSanam = ({ data }) => {
+  console.log(data);
+  
   return (
     <section id="jal-sevak-samman" className={`${styles.spacingX} relative w-full overflow-hidden`}>
       {/* Background Image */}

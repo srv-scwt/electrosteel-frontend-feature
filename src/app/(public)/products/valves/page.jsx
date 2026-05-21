@@ -25,14 +25,14 @@ const page = async () => {
       description: valvesData?.data?.parsedDIValvesExploreourProductRange?.description,
       image: valvesData?.data?.parsedDIValvesExploreourProductRange?.image,
       btn_title: "View Product Brochures",
-      buttonLink: valvesData?.data?.parsedDIValvesExploreourProductRange?.url,
+      link: valvesData?.data?.parsedDIValvesExploreourProductRange?.url,
     },
     {
       title: valvesData?.data?.parsedDIValvesGotaQuery?.title,
       description: valvesData?.data?.parsedDIValvesGotaQuery?.description,
       image: valvesData?.data?.parsedDIValvesGotaQuery?.image,
       btn_title: "Connect Us Now",
-      buttonLink: valvesData?.data?.parsedDIValvesGotaQuery?.url,
+      link: valvesData?.data?.parsedDIValvesGotaQuery?.url,
     },
   ];
 
