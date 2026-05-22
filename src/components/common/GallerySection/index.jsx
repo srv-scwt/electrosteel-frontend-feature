@@ -1,12 +1,11 @@
 "use client";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
+import { A11y, Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import { IoChevronBack, IoChevronForward } from "react-icons/io5";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import styles from "./style.module.css";
 import commonStyles from "@/app/common.module.css";
 import { createImageSourceURL, createVideoSourceURL } from "@/utils";
@@ -14,7 +13,10 @@ import HTMLRender from "@/components/ui/HTMLRender";
 
 const GallerySection = ({ contentHidden = false, imageData = [], data }) => {
   const swiperRef = useRef(null);
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
   const videoRefs = useRef([]);
+  const [swiperInstance, setSwiperInstance] = useState(null);
   const mediaItems = Array.isArray(imageData) ? imageData : [];
   const hasMultipleSlides = mediaItems.length > 1;
   const sliderContent =
@@ -25,9 +27,27 @@ const GallerySection = ({ contentHidden = false, imageData = [], data }) => {
       .replace(/<[^>]*>/g, " ")
       .replace(/&nbsp;/gi, " ")
       .trim().length > 0;
+  const mediaHeightClass = hasSliderContent
+    ? "h-[50vh] md:h-[55vh] lg:h-[60vh]"
+    : "h-[50vh] md:h-[60vh] lg:h-[70vh]";
 
-  const nextSlide = () => swiperRef.current?.slideNext();
-  const prevSlide = () => swiperRef.current?.slidePrev();
+  useEffect(() => {
+    if (
+      !swiperInstance ||
+      !hasMultipleSlides ||
+      !prevRef.current ||
+      !nextRef.current
+    ) {
+      return;
+    }
+
+    swiperInstance.params.navigation.prevEl = prevRef.current;
+    swiperInstance.params.navigation.nextEl = nextRef.current;
+
+    swiperInstance.navigation.destroy();
+    swiperInstance.navigation.init();
+    swiperInstance.navigation.update();
+  }, [hasMultipleSlides, swiperInstance]);
 
   const syncActiveVideo = (swiper) => {
     const activeIndex = swiper?.realIndex ?? 0;
@@ -63,96 +83,103 @@ const GallerySection = ({ contentHidden = false, imageData = [], data }) => {
         >
           {/* CAROUSEL SECTION */}
           <div
-            className={`flex items-center w-[100%] gap-3 ${styles.carouselColumn} ${
+            className={`w-[100%] ${styles.carouselColumn} ${
               hasSliderContent ? styles.carouselColumnSplit : styles.carouselColumnFull
             }`}
           >
-            {/* Left Button */}
-            <button
-              type="button"
-              onClick={prevSlide}
-              className={styles.actionBtn}
-              aria-label="Previous slide"
-              disabled={!hasMultipleSlides}
-            >
-              <IoChevronBack />
-            </button>
+            <div className="slider-container relative w-full">
+              <Swiper
+                modules={[Autoplay, A11y, Navigation]}
+                navigation={
+                  hasMultipleSlides
+                    ? {
+                        nextEl: nextRef.current,
+                        prevEl: prevRef.current,
+                      }
+                    : false
+                }
+                rewind={hasMultipleSlides}
+                speed={1000}
+                slidesPerView={1}
+                allowTouchMove={hasMultipleSlides}
+                watchOverflow
+                spaceBetween={0}
+                autoplay={
+                  hasMultipleSlides
+                    ? {
+                        delay: 4000,
+                        disableOnInteraction: false,
+                      }
+                    : false
+                }
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper;
+                  setSwiperInstance(swiper);
+                  requestAnimationFrame(() => syncActiveVideo(swiper));
+                }}
+                onSlideChange={syncActiveVideo}
+                className={`overflow-hidden w-[100%] h-[100%] ${styles.swiperSurface}`}
+              >
+                {mediaItems.map((item, index) => (
+                  <SwiperSlide key={index}>
+                    {item.type === "image" ? (
+                      <div className={`relative w-full ${mediaHeightClass}`}>
+                        <Image
+                          src={createImageSourceURL(item?.path)}
+                          fill
+                          alt=""
+                          className="object-contain object-center"
+                          sizes="100vw"
+                        />
+                      </div>
+                    ) : (
+                      <div className={`relative w-full ${mediaHeightClass}`}>
+                        <video
+                          ref={(node) => {
+                            videoRefs.current[index] = node;
+                          }}
+                          src={createVideoSourceURL(item?.path)}
+                          className="w-[100%] h-[100%] object-contain object-center bg-black"
+                          muted
+                          playsInline
+                          preload="metadata"
+                          controls={false}
+                          onEnded={handleVideoEnded}
+                        />
+                      </div>
+                    )}
+                  </SwiperSlide>
+                ))}
+              </Swiper>
 
-            {/* Swiper */}
+              {hasMultipleSlides && (
+                <>
+                  <button
+                    ref={prevRef}
+                    type="button"
+                    className="swiper-button-prev h-10 w-10 rounded-full bg-[#fdd307] p-2 transition-all hover:bg-[#efc805] flex items-center justify-center"
+                    aria-label="Previous slide"
+                  >
+                    <FaChevronLeft size={16} style={{ color: "#004aa1" }} />
+                  </button>
 
-            <Swiper
-              modules={[Autoplay, EffectFade]}
-              effect="fade"
-              rewind={hasMultipleSlides}
-              speed={900} // smoother fade speed
-              fadeEffect={{ crossFade: true }}
-              slidesPerView={1}
-              allowTouchMove={hasMultipleSlides}
-              watchOverflow
-              autoplay={
-                hasMultipleSlides
-                  ? {
-                      delay: 2500,
-                      disableOnInteraction: false,
-                    }
-                  : false
-              }
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper;
-                requestAnimationFrame(() => syncActiveVideo(swiper));
-              }}
-              onSlideChange={syncActiveVideo}
-              className={`overflow-hidden w-[100%] h-[100%] ${styles.swiperSurface}`}
-            >
-              {mediaItems.map((item, index) => (
-                <SwiperSlide key={index}>
-                  {item.type === "image" ? (
-                    <div className={styles.carouselContainer}>
-                      <Image
-                        src={createImageSourceURL(item?.path)}
-                        // src={item?.path}
-                        width={800}
-                        height={450}
-                        alt=""
-                        className="w-[100%] h-[100%] object-contain object-center"
-                      />
-                    </div>
-                  ) : (
-                    <div className={styles.carouselContainer}>
-                      <video
-                        ref={(node) => {
-                          videoRefs.current[index] = node;
-                        }}
-                        src={createVideoSourceURL(item?.path)}
-                        className="w-[100%] h-[100%] object-fit object-center"
-                        muted
-                        playsInline
-                        preload="metadata"
-                        controls={false}
-                        onEnded={handleVideoEnded}
-                      />
-                    </div>
-                  )}
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            {/* Right Button */}
-            <button
-              type="button"
-              onClick={nextSlide}
-              className={`${styles.actionBtn} ${styles.actionBtn2}`}
-              aria-label="Next slide"
-              disabled={!hasMultipleSlides}
-            >
-              <IoChevronForward />
-            </button>
+                  <button
+                    ref={nextRef}
+                    type="button"
+                    className="swiper-button-next h-10 w-10 rounded-full bg-[#fdd307] p-2 transition-all hover:bg-[#efc805] flex items-center justify-center"
+                    aria-label="Next slide"
+                  >
+                    <FaChevronRight size={16} style={{ color: "#004aa1" }} />
+                  </button>
+                </>
+              )}
+            </div>
           </div>
 
           {/* TEXT SECTION */}
           {hasSliderContent && (
             <div className={`${styles.textColumn} text-gray-700 leading-relaxed`}>
-              <div className={styles.sectionContent}>
+              <div className={commonStyles.sectionContent}>
                 <HTMLRender htmlString={sliderContent} />
               </div>
             </div>

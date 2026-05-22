@@ -58,12 +58,23 @@ export default function SocialSection({ data = [] }) {
               <SwiperSlide key={index}>
                 <div key={post.id} className={styles.socialCardWrapper}>
                   <div className={styles.socialCardImage}>
-                    <Image
-                      src={post?.full_picture}
-                      alt={post?.title}
-                      fill
-                      className="w-full h-full absolute object-cover"
-                    />
+                    {post?.full_picture ? (
+                      <>
+                        <Image
+                          src={post.full_picture}
+                          alt=""
+                          fill
+                          className={styles.imageBackdrop}
+                        />
+                        <div className={styles.imageOverlay} />
+                        <Image
+                          src={post.full_picture}
+                          alt={post?.title || "Social post image"}
+                          fill
+                          className={styles.imageForeground}
+                        />
+                      </>
+                    ) : null}
                   </div>
                   <div className={styles.sectionContent}>
                     <div className="flex items-center gap-2">

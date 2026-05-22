@@ -9,6 +9,8 @@ import HTMLRender from "@/components/ui/HTMLRender";
 
 export default function HistoryModal({ isOpen, action, historyData }) {
   if (!isOpen || !historyData) return null;
+console.log(historyData);
+const title = historyData?.heading ?? historyData?.title
 
   // const historyData = {
   //   year: "1955",
@@ -45,7 +47,7 @@ export default function HistoryModal({ isOpen, action, historyData }) {
           {/* Right Text Section */}
           <div className={`${styles.sectionContent} ${styles.textSection}`}>
             <h5>{historyData?.year ?? ""}</h5>
-            <HTMLRender htmlString={`<h6>${historyData?.heading ?? ""}</h6>`}/>
+            <HTMLRender htmlString={`<h6>${title ?? ""}</h6>`}/>
             <HTMLRender htmlString={`<p>${historyData?.description ?? ""}</p>`}/>
           </div>
         </div>

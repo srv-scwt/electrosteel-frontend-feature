@@ -10,6 +10,26 @@
   width: 100%;
   border-radius: 32px;
   overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.imageBackdrop {
+  object-fit: cover;
+  filter: blur(2px);
+  transform: scale(1.12);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+  z-index: 1;
+}
+
+.imageForeground {
+  object-fit: contain;
+  padding: 12px;
+  z-index: 2;
 }
 
 .sectionContent {
@@ -88,7 +108,7 @@
 
 @media (min-width: 1280px) and (max-width: 1460px) {
   .socialCardWrapper {
-    min-height: 525px;
+    min-height: 500px;
   }
 }
 
