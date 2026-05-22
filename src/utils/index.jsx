@@ -117,6 +117,10 @@ export const sanitizeTextContent = (text) => {
     .trim();
 };
 
+export const stripHtmlTags = (html) => {
+  return sanitizeTextContent(html);
+};
+
 export const truncateText = (text, minWords = 10) => {
   const normalizedText = sanitizeTextContent(text);
 

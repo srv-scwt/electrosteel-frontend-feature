@@ -10,6 +10,7 @@ import {
   createImageSourceURL,
   createVideoSourceURL,
   parseCapacity,
+  stripHtmlTags,
 } from "@/utils";
 
 export default function HeroSection({ slides, miniStats }) {
@@ -85,7 +86,7 @@ export default function HeroSection({ slides, miniStats }) {
               ) : (
                 <Image
                   src={createImageSourceURL(slide?.src)}
-                  alt={""}
+                  alt={stripHtmlTags(slide?.src)}
                   fill
                   className="absolute inset-0 object-fill object-center z-0"
                 />

@@ -5,7 +5,7 @@ import styles from "./style.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 import { OutlineButtonLink } from "@/components/ui/Button";
 import HTMLRender from "@/components/ui/HTMLRender";
-import { createImageSourceURL } from "@/utils";
+import { createImageSourceURL, stripHtmlTags } from "@/utils";
 
 export default function ProductModal({ isOpen, action, product , isViewDetails = true }) {
   if (!isOpen || !product) return null;
@@ -45,7 +45,7 @@ export default function ProductModal({ isOpen, action, product , isViewDetails =
                 <Image
                   // src={"/images/modal/modal2.png"}
                   src={createImageSourceURL(product?.image)}
-                  alt={product?.title}
+                  alt={stripHtmlTags(product?.title)}
                   fill
                   className="object-cover object-center absolute w-[100%] h-[100%]"
                   priority
