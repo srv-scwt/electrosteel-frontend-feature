@@ -64,11 +64,12 @@ const page = async () => {
         contentOrder={"order-2"}
         sectionID={"bolted-restrained-joint"}
         objectPosition="object-contain"
-        className={"!py-0"}
+        className={"!pt-0"}
       />
       <BoltedRestrainedJoints
         label={DipipesJointingSystem?.data?.multi_section?.[5]}
         data={DipipesJointingSystem?.data?.multi_section?.[5]?.table_data}
+        CommonTableClass={`mt-4!`}
         className="[&_.overflow-x-auto]:rounded-t-[16px] [&_.overflow-x-auto]:overflow-hidden"
       />
 
@@ -83,6 +84,9 @@ const page = async () => {
       <BoltedRestrainedJoints
         label={DipipesJointingSystem?.data?.multi_section?.[7]}
         data={DipipesJointingSystem?.data?.multi_section?.[7]?.table_data}
+        title={DipipesJointingSystem?.data?.multi_section?.[7]?.table_data?.title}
+        roundedCLass={"rounded-t-[0px]!"}
+        CommonTableClass={`mt-0!`}
         className="[&_.overflow-x-auto]:rounded-t-[16px] [&_.overflow-x-auto]:overflow-hidden"
       />
 
