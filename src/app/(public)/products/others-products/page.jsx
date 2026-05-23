@@ -38,12 +38,12 @@ const Page = async () => {
             bannerOrder={
               isEven
                 ? "order-1"
-                : "order-1"
+                : "order-1 lg:order-2"
             }
             contentOrder={
               isEven
                 ? "order-2"
-                : "order-2"
+                : "order-2 lg:order-1"
             }
             sectionID={
               item?.title
@@ -51,13 +51,13 @@ const Page = async () => {
                 ?.toLowerCase()
                 ?.replace(/\s+/g, "-")
             }
-            className={"!py-0"}
+            className={index === 1 ? "!pt-4 pb-0!" : index !== FinishedProductData?.data?.length - 1 ? "!pt-3" : ""}
           />
         )
       })};
       {/* Semi-Finished Products Heading */}
       <section>
-        <div className={`${styles.containerLg} !pb-0`}>
+        <div className={`${styles.containerLg} !py-0`}>
           <div className={`${styles.sectionContent} `}>
             <h2>
               Semi-Finished<span> Products</span>
@@ -89,7 +89,7 @@ const Page = async () => {
                   ?.toLowerCase()
                   ?.replace(/\s+/g, "-")
               }
-              className={index === 1 ? "!pt-4" : index !== SemiFinishedProductData?.data?.length - 1 ? "!py-3": ""}
+              className={index === 1 ? "!pt-4 pb-0!" : index !== SemiFinishedProductData?.data?.length - 1 ? "!pt-3" : ""}
             />
           );
         })}
