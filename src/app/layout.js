@@ -2,6 +2,7 @@ import { Bebas_Neue, Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/common/footer/Footer";
 import Header from "@/components/common/header";
+import { buildMetadata, SITE_URL } from "@/utils/seo";
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
@@ -27,10 +28,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-export const metadata = {
-  title: "Electrosteel",
-  description: "Electrosteel CMS Dashboard",
-};
+export const metadata = buildMetadata({ currentURL: SITE_URL });
 // comment2212
 export default function RootLayout({ children }) {
   return (
