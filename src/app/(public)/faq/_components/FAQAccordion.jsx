@@ -102,8 +102,12 @@ text-base sm:text-lg md:text-xl font-bold tracking-wide ${
 
           {Array.isArray(tableColumns) &&
             Array.isArray(tableRows) &&
-            tableColumns.length > 0 &&
-            tableRows.length > 0 && (
+            tableColumns.some((col) => col?.trim()) &&
+            tableRows.some(
+              (row) =>
+                Array.isArray(row) &&
+                row.some((cell) => String(cell || "").trim()),
+            ) && (
               <CommonTable
                 className="!mt-3"
                 title={tableTitle}
