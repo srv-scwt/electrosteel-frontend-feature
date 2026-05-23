@@ -120,7 +120,7 @@ const FAQAccordion = ({ data }) => {
     return (
         <section className="py-6 sm:py-8 md:py-10">
             <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
-                {data.map((section, sectionIndex) => (
+                {data?.map((section, sectionIndex) => (
                     <div key={sectionIndex} className="mb-8 md:mb-10">
                         {section?.sectionName && (
                             <h2 className="mb-4 md:mb-6 text-xl sm:text-2xl font-semibold text-[#0B4DA2]">
@@ -129,7 +129,7 @@ const FAQAccordion = ({ data }) => {
                         )}
 
                         <div className="space-y-3 md:space-y-4">
-                            {section?.faq?.map((item, index) => {
+                            {section?.data?.map((item, index) => {
                                 const currentSerial = serialCounter++;
                                 const itemKey = `${sectionIndex}-${item.id || index}`;
 
@@ -138,9 +138,9 @@ const FAQAccordion = ({ data }) => {
                                         key={itemKey}
                                         itemKey={itemKey}
                                         serialNumber={currentSerial}
-                                        title={item.title}
-                                        content={item.content}
-                                        content2={item.content2}
+                                        title={item.subtitle}
+                                        // content={item.description}
+                                        content2={item.description}
                                         imgUrl={item.imgUrl}
                                         tableColumns={item.tableColumns}
                                         tableRows={item.tableRows}

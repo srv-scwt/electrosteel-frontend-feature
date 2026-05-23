@@ -141,3 +141,25 @@ export const truncateText = (text, minWords = 10) => {
 
   return `${words.slice(0, safeWordLimit).join(" ")}...`;
 };
+
+
+export const groupByTitle = (arr) => {
+  const grouped = arr.reduce((acc, item) => {
+    const existingSection = acc.find(
+      (section) => section.sectionName === item.title
+    );
+
+    if (existingSection) {
+      existingSection.data.push(item);
+    } else {
+      acc.push({
+        sectionName: item.title,
+        data: [item],
+      });
+    }
+
+    return acc;
+  }, []);
+
+  return grouped;
+};
