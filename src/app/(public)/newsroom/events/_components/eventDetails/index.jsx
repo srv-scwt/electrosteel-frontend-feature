@@ -51,7 +51,7 @@ const EventDetails = ({ data }) => {
 
             <HTMLRender htmlString={data.description} />
           </div>
-          {/* </Container90> */}
+          {/* </Container9s0> */}
         </div>
       </section>
     </>
