@@ -11,7 +11,7 @@ export default async function Page() {
       const FAQData1 = await getBlogResponseByCategory({
         category: "faqListPage",
       });
-      console.log(FAQData1?.data);
+      console.log(FAQData1?.data, "FAQData1-----------");
       
       const FAQData = groupByTitle(FAQData1?.data)
         
