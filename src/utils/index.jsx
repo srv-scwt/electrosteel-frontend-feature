@@ -143,22 +143,30 @@ export const truncateText = (text, minWords = 10) => {
 };
 
 
-export const groupByTitle = (arr) => {
-  // sort by id ascending
-  const sortedData = [...arr].sort((a, b) => a.id - b.id);
+export const groupByTitle = (arr = []) => {
+  const groupedMap = {};
 
-  const map = {};
+  const sortedData = [...arr].sort((a, b) => {
+    const getNumber = (title) => {
+      const match = title?.match(/\d+/);
+      return match ? parseInt(match[0], 10) : 0;
+    };
+
+    return getNumber(a.title) - getNumber(b.title);
+  });
 
   sortedData.forEach((item) => {
-    if (!map[item.title]) {
-      map[item.title] = {
-        sectionName: item.title,
+    const title = item?.title?.trim() || "Untitled";
+
+    if (!groupedMap[title]) {
+      groupedMap[title] = {
+        sectionName: title,
         data: [],
       };
     }
 
-    map[item.title].data.push(item);
+    groupedMap[title].data.push(item);
   });
 
-  return Object.values(map);
+  return Object.values(groupedMap);
 };
