@@ -11,6 +11,7 @@ export default async function Page() {
       const FAQData1 = await getBlogResponseByCategory({
         category: "faqListPage",
       });
+      
       const FAQData = groupByTitle(FAQData1?.data)
         
       if (!FAQData || FAQData1?.error) return <SomethingWentWrong />;

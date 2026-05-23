@@ -144,22 +144,21 @@ export const truncateText = (text, minWords = 10) => {
 
 
 export const groupByTitle = (arr) => {
-  const grouped = arr.reduce((acc, item) => {
-    const existingSection = acc.find(
-      (section) => section.sectionName === item.title
-    );
+  // sort by id ascending
+  const sortedData = [...arr].sort((a, b) => a.id - b.id);
 
-    if (existingSection) {
-      existingSection.data.push(item);
-    } else {
-      acc.push({
+  const map = {};
+
+  sortedData.forEach((item) => {
+    if (!map[item.title]) {
+      map[item.title] = {
         sectionName: item.title,
-        data: [item],
-      });
+        data: [],
+      };
     }
 
-    return acc;
-  }, []);
+    map[item.title].data.push(item);
+  });
 
-  return grouped;
+  return Object.values(map);
 };
