@@ -43,7 +43,7 @@ const EventDetails = ({ data }) => {
                 </div>
               </div>
               <OutlineBackButtonLink
-                goto={"/news/blog/hgjh"}
+                goto={"/newsroom/events"}
                 title={"Back"}
                 className={"btn-back-outline-text"}
               />
