@@ -11,7 +11,7 @@ import commonStyles from "@/app/common.module.css";
 import { createImageSourceURL, createVideoSourceURL } from "@/utils";
 import HTMLRender from "@/components/ui/HTMLRender";
 
-const GallerySection = ({ contentHidden = false, imageData = [], data }) => {
+const GallerySection = ({ contentHidden = false, imageData = [], data , padding="py-0!" , imageCSS = "object-contain object-center"}) => {
   const swiperRef = useRef(null);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -77,7 +77,7 @@ const GallerySection = ({ contentHidden = false, imageData = [], data }) => {
 
   return (
     <section className=" w-full">
-      <div className={`${commonStyles.containerLg} py-0!`}>
+      <div className={`${commonStyles.containerLg} ${padding}`}>
         <div
           className={`grid ${hasSliderContent ? styles.gridSplit : styles.gridFull} ${styles.gridContainer}`}
         >
@@ -128,7 +128,7 @@ const GallerySection = ({ contentHidden = false, imageData = [], data }) => {
                           src={createImageSourceURL(item?.path)}
                           fill
                           alt=""
-                          className="object-contain object-center"
+                          className={imageCSS}
                           sizes="100vw"
                         />
                       </div>

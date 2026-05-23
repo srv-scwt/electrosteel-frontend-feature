@@ -31,7 +31,7 @@ const page = async ({ params }) => {
     <>
       <HeroSection data={heroData} />
       <EventDetails data={PageDetails?.data} />
-      <GallerySection contentHidden={true} imageData={imageArr} />
+      <GallerySection contentHidden={true} imageData={imageArr} padding="pt-0!" imageCSS="object-cover object-center"/>
     </>
   );
 };

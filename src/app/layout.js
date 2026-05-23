@@ -1,5 +1,6 @@
 import { Bebas_Neue, Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
+import CookieConsent from "@/components/common/CookieConsent";
 import Footer from "@/components/common/footer/Footer";
 import Header from "@/components/common/header";
 import { buildMetadata, SITE_URL } from "@/utils/seo";
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
         <Header/>
         {children}
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
