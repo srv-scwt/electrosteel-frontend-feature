@@ -6,6 +6,7 @@ import HTMLRender from "@/components/ui/HTMLRender";
 import styles from "@/app/common.module.css";
 import CommonTable from "@/components/common/CommonTable";
 import Image from "next/image";
+import { createImageSourceURL } from "@/utils";
 
 const FAQItem = ({
     itemKey,
@@ -14,6 +15,7 @@ const FAQItem = ({
     content,
     content2,
     imgUrl,
+    tableTitle,
     tableColumns,
     tableRows,
     isOpen,
@@ -75,27 +77,28 @@ text-base sm:text-lg md:text-xl font-bold tracking-wide ${isOpen
                         </div>
                     )}
 
-                    {imgUrl && (
-                        <div className="my-4 md:my-6">
-                            <Image
-                                src={imgUrl}
-                                alt={title}
-                                width={800}
-                                height={500}
-                                className="w-full h-auto rounded-lg object-contain"
-                            />
-                        </div>
-                    )}
-
                     {content2 && (
                         <div className="text-sm md:text-base leading-7 [&_p]:mb-4 [&_ul]:mt-4 [&_ul]:mb-3 [&_li]:mb-1">
                             <HTMLRender htmlString={content2} />
                         </div>
                     )}
 
+                    {imgUrl && (
+                        <div className="my-4 md:my-6">
+                            <Image
+                                src={imgUrl}
+                                alt={title}
+                                width={800}
+                                height={400}
+                                className="w-full h-auto rounded-lg object-contain"
+                            />
+                        </div>
+                    )}
+
                     {tableColumns?.length > 0 && (
                         <CommonTable
                             className="!mt-3"
+                            title={tableTitle}
                             columns={tableColumns}
                             rows={tableRows}
                         />
@@ -138,12 +141,13 @@ const FAQAccordion = ({ data }) => {
                                         key={itemKey}
                                         itemKey={itemKey}
                                         serialNumber={currentSerial}
-                                        title={item.subtitle}
+                                        title={item?.subtitle}
                                         // content={item.description}
                                         content2={item.description}
-                                        imgUrl={item.imgUrl}
-                                        tableColumns={item.tableColumns}
-                                        tableRows={item.tableRows}
+                                        imgUrl={createImageSourceURL(item?.image)}
+                                        tableTitle={item?.tableData?.title}
+                                        tableColumns={item?.tableData?.columns}
+                                        tableRows={item?.tableData?.rows}
                                         isOpen={openItem === itemKey}
                                         onToggle={handleToggle}
                                     />
