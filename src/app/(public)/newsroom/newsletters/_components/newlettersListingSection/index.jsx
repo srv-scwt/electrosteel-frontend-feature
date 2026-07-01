@@ -92,12 +92,16 @@ const NewslettersListingSection = ({ data, yearData, searchParams }) => {
                     key={item?.id || item?.src || item?.filelink || index}
                     className={`${commonStyles.newsLetterCardWrapper} shadow-md`}
                   >
-                    <Link href={pdfLink} target="_blank">
+                    <Link
+                      href={pdfLink}
+                      target="_blank"
+                      className="relative block aspect-square w-full overflow-hidden rounded-[12px] mb-3"
+                    >
                       <Image
                         src={imageSrc}
                         alt={title}
                         fill
-                        className="object-cover !relative rounded-[12px] mb-3 transform hover:scale-105 transition-transform duration-300"
+                        className="object-cover transform hover:scale-105 transition-transform duration-300"
                       />
                     </Link>
 

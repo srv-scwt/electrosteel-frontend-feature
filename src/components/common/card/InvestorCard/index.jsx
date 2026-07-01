@@ -15,9 +15,11 @@ export default function InvestorCard({ post }) {
 
   const audioTypes = ["mp3", "wav", "ogg", "m4a", "aac"];
   const pdfTypes = ["pdf"];
+  const xcaleTypes = ["xcale", "xlsx", "xls", "csv"];
 
   const isAudio = audioTypes.includes(extension);
   const isPdf = pdfTypes.includes(extension);
+  const isXcale = xcaleTypes.includes(extension);
 
   return (
     <article
@@ -87,6 +89,27 @@ export default function InvestorCard({ post }) {
                 <Image
                   src="/images/icons/new-investor-sound.png"
                   alt="Audio"
+                  width={39}
+                  height={39}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+            </div>
+          ) : isXcale ? (
+            <div className="flex items-end justify-between gap-3">
+              <div className="w-[calc(100%-46px)] sm:w-[calc(100%-58px)] xl:w-[calc(100%-67px)]">
+                <OutlineButtonLink
+                  goto={createImageSourceURL(src)}
+                  action={"_blank"}
+                  title="Download"
+                  className="!text-white !text-xs sm:!text-sm whitespace-nowrap"
+                />
+              </div>
+
+              <div className="flex h-[30px] w-[30px] items-center justify-center xl:h-[39px] xl:w-[39px]">
+                <Image
+                  src="/images/icons/xls.png"
+                  alt="Xcale"
                   width={39}
                   height={39}
                   className="h-full w-full object-contain"
