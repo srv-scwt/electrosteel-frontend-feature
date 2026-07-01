@@ -240,8 +240,8 @@ export const InvestorPageConfigObject = {
       InvestorCategoryObject.shareholderInformationDisclosuresToStockExchange,
     filterTitle: "Find Disclosures to Stock Exchange",
     titleYearExceptional: "Disclosures to Stock <span>Exchange</span>",
-    yearFieldDropdown: false,
-    headingField: true,
+    yearFieldDropdown: true,
+    headingField: false,
     latestFeild: false,
   },
 
