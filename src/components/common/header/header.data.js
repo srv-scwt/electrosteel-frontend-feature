@@ -153,10 +153,11 @@ const sustainabilityData = [
   {
     section: "Environment Initiatives",
     links: [
-      { label: "Emission", url: "/sustainability/environment/emission" },
-      { label: "Water", url: "/sustainability/environment/water" },
-      { label: "Waste", url: "/sustainability/environment/waste" },
-      { label: "Energy", url: "/sustainability/environment/energy" },
+      { label: "Overview", url: "/sustainability/environment-initiatives" },
+      { label: "Emission", url: "/sustainability/environment-initiatives/emission" },
+      { label: "Water", url: "/sustainability/environment-initiatives/water" },
+      { label: "Waste", url: "/sustainability/environment-initiatives/waste" },
+      { label: "Energy", url: "/sustainability/environment-initiatives/energy" },
     ],
   },
 
@@ -186,7 +187,7 @@ const sustainabilityData = [
   {
     section: "Governance Initiatives",
     links: [
-      { label: "Policy Commitments", url: "/sustainability/governance/policy-commitments" },
+      { label: "Policy Commitments", url: "/sustainability/governance-initiatives/policy-commitments" },
     ],
   },
 ];
@@ -327,10 +328,10 @@ const careersData = [
   {
     section: "",
     links: [
-      { label: "Overview", url: "/career/overview" },
-      { label: "Join Us", url: "/career/join-us" },
-      { label: "Khoj – The Campus Drive", url: "/career/khoj-campus-drive" },
-      { label: "Career Enquiry", url: "/career/career-enquiry" },
+      { label: "Overview", url: "/career" },
+      { label: "Join Us", url: "/career#join-us" },
+      { label: "Khoj – The Campus Drive", url: "/career#khoj" },
+      { label: "Career Enquiry", url: "/career#career-enquiry" },
     ],
   },
 ];

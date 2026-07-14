@@ -25,8 +25,8 @@ const ButtonLink = ({ goto, title, className , iconActive = true }) => {
     </>
   );
 };
-const Button = ({ action, title , className, iconActive = true  }) => {
-  return <button onClick={action} className={className}>
+const Button = ({ action, title , className, iconActive = true, type = "button", disabled = false  }) => {
+  return <button onClick={action} className={className} type={type} disabled={disabled}>
      <span>{title}</span>
      {iconActive ?  <HiOutlineArrowLongRight size={20} /> : "" }
   </button>;
@@ -56,10 +56,10 @@ const OutlineBackButtonLink = ({ goto, title, className }) => {
   );
 };
 
-const OutlineButton = ({ action, title , className }) => {
+const OutlineButton = ({ action, title , className, type = "button", disabled = false }) => {
   return (
     <>
-      <button onClick={() => action()} className={`btn-outline-text ${className}`}>
+      <button onClick={() => action()} className={`btn-outline-text ${className}`} type={type} disabled={disabled}>
         <span>{title}</span>
         {title?.toLowerCase() === "download" ? <FiDownload size={20} /> :     <HiOutlineArrowLongRight size={20} />}
       </button>

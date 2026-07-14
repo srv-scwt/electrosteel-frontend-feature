@@ -1598,20 +1598,49 @@ export default function Navbar() {
                     </h4>
                     <ul className="space-y-2 navlistnametext">
                       <li className="flex items-start">
-                        <ChevronRight size={16} className={styles.angleIcon} />
-                        <span className="ml-1">Emission</span>
+                        <Link
+                          href={"/sustainability/environment-initiatives"}
+                          className="hover:text-yellow-400 flex items-start"
+                        >
+                          <ChevronRight size={16} className={styles.angleIcon} />
+                          <span className="ml-1">Overview</span>
+                        </Link>
                       </li>
                       <li className="flex items-start">
-                        <ChevronRight size={16} className={styles.angleIcon} />
-                        <span className="ml-1">Water</span>
+                        <Link
+                          href={"/sustainability/environment-initiatives/emission"}
+                          className="hover:text-yellow-400 flex items-start"
+                        >
+                          <ChevronRight size={16} className={styles.angleIcon} />
+                          <span className="ml-1">Emission</span>
+                        </Link>
                       </li>
                       <li className="flex items-start">
-                        <ChevronRight size={16} className={styles.angleIcon} />
-                        <span className="ml-1">Waste</span>
+                        <Link
+                          href={"/sustainability/environment-initiatives/water"}
+                          className="hover:text-yellow-400 flex items-start"
+                        >
+                          <ChevronRight size={16} className={styles.angleIcon} />
+                          <span className="ml-1">Water</span>
+                        </Link>
                       </li>
                       <li className="flex items-start">
-                        <ChevronRight size={16} className={styles.angleIcon} />
-                        <span className="ml-1">Energy</span>
+                        <Link
+                          href={"/sustainability/environment-initiatives/waste"}
+                          className="hover:text-yellow-400 flex items-start"
+                        >
+                          <ChevronRight size={16} className={styles.angleIcon} />
+                          <span className="ml-1">Waste</span>
+                        </Link>
+                      </li>
+                      <li className="flex items-start">
+                        <Link
+                          href={"/sustainability/environment-initiatives/energy"}
+                          className="hover:text-yellow-400 flex items-start"
+                        >
+                          <ChevronRight size={16} className={styles.angleIcon} />
+                          <span className="ml-1">Energy</span>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -1762,9 +1791,11 @@ export default function Navbar() {
                       Governance Initiatives
                     </h4>
                     <ul className="space-y-2 navlistnametext">
-                      <li className="flex items-start">
+                      <li className="flex items-start cursor-pointer hover:text-[#004aa1]">
                         <ChevronRight size={16} className={styles.angleIcon} />
-                        <span className="ml-1">Policy Commitments</span>
+                        <Link href="/sustainability/governance-initiatives/policy-commitments" className="ml-1 hover:underline">
+                          Policy Commitments
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -2386,24 +2417,27 @@ export default function Navbar() {
             >
               <ul className="space-y-3 navlistnametext">
                 <li className="flex items-start">
-                  <ChevronRight size={16} className={styles.angleIcon} />
-                  <span className="ml-1">Overview</span>
+                  <Link href={"/career"} className="hover:text-yellow-400 flex items-start">
+                    <ChevronRight size={16} className={styles.angleIcon} />
+                    <span className="ml-1">Overview</span>
+                  </Link>
                 </li>
                 <li className="flex items-start">
-                  <ChevronRight size={16} className={styles.angleIcon} />
-                  <span className="ml-1">Join Us</span>
+                  <Link href={"/career#join-us"} className="hover:text-yellow-400 flex items-start">
+                    <ChevronRight size={16} className={styles.angleIcon} />
+                    <span className="ml-1">Join Us</span>
+                  </Link>
                 </li>
                 <li className="flex items-start">
-                  <ChevronRight size={16} className={styles.angleIcon} />
-                  <span className="ml-1">Khoj- The Campus Drive</span>
+                  <Link href={"/career#khoj"} className="hover:text-yellow-400 flex items-start">
+                    <ChevronRight size={16} className={styles.angleIcon} />
+                    <span className="ml-1">Khoj- The Campus Drive</span>
+                  </Link>
                 </li>
                 <li className="flex items-start">
-                    <Link
-                    href={"/career/career-enquiry"}
-                    className="hover:text-yellow-400 flex items-start"
-                  >
-                  <ChevronRight size={16} className={styles.angleIcon} />
-                  <span className="ml-1">Career Enquiry</span>
+                  <Link href={"/career#career-enquiry"} className="hover:text-yellow-400 flex items-start">
+                    <ChevronRight size={16} className={styles.angleIcon} />
+                    <span className="ml-1">Career Enquiry</span>
                   </Link>
                 </li>
               </ul>
