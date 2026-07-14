@@ -79,7 +79,7 @@ const footerData = [
     ],
     contacts: [
       { name: "K. K. Jha", phone: "+91 9771455335", url: "/" },
-      { name: "Ganeshan", phone: "+91 8986552908", url: "/" },
+      { name: "Ganeshan", phone: "+91 8895852693", url: "/" },
     ],
   },
   {
@@ -97,11 +97,11 @@ const footerData = [
       },
     ],
     contacts: [
-      { type: "Ph.", value: "+91-33-22839900/71036400", url: "tel:+91-33-22839900" },
-      { type: "Fax", value: "+91-33-22839940 (Directors)", url: "tel:+91-33-22839940" },
-      { type: "", value: "+91-33-22839943 (Sales)", url: "tel:+91-33-22839943" },
-      { type: "", value: "+91-33-22839920 (Export)", url: "tel:+91-33-22839920" },
-      { type: "", value: "+91-33-22839930 (Finance)", url: "tel:+91-33-22839930" },
+      { type: "Ph.", value: "+91-33-22839990/71034400", url: "tel:+91-33-22839990" },
+      { type: "Fax", value: "+91-33-22894336 (Directors)", url: "tel:+91-33-22894336" },
+      { type: "", value: "+91-33-22894337 (Sales)", url: "tel:+91-33-22894337" },
+      { type: "", value: "+91-33-22894338 (Export)", url: "tel:+91-33-22894338" },
+      { type: "", value: "+91-33-22894339 (Finance)", url: "tel:+91-33-22894339" },
     ],
   },
   // {

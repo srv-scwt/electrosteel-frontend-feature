@@ -7,6 +7,7 @@ import Image from "next/image";
 import { footerData, copyrightLinks, supportPartnersImage, socialMedia } from './footer.data'
 // comment
 const Footer = () => {
+ 
   return (
     <footer className="bg-[#00418E] text-white">
       <div className={styles.containerLg}>
