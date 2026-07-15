@@ -1608,7 +1608,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/sustainability/environment-initiatives/emission"}
+                          href={"/sustainability/environment-initiatives#emission"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight size={16} className={styles.angleIcon} />
@@ -1617,7 +1617,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/sustainability/environment-initiatives/water"}
+                          href={"/sustainability/environment-initiatives#water"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight size={16} className={styles.angleIcon} />
@@ -1626,7 +1626,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/sustainability/environment-initiatives/waste"}
+                          href={"/sustainability/environment-initiatives#waste"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight size={16} className={styles.angleIcon} />
@@ -1635,7 +1635,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/sustainability/environment-initiatives/energy"}
+                          href={"/sustainability/environment-initiatives#energy"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight size={16} className={styles.angleIcon} />
@@ -1654,8 +1654,10 @@ export default function Navbar() {
                     </h4>
                     <ul className="space-y-2 navlistnametext">
                       <li className="flex items-start">
-                        <ChevronRight size={16} className={styles.angleIcon} />
-                        <span className="ml-1">Safety</span>
+                        <Link href="/sustainability/social-initiatives/safety" className="hover:text-yellow-400 flex items-start">
+                          <ChevronRight size={16} className={styles.angleIcon} />
+                          <span className="ml-1">Safety</span>
+                        </Link>
                       </li>
                       <li className="flex items-start">
                         <Link
@@ -1777,8 +1779,10 @@ export default function Navbar() {
                         </ul>
                       </li>
                       <li className="flex items-start">
-                        <ChevronRight size={16} className={styles.angleIcon} />
-                        <span className="ml-1">Training</span>
+                        <Link href="/sustainability/social-initiatives/training" className="hover:text-yellow-400 flex items-start">
+                          <ChevronRight size={16} className={styles.angleIcon} />
+                          <span className="ml-1">Training</span>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -1791,10 +1795,10 @@ export default function Navbar() {
                       Governance Initiatives
                     </h4>
                     <ul className="space-y-2 navlistnametext">
-                      <li className="flex items-start cursor-pointer hover:text-[#004aa1]">
-                        <ChevronRight size={16} className={styles.angleIcon} />
-                        <Link href="/sustainability/governance-initiatives/policy-commitments" className="ml-1 hover:underline">
-                          Policy Commitments
+                      <li className="flex items-start">
+                        <Link href="/sustainability/governance-initiatives/policy-commitments" className="hover:text-yellow-400 flex items-start">
+                          <ChevronRight size={16} className={styles.angleIcon} />
+                          <span className="ml-1">Policy Commitments</span>
                         </Link>
                       </li>
                     </ul>

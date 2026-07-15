@@ -25,13 +25,14 @@ const GridTwoSection = ({
   isDownloadLink = false,
   isDarkSection = false,
   isIFrame=false,
+  gridColsClass = "lg:grid-cols-2",
 }) => {
   if (!data) return null;
 
   return (
     <section id={sectionID} className={isDarkSection ? "bg-[#00418e]" : ""}>
       <div className={`${styles.containerLg} ${className}`}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-8 lg:gap-12 items-start">
+        <div className={`grid grid-cols-1 gap-5 md:gap-8 lg:gap-12 items-start ${gridColsClass}`}>
           <div
             className={`relative w-full flex items-center justify-center h-64 md:h-80 lg:h-full min-h-[320px] lg:min-h-[420px] overflow-hidden ${bannerOrder}`}
           >

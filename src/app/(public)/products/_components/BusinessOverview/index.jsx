@@ -11,6 +11,7 @@ const BusinessOverview = ({ data }) => {
             <h2>
               <span>{data?.title}</span>
             </h2>
+            {data?.description && <p>{data.description}</p>}
           </div>
           <div className="my-6 grid grid-cols-1 lg:grid-cols-[35%_65%] gap-6 items-stretch">
             {Array.isArray(data?.card) && data?.card.map((item, index) => (
@@ -18,7 +19,6 @@ const BusinessOverview = ({ data }) => {
                 <PaintApprovalsCard
                   data={item}
                   isLeft={index % 2 ? true : false}
-                  isTrans={index == 1 ? true : false}
                 />
               </div>
             ))}

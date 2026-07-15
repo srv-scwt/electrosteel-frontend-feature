@@ -13,7 +13,7 @@ export const policyCommitmentsData = {
     image: "/images/sustainability/governance_initiatives/certificate_policyCommitments.jpg"
   },
   principlesTable: {
-    title: "TEN PRINCIPLES SECTION",
+    title: "The Ten Principles span four critical domains:",
     columns: ["#Principle", "#Principle"],
     rows: [
       ["1: Human Rights — Support & Respect", "6: Labour — Elimination of Discrimination"],
@@ -25,6 +25,7 @@ export const policyCommitmentsData = {
   },
   reporting: {
     title: "Sustainability Report — GRI Standards & Independent Assurance",
+    image: "/images/sustainability/governance_initiatives/policycommitment_sustainability_report.png",
     description: "<p>ECL regularly publishes a comprehensive, full-scale sustainability report — independently third-party assured and prepared in accordance with the Global Reporting Initiative (GRI) Standards. This report comprehensively covers all ESG parameters of the company, duly audited for accuracy and completeness.</p><p>Our sustainability disclosures are independently assured by BSI under ISAE 3000 — one of the most rigorous third-party assurance standards available. This places ECL among a select group of Indian manufacturers who hold independently verified sustainability credentials.</p><p>In alignment with SEBI's Business Responsibility and Sustainability Reporting (BRSR) framework, ECL also prepares and publishes its BRSR as part of its Annual Report, ensuring compliance with the highest standards of mandatory sustainability disclosure for listed companies in India.</p>"
   },
   policyFramework: {

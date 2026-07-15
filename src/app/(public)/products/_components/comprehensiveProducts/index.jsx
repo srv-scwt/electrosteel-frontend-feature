@@ -10,6 +10,7 @@ const ComprehensiveProducts = ({ data, productCategories =[] }) => {
         <div className={`${styles.containerLg}`}>
           <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
             <HTMLRender htmlString={`<h2>${data?.title}</h2>`} />
+            {data?.description && <HTMLRender htmlString={data?.description} />}
           </div>
           <div className="my-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
             {Array.isArray(productCategories) && productCategories?.map((item, index) => (

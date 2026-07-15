@@ -6,7 +6,7 @@ import cstyles from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { createImageSourceURL } from "@/utils";
 
-export default function PolicyFrameworkSection({ data }) {
+export default function TrainingDomainsSection({ data }) {
   if (!data) return null;
 
   return (
@@ -15,7 +15,7 @@ export default function PolicyFrameworkSection({ data }) {
       <div className="absolute inset-0 -z-20">
         <Image
           src={createImageSourceURL(data?.image)}
-          alt="Policy Framework Background"
+          alt="Training Domains Background"
           fill
           className="object-cover"
         />
@@ -26,27 +26,32 @@ export default function PolicyFrameworkSection({ data }) {
 
       <div className={`${cstyles.containerLg}`}>
         {/* HEADER */}
-        <div className={`${cstyles.sectionContent} pb-6 md:pb-12 text-white`}>
-          <div className="text-sm font-bold text-[#ffd306] mb-2 tracking-widest uppercase">❯ POLICY COMMITMENTS</div>
-          <h4 className="text-white font-bold text-xl mb-4">{data?.title}</h4>
+        <div className={`${cstyles.sectionContent} text-center mx-auto pb-6 md:pb-12 text-white`}>
+          <HTMLRender htmlString={`<h2 class="text-white">${data?.title}</h2>`} />
         </div>
 
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Array.isArray(data?.policies) &&
-            data.policies.map((item, index) => {
+          {Array.isArray(data?.cards) &&
+            data.cards.map((item, index) => {
               return (
                 <div
                   key={index}
                   className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 transition-all duration-300 hover:bg-white/20"
                 >
                   <div className="flex flex-col gap-4">
-                    <h4 className="font-bebas text-2xl tracking-wide text-[#ffd306]">
-                      {item?.title}
-                    </h4>
-                    <p className="font-montserrat text-sm leading-relaxed text-white">
-                      {item?.description}
-                    </p>
+                    <div className="flex items-center gap-3">
+                      <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-[#ffd306] text-[#004aa1] font-bold text-lg">
+                        {index + 1}
+                      </span>
+                      <h4 className="font-bebas text-2xl tracking-wide text-[#ffd306]">
+                        {item?.title}
+                      </h4>
+                    </div>
+                    <p 
+                      className="font-montserrat text-sm leading-relaxed text-white" 
+                      dangerouslySetInnerHTML={{ __html: item?.description }} 
+                    />
                   </div>
                 </div>
               );

@@ -8,43 +8,57 @@ import WorldClassSection from "../_components/worldClassSection";
 import CurrentManufacture from "../_components/currentManufacture";
 import ComprehensiveProducts from "../_components/comprehensiveProducts";
 import BusinessOverview from "../_components/BusinessOverview";
-import { getPaint } from "@/services/product/paint.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import { paintsData } from "./paint.data";
 
-
-const Paint = async () => {
-  const paintsData = await getPaint();
-  if (!paintsData || paintsData.error) return <SomethingWentWrong />
-
+const Paint = () => {
   return (
     <>
-      <HeroSection data={paintsData?.data?.hero} />
-      <ContentSection data={paintsData?.data?.ElectrosteelLegacyofInnovation} sectionID="overview" />
+      <HeroSection data={paintsData.hero} />
+      
+      <ContentSection data={paintsData.ElectrosteelLegacyofInnovation} sectionID="overview" />
+      
       <GridTwoSection
-        data={paintsData?.data?.PaintOverview}
+        data={paintsData.PaintOverview}
         contentOrder={"order-1"}
         bannerOrder={"order-2 "}
-        sectionID={"overview"}
+        sectionID={"overview-details"}
         className={"!my-0 !py-0"}
         objectPosition="object-contain"
       />
+      
       <TechnologyMantra
-        data={paintsData?.data?.PaintTechnologyMantra}
-        images={paintsData?.data?.PaintTechnologyMantra?.slider_images || []}
+        data={paintsData.PaintTechnologyMantra}
+        images={paintsData.PaintTechnologyMantra.slider_images}
       />
-      <BusinessOverview data={paintsData?.data?.industrialPaintBusinessOverview} />
-      <ComprehensiveProducts
-        data={paintsData?.data?.comprehensiveProductRange}
-        productCategories={paintsData?.data?.comprehensiveProductRange?.card || []}
-      />
-      <TestPerformed
-        data={paintsData?.data?.testPerformedForPaintsAndPrimers?.tableData}
-      />
-      <WorldClassSection data={paintsData?.data?.worldClassRawMaterialsAndGlobalApprovals} />
-      <WorldClassSection data={paintsData?.data?.worldClassRnDLaboratory} />
+      
       <CurrentManufacture
-        data={paintsData?.data?.currentManufacturingFacilities}
-        paints={paintsData?.data?.currentManufacturingFacilities?.card || []} />
+        data={paintsData.ManufacturingExcellence}
+        paints={paintsData.ManufacturingExcellence.card} 
+      />
+
+      <BusinessOverview data={paintsData.WhyChooseECLPaints} />
+      
+
+
+      <ComprehensiveProducts
+        data={paintsData.ApplicationSectors}
+        productCategories={paintsData.ApplicationSectors.card}
+      />
+
+      <ComprehensiveProducts
+        data={paintsData.ProductCategories}
+        productCategories={paintsData.ProductCategories.card}
+      />
+
+      <WorldClassSection data={paintsData.ComprehensiveProductRange} />
+
+      <WorldClassSection data={paintsData.WorldClassRnDLaboratory} />
+
+      <TestPerformed
+        data={paintsData.TestPerformed}
+      />
+
+      <ContentSection data={paintsData.TalkToOurPaintExperts} sectionID="paint-experts" />
     </>
   );
 };

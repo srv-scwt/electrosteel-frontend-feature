@@ -154,17 +154,17 @@ const sustainabilityData = [
     section: "Environment Initiatives",
     links: [
       { label: "Overview", url: "/sustainability/environment-initiatives" },
-      { label: "Emission", url: "/sustainability/environment-initiatives/emission" },
-      { label: "Water", url: "/sustainability/environment-initiatives/water" },
-      { label: "Waste", url: "/sustainability/environment-initiatives/waste" },
-      { label: "Energy", url: "/sustainability/environment-initiatives/energy" },
+      { label: "Emission", url: "/sustainability/environment-initiatives#emission" },
+      { label: "Water", url: "/sustainability/environment-initiatives#water" },
+      { label: "Waste", url: "/sustainability/environment-initiatives#waste" },
+      { label: "Energy", url: "/sustainability/environment-initiatives#energy" },
     ],
   },
 
   {
     section: "Social Initiatives",
     links: [
-      { label: "Safety", url: "/sustainability/social/safety" },
+      { label: "Safety", url: "/sustainability/social-initiatives/safety" },
       { label: "Employee Welfare", url: "/sustainability/social-initiatives/employee-welfare" },
       { label: "External Social Support", url: "/sustainability/social-initiatives/external-social-support" },
       { label: " Our Commitments", url: "/sustainability/social-initiatives/commitment-going-forward" },
@@ -180,7 +180,7 @@ const sustainabilityData = [
         ],
       },
 
-      { label: "Training", url: "/sustainability/social/training" },
+      { label: "Training", url: "/sustainability/social-initiatives/training" },
     ],
   },
 

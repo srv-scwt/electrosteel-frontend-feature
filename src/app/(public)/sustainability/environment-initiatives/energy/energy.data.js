@@ -5,8 +5,8 @@ export const energyData = {
     banner: "/images/blog/blogBanner.jpg", // Using standard hero banner pattern
   },
   introduction: {
-    title: "OUR APPROACH TO ENERGY MANAGEMENT",
-    description: "<p>Energy management is a strategic priority at Electrosteel Castings Limited. As a large-scale industrial manufacturer, we recognise that reducing energy intensity is both an environmental and business imperative. Our approach is governed by a UKAS-accredited ISO 50001 Energy Management System one of the most rigorous energy governance frameworks in the DI pipe manufacturing sector which drives systematic monitoring, target-setting, and improvement across all our plants.</p><p>Reducing energy consumption per unit of production directly lowers our Scope 1 and Scope 2 greenhouse gas emissions, contributing to India's national energy transition goals and our own long-term commitment to sustainable operations.</p><p>Energy performance is disclosed in our annual GRI-aligned sustainability report, independently assured by BSI under ISAE 3000.</p>",
+    title: "<h4 class='text-[#004aa1] font-bold text-xl mb-2 uppercase'>OUR APPROACH TO ENERGY MANAGEMENT</h4>",
+    description: "<p>Electrosteel Castings Limited recognises that energy consumption is a primary driver of operational costs and carbon emissions. Our approach to energy management is focused on continuous efficiency improvements, technological upgrades, and the progressive integration of cleaner energy sources into our manufacturing processes.</p><p>Energy management at ECL is governed by our UKAS-accredited ISO 50001 Energy Management System. This robust framework ensures that we systematically measure, monitor, and optimise our energy performance across all operational facilities.</p>",
   },
   initiativesSection: {
     title: "HOW WE MANAGE ENERGY",
