@@ -118,25 +118,6 @@ const page = async () => {
           </div>
         </div>
       </section>
-      <section className={`${styles.containerLg} pt-0!`}>
-        <div id="rewards-and-recognitions"
-          className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}
-        >
-          <HTMLRender htmlString={`<h3>${PeopleData?.data?.reward?.title}</h3>`} />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div id="pragati"
-            className={`${styles.sectionContent}`}>
-            <h3>{PeopleData?.data?.reward?.pragatiData?.title}</h3>
-            <ButtonSwiperImageClient images={pragatiImage?.imageSrc} title={"Title"} imageTitle={pragatiImage.imageTitle} className={"py-0!"} />
-          </div>
-          <div id="pratibha-pride"
-            className={`${styles.sectionContent}`}>
-            <h3>{PeopleData?.data?.reward?.pratihbaImages?.title}</h3>
-            <ButtonSwiperImageClient images={pratibhaImage?.imageSrc} title={"Title"} imageTitle={pratibhaImage.imageTitle} className={"py-0!"} />
-          </div>
-        </div>
-      </section>
     </>
   );
 };

@@ -30,10 +30,10 @@ const aboutUsData = [
       },
       {
         label: "Rewards and Recognitions",
-        url: "/about/people#rewards-and-recognitions",
+        url: "/about/rewards-recognition",
         subLinks: [
-          { label: "Pragati", url: "/about/pragati" },
-          { label: "Pratibha & Pride", url: "/about/pratibha-pride" },
+          { label: "Pragati", url: "/about/rewards-recognition#pragati" },
+          { label: "Pratibha & Pride", url: "/about/rewards-recognition#pratibha-pride" },
         ]
       },
     ],

@@ -114,7 +114,7 @@ const page = () => {
       <section id="career-enquiry" className="scroll-mt-24 pb-12">
         <ContentSection data={careerData.careerEnquiry} />
         <div className={`${cstyles.containerLg} !pt-0`}>
-          <CareerEnquiryForm />
+          {/* <CareerEnquiryForm /> */}
         </div>
       </section>
     </>

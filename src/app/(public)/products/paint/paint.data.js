@@ -50,7 +50,7 @@ export const paintsData = {
       { title: "Advanced R&D & Manufacturing", desc: "Innovation-driven solutions supported by modern manufacturing infrastructure and technical expertise." },
       { title: "Premium Raw Materials", desc: "Carefully sourced, high-grade raw materials from DOW, BYK, Aditya Birla, Evonik, and Umicore." },
       { title: "Excellent Application Performance", desc: "Superior coverage, strong adhesion, and reliable performance across demanding environments." },
-      { title: "Trusted Global Approvals", desc: "Approved by WRAS (UK), ACS (France), DVGW (Germany), and DWI (UK)." }
+      { title: "Trusted Global Approvals", desc: "Approved by WRAS (UK), ACS (France), DVGW (Germany), and DWI (UK).<br/><div class='mt-6 flex flex-wrap justify-start gap-2 sm:gap-3 items-center'><div class='w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-full shadow-md border border-gray-100 flex items-center justify-center p-5'><img src='/images/paint/l-1.jpg' alt='WRAS' class='max-w-full max-h-full object-contain' /></div><div class='w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-full shadow-md border border-gray-100 flex items-center justify-center p-5'><img src='/images/paint/l-2.jpg' alt='ACS' class='max-w-full max-h-full object-contain' /></div><div class='w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-full shadow-md border border-gray-100 flex items-center justify-center p-5'><img src='/images/paint/l-3.jpg' alt='DVGW' class='max-w-full max-h-full object-contain' /></div><div class='w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-full shadow-md border border-gray-100 flex items-center justify-center p-5'><img src='/images/paint/l-4.jpg' alt='DWI' class='max-w-full max-h-full object-contain' /></div></div>" }
     ]
   },
   ApplicationSectors: {

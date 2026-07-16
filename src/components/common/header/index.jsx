@@ -827,7 +827,7 @@ export default function Navbar() {
                     <li className="">
                       <div className="flex items-start">
                         <Link
-                          href={"/about/people#rewards-and-recognitions"}
+                          href={"/about/rewards-recognition"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -840,7 +840,7 @@ export default function Navbar() {
                       <ul className="space-y-2 navlistnametext pl-5 mt-3">
                         <li className="flex items-start">
                           <Link
-                            href={"/about/pragati"}
+                            href={"/about/rewards-recognition#pragati"}
                             className="hover:text-yellow-400 flex items-start"
                           >
                             <ChevronRight
@@ -852,7 +852,7 @@ export default function Navbar() {
                         </li>
                         <li className="flex items-start">
                           <Link
-                            href={"/about/pratibha-pride"}
+                            href={"/about/rewards-recognition#pratibha-pride"}
                             className="hover:text-yellow-400 flex items-start"
                           >
                             <ChevronRight

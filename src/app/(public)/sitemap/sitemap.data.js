@@ -59,8 +59,8 @@ export const sitemapSections = [
         label: "Process Innovation",
         path: "/about/innovation-and-technology/process-innovation",
       },
-      { label: "Pragati", path: "/about/pragati" },
-      { label: "Pratibha Pride", path: "/about/pratibha-pride" },
+      { label: "Pragati", path: "/about/rewards-recognition#pragati" },
+      { label: "Pratibha Pride", path: "/about/rewards-recognition#pratibha-pride" },
       {
         label: "25 Years Milestones",
         path: "/about/twenty-five-years-of-di-pipes/milestones",
