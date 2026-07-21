@@ -1,11 +1,11 @@
 export const energyData = {
   hero: {
     title: "ENERGY",
-    subtitle: "Powering Efficiency. Reducing Intensity.",
+    subtitle: "Powering Efficiency. <span>Reducing Intensity.</span>",
     banner: "/images/blog/blogBanner.jpg", // Using standard hero banner pattern
   },
   introduction: {
-    title: "<h4 class='text-[#004aa1] font-bold text-xl mb-2 uppercase'>OUR APPROACH TO ENERGY MANAGEMENT</h4>",
+    title: "<h2>Our Approach to <span>Energy Management</span></h2>",
     description: "<p>Electrosteel Castings Limited recognises that energy consumption is a primary driver of operational costs and carbon emissions. Our approach to energy management is focused on continuous efficiency improvements, technological upgrades, and the progressive integration of cleaner energy sources into our manufacturing processes.</p><p>Energy management at ECL is governed by our UKAS-accredited ISO 50001 Energy Management System. This robust framework ensures that we systematically measure, monitor, and optimise our energy performance across all operational facilities.</p>",
   },
   initiativesSection: {

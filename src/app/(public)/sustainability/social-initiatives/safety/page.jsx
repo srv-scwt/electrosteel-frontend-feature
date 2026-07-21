@@ -3,8 +3,10 @@ import HeroSection from "@/components/common/heroSection";
 import ContentSection from "@/components/common/contentSection";
 import GridTwoSection from "@/components/common/GridTwoSection";
 import CommonTable from "@/components/common/CommonTable";
+import HTMLRender from "@/components/ui/HTMLRender";
 import { safetyData } from "./safety.data";
 import SafetyCommitmentsSection from "./_components/SafetyCommitmentsSection";
+import SafetyCredentialsCards from "./_components/SafetyCredentialsCards";
 import cstyles from "@/app/common.module.css";
 
 const page = () => {
@@ -13,31 +15,25 @@ const page = () => {
       <HeroSection data={safetyData.hero} />
 
       {/* OVERVIEW SECTION */}
-      <section className="scroll-mt-24 pt-4 pb-8">
+      <section className="scroll-mt-24">
         <div className={cstyles.containerLg}>
-          <h4 className="text-[#004aa1] font-bold text-xl mb-4">{safetyData.overview.title}</h4>
-          <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)] flex flex-col gap-4" dangerouslySetInnerHTML={{ __html: safetyData.overview.description }} />
+          <div className={`${cstyles.sectionContent} ${cstyles.customUlListing}`}>
+            <div dangerouslySetInnerHTML={{ __html: safetyData.overview.description }} />
+          </div>
         </div>
       </section>
 
-      {/* CERTIFICATION SECTION */}
-      <section className="py-8 bg-gray-50">
-        <div className={cstyles.containerLg}>
-          <div className="text-sm font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ CERTIFICATION</div>
-          <GridTwoSection
-            data={safetyData.certification}
-            gridColsClass="lg:grid-cols-12"
-            bannerOrder="order-first lg:order-last lg:col-span-4"
-            contentOrder="order-last lg:order-first lg:col-span-8"
-            objectPosition="object-contain"
-          />
-        </div>
-      </section>
+      {/* CREDENTIALS CARDS SECTION */}
+      <SafetyCredentialsCards />
+
+
 
       {/* ISO PRACTICES TABLE SECTION */}
-      <section className="py-8">
+      <section className="bg-gray-50">
         <div className={cstyles.containerLg}>
-          <h4 className="text-[#004aa1] font-bold text-xl mb-4">{safetyData.isoPracticesTable.title}</h4>
+          <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} mb-6`}>
+            <HTMLRender htmlString={`<h2>${safetyData.isoPracticesTable.title}</h2>`} />
+          </div>
           <CommonTable
             columns={safetyData.isoPracticesTable.columns}
             rows={safetyData.isoPracticesTable.rows}
@@ -45,12 +41,27 @@ const page = () => {
         </div>
       </section>
 
-      {/* SAFETY CULTURE SECTION */}
-      <section className="py-8 bg-gray-50">
+      {/* SA 8000 TABLE SECTION */}
+      <section className="bg-gray-50">
         <div className={cstyles.containerLg}>
-          <div className="text-sm font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ SAFETY CULTURE</div>
+          <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} mb-6`}>
+            <HTMLRender htmlString={`<h2>${safetyData.sa8000Table.title}</h2>`} />
+          </div>
+          <CommonTable
+            columns={safetyData.sa8000Table.columns}
+            rows={safetyData.sa8000Table.rows}
+          />
+        </div>
+      </section>
+
+      {/* SAFETY CULTURE SECTION */}
+      <section className="">
+        <div className={cstyles.containerLg}>
+          <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} mb-6`}>
+            <div className="text-sm font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ SAFETY CULTURE</div>
+            <HTMLRender htmlString={`<h2>${safetyData.safetyCulture.title}</h2>`} />
+          </div>
           <div className={`${cstyles.sectionContent} ${cstyles.customUlListing}`}>
-            <h2 dangerouslySetInnerHTML={{ __html: safetyData.safetyCulture.title }} />
             <div dangerouslySetInnerHTML={{ __html: safetyData.safetyCulture.description }} />
           </div>
         </div>
@@ -59,41 +70,8 @@ const page = () => {
       {/* COMMITMENTS SECTION */}
       <SafetyCommitmentsSection data={safetyData.commitmentsSection} />
 
-      {/* SOCIAL ACCOUNTABILITY SECTION */}
-      <section className="py-8 bg-gray-50 mt-8">
-        <div className={cstyles.containerLg}>
-          <div className="text-sm font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ SOCIAL ACCOUNTABILITY</div>
-          <GridTwoSection
-            data={safetyData.socialAccountability}
-            gridColsClass="lg:grid-cols-12"
-            bannerOrder="order-first lg:order-last lg:col-span-4"
-            contentOrder="order-last lg:order-first lg:col-span-8"
-            objectPosition="object-contain"
-          />
-        </div>
-      </section>
 
-      {/* SA 8000 TABLE SECTION */}
-      <section className="py-8">
-        <div className={cstyles.containerLg}>
-          <h4 className="text-[#004aa1] font-bold text-xl mb-4">{safetyData.sa8000Table.title}</h4>
-          <CommonTable
-            columns={safetyData.sa8000Table.columns}
-            rows={safetyData.sa8000Table.rows}
-          />
-        </div>
-      </section>
 
-      {/* CREDENTIALS TABLE SECTION */}
-      <section className="py-8 bg-gray-50 mb-8">
-        <div className={cstyles.containerLg}>
-          <h4 className="text-[#004aa1] font-bold text-xl mb-4">{safetyData.credentialsTable.title}</h4>
-          <CommonTable
-            columns={safetyData.credentialsTable.columns}
-            rows={safetyData.credentialsTable.rows}
-          />
-        </div>
-      </section>
     </>
   );
 };

@@ -1,11 +1,11 @@
 export const emissionData = {
   hero: {
     title: "EMISSION",
-    subtitle: "Monitoring, Reducing, Reporting — Responsibly.",
+    subtitle: "Monitoring, Reducing, Reporting — <span>Responsibly.</span>",
     banner: "/images/blog/blogBanner.jpg", // Using standard hero banner pattern
   },
   introduction: {
-    title: "<h4 class='text-[#004aa1] font-bold text-xl mb-2 uppercase'>OUR COMMITMENT TO CLEAN AIR</h4>",
+    title: "<h2>Our Commitment to <span>Clean Air</span></h2>",
     description: "<p>At Electrosteel Castings Limited, managing air emissions is a non-negotiable aspect of responsible manufacturing. Across all our plants, we monitor stack and fugitive emissions in compliance with applicable statutory norms and we set internal targets that go beyond minimum regulatory requirements.</p><p>Our ISO 14001-certified Environmental Management System provides the governance structure for tracking, reviewing, and continuously improving our emission performance.</p><p>We publish our emission data annually in our GRI Standards-aligned sustainability report, independently assured by BSI under ISAE 3000, ensuring full transparency with our stakeholders.</p>",
   },
   initiativesSection: {

@@ -8,12 +8,12 @@ export const policyCommitmentsData = {
     description: "<p>At Electrosteel Castings Limited, governance is not a compliance checkbox — it is the foundation on which nearly seven decades of trusted manufacturing have been built. Our policy commitments reflect a deliberate, values-driven approach to how we conduct business: with transparency toward stakeholders, responsibility toward communities, and rigour toward the planet.</p><p>ECL's governance structure integrates ethics, sustainability, and accountability at every level of the organisation — from the Board to the plant floor. Our policies are reviewed periodically, audited externally, and aligned with both national regulatory requirements and international best-practice frameworks.</p>"
   },
   globalCommitment: {
-    title: "United Nations Global Compact",
+    title: "United Nations <span>Global Compact</span>",
     description: "<p>Electrosteel Castings Limited is a proud member of the United Nations Global Compact initiative. By incorporating the Ten Principles of the UN Global Compact into our strategies, policies and procedures, and by establishing a culture of integrity across the organisation, we are not only upholding our basic responsibilities to people and planet — we are also setting the stage for long-term, sustainable success.</p>",
     image: "/images/sustainability/governance_initiatives/certificate_policyCommitments.jpg"
   },
   principlesTable: {
-    title: "The Ten Principles span four critical domains:",
+    title: "The Ten Principles <span>span four critical domains:</span>",
     columns: ["#Principle", "#Principle"],
     rows: [
       ["1: Human Rights — Support & Respect", "6: Labour — Elimination of Discrimination"],
@@ -24,12 +24,12 @@ export const policyCommitmentsData = {
     ]
   },
   reporting: {
-    title: "Sustainability Report — GRI Standards & Independent Assurance",
+    title: "Sustainability Report — <span>GRI Standards & Independent Assurance</span>",
     image: "/images/sustainability/governance_initiatives/policycommitment_sustainability_report.png",
     description: "<p>ECL regularly publishes a comprehensive, full-scale sustainability report — independently third-party assured and prepared in accordance with the Global Reporting Initiative (GRI) Standards. This report comprehensively covers all ESG parameters of the company, duly audited for accuracy and completeness.</p><p>Our sustainability disclosures are independently assured by BSI under ISAE 3000 — one of the most rigorous third-party assurance standards available. This places ECL among a select group of Indian manufacturers who hold independently verified sustainability credentials.</p><p>In alignment with SEBI's Business Responsibility and Sustainability Reporting (BRSR) framework, ECL also prepares and publishes its BRSR as part of its Annual Report, ensuring compliance with the highest standards of mandatory sustainability disclosure for listed companies in India.</p>"
   },
   policyFramework: {
-    title: "Our Governing Policy Framework",
+    title: "Our Governing <span>Policy Framework</span>",
     image: "https://electrosteel.onrender.com/uploads/file-1779356229454-826531389.jpg",
     policies: [
       {
@@ -63,7 +63,7 @@ export const policyCommitmentsData = {
     ]
   },
   credentialsTable: {
-    title: "Governance Credentials at a Glance",
+    title: "Governance Credentials <span>at a Glance</span>",
     columns: ["Framework / Standard", "Scope & Significance"],
     rows: [
       ["UN Global Compact", "Member · Ten Principles across Human Rights, Labour, Environment, Anti-Corruption · Certificate valid April 2026–March 2027"],
@@ -75,7 +75,7 @@ export const policyCommitmentsData = {
     ]
   },
   continuousImprovement: {
-    title: "Commitment to Continuous Improvement",
+    title: "Commitment to <span>Continuous Improvement</span>",
     description: "<p>Policy commitments are living documents. ECL reviews its governance framework annually, benchmarks against sector peers and global standards, and integrates emerging regulatory requirements into its reporting and disclosure practices. We hold ourselves accountable — not just to the letter of our commitments, but to the spirit of them.</p>"
   }
 };

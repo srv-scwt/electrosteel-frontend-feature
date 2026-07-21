@@ -13,7 +13,7 @@ export const trainingData = {
 
   approach: {
     sectionLabel: "❯ OUR APPROACH",
-    title: "A Learning Organisation in Practice",
+    title: "A Learning Organisation <span>in Practice</span>",
     description: `<p>ECL's training programmes are designed with one principle at their core: every person in our organisation deserves the knowledge, skills, and tools to do their job safely, effectively, and with confidence. Whether it is a fresh induction into our quality systems or an advanced professional development workshop, we bring the same rigour and commitment to every programme we run.</p>
     <p>Training at ECL is structured, systematic, and organisation-wide. We plan and execute learning interventions across all our manufacturing facilities - Khardah Works, Haldia Works, Bansberia Works, Elavur Works, Srikalahasthi Works and our Head Office ensuring that no plant and no function is left behind.</p>
     <p>Our faculty includes both internal subject matter experts like engineers, quality professionals, safety officers, and HR specialists and external trainers and domain specialists who bring current industry thinking and global best practices into our classrooms. This blend of internal knowledge and external perspective ensures that our training remains grounded in our operations while staying current with evolving standards and expectations.</p>`
@@ -52,14 +52,14 @@ export const trainingData = {
 
   reach: {
     sectionLabel: "❯ OUR REACH",
-    title: "Training Across ECL's Operations",
+    title: "Training Across <span>ECL's Operations</span>",
     description: `<p>Training at ECL is not confined to any single location or department. We deliver programmes across our entire operational footprint, bringing the same standards of learning to every plant and every office.</p>
     <p>Training needs vary by function and plant. Our annual training calendar, developed in consultation with department heads and HR, ensures that the right programmes reach the right people at the right time, balancing operational schedules with the learning priorities of each location.</p>`
   },
 
   commitment: {
     sectionLabel: "❯ OUR COMMITMENT",
-    title: "Continuous Learning, Continuously Delivered",
+    title: "Continuous Learning, <span>Continuously Delivered</span>",
     description: `<p>ECL's commitment to training reflects our broader belief that people are our most important asset. We do not train to tick a box. We train because a skilled employee is a safe employee. Because a quality-conscious team delivers consistent results. Because a person who grows in their career stays, contributes, and makes the organisation stronger.</p>
     <p>Our training programmes are planned annually and executed systematically. We track completion, measure effectiveness, and iterate, ensuring that what we teach is what our people actually need to do their jobs better. The result is not just a more capable workforce, but a more engaged, more motivated, and more loyal one.</p>
     <blockquote style="margin-top:2rem; padding: 1.5rem; background: rgba(0,74,161,0.05); border-left: 4px solid #ffd306; font-style: italic; font-size: 1.125rem; color: #003366;">

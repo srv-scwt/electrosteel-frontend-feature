@@ -514,9 +514,8 @@ export default function Navbar() {
           <div className="grid gap-2 grid-cols-4 lg:grid-cols-5 items-center">
             {(showAllFlags ? offices : offices.slice(0, 5)).map(
               (office, idx) => (
-                <Link href={office.link}>
+                <Link key={idx} href={office.link}>
                   <div
-                    key={idx}
                     className={`flex items-center gap-2 w-[100px] ${styles.flagImage}`}
                     onClick={() => setFlagDrawer(!flagDrawer)}
                   >
@@ -2439,7 +2438,7 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li className="flex items-start">
-                  <Link href={"/career#career-enquiry"} className="hover:text-yellow-400 flex items-start">
+                  <Link href={"/career/career-enquiry"} className="hover:text-yellow-400 flex items-start">
                     <ChevronRight size={16} className={styles.angleIcon} />
                     <span className="ml-1">Career Enquiry</span>
                   </Link>

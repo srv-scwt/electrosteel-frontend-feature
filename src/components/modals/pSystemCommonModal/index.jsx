@@ -28,6 +28,7 @@ const PSystemCommonModal = ({ open, onClose, modalData }) => {
                         className={`flex md:flex-row flex-col gap-8 !max-h-[350px] ${style.modalBox} ${styles.containerModelWrapper}`}
                     >
 
+
                         {/* Right Content */}
                         <div className={`${styles.sectionContent} ${styles.textSection} ${styles.customUlListing} ${styles.sectionContent}}`}>
 
@@ -47,6 +48,19 @@ const PSystemCommonModal = ({ open, onClose, modalData }) => {
                                 <HTMLRender htmlString={item?.description2} />
                             )}
                         </div>
+
+                        {/* Right Image */}
+                        {item?.image && (
+                            <div className="w-full md:w-[250px] h-full flex-shrink-0">
+                                <Image
+                                    src={item?.image}
+                                    alt={item?.title || "Modal Image"}
+                                    width={400}
+                                    height={200}
+                                    className="object-cover w-full h-full rounded-[12px] shadow-sm"
+                                />
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>

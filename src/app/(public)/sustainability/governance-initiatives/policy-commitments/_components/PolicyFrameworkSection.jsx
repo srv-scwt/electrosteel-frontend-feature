@@ -27,8 +27,8 @@ export default function PolicyFrameworkSection({ data }) {
       <div className={`${cstyles.containerLg}`}>
         {/* HEADER */}
         <div className={`${cstyles.sectionContent} pb-6 md:pb-12 text-white`}>
-          <div className="text-sm font-bold text-[#ffd306] mb-2 tracking-widest uppercase">❯ POLICY COMMITMENTS</div>
-          <h4 className="text-white font-bold text-xl mb-4">{data?.title}</h4>
+          <div className="text-2xl md:text-3xl font-bold text-[#ffd306] mb-2 tracking-widest uppercase">❯ POLICY COMMITMENTS</div>
+          <HTMLRender htmlString={`<h2 class="text-white">${data?.title}</h2>`} />
         </div>
 
         {/* GRID */}

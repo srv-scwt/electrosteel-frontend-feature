@@ -14,7 +14,7 @@ export const safetyData = {
     image: "/images/sustainability/social/social_safetymanagement.jpg"
   },
   isoPracticesTable: {
-    title: "What ISO 45001 means in practice at ECL",
+    title: "What ISO 45001 means <span>in practice at ECL</span>",
     columns: ["Area", "Description"],
     rows: [
       ["Hazard Identification", "Structured processes to identify and document risks at every workstation, process, and area within our plants including contractor activities."],
@@ -26,7 +26,7 @@ export const safetyData = {
     ]
   },
   safetyCulture: {
-    title: "Building a Culture of Shared Safety",
+    title: "Building a Culture of <span>Shared Safety</span>",
     description: "<p>Standards and certifications establish the framework but safety culture determines outcomes.</p><p>At ECL, we invest in creating an environment where every individual from the plant floor to senior management takes ownership of safety as a personal responsibility, not just a procedural requirement.</p>"
   },
   commitmentsSection: {
@@ -57,7 +57,7 @@ export const safetyData = {
     image: "/images/sustainability/social/social_accountibility.png"
   },
   sa8000Table: {
-    title: "The nine dimensions of SA 8000",
+    title: "The nine dimensions <span>of SA 8000</span>",
     columns: ["Dimension", "Description"],
     rows: [
       ["Child Labour", "Zero tolerance — no employment of persons below the legal minimum age"],
@@ -72,7 +72,7 @@ export const safetyData = {
     ]
   },
   credentialsTable: {
-    title: "Safety Credentials at a Glance",
+    title: "Safety Credentials <span>at a Glance</span>",
     columns: ["Standard", "Scope & Significance"],
     rows: [
       ["ISO 45001", "Occupational Health & Safety Management System · Voluntarily implemented · Covers all operations and all stakeholders across all ECL facilities"],

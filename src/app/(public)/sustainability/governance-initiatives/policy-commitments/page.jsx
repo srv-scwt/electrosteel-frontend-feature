@@ -7,6 +7,7 @@ import CommonTable from "@/components/common/CommonTable";
 import { policyCommitmentsData } from "./policy-commitments.data";
 import PolicyFrameworkSection from "./_components/PolicyFrameworkSection";
 import cstyles from "@/app/common.module.css";
+import HTMLRender from "@/components/ui/HTMLRender";
 
 const page = () => {
   return (
@@ -21,8 +22,10 @@ const page = () => {
       {/* GLOBAL COMMITMENT SECTION */}
       <section className="py-4 bg-gray-50">
         <div className={cstyles.containerLg}>
-          <div className="text-sm font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ GLOBAL COMMITMENT</div>
-          <h4 className="text-[#004aa1] font-bold text-xl mb-4">{policyCommitmentsData.globalCommitment.title}</h4>
+          <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark}`}>
+            <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ GLOBAL COMMITMENT</div>
+            <HTMLRender htmlString={`<h2>${policyCommitmentsData.globalCommitment.title}</h2>`} />
+          </div>
           <GridTwoSection
             data={{
               description: policyCommitmentsData.globalCommitment.description,
@@ -38,7 +41,9 @@ const page = () => {
       {/* TEN PRINCIPLES SECTION */}
       <section className="py-4">
         <div className={cstyles.containerLg}>
-          <h4 className="text-[#004aa1] font-bold text-xl mb-4">{policyCommitmentsData.principlesTable.title}</h4>
+          <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark}`}>
+            <HTMLRender htmlString={`<h2>${policyCommitmentsData.principlesTable.title}</h2>`} />
+          </div>
           <CommonTable
             columns={policyCommitmentsData.principlesTable.columns}
             rows={policyCommitmentsData.principlesTable.rows}
@@ -49,8 +54,10 @@ const page = () => {
       {/* REPORTING & DISCLOSURE SECTION */}
       <section className="py-4 bg-gray-50">
         <div className={cstyles.containerLg}>
-          <div className="text-sm font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ REPORTING & DISCLOSURE</div>
-          <h4 className="text-[#004aa1] font-bold text-xl mb-4">{policyCommitmentsData.reporting.title}</h4>
+          <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark}`}>
+            <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ REPORTING &amp; DISCLOSURE</div>
+            <HTMLRender htmlString={`<h2>${policyCommitmentsData.reporting.title}</h2>`} />
+          </div>
           <GridTwoSection
             data={{
               description: policyCommitmentsData.reporting.description,
@@ -70,7 +77,9 @@ const page = () => {
       {/* GOVERNANCE CREDENTIALS TABLE SECTION */}
       <section className="py-4 bg-gray-50">
         <div className={cstyles.containerLg}>
-          <h4 className="text-[#004aa1] font-bold text-xl mb-4">{policyCommitmentsData.credentialsTable.title}</h4>
+          <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark}`}>
+            <HTMLRender htmlString={`<h2>${policyCommitmentsData.credentialsTable.title}</h2>`} />
+          </div>
           <CommonTable
             columns={policyCommitmentsData.credentialsTable.columns}
             rows={policyCommitmentsData.credentialsTable.rows}
@@ -81,9 +90,11 @@ const page = () => {
       {/* CONTINUOUS IMPROVEMENT SECTION */}
       <section className="py-4 mb-4">
         <div className={cstyles.containerLg}>
-          <div className="text-sm font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ CONTINUOUS IMPROVEMENT</div>
-          <h4 className="text-[#004aa1] font-bold text-xl mb-4">{policyCommitmentsData.continuousImprovement.title}</h4>
-          <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)] flex flex-col gap-4" dangerouslySetInnerHTML={{ __html: policyCommitmentsData.continuousImprovement.description }} />
+          <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} ${cstyles.customUlListing}`}>
+            <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ CONTINUOUS IMPROVEMENT</div>
+            <HTMLRender htmlString={`<h2>${policyCommitmentsData.continuousImprovement.title}</h2>`} />
+            <div dangerouslySetInnerHTML={{ __html: policyCommitmentsData.continuousImprovement.description }} />
+          </div>
         </div>
       </section>
     </>

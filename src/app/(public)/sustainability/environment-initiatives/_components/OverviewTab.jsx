@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/app/common.module.css";
-import ContentSection from "@/components/common/contentSection";
 import GridTwoSection from "@/components/common/GridTwoSection";
-import CommonTable from "@/components/common/CommonTable";
+import HTMLRender from "@/components/ui/HTMLRender";
+import PSystemCommonModal from "@/components/modals/pSystemCommonModal";
+import { OutlineButton } from "@/components/ui/Button";
 import {
   overviewIntroData,
   iso14001Data,
@@ -13,57 +14,108 @@ import {
   credentialsTableData,
 } from "../environment.data";
 
+const CredentialCard = ({ title, desc, onKnowMore }) => (
+  <article
+    className="
+      w-full h-full lg:min-h-[238px]
+      rounded-[32px]
+      bg-[#004AA1] p-6 xl:p-8
+      shadow-[0px_4px_10px_0px_#00000026]
+      transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl
+    "
+  >
+    <div className="flex h-full flex-col">
+      <h3
+        className="
+          max-w-[95%]
+          !my-0 mb-4
+          text-white font-bold uppercase
+          text-[16px] leading-[1.35]
+          sm:text-[22px]
+          xl:!text-[28px]
+        "
+      >
+        {title}
+      </h3>
+      <div className="mt-4 text-[14px] sm:text-[16px] leading-[1.4] text-[#9cc0f0]">
+        {desc}
+      </div>
+      <div className="mt-auto pt-6 flex justify-end">
+        <OutlineButton 
+          title="Know More" 
+          action={onKnowMore}
+          className="!text-[#9cc0f0] hover:!text-white"
+        />
+      </div>
+    </div>
+  </article>
+);
+
 const OverviewTab = () => {
+  const [openModal, setOpenModal] = useState(false);
+  const [modalContent, setModalContent] = useState([]);
+
+  const handleKnowMore = (row) => {
+    const title = row[0];
+    let contentData = null;
+
+    if (title === "ISO 14001") {
+      contentData = iso14001Data;
+    } else if (title === "ISO 50001") {
+      contentData = iso50001Data;
+    } else if (title === "EPD") {
+      contentData = epdData;
+    } else if (title === "GRI") {
+      contentData = griData;
+    }
+
+    if (contentData) {
+      setModalContent([
+        {
+          label: `<h3 class="text-[#00418e]">${contentData.title}</h3>`,
+          description: contentData.description,
+          image: contentData.image,
+        },
+      ]);
+      setOpenModal(true);
+    }
+  };
+
   return (
     <>
+      {/* Intro */}
       <div className="pb-8">
-        <div className={styles.sectionContent}>
-            <h2>{overviewIntroData.title}</h2>
+        <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}>
+          <HTMLRender htmlString={`<h2>${overviewIntroData.title}</h2>`} />
         </div>
-        <div className={styles.sectionContent}>
-            <div dangerouslySetInnerHTML={{ __html: overviewIntroData.description }} />
-        </div>
-      </div>
-
-      <div className="pt-8">
-        {/* ISO 14001 (Image Left, Content Right) */}
-        <GridTwoSection
-          data={iso14001Data}
-          bannerOrder="order-first lg:order-first"
-          contentOrder="order-last lg:order-last"
-          className="!px-0 !w-full"
-          objectPosition="object-contain"
-        />
-
-        {/* ISO 50001 (Content Left, Image Right) */}
-        <GridTwoSection
-          data={iso50001Data}
-          bannerOrder="order-first lg:order-last"
-          contentOrder="order-last lg:order-first"
-          className="!px-0 !w-full"
-          objectPosition="object-contain"
-        />
-      </div>
-
-      <div className="py-8">
-        {/* EPD and GRI (Standard Content Sections) */}
-        <div className={styles.sectionContent}>
-            <h3>{epdData.title}</h3>
-            <div dangerouslySetInnerHTML={{ __html: epdData.description }} className="mb-12" />
-            
-            <h3>{griData.title}</h3>
-            <div dangerouslySetInnerHTML={{ __html: griData.description }} />
+        <div className={`${styles.sectionContent}`}>
+          <div dangerouslySetInnerHTML={{ __html: overviewIntroData.description }} />
         </div>
       </div>
 
       <div className="py-8">
-        {/* Environmental Credentials Table */}
-        <CommonTable
-          title={credentialsTableData.title}
-          columns={credentialsTableData.columns}
-          rows={credentialsTableData.rows}
-        />
+        {/* Environmental Credentials Cards — Moved to 2nd position */}
+        <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark} mb-6`}>
+          <HTMLRender htmlString={`<h3>${credentialsTableData.title}</h3>`} />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4 xl:gap-6">
+          {credentialsTableData.rows.map((row, index) => (
+            <CredentialCard
+              key={index}
+              title={row[0]}
+              desc={row[1]}
+              onKnowMore={() => handleKnowMore(row)}
+            />
+          ))}
+        </div>
       </div>
+
+
+      <PSystemCommonModal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        modalData={modalContent}
+      />
     </>
   );
 };

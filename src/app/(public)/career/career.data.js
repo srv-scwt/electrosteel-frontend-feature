@@ -5,11 +5,11 @@ export const careerData = {
   },
   overview: {
     title: "<h2>OVERVIEW</h2>",
-    subTitle: "Build the Future with Electrosteel Castings Limited",
+    subTitle: "<h2>Build the Future with <span>Electrosteel Castings Limited</span></h2>",
     description: "<p>At Electrosteel Castings Limited, we don’t just manufacture products, we build the infrastructure that powers progress and improves lives. For nearly seven decades, our innovations have helped deliver water, strengthen communities, and support critical industries across India and around the world.</p><p>Today, we are evolving beyond a global water infrastructure solutions provider company, creating smarter solutions for a rapidly changing world. This transformation is powered by talented people who challenge conventions, embrace new ideas, and strive to make a meaningful impact every day.</p>",
   },
   whyJoinUs: {
-    title: "WHY JOIN ELECTROSTEEL",
+    title: "<h2>WHY JOIN <span>ELECTROSTEEL</span></h2>",
     checklist: [
       "Work on projects that shape essential infrastructure and national development.",
       "Be part of a legacy built on innovation, quality, and trust.",
@@ -20,14 +20,14 @@ export const careerData = {
     postDescription: "<p>If you are passionate about innovation, inspired by purpose, and ready to help build the future, your journey starts here.</p>"
   },
   ourPromise: {
-    title: "OUR PROMISE",
+    title: "<h2>OUR <span>PROMISE</span></h2>",
     description: "<p>At Electrosteel, our success is built by people, not just processes. Every employee is an integral part of our journey, contributing to a legacy that has shaped communities and industries for generations. We are committed to fostering a workplace where everyone feels valued, respected, and empowered to grow. By investing in our people, nurturing their potential, and creating opportunities to thrive, we build not only stronger careers but also a stronger future together.</p>",
   },
   joinUs: {
-    title: "<h2>Explore Opportunities at Electrosteel</h2>",
+    title: "<h2>Explore Opportunities <span>at Electrosteel</span></h2>",
     description: "<p>We are always on the lookout for driven professionals who bring curiosity, commitment, and competence to the table. Whether you are an experienced industry leader or a fresh graduate ready to make your mark, Electrosteel offers a dynamic career environment where your work creates real-world impact.</p>",
     currentOpenings: {
-      title: "CURRENT OPENINGS",
+      title: "<h2>CURRENT <span>OPENINGS</span></h2>",
       description: "<p>We offer opportunities across a wide range of functions and levels:</p>",
       categories: [
         {
@@ -63,7 +63,7 @@ export const careerData = {
       ]
     },
     whatWeLookFor: {
-      title: "WHAT WE LOOK FOR",
+      title: "<h2>WHAT WE <span>LOOK FOR</span></h2>",
       checklist: [
         "Strong technical foundation and domain expertise",
         "A growth mindset and commitment to continuous improvement",
@@ -73,7 +73,7 @@ export const careerData = {
       ],
     },
     whatWeOffer: {
-      title: "WHAT WE OFFER",
+      title: "<h2>WHAT WE <span>OFFER</span></h2>",
       checklist: [
         "Competitive compensation benchmarked to industry standards",
         "Structured career progression with defined growth pathways",
@@ -85,13 +85,13 @@ export const careerData = {
     },
   },
   khoj: {
-    title: "<h2>KHOJ — THE CAMPUS DRIVE</h2>",
+    title: "<h2>KHOJ — THE <span>CAMPUS DRIVE</span></h2>",
     description: "Discovering Tomorrow's Leaders Today",
     khojIntro: {
       description: "<p>Khoj, which means \"discovery,\" is Electrosteel Castings Limited’s campus hiring program focused on finding talented young minds and giving them the opportunity to build meaningful careers.</p><p>Every year, we visit some of India’s leading engineering, management, and technical institutes to meet students who are curious, driven, and ready to make a difference. We believe that great careers are built on potential, not just qualifications.</p><p>Through Khoj, graduates get the chance to work on real-world challenges, learn from experienced professionals, and contribute to projects that have a lasting impact on communities and industries. From day one, they become part of a team that values fresh ideas, continuous learning, and personal growth.</p><p>For us, Khoj is not just about recruitment. It is about discovering people who can grow with us, challenge us, and help shape the future of Electrosteel.</p><p>If you're looking for more than just a job and want to be part of something bigger, Khoj is where your journey starts.</p>"
     },
     programmeHighlights: {
-      title: "PROGRAMME HIGHLIGHTS",
+      title: "<h2>PROGRAMME <span>HIGHLIGHTS</span></h2>",
       table: {
         tableHeaders: [
           { text: "Topic" },
@@ -106,7 +106,7 @@ export const careerData = {
       },
     },
     rolesOffered: {
-      title: "ROLES OFFERED UNDER KHOJ",
+      title: "<h2>ROLES OFFERED <span>UNDER KHOJ</span></h2>",
       checklist: [
         "Management Trainee (MT)",
         "Graduate Engineer Trainee (GET)",
@@ -114,7 +114,7 @@ export const careerData = {
       ],
     },
     khojJourney: {
-      title: "THE KHOJ JOURNEY",
+      title: "<h2>THE KHOJ <span>JOURNEY</span></h2>",
       checklist: [
         "Comprehensive induction and orientation.",
         "Cross-functional rotations to build holistic understanding.",

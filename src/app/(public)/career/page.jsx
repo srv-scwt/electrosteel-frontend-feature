@@ -5,13 +5,17 @@ import CommonTable from "@/components/common/CommonTable";
 import CommonTab from "@/components/common/CommonTab";
 import { Check } from "lucide-react";
 import cstyles from "@/app/common.module.css";
+import HTMLRender from "@/components/ui/HTMLRender";
 import { careerData } from "./career.data";
-import CareerEnquiryForm from "./_components/forms/CareerEnquiryForm";
 
 // Reusable Checklist Component
 const Checklist = ({ title, items }) => (
   <div className="mt-0 mb-6">
-    {title && <h4 className="text-[#004aa1] font-bold text-xl mb-4">{title}</h4>}
+    {title && (
+      <div className={`${cstyles.sectionContent} mb-6`}>
+        <HTMLRender htmlString={title} />
+      </div>
+    )}
     <ul className="space-y-3">
       {items.map((item, index) => (
         <li key={index} className="flex items-start">
@@ -51,10 +55,11 @@ const page = () => {
 
       {/* OVERVIEW SECTION */}
       <section id="overview" className="scroll-mt-24 pb-0">
-        <ContentSection data={{ title: careerData.overview.title }} />
         
-        <div className={`${cstyles.containerLg} !pt-0`}>
-          <h4 className="text-[#004aa1] font-bold text-xl mb-4">{careerData.overview.subTitle}</h4>
+        <div className={`${cstyles.containerLg}`}>
+          <div className={`${cstyles.sectionContent} mb-6`}>
+            <HTMLRender htmlString={careerData.overview.subTitle} />
+          </div>
           <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)] mb-8" dangerouslySetInnerHTML={{ __html: careerData.overview.description }} />
           
           <Checklist title={careerData.whyJoinUs.title} items={careerData.whyJoinUs.checklist} />
@@ -62,7 +67,9 @@ const page = () => {
             <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)] mb-8" dangerouslySetInnerHTML={{ __html: careerData.whyJoinUs.postDescription }} />
           )}
 
-          <h4 className="text-[#004aa1] font-bold text-xl mb-4">{careerData.ourPromise.title}</h4>
+          <div className={`${cstyles.sectionContent} mb-6`}>
+            <HTMLRender htmlString={careerData.ourPromise.title} />
+          </div>
           <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)]" dangerouslySetInnerHTML={{ __html: careerData.ourPromise.description }} />
         </div>
       </section>
@@ -72,7 +79,9 @@ const page = () => {
         <ContentSection data={careerData.joinUs} />
         
         <div className={`${cstyles.containerLg} !pt-0`}>
-          <h4 className="text-[#004aa1] font-bold text-xl mb-2">{careerData.joinUs.currentOpenings.title}</h4>
+          <div className={`${cstyles.sectionContent} mb-6`}>
+            <HTMLRender htmlString={careerData.joinUs.currentOpenings.title} />
+          </div>
           
           {careerData.joinUs.currentOpenings.description && (
             <div className="mb-4 text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)]" dangerouslySetInnerHTML={{ __html: careerData.joinUs.currentOpenings.description }} />
@@ -95,7 +104,9 @@ const page = () => {
         </div>
 
         <div className={`${cstyles.containerLg} !pt-0`}>
-          <h4 className="text-[#004aa1] font-bold text-xl mb-2">{careerData.khoj.programmeHighlights.title}</h4>
+          <div className={`${cstyles.sectionContent} mb-6`}>
+            <HTMLRender htmlString={careerData.khoj.programmeHighlights.title} />
+          </div>
           
           <div className="mb-6">
             <CommonTable 
@@ -110,14 +121,7 @@ const page = () => {
         </div>
       </section>
 
-      {/* CAREER ENQUIRY SECTION */}
-      <section id="career-enquiry" className="scroll-mt-24 pb-12">
-        <ContentSection data={careerData.careerEnquiry} />
-        <div className={`${cstyles.containerLg} !pt-0`}>
-          {/* <CareerEnquiryForm /> */}
-        </div>
-      </section>
-    </>
+      </>
   );
 };
 

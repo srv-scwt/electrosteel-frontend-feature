@@ -1,11 +1,11 @@
 export const waterData = {
   hero: {
     title: "WATER",
-    subtitle: "Conserving Every Drop Across Our Operations.",
+    subtitle: "Conserving Every Drop <span>Across Our Operations.</span>",
     banner: "/images/blog/blogBanner.jpg", // Using standard hero banner pattern
   },
   introduction: {
-    title: "<h4 class='text-[#004aa1] font-bold text-xl mb-2 uppercase'>OUR APPROACH TO WATER STEWARDSHIP</h4>",
+    title: "<h2>Our Approach to <span>Water Stewardship</span></h2>",
     description: "<p>Water is at the heart of what we do and how we do it responsibly. As a manufacturer of Ductile Iron pipes that carry safe drinking water to millions across India and the world, ECL recognises that protecting water resources is both a moral and operational imperative.</p><p>Across our manufacturing facilities, we have implemented closed-loop water management systems that dramatically reduce freshwater withdrawal and minimise wastewater discharge. Our flagship achievement - 94.35% process water recycling reflects the depth of our commitment to responsible water use.</p><p>Water performance is monitored under our ISO 14001 EMS and disclosed in our annually published, third-party assured GRI sustainability report.</p>",
   },
   initiativesSection: {
