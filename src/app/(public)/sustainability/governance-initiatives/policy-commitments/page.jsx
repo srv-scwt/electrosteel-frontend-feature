@@ -20,23 +20,23 @@ const page = () => {
       </section>
 
       {/* GLOBAL COMMITMENT SECTION */}
-      <section className="py-4 bg-gray-50">
-        <div className={cstyles.containerLg}>
-          <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark}`}>
-            <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ GLOBAL COMMITMENT</div>
-            <HTMLRender htmlString={`<h2>${policyCommitmentsData.globalCommitment.title}</h2>`} />
-          </div>
-          <GridTwoSection
-            data={{
-              description: policyCommitmentsData.globalCommitment.description,
-              image: policyCommitmentsData.globalCommitment.image
-            }}
-            bannerOrder="order-first lg:order-last"
-            contentOrder="order-last lg:order-first"
-            objectPosition="object-contain"
-          />
-        </div>
-      </section>
+      <div className="bg-gray-50">
+        <GridTwoSection
+          preContent={
+            <div className={`${cstyles.sectionContentSpanDark} mb-6`}>
+              <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ GLOBAL COMMITMENT</div>
+              <HTMLRender htmlString={`<h2>${policyCommitmentsData.globalCommitment.title}</h2>`} />
+            </div>
+          }
+          data={{
+            description: policyCommitmentsData.globalCommitment.description,
+            image: policyCommitmentsData.globalCommitment.image
+          }}
+          bannerOrder="order-first lg:order-last"
+          contentOrder="order-last lg:order-first"
+          objectPosition="object-contain"
+        />
+      </div>
 
       {/* TEN PRINCIPLES SECTION */}
       <section className="py-4">
@@ -52,24 +52,24 @@ const page = () => {
       </section>
 
       {/* REPORTING & DISCLOSURE SECTION */}
-      <section className="py-4 bg-gray-50">
-        <div className={cstyles.containerLg}>
-          <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark}`}>
-            <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ REPORTING &amp; DISCLOSURE</div>
-            <HTMLRender htmlString={`<h2>${policyCommitmentsData.reporting.title}</h2>`} />
-          </div>
-          <GridTwoSection
-            data={{
-              description: policyCommitmentsData.reporting.description,
-              image: policyCommitmentsData.reporting.image
-            }}
-            bannerOrder="order-first lg:order-first"
-            contentOrder="order-last lg:order-last"
-            objectPosition="object-contain object-left"
-            gridColsClass="lg:grid-cols-[35%_1fr] !gap-6 !lg:gap-8"
-          />
-        </div>
-      </section>
+      <div className="bg-gray-50">
+        <GridTwoSection
+          preContent={
+            <div className={`${cstyles.sectionContentSpanDark} mb-6`}>
+              <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ REPORTING &amp; DISCLOSURE</div>
+              <HTMLRender htmlString={`<h2>${policyCommitmentsData.reporting.title}</h2>`} />
+            </div>
+          }
+          data={{
+            description: policyCommitmentsData.reporting.description,
+            image: policyCommitmentsData.reporting.image
+          }}
+          bannerOrder="order-first lg:order-first"
+          contentOrder="order-last lg:order-last"
+          objectPosition="object-contain object-left"
+          gridColsClass="lg:grid-cols-[35%_1fr] !gap-6 !lg:gap-8"
+        />
+      </div>
 
       {/* POLICY COMMITMENTS SECTION */}
       <PolicyFrameworkSection data={policyCommitmentsData.policyFramework} />

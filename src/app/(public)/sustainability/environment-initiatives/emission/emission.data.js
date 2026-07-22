@@ -5,7 +5,7 @@ export const emissionData = {
     banner: "/images/blog/blogBanner.jpg", // Using standard hero banner pattern
   },
   introduction: {
-    title: "<h2>Our Commitment to <span>Clean Air</span></h2>",
+    title: "<h3 class=\"!text-black [&>span]:!text-black\">Our Commitment to <span>Clean Air</span></h3>",
     description: "<p>At Electrosteel Castings Limited, managing air emissions is a non-negotiable aspect of responsible manufacturing. Across all our plants, we monitor stack and fugitive emissions in compliance with applicable statutory norms and we set internal targets that go beyond minimum regulatory requirements.</p><p>Our ISO 14001-certified Environmental Management System provides the governance structure for tracking, reviewing, and continuously improving our emission performance.</p><p>We publish our emission data annually in our GRI Standards-aligned sustainability report, independently assured by BSI under ISAE 3000, ensuring full transparency with our stakeholders.</p>",
   },
   initiativesSection: {

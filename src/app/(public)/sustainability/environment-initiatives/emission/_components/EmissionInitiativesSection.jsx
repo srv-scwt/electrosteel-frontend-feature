@@ -26,8 +26,8 @@ export default function EmissionInitiativesSection({ data }) {
 
       <div className={`${cstyles.containerLg}`}>
         {/* HEADER */}
-        <div className={`${cstyles.sectionContent} text-center mx-auto pb-6 md:pb-12 text-white`}>
-          <HTMLRender htmlString={`<h2 class="text-white">${data?.title}</h2>`} />
+        <div className={`${cstyles.sectionContent} text-center mx-auto pb-6 md:pb-12 !text-white`}>
+          <HTMLRender htmlString={`<h3 class="!text-white drop-shadow-md">${data?.title}</h3>`} />
         </div>
 
         {/* GRID (Similar to ProductTextGrid / WhatisJalSadhana) */}

@@ -26,6 +26,7 @@ const GridTwoSection = ({
   isDarkSection = false,
   isIFrame=false,
   gridColsClass = "lg:grid-cols-2",
+  preContent = null,
 }) => {
   if (!data) return null;
 
@@ -60,6 +61,7 @@ const GridTwoSection = ({
     ${contentOrder}
   `}
           >
+            {preContent}
             {data?.title && (
               <HTMLRender htmlString={`<h2>${data?.title}</h2>`} />
             )}

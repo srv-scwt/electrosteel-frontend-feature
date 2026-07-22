@@ -5,7 +5,7 @@ export const wasteData = {
     banner: "/images/blog/blogBanner.jpg", // Using standard hero banner pattern
   },
   introduction: {
-    title: "<h2>Our Approach to <span>Waste Management</span></h2>",
+    title: "<h3 class=\"!text-black [&>span]:!text-black\">Our Approach to <span>Waste Management</span></h3>",
     description: "<p>ECL follows a reduce–reuse–recycle hierarchy in managing the waste generated across its manufacturing operations. Our primary industrial by-products including slag, foundry sand, and mill scale are systematically processed for beneficial reuse, diverting significant volumes away from landfill and contributing to a more circular approach to manufacturing.</p><p>All hazardous waste is handled in strict compliance with the Hazardous and Other Wastes (Management and Transboundary Movement) Rules, through CPCB/SPCB-authorised agencies.</p><p>Waste generation, disposal, and diversion data is monitored under our ISO 14001 EMS and disclosed in our annual, third-party assured sustainability report.</p>",
   },
   initiativesSection: {
