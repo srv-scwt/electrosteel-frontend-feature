@@ -9,8 +9,8 @@ const TestPerformed = ({ data }) => {
     <>
       <section id={"TestPerformed"} className="!pt-0">
         <div className={`${styles.containerLg} !pt-0`}>
-          <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
-            <HTMLRender htmlString={`<h2>${data?.title}</h2>`} />
+          <div className={`${styles.sectionContent} ${styles.customUlListing} mb-6`}>
+            <HTMLRender htmlString={data?.title} />
           </div>
           <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
             <CommonTable

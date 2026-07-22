@@ -5,16 +5,16 @@ export const paintsData = {
     banner: "/images/blog/blogBanner.jpg",
   },
   ElectrosteelLegacyofInnovation: {
-    title: "<h2><span>Electrosteel: A Legacy of Innovation</span></h2>",
+    title: "<h2>Electrosteel: A Legacy of <span>Innovation</span></h2>",
     description: "<p>Pioneering Ductile Iron pipe manufacturing in the Indian subcontinent, now expanding into world-class industrial paints and coatings.</p><p>Electrosteel Industrial Paints are engineered to protect and enhance industrial surfaces across a wide range of applications and environments. Our high-performance coating systems deliver superior resistance against corrosion, chemicals, abrasion, weathering, and harsh operating conditions ensuring long-term asset protection and operational reliability.</p>",
   },
   PaintOverview: {
-    title: "<h2><span>Industrial Paints Overview</span></h2>",
+    title: "Industrial Paints <span>Overview</span>",
     description: "<p>Electrosteel has over 14 years of paint manufacturing experience and deep expertise in industrial coatings that combine durability with vibrant aesthetics.</p><p>Our paint facility is located in Bansberia, Hooghly, West Bengal, and operates on a 2-acre site with 30% green coverage.</p><p>Manufactured under stringent quality standards and developed with advanced formulation technology, Electrosteel Paints combine durability, aesthetic finish, and sustainable performance for modern industrial applications.</p>",
     image: "/images/product-details/update-overview.png",
   },
   PaintTechnologyMantra: {
-    title: "<h2><span>Technology is Our Mantra</span></h2>",
+    title: "<h2>Technology is <span>Our Mantra</span></h2>",
     description: "<p>From robotic core making operations to world-class coated pipes produced with our proprietary paints, technology drives every aspect of our manufacturing process. Our paint plant represents the culmination of decades of industrial expertise.</p>",
     slider_images: [
       { img: "/images/products/ru.jpg", title: "Tech 1" },
@@ -24,7 +24,7 @@ export const paintsData = {
     ]
   },
   ManufacturingExcellence: {
-    title: "<h2><span>Manufacturing Excellence</span></h2>",
+    title: "<h2>Manufacturing <span>Excellence</span></h2>",
     description: "Electrosteel Industrial Paints are manufactured using advanced process controls, modern infrastructure, and precision-driven systems to ensure consistent quality across every batch.",
     card: [
       { title: "Precision Processing", desc: "Controlled manufacturing systems designed for formulation accuracy and consistency." },
@@ -38,7 +38,7 @@ export const paintsData = {
     ]
   },
   WhyChooseECLPaints: {
-    title: "Why Choose ECL Paints",
+    title: "<h2>Why Choose <span>ECL Paints</span></h2>",
     description: "Backed by over 70 years of engineering excellence, Electrosteel Industrial Paints deliver world-class protection, performance, and exceptional finish across diverse industrial applications.",
     card: [
       { title: "Superior Protection", desc: "Excellent corrosion, chemical & weather resistance." },
@@ -50,11 +50,11 @@ export const paintsData = {
       { title: "Advanced R&D & Manufacturing", desc: "Innovation-driven solutions supported by modern manufacturing infrastructure and technical expertise." },
       { title: "Premium Raw Materials", desc: "Carefully sourced, high-grade raw materials from DOW, BYK, Aditya Birla, Evonik, and Umicore." },
       { title: "Excellent Application Performance", desc: "Superior coverage, strong adhesion, and reliable performance across demanding environments." },
-      { title: "Trusted Global Approvals", desc: "Approved by WRAS (UK), ACS (France), DVGW (Germany), and DWI (UK).<br/><div class='mt-6 flex flex-wrap justify-start gap-2 sm:gap-3 items-center'><div class='w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center'><img src='/images/new-img3.svg' alt='Approval 1' class='max-w-full max-h-full object-contain' /></div><div class='w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center'><img src='/images/new-img4.svg' alt='Approval 2' class='max-w-full max-h-full object-contain' /></div><div class='w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center'><img src='/images/new-img5.svg' alt='Approval 3' class='max-w-full max-h-full object-contain' /></div></div>" }
+      { title: "Trusted Global Approvals", desc: "Approved by WRAS (UK), ACS (France), DVGW (Germany), and DWI (UK).<br/><div class='mt-6 flex flex-wrap justify-start gap-3 sm:gap-4 items-center'><div class='w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-white rounded-md p-1 border border-gray-100 shadow-sm'><img src='/images/paint/l-1.jpg' alt='Approval 1' class='max-w-full max-h-full object-contain mix-blend-multiply' /></div><div class='w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-white rounded-md p-1 border border-gray-100 shadow-sm'><img src='/images/paint/l-2.jpg' alt='Approval 2' class='max-w-full max-h-full object-contain mix-blend-multiply' /></div><div class='w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-white rounded-md p-1 border border-gray-100 shadow-sm'><img src='/images/paint/l-3.jpg' alt='Approval 3' class='max-w-full max-h-full object-contain mix-blend-multiply' /></div><div class='w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-white rounded-md p-1 border border-gray-100 shadow-sm'><img src='/images/paint/l-4.jpg' alt='Approval 4' class='max-w-full max-h-full object-contain mix-blend-multiply' /></div></div>" }
     ]
   },
   ApplicationSectors: {
-    title: "<h2><span>Application Sectors</span></h2>",
+    title: "<h2>Application <span>Sectors</span></h2>",
     description: "<p>Electrosteel Industrial Paints are engineered to deliver superior corrosion protection, long-term durability, and aesthetic performance across a wide range of industrial environments and critical infrastructure applications.</p>",
     card: [
       { title: "1. Ductile Iron Pipes, Valves & Fittings", desc: "Protective coating systems designed to enhance service life, resist corrosion, and ensure long-term performance of water infrastructure assets." },
@@ -70,7 +70,7 @@ export const paintsData = {
     ]
   },
   ProductCategories: {
-    title: "<h2><span>Product Categories</span></h2>",
+    title: "<h2>Product <span>Categories</span></h2>",
     description: "<p>Comprehensive coating solutions engineered to deliver corrosion protection, durability, performance, and infrastructure excellence across diverse industrial applications.</p>",
     card: [
       { title: "Primers", desc: "Provides superior adhesion, corrosion resistance, effective surface preparation, and long-term substrate protection.<br/><br/><strong>Applications:</strong><br/>Steel structures, pipelines, valves, fittings, fabrication units, foundries, and industrial equipment." },
@@ -82,7 +82,7 @@ export const paintsData = {
     ]
   },
   ComprehensiveProductRange: {
-    title: "<h2><span>Comprehensive Product Range</span></h2>",
+    title: "<h2>Comprehensive <span>Product Range</span></h2>",
     card: [
       { title: "Epoxy Systems", desc: "Anticorrosive Epoxy paints and Zinc-based Epoxy primers for maximum protection." },
       { title: "Polyurethane Coatings", desc: "High-performance PU paints for demanding industrial applications." },
@@ -91,7 +91,7 @@ export const paintsData = {
     ]
   },
   WorldClassRnDLaboratory: {
-    title: "<h2><span>World-Class R&D Laboratory</span></h2>",
+    title: "<h2>World-Class <span>R&D Laboratory</span></h2>",
     description: "<p>Our state-of-the-art R&D laboratory is equipped with comprehensive instruments for testing, evaluation, and quality assurance.</p>",
     card: [
       { title: "Testing Instruments", desc: "Comprehensive equipment from MIKRONS, SHEEN, BYK, ELCOMETER, Q-LAB, TABER, KONICA MINOLTA, REMI, and SARTORIUS." },
@@ -101,7 +101,7 @@ export const paintsData = {
     ]
   },
   TestPerformed: {
-    title: "<h2><span>Tests Performed for Paints & Primers</span></h2>",
+    title: "<h2>Tests Performed for <span>Paints & Primers</span></h2>",
     columns: ["Routine Tests", "Performance Tests"],
     rows: [
       ["Colour", "Salt Spray Test"],
@@ -116,7 +116,7 @@ export const paintsData = {
     ]
   },
   TalkToOurPaintExperts: {
-    title: "<h2><span>Talk to Our Paint Experts</span></h2>",
+    title: "<h2>Talk to Our <span>Paint Experts</span></h2>",
     description: `
       <h3>Description</h3>
       <p>Looking for industrial paint solutions tailored to your needs? Our experts are here to help with Product Selection, Technical Guidance, and Application Support.</p>

@@ -13,8 +13,8 @@ const TechnologyMantra = ({ data, images = [] }) => {
   return (
     <section id={"techisMantra"} className="">
       <div className={`${styles.containerLg}`}>
-        <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
-          <HTMLRender htmlString={`<h2>${data?.title}</h2>`} />
+        <div className={`${styles.sectionContent} ${styles.customUlListing} mb-6`}>
+          <HTMLRender htmlString={data?.title} />
         </div>
 
    <div className="w-full">
