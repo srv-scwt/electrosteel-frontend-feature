@@ -644,7 +644,7 @@ export default function Navbar() {
                 {/* Left Section */}
                 <div className="xl:col-span-3">
                   <Image
-                    src="/images/menu-img1.png"
+                    src="/images/menubar/20240207_111708.jpg"
                     alt="menuimg"
                     width={336}
                     height={273}
@@ -1036,7 +1036,7 @@ export default function Navbar() {
                 {/* Left Section */}
                 <div className="xl:col-span-3">
                   <Image
-                    src="/images/menu-img1.png"
+                    src="/images/menubar/20240207_111708.jpg"
                     alt="menuimg"
                     width={336}
                     height={273}
@@ -1574,7 +1574,7 @@ export default function Navbar() {
                 {/* Left Section */}
                 <div className="xl:col-span-3">
                   <Image
-                    src="/images/menu-img1.png"
+                    src="/images/menubar/20240207_111708.jpg"
                     alt="menuimg"
                     width={336}
                     height={273}
@@ -1818,7 +1818,7 @@ export default function Navbar() {
                 {/* Left Section */}
                 <div className="xl:col-span-3">
                   <Image
-                    src="/images/menu-img1.png"
+                    src="/images/menubar/20240207_111708.jpg"
                     alt="menuimg"
                     width={336}
                     height={273}
