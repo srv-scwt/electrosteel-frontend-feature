@@ -4,9 +4,10 @@ import HeroSection from "@/components/common/heroSection";
 import React from "react";
 import TechnologyMantra from "../_components/technologyIsMantra";
 import TestPerformed from "../_components/TestPerformed";
-import WorldClassSection from "../_components/worldClassSection";
+
 import CurrentManufacture from "../_components/currentManufacture";
 import ComprehensiveProducts from "../_components/comprehensiveProducts";
+import ComprehensiveProductRange from "./_components/comprehensiveProductRange";
 import BusinessOverview from "../_components/BusinessOverview";
 import { paintsData } from "./paint.data";
 
@@ -22,7 +23,7 @@ const Paint = () => {
         contentOrder={"order-1"}
         bannerOrder={"order-2 "}
         sectionID={"overview-details"}
-        className={"!my-0 !py-0"}
+        className="!py-0"
         objectPosition="object-contain"
       />
       
@@ -50,9 +51,9 @@ const Paint = () => {
         productCategories={paintsData.ProductCategories.card}
       />
 
-      <WorldClassSection data={paintsData.ComprehensiveProductRange} />
+      <ComprehensiveProductRange data={paintsData.ComprehensiveProductRange} />
 
-      <WorldClassSection data={paintsData.WorldClassRnDLaboratory} />
+      <ComprehensiveProductRange data={paintsData.WorldClassRnDLaboratory} isGrey={false} />
 
       <TestPerformed
         data={paintsData.TestPerformed}

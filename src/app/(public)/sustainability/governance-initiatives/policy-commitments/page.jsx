@@ -5,7 +5,7 @@ import ContentSection from "@/components/common/contentSection";
 import GridTwoSection from "@/components/common/GridTwoSection";
 import CommonTable from "@/components/common/CommonTable";
 import { policyCommitmentsData } from "./policy-commitments.data";
-import PolicyFrameworkSection from "./_components/PolicyFrameworkSection";
+import PolicyFrameworkSection from "./_components/PolicyFrameworkSection.jsx";
 import cstyles from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
 

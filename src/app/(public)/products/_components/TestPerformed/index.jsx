@@ -7,9 +7,9 @@ import HTMLRender from "@/components/ui/HTMLRender";
 const TestPerformed = ({ data }) => {
   return (
     <>
-      <section id={"TestPerformed"} className="!pt-0">
-        <div className={`${styles.containerLg} !pt-0`}>
-          <div className={`${styles.sectionContent} ${styles.customUlListing} mb-6`}>
+      <section id={"TestPerformed"} className="bg-[#F5F5F5]">
+        <div className={`${styles.containerLg}`}>
+          <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
             <HTMLRender htmlString={data?.title} />
           </div>
           <div className={`${styles.sectionContent} ${styles.customUlListing}`}>

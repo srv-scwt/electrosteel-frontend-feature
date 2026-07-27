@@ -37,26 +37,23 @@ const page = async () => {
         <div
           className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}
         >
-          <h3>{PeopleData?.data?.people_data_content?.[0]?.title}</h3>
+          <h2>{PeopleData?.data?.people_data_content?.[0]?.title}</h2>
         </div>
-        {/* <div className={styles.sectionParaH2Type}> */}
         <div className={styles.sectionContent}>
           <p>{PeopleData?.data?.people_data_content?.[0]?.description}</p>
         </div>
       </section>
-      <section id="campus-hire-stories" className={`${styles.containerLg} py-0!`}>
+      <section id="campus-hire-stories" className={`${styles.containerLg} !pt-0`}>
         <div
           className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}
         >
-          <HTMLRender htmlString={`<h3>${PeopleData?.data?.section_content?.title}</h3>`} />
+          <HTMLRender htmlString={`<h2>${PeopleData?.data?.section_content?.title}</h2>`} />
         </div>
         {/* <div className={styles.sectionParaH2Type}> */}
         <div className={styles.sectionContent}>
           <p>{PeopleData?.data?.section_content?.description}</p>
         </div>
-      </section>
-      <section className={`${styles.containerLg} pt-4!`}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
           <div>
             <ImageContentSquareCard
               content={
@@ -71,7 +68,7 @@ const page = async () => {
           <div>
             <ImageContentSquareCard
               content={
-                PeopleData?.data?.section_content?.image1?.content || ""
+                PeopleData?.data?.section_content?.image2?.content || ""
               }
               image={campusSqareCard2Image}
               imageAlt={
@@ -81,38 +78,36 @@ const page = async () => {
           </div>
         </div>
       </section>
-      <section id="employee-testimonials" className={`${styles.containerLg} py-0!`}>
+      <section id="employee-testimonials" className={`${styles.containerLg} !pt-0`}>
         <div
           className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}
         >
-          <HTMLRender htmlString={`<h3>${PeopleData?.data?.testimonial?.title}</h3>`} />
+          <HTMLRender htmlString={`<h2>${PeopleData?.data?.testimonial?.title}</h2>`} />
         </div>
         {/* <div className={styles.sectionParaH2Type}> */}
         <div className={styles.sectionContent}>
           <p>{PeopleData?.data?.testimonial?.description}</p>
         </div>
-      </section>
-      <section className={`${styles.containerLg} pt-4!`}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
           <div >
             <ImageContentSquareCard
               content={
-                PeopleData?.data?.section_content?.image1?.content || ""
+                PeopleData?.data?.testimonial?.image1?.content || ""
               }
               image={testimonialsSqareCardImage}
               imageAlt={
-                PeopleData?.data?.section_content?.title || "image"
+                PeopleData?.data?.testimonial?.title || "image"
               }
             />
           </div>
           <div>
             <ImageContentSquareCard
               content={
-                PeopleData?.data?.section_content?.image1?.content || ""
+                PeopleData?.data?.testimonial?.image2?.content || ""
               }
               image={testimonialsSqareCard2Image}
               imageAlt={
-                PeopleData?.data?.section_content?.title || "image"
+                PeopleData?.data?.testimonial?.title || "image"
               }
             />
           </div>

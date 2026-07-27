@@ -10,6 +10,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation"; // Ensure Navigation CSS is imported
 
+import { createImageSourceURL } from "@/utils";
+
 // Default fallback image
 const fallbackImage = "/images/board/policies_banner_large.jpg";
 
@@ -48,8 +50,9 @@ const ButtonSliderImage = ({ images, title, imageTitle }) => {
       >
         {images && images.length > 0 ? (
           images.map((image, index) => {
-            const validSrc = image.src || fallbackImage;
-            const validAlt = image.alt || "Slide image";
+            const rawSrc = typeof image === "string" ? image : (image?.src || image?.image || image?.url);
+            const validSrc = rawSrc ? createImageSourceURL(rawSrc, fallbackImage) : fallbackImage;
+            const validAlt = image?.alt || "Slide image";
 
             return (
               <SwiperSlide key={index}>
@@ -59,7 +62,7 @@ const ButtonSliderImage = ({ images, title, imageTitle }) => {
                     alt={validAlt}
                     layout="fill" // Make the image take full space of its parent
                     objectFit="cover" // Ensure the image maintains its aspect ratio and covers the container
-                    onError={(e) => (e.target.src = fallbackImage)} // Fallback on error
+                    onError={(e) => (e.target.srcset = fallbackImage)} // Fallback on error (Next.js Image uses srcset)
                   />
                 </div>
                 {title && (

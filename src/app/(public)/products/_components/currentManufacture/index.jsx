@@ -9,13 +9,13 @@ const CurrentManufacture = ({ data, paints = [] }) => {
     <>
       <section id={"current-manufacturing-facilities"} className="!pt-0">
         <div className={`${styles.containerLg} !pt-0`}>
-          <div className={`${styles.sectionContent} ${styles.customUlListing} mb-6`}>
+          <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
             <HTMLRender htmlString={data?.title} />
             <p>{data?.description}</p>
           </div>
-          <div className="my-6 space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
             {Array.isArray(paints) && paints?.map((item, index) => (
-              <PaintFacilitiesCard key={item?.title} data={item} isDifferent={index % 2 ? true : false} isLeft={false} />
+              <PaintFacilitiesCard key={item?.title} data={item} isDifferent={index % 4 === 1 || index % 4 === 2} isLeft={false} />
             ))}
           </div>
         </div>
