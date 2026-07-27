@@ -6,24 +6,26 @@ import { createImageSourceURL } from "@/utils";
 const ProductCategoryCard = ({ data }) => {
   return (
     <article 
-      className={videoCardStyles.socialCardWrapper} 
+      className={`${videoCardStyles.socialCardWrapper} !p-0 flex flex-col`} 
       style={{ cursor: 'default', minHeight: '100%', maxWidth: 'none' }}
     >
       <div className="relative">
-        <div className={videoCardStyles.socialCardImage}>
-          {data?.image && (
-            <Image 
-              src={createImageSourceURL(data.image)} 
-              alt={data?.title || "Category Image"} 
-              fill 
-              className="w-full h-full absolute object-contain rounded-t-[10px]" 
-            />
-          )}
+        <div className={`${videoCardStyles.socialCardImage} rounded-t-[32px] border border-gray-300 bg-white p-4 sm:p-6`}>
+          <div className="relative w-full h-full">
+            {data?.image && (
+              <Image 
+                src={createImageSourceURL(data.image)} 
+                alt={data?.title || "Category Image"} 
+                fill 
+                className="object-contain" 
+              />
+            )}
+          </div>
         </div>
       </div>
       
       {/* Content */}
-      <div>
+      <div className="px-[clamp(16px,2.8vw,24px)] pb-[clamp(16px,2.8vw,24px)] flex-1">
         <div className={`${videoCardStyles.sectionContent} mt-3`}>
           {data?.title && <h3 className="uppercase">{data.title}</h3>}
           {data?.desc && <p dangerouslySetInnerHTML={{ __html: data.desc }} />}

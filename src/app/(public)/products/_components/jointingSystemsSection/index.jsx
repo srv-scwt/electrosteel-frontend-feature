@@ -10,8 +10,14 @@ import { createImageSourceURL } from '@/utils';
 
 const JointingSystemSection = ({ sectionID, isDownloadLink = true, label, data = [], jointingSystemLink }) => {
   const limit = 80;
-  const [expanded, setExpanded] = useState(false);
-  const isLong = data[0].description.length > limit;
+  const [expandedIndexes, setExpandedIndexes] = useState({});
+
+  const toggleExpand = (index) => {
+    setExpandedIndexes(prev => ({
+        ...prev,
+        [index]: !prev[index]
+    }));
+  };
 
   return (
     <section id={sectionID} className="bg-[#F5F5F5]">
@@ -30,6 +36,9 @@ const JointingSystemSection = ({ sectionID, isDownloadLink = true, label, data =
               "border-gray-200",
             ].join(" ");
 
+            const isExpanded = expandedIndexes[index];
+            const isLong = product?.description?.length > limit;
+
             return (
               <div
                 key={index}
@@ -47,15 +56,15 @@ const JointingSystemSection = ({ sectionID, isDownloadLink = true, label, data =
                 <div className={styles.sectionContent}>
                   <h4>{product?.title}</h4>
                   <p>
-                    {expanded
+                    {isExpanded || !isLong
                       ? product?.description
-                      : product?.description.slice(0, limit)}
+                      : product?.description?.slice(0, limit)}
                     {isLong && (
                       <span
-                        onClick={() => setExpanded(!expanded)}
+                        onClick={() => toggleExpand(index)}
                         className="text-blue-600 cursor-pointer ml-2"
                       >
-                        {expanded ? "product.description" : ". . ."}
+                        {isExpanded ? " Show Less" : ". . ."}
                       </span>
                     )}
                   </p>

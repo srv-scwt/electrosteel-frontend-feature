@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import styles from '@/app/(public)/products/ductile-iron-fittings/_components/systemsSection/style.module.css'
+import styles from '@/app/(public)/products/_components/jointingSystemsSection/style.module.css'
 import cStayle from '@/app/common.module.css'
 import HTMLRender from '@/components/ui/HTMLRender'
 
