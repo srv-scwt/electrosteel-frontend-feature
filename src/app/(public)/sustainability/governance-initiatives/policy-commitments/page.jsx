@@ -24,7 +24,7 @@ const page = () => {
         <GridTwoSection
           preContent={
             <div className={`${cstyles.sectionContentSpanDark} mb-6`}>
-              <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ GLOBAL COMMITMENT</div>
+              <h2 className="text-[#004aa1]">GLOBAL COMMITMENT</h2>
               <HTMLRender htmlString={`<h2>${policyCommitmentsData.globalCommitment.title}</h2>`} />
             </div>
           }
@@ -56,7 +56,7 @@ const page = () => {
         <GridTwoSection
           preContent={
             <div className={`${cstyles.sectionContentSpanDark} mb-6`}>
-              <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ REPORTING &amp; DISCLOSURE</div>
+              <h2 className="text-[#004aa1]">REPORTING &amp; DISCLOSURE</h2>
               <HTMLRender htmlString={`<h2>${policyCommitmentsData.reporting.title}</h2>`} />
             </div>
           }
@@ -91,7 +91,7 @@ const page = () => {
       <section className="py-4 mb-4">
         <div className={cstyles.containerLg}>
           <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} ${cstyles.customUlListing}`}>
-            <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ CONTINUOUS IMPROVEMENT</div>
+            <h2 className="text-[#004aa1]">CONTINUOUS IMPROVEMENT</h2>
             <HTMLRender htmlString={`<h2>${policyCommitmentsData.continuousImprovement.title}</h2>`} />
             <div dangerouslySetInnerHTML={{ __html: policyCommitmentsData.continuousImprovement.description }} />
           </div>

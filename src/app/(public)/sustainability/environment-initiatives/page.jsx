@@ -40,7 +40,7 @@ const page = () => {
         <section className="">
           <div className={styles.containerLg}>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}>
-              <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ {emissionData.hero.title}</div>
+              <h2 className="text-[#004aa1]">{emissionData.hero.title}</h2>
               <HTMLRender htmlString={`<h2>${emissionData.hero.subtitle}</h2>`} />
             </div>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark} ${styles.customUlListing}`}>
@@ -57,7 +57,7 @@ const page = () => {
         <section className="">
           <div className={styles.containerLg}>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}>
-              <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ {waterData.hero.title}</div>
+              <h2 className="text-[#004aa1]">{waterData.hero.title}</h2>
               <HTMLRender htmlString={`<h2>${waterData.hero.subtitle}</h2>`} />
             </div>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark} ${styles.customUlListing}`}>
@@ -74,7 +74,7 @@ const page = () => {
         <section className="">
           <div className={styles.containerLg}>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}>
-              <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ {wasteData.hero.title}</div>
+              <h2 className="text-[#004aa1]">{wasteData.hero.title}</h2>
               <HTMLRender htmlString={`<h2>${wasteData.hero.subtitle}</h2>`} />
             </div>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark} ${styles.customUlListing}`}>
@@ -91,7 +91,7 @@ const page = () => {
         <section className="">
           <div className={styles.containerLg}>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}>
-              <div className="text-2xl md:text-3xl font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ {energyData.hero.title}</div>
+              <h2 className="text-[#004aa1]">{energyData.hero.title}</h2>
               <HTMLRender htmlString={`<h2>${energyData.hero.subtitle}</h2>`} />
             </div>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark} ${styles.customUlListing}`}>

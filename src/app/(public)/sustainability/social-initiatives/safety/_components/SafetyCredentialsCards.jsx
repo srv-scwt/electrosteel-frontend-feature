@@ -58,14 +58,14 @@ const SafetyCredentialsCards = () => {
 
     if (title === "ISO 45001") {
       mappedData = {
-        label: `<div class="text-sm font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ CERTIFICATION</div>
+        label: `<h2 class="text-[#004aa1]">CERTIFICATION</h2>
                 <h3 class="text-[#00418e]">${safetyData.certification.title}</h3>`,
         description: safetyData.certification.description,
         image: safetyData.certification.image,
       };
     } else if (title === "SA 8000") {
       mappedData = {
-        label: `<div class="text-sm font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ SAFETY CULTURE</div>
+        label: `<h2 class="text-[#004aa1]">SAFETY CULTURE</h2>
                 <h3 class="text-[#00418e]">${safetyData.socialAccountability.title}</h3>`,
         description: safetyData.socialAccountability.description,
         image: safetyData.socialAccountability.image,

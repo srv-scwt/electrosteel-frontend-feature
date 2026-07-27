@@ -58,7 +58,7 @@ const page = () => {
       <section className="">
         <div className={cstyles.containerLg}>
           <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} mb-6`}>
-            <div className="text-sm font-bold text-[#004aa1] mb-2 tracking-widest uppercase">❯ SAFETY CULTURE</div>
+            <h2 className="text-[#004aa1]">SAFETY CULTURE</h2>
             <HTMLRender htmlString={`<h2>${safetyData.safetyCulture.title}</h2>`} />
           </div>
           <div className={`${cstyles.sectionContent} ${cstyles.customUlListing}`}>
