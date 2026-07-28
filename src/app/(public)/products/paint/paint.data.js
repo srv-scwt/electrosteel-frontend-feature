@@ -167,22 +167,22 @@ export const paintsData = {
       title: "Heavy Industries & Manufacturing",
       description: "<h4>Includes: Iron & Steel | Casting & Foundry | Industrial Machinery</h4><ul><li>Steel structures &amp; fabrication</li><li>Foundry equipment &amp; moulds</li><li>Manufacturing plants</li><li>Heavy industrial machinery</li><li>Pressure vessels &amp; reactors</li><li>Production equipment protection</li></ul>",
       icon: "/images/paint/paint_application/Heavy Industries & Manufacturing.png",
-      image1: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
-      image2: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+      image1: "/images/paints/application/3.1.webp",
+      image2: "/images/paints/application/3.2.webp",
     },
     {
       title: "Infrastructure & Construction",
       description: "<h4>Includes: Rail | Metro | Mining | Construction | Super Structures</h4><ul><li>Rail &amp; metro infrastructure</li><li>Bridges &amp; flyovers</li><li>Industrial &amp; commercial buildings</li><li>Mining &amp; material handling equipment</li><li>Structural steel &amp; warehouses</li><li>Tunnels &amp; retaining structures</li></ul>",
       icon: "/images/paint/paint_application/Infrastructure & Construction.png",
-      image1: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
-      image2: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+      image1: "/images/paints/application/4.1.webp",
+      image2: "/images/paints/application/4.2.webp",
     },
     {
       title: "Marine & Specialized Applications",
       description: "<h4>Includes: Marine | Offshore | Coastal Infrastructure</h4><ul><li>Marine vessels</li><li>Offshore platforms</li><li>Ports &amp; jetties</li><li>Coastal infrastructure</li><li>Cargo holds &amp; ballast tanks</li><li>Corrosion protection in saline environments</li></ul>",
       icon: "/images/paint/paint_application/Marine & Specialized Applications.png",
-      image1: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
-      image2: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+      image1:"/images/paints/application/5.1.webp",
+      image2: "/images/paints/application/5.2.webp",
     }
   ]
 };
