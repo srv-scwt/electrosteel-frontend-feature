@@ -136,5 +136,42 @@ export const paintsData = {
       <h3>Head Office</h3>
       <p>Electrosteel Castings Limited<br/>GK Tower<br/>19 Camac Street<br/>Kolkata – 700017</p>
     `
-  }
+  },
+  Application: [
+    {
+      title: "Water Infrastructure",
+      description: "<h4>Includes: DI Pipes, Valves & Fittings | Water Treatment | Desalination | Sewerage</h4><ul><li>Potable water transmission &amp; distribution</li><li>Sewerage, effluent &amp; drainage networks</li><li>Water &amp; wastewater treatment plants</li><li>Desalination plants</li><li>Pumping stations &amp; reservoirs</li><li>Irrigation &amp; recycled water systems</li></ul>",
+      icon: "/images/paint/paint_application/Water Infrastructure.png",
+      image1: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+      image2: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+    },
+    {
+      title: "Energy & Process Industries",
+      description: "<h4>Includes: Power Generation | Oil & Gas | Chemical | Process Plants</h4><ul><li>Thermal, hydro &amp; nuclear power plants</li><li>Renewable energy facilities</li><li>Refineries &amp; petrochemical plants</li><li>Storage tanks &amp; terminals</li><li>Process piping &amp; equipment</li><li>Industrial utility systems</li></ul>",
+      icon: "/images/paint/paint_application/Energy & Process Industries.png",
+      image1: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+      image2: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+    },
+    {
+      title: "Heavy Industries & Manufacturing",
+      description: "<h4>Includes: Iron & Steel | Casting & Foundry | Industrial Machinery</h4><ul><li>Steel structures &amp; fabrication</li><li>Foundry equipment &amp; moulds</li><li>Manufacturing plants</li><li>Heavy industrial machinery</li><li>Pressure vessels &amp; reactors</li><li>Production equipment protection</li></ul>",
+      icon: "/images/paint/paint_application/Heavy Industries & Manufacturing.png",
+      image1: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+      image2: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+    },
+    {
+      title: "Infrastructure & Construction",
+      description: "<h4>Includes: Rail | Metro | Mining | Construction | Super Structures</h4><ul><li>Rail &amp; metro infrastructure</li><li>Bridges &amp; flyovers</li><li>Industrial &amp; commercial buildings</li><li>Mining &amp; material handling equipment</li><li>Structural steel &amp; warehouses</li><li>Tunnels &amp; retaining structures</li></ul>",
+      icon: "/images/paint/paint_application/Infrastructure & Construction.png",
+      image1: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+      image2: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+    },
+    {
+      title: "Marine & Specialized Applications",
+      description: "<h4>Includes: Marine | Offshore | Coastal Infrastructure</h4><ul><li>Marine vessels</li><li>Offshore platforms</li><li>Ports &amp; jetties</li><li>Coastal infrastructure</li><li>Cargo holds &amp; ballast tanks</li><li>Corrosion protection in saline environments</li></ul>",
+      icon: "/images/paint/paint_application/Marine & Specialized Applications.png",
+      image1: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+      image2: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+    }
+  ]
 };

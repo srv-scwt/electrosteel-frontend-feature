@@ -55,6 +55,15 @@
   /* margin-bottom: clamp(8px, 1.8vw, 32px); */
 }
 
+.customUlListing h4{
+ font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-size: clamp(16px, 3vw, 22px);
+  line-height: 1.4;
+  letter-spacing: 0%;
+margin-bottom: 15px;
+
+}
 .customUlListing ul li {
   padding-left: 30px;
 }
@@ -120,7 +129,7 @@
   .sectionContent p,
   .sliderTextContent,
   .customUlListing ul li {
-    font-size: clamp(14px, 1.3vw, 16px);
+    font-size: clamp(14px, 1.3vw, 20px);
   }
 
   .customUlListing ul li::before {

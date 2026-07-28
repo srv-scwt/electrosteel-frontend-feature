@@ -9,6 +9,7 @@ import CurrentManufacture from "../_components/currentManufacture";
 import ComprehensiveProducts from "../_components/comprehensiveProducts";
 import ComprehensiveProductRange from "./_components/comprehensiveProductRange";
 import BusinessOverview from "../_components/BusinessOverview";
+import ApplicationSection from "../_components/applicationSection";
 import { paintsData } from "./paint.data";
 
 const Paint = () => {
@@ -42,13 +43,13 @@ const Paint = () => {
 
 
       <ComprehensiveProducts
-        data={paintsData.ApplicationSectors}
-        productCategories={paintsData.ApplicationSectors.card}
-      />
-
-      <ComprehensiveProducts
         data={paintsData.ProductCategories}
         productCategories={paintsData.ProductCategories.card}
+      />
+
+      <ApplicationSection
+        sectionID="applications"
+        data={paintsData.Application}
       />
 
       <ComprehensiveProductRange data={paintsData.ComprehensiveProductRange} />
