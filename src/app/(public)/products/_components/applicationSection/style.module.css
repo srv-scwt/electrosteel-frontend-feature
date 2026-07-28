@@ -21,7 +21,7 @@
 .leftUlList ul li {
     font-weight: 600;
     font-size: 14px;
-    padding: 29px 30px 29px 0;
+    padding: 38px 30px 38px 0;
     width: 80%;
     position: relative;
     border-bottom: 1px dotted white;
@@ -63,7 +63,7 @@
 }
 
 .leftUlList ul li.active {
-    padding: 29px 31px;
+    padding: 38px 31px;
 }
 
 .circle {

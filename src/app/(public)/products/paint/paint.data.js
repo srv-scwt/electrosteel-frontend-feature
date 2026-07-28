@@ -117,25 +117,33 @@ export const paintsData = {
   },
   TalkToOurPaintExperts: {
     title: "<h2>Talk to Our <span>Paint Experts</span></h2>",
-    description: `
-      <h3>Description</h3>
-      <p>Looking for industrial paint solutions tailored to your needs? Our experts are here to help with Product Selection, Technical Guidance, and Application Support.</p>
-      
-      <h3>Phone</h3>
-      <p>+91 91472 22900<br/>+91 62922 18028</p>
-      
-      <h3>Email</h3>
-      <p><a href="mailto:paint@electrosteel.com">paint@electrosteel.com</a></p>
-      
-      <h3>Website</h3>
-      <p><a href="http://www.electrosteel.com" target="_blank" rel="noopener noreferrer">www.electrosteel.com</a></p>
-      
-      <h3>Bansberia Paint Unit</h3>
-      <p>Vill – Chak Bansberia, Saptagram Panchayat<br/>P.O. – Adcconagar<br/>Hooghly – 712121<br/>West Bengal, India</p>
-      
-      <h3>Head Office</h3>
-      <p>Electrosteel Castings Limited<br/>GK Tower<br/>19 Camac Street<br/>Kolkata – 700017</p>
-    `
+    description: "Looking for industrial paint solutions tailored to your needs? Our experts are here to help with Product Selection, Technical Guidance, and Application Support.",
+    cards: [
+      {
+        title: "Contact",
+        phones: ["+91 91472 22900", "+91 62922 18028"],
+        emails: ["paint@electrosteel.com"],
+        website: "www.electrosteel.com"
+      },
+      {
+        title: "Bansberia Paint Unit",
+        lines: [
+          "Vill – Chak Bansberia, Saptagram Panchayat",
+          "P.O. – Adcconagar",
+          "Hooghly – 712121",
+          "West Bengal, India"
+        ]
+      },
+      {
+        title: "Head Office",
+        lines: [
+          "Electrosteel Castings Limited",
+          "GK Tower",
+          "19 Camac Street",
+          "Kolkata – 700017"
+        ]
+      }
+    ]
   },
   Application: [
     {

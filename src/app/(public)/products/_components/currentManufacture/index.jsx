@@ -9,7 +9,7 @@ const CurrentManufacture = ({ data, paints = [] }) => {
     <>
       <section id={"current-manufacturing-facilities"} className="!pt-0">
         <div className={`${styles.containerLg} !pt-0`}>
-          <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
+          <div className={`${styles.sectionContent} ${styles.customUlListing} mb-8 md:mb-12`}>
             <HTMLRender htmlString={data?.title} />
             <p>{data?.description}</p>
           </div>
