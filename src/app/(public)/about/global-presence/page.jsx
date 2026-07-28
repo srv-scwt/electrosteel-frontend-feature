@@ -11,6 +11,7 @@ import CountriesAbout from './_components/countriesAbout'
 import { getGlobalPresence } from '@/services/global-presence.api'
 import SomethingWentWrong from '@/components/common/SomethingWentsWrong'
 import { getGlobalOverseas } from '@/services/globalOverseas.api'
+import { getCommonBanner } from '@/services/commonBanner/commonBanner.api'
 
 const heroData = {
   title: "Global Presence",
@@ -31,7 +32,8 @@ const page = async ({ searchParams }) => {
   const officesOverseasData = await getGlobalPresence("global-offices-overseas");
   const unitsData = await getGlobalPresence("global-operational-units");
   const GlobalOverseas = await getGlobalOverseas();
-  console.log(GlobalOverseas?.data, "GlobalOverseas=========");
+  const heroBanner = await getCommonBanner("global-presence");
+  console.log("HERO BANNER API RESPONSE: ", heroBanner);
   
 
   const registeredOffice = RegisteredData?.data?.data?.[0];
@@ -56,7 +58,7 @@ const page = async ({ searchParams }) => {
 
   return (
     <>
-      <HeroSection data={heroData} />
+      <HeroSection data={heroBanner?.data || heroData} />
       <CountriesAbout data={CountriesData?.data} />
       <RegisteredAndCorporateOffice data={OfficeData} />
       <OfficeInIndia

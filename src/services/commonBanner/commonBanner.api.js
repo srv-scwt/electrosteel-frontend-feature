@@ -15,7 +15,7 @@ export async function getCommonBanner(pageName) {
         status: response.status ?? null,
       };
     }
-
+    console.log("response: ", response)
     return {
       data: response.data,
       error: null,
