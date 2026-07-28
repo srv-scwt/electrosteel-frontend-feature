@@ -17,6 +17,7 @@ import ApplicationSection from "../_components/applicationSection";
 import { paintsData } from "./paint.data";
 
 const Paint = () => {
+  console.log(paintsData.TalkToOurPaintExperts)
   return (
     <>
       <HeroSection data={paintsData.hero} />
@@ -72,11 +73,6 @@ const Paint = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
             {paintsData.TalkToOurPaintExperts.cards.map((item, index) => {
-              const iconMap = [
-                <Phone key="contact" size={32} className="text-[#FDD307]" />,
-                <MapPin key="plant" size={32} className="text-[#FDD307]" />,
-                <Building2 key="hq" size={32} className="text-[#FDD307]" />
-              ];
               
               let descContent = null;
               if (item.lines) {
@@ -108,7 +104,7 @@ const Paint = () => {
                 );
               }
 
-              const cardData = { ...item,desc: descContent };
+              const cardData = { ...item, desc: descContent };
               return (
                 <PaintFacilitiesCard key={item.title} data={cardData} isDifferent={false} isLegendsTitle={true} />
               );
