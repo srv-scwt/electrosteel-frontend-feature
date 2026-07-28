@@ -243,6 +243,10 @@ li{
 /* Enable touch scrolling smoothly */
 html, body {
   overscroll-behavior-x: contain;
+  scroll-behavior: smooth;
+}
+html {
+  scroll-padding-top: 120px;
 }
 
 div {

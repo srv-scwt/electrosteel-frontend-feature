@@ -29,14 +29,14 @@ const Paint = () => {
         contentOrder={"order-1"}
         bannerOrder={"order-2 "}
         sectionID={"overview-details"}
-        className="!py-0"
+        className="!pt-0"
         objectPosition="object-contain"
       />
       
-      <TechnologyMantra
+      {/* <TechnologyMantra
         data={paintsData.PaintTechnologyMantra}
         images={paintsData.PaintTechnologyMantra.slider_images}
-      />
+      /> */}
       
       <CurrentManufacture
         data={paintsData.ManufacturingExcellence}

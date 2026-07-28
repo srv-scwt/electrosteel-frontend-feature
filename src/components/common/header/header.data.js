@@ -130,9 +130,9 @@ const productsData = [
     section: "Paint ",
     links: [
       { label: "Overview", url: "/products/paint#overview" },
-      { label: "Product Range", url: "/products/paint#product-range" },
-      { label: "World-Class Raw Materials and GLOBAL Approvals", url: "/products/paint#world-class-raw-materials-and-global-approvals" },
-      { label: "Current Manufacturing Facilities", url: "/products/paint#current-manufacturing-facilities" },
+      { label: "Manufacturing Excellence", url: "/products/paint#current-manufacturing-facilities" },
+      { label: "Product Categories", url: "/products/paint#product-range" },
+      { label: "Applications", url: "/products/paint#applications" },
     ],
   },
 

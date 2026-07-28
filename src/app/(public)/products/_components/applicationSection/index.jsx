@@ -27,7 +27,7 @@ const ApplicationSection = ({ sectionID, data = [] }) => {
             <div className={`grid grid-cols-1 sm:grid-cols-[70%_30%] gap-6 ${cstyle.containerLg}`}>
                 <div>
                     <div className={cstyle.sectionContent}>
-                        <h2>Application</h2>
+                        <h2>Applications</h2>
                     </div>
                     <div className={`grid grid-cols-1 xl:grid-cols-[40%_60%] gap-4`}>
                         <div className={styles.leftUlList}>

@@ -1416,6 +1416,7 @@ export default function Navbar() {
                         <Link
                           href={"/products/paint#overview"}
                           className="hover:text-yellow-400 flex items-start"
+                          onClick={() => setHoveredLink(null)}
                         >
                           <ChevronRight
                             size={16}
@@ -1426,46 +1427,41 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
+                          href={"/products/paint#current-manufacturing-facilities"}
+                          className="hover:text-yellow-400 flex items-start"
+                          onClick={() => setHoveredLink(null)}
+                        >
+                          <ChevronRight
+                            size={16}
+                            className={styles.angleIcon}
+                          />
+                          <span className="ml-1">Manufacturing Excellence</span>
+                        </Link>
+                      </li>
+                      <li className="flex items-start">
+                        <Link
                           href={"/products/paint#product-range"}
                           className="hover:text-yellow-400 flex items-start"
+                          onClick={() => setHoveredLink(null)}
                         >
                           <ChevronRight
                             size={16}
                             className={styles.angleIcon}
                           />
-                          <span className="ml-1">Product Range </span>
+                          <span className="ml-1">Product Categories</span>
                         </Link>
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={
-                            "/products/paint#world-class-raw-materials-and-global-approvals"
-                          }
+                          href={"/products/paint#applications"}
                           className="hover:text-yellow-400 flex items-start"
+                          onClick={() => setHoveredLink(null)}
                         >
                           <ChevronRight
                             size={16}
                             className={styles.angleIcon}
                           />
-                          <span className="ml-1">
-                            World-Class Raw Materials and GLOBAL Approvals{" "}
-                          </span>
-                        </Link>
-                      </li>
-                      <li className="flex items-start">
-                        <Link
-                          href={
-                            "/products/paint#current-manufacturing-facilities"
-                          }
-                          className="hover:text-yellow-400 flex items-start"
-                        >
-                          <ChevronRight
-                            size={16}
-                            className={styles.angleIcon}
-                          />
-                          <span className="ml-1">
-                            Current Manufacturing Facilities{" "}
-                          </span>
+                          <span className="ml-1">Applications</span>
                         </Link>
                       </li>
                     </ul>

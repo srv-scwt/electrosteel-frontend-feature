@@ -2,7 +2,7 @@ export const paintsData = {
   hero: {
     title: "PAINT",
     subtitle: "<div class='text-sm font-bold text-[#004aa1] mb-2 tracking-widest uppercase'>MADE TO RESIST. DESIGNED TO LAST.</div>",
-    banner: "/images/blog/blogBanner.jpg",
+    banner: "/images/paints/banner.jpeg",
   },
   ElectrosteelLegacyofInnovation: {
     title: "<h2>Electrosteel: A Legacy of <span>Innovation</span></h2>",
@@ -12,7 +12,9 @@ export const paintsData = {
     title: "Industrial Paints <span>Overview</span>",
     description: "<p>Electrosteel has over 14 years of paint manufacturing experience and deep expertise in industrial coatings that combine durability with vibrant aesthetics.</p><p>Our paint facility is located in Bansberia, Hooghly, West Bengal, and operates on a 2-acre site with 30% green coverage.</p><p>Manufactured under stringent quality standards and developed with advanced formulation technology, Electrosteel Paints combine durability, aesthetic finish, and sustainable performance for modern industrial applications.</p>",
     image: "/images/product-details/update-overview.png",
+    image: "/images/paints/New Project (13).jpg.jpeg",
   },
+  
   PaintTechnologyMantra: {
     title: "<h2>Technology is <span>Our Mantra</span></h2>",
     description: "<p>From robotic core making operations to world-class coated pipes produced with our proprietary paints, technology drives every aspect of our manufacturing process. Our paint plant represents the culmination of decades of industrial expertise.</p>",
@@ -150,15 +152,16 @@ export const paintsData = {
       title: "Water Infrastructure",
       description: "<h4>Includes: DI Pipes, Valves & Fittings | Water Treatment | Desalination | Sewerage</h4><ul><li>Potable water transmission &amp; distribution</li><li>Sewerage, effluent &amp; drainage networks</li><li>Water &amp; wastewater treatment plants</li><li>Desalination plants</li><li>Pumping stations &amp; reservoirs</li><li>Irrigation &amp; recycled water systems</li></ul>",
       icon: "/images/paint/paint_application/Water Infrastructure.png",
-      image1: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
-      image2: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+      image1: "/images/paints/application/waterinfra.jpeg",
+      image2: "/images/paints/application/water_infra.jpeg",
     },
     {
       title: "Energy & Process Industries",
       description: "<h4>Includes: Power Generation | Oil & Gas | Chemical | Process Plants</h4><ul><li>Thermal, hydro &amp; nuclear power plants</li><li>Renewable energy facilities</li><li>Refineries &amp; petrochemical plants</li><li>Storage tanks &amp; terminals</li><li>Process piping &amp; equipment</li><li>Industrial utility systems</li></ul>",
       icon: "/images/paint/paint_application/Energy & Process Industries.png",
-      image1: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
-      image2: "https://electrosteel.onrender.com/uploads/file-1778766809491-622553189.webp",
+      image1: "/images/paints/application/energy_process_industries.jpeg",
+      image2: "/images/paints/application/energyprocess.jpeg",
+     
     },
     {
       title: "Heavy Industries & Manufacturing",
