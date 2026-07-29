@@ -2,6 +2,7 @@
 import React from "react";
 
 const CommonModal = ({ open, onClose, title, children }) => {
+  console.log("open: ", open)
   if (!open) return null;
 
   return (
@@ -9,11 +10,18 @@ const CommonModal = ({ open, onClose, title, children }) => {
       <div className="bg-white max-w-3xl w-full mx-4 rounded-xl shadow-lg relative">
         
         {/* Header */}
-        <div className="flex justify-between items-center px-6 py-4 border-b">
-          <h3 className="text-lg font-semibold text-[#00418e]">{title}</h3>
+        <div className="flex justify-between items-start px-6 pt-6">
+          <h3 style={{
+            fontFamily: "var(--font-bebas-neue), sans-serif",
+            fontWeight: 400,
+            fontSize: "clamp(20px, 2.5vw, 28px)",
+            lineHeight: "100%",
+            color: "#00418e",
+            paddingBottom: "4px"
+          }}>{title}</h3>
           <button
             onClick={onClose}
-            className="text-xl font-bold text-gray-500 hover:text-black"
+            className="text-3xl leading-none text-gray-500 hover:text-black"
           >
             ×
           </button>

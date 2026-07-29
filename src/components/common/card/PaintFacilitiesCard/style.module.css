@@ -38,3 +38,19 @@
     display: block;
     border-radius: 0;
 }
+
+.iconBlue {
+    filter: brightness(0) saturate(100%) invert(18%) sepia(84%) saturate(2271%) hue-rotate(196deg) brightness(91%) contrast(106%);
+}
+
+.iconWhite {
+    filter: brightness(0) invert(1);
+}
+
+.titleNoBg {
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    display: block !important;
+    margin-bottom: clamp(10px, 1.5vw, 16px) !important;
+}

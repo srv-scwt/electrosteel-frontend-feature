@@ -2,15 +2,24 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./style.module.css";
 import Image from "next/image";
-import { OutlineButtonLink } from "@/components/ui/Button";
+import { OutlineButton } from "@/components/ui/Button";
 import TrackerRope from "./TrackerRope";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { createImageSourceURL } from "@/utils";
+import CommonModal from "@/components/modals/commonModal";
 
 const ITEMS_PER_SLIDE = 4;
 
+const getPreviewText = (text, maxLength = 100) => {
+  if (!text) return "";
+  const strippedString = text.replace(/(<([^>]+)>)/gi, "");
+  if (strippedString.length <= maxLength) return strippedString;
+  return strippedString.substring(0, maxLength) + '...';
+};
+
 const OurJourney = ({ label, data = [] }) => {
   const containerRef = useRef(null);
+  const [modalData, setModalData] = useState(null);
 
   const totalSteps = data.flat().length;
   
@@ -126,10 +135,10 @@ const groupedData = data.reduce((result, item, index) => {
 
                       <div className={styles.cardContent}>
                         <p>{itemData?.title}</p>
-                        <h4>{itemData?.description}</h4>
+                        <h4>{getPreviewText(itemData?.description, 60)}</h4>
 
-                        <OutlineButtonLink
-                          goto={itemData?.link || '#'}
+                        <OutlineButton
+                          action={() => setModalData(itemData)}
                           title="Know More"
                           className="font-700 know-more-btn-font"
                         />
@@ -142,6 +151,14 @@ const groupedData = data.reduce((result, item, index) => {
           );
         })}
       </div>
+
+      <CommonModal
+        open={!!modalData}
+        onClose={() => setModalData(null)}
+        title={modalData?.title || "Initiative Details"}
+      >
+        <HTMLRender htmlString={modalData?.description} />
+      </CommonModal>
     </section>
   );
 };

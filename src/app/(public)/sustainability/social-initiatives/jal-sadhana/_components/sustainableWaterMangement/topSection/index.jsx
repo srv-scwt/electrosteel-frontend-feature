@@ -6,8 +6,6 @@ import { OutlineButtonLink } from "@/components/ui/Button";
 import { createImageSourceURL } from "@/utils";
 
 const TopSection = ({ data }) => {
-  console.log(data);
-  
   return (
     <section
       className={`${styles.spacingX} ${styles.sectionH20H} relative w-full overflow-hidden`}
@@ -28,7 +26,7 @@ const TopSection = ({ data }) => {
             <HTMLRender htmlString={data?.description} />
             <div className={styles.cardLink}>
               <OutlineButtonLink
-                goto={data?.url}
+                goto={data?.url || "#"}
                 title={"read more"}
                 className={"btn-white"}
               />
