@@ -20,7 +20,7 @@ const CurrentManufacture = ({ data, paints = [] }) => {
                 shapeOutside: `url('/images/paints/s-b-i-2.png')`,
                 shapeMargin: '5rem',
               }}
-              className="float-none lg:float-right w-full lg:w-[55%] xl:w-[60%] h-auto mb-4 lg:mb-0 lg:ml-8 object-contain object-right-top" 
+              className="float-none lg:float-right w-full lg:w-[49%] xl:w-[49%] h-auto mb-4 lg:mb-0 lg:ml-8 object-contain object-right-top" 
             />
             <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
               <HTMLRender htmlString={data?.title} />

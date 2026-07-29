@@ -30,7 +30,7 @@ const Paint = () => {
         bannerOrder={"order-2 "}
         sectionID={"overview-details"}
         className="!pt-0"
-        objectPosition="object-contain"
+        objectPosition="object-contain object-right"
       />
       
       {/* <TechnologyMantra
