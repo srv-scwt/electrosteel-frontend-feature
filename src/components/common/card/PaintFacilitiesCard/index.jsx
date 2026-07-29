@@ -11,8 +11,8 @@ const PaintFacilitiesCard = ({ data ,isLeft=false , isDifferent, isLegendsTitle=
         
         {data?.iconPath && (
           <div className="flex-shrink-0 flex items-center justify-center pr-5 mr-5 border-r border-[#FDD307] opacity-100">
-             <div className={`w-16 h-16 flex items-center justify-center rounded-full ${!isDifferent ? "bg-white" : "bg-[#00418E]"}`}>
-               <Image src={data.iconPath} alt={data.title} width={36} height={36} className={`object-contain ${!isDifferent ? styles.iconBlue : styles.iconWhite}`} />
+             <div className={`w-20 h-20 flex items-center justify-center rounded-full ${!isDifferent ? "bg-white" : "bg-[#00418E]"}`}>
+               <Image src={data.iconPath} alt={data.title} width={48} height={48} className={`object-contain ${!isDifferent ? styles.iconBlue : styles.iconWhite}`} />
              </div>
           </div>
         )}

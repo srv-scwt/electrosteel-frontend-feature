@@ -10,18 +10,21 @@ const CurrentManufacture = ({ data, paints = [] }) => {
     <>
       <section id={"current-manufacturing-facilities"} className="!pt-0">
         <div className={`${styles.containerLg} !pt-0`}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-8 md:mb-12 items-start">
-            <div className={`lg:col-span-6 xl:col-span-5 ${styles.sectionContent} ${styles.customUlListing}`}>
+          <div className="block w-full mb-6 lg:mb-8 relative flow-root">
+            <Image 
+              src="/images/paints/s-b-i-2.png" 
+              alt="Manufacturing Excellence" 
+              width={800}
+              height={800}
+              style={{
+                shapeOutside: `url('/images/paints/s-b-i-2.png')`,
+                shapeMargin: '5rem',
+              }}
+              className="float-none lg:float-right w-full lg:w-[55%] xl:w-[60%] h-auto mb-4 lg:mb-0 lg:ml-8 object-contain object-right-top" 
+            />
+            <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
               <HTMLRender htmlString={data?.title} />
-              <p className="pr-0 lg:pr-12 xl:pr-16 leading-relaxed">{data?.description}</p>
-            </div>
-            <div className="lg:col-span-6 xl:col-span-7 relative w-full h-64 lg:h-full min-h-[250px] lg:min-h-[350px] rounded-2xl overflow-hidden shadow-sm">
-              <Image 
-                src={data?.image || "/images/paints/banner.jpeg"} 
-                alt="Manufacturing Excellence" 
-                fill 
-                className="object-cover object-center" 
-              />
+              <p className="pr-0 leading-relaxed text-justify">{data?.description}</p>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">

@@ -15,7 +15,7 @@ import { createImageSourceURL } from "@/utils";
 // Default fallback image
 const fallbackImage = "/images/board/policies_banner_large.jpg";
 
-const ButtonSliderImage = ({ images, title, imageTitle }) => {
+const ButtonSliderImage = ({ images, title, imageTitle, imageClassName }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -33,7 +33,7 @@ const ButtonSliderImage = ({ images, title, imageTitle }) => {
   }, [swiperInstance]);
 
   return (
-    <div className="slider-container relative">
+    <div className="slider-container relative h-full">
       <Swiper
         modules={[Autoplay, A11y, Navigation]} // Removed EffectFade module
         navigation={{
@@ -47,16 +47,18 @@ const ButtonSliderImage = ({ images, title, imageTitle }) => {
         spaceBetween={0}
         loop={true}
         direction="horizontal"
+        className="h-full w-full"
       >
         {images && images.length > 0 ? (
           images.map((image, index) => {
             const rawSrc = typeof image === "string" ? image : (image?.src || image?.image || image?.url);
             const validSrc = rawSrc ? createImageSourceURL(rawSrc, fallbackImage) : fallbackImage;
             const validAlt = image?.alt || "Slide image";
+            const heightClass = imageClassName || "h-[300px] sm:h-[400px] md:h-[500px]";
 
             return (
-              <SwiperSlide key={index}>
-                <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] relative">
+              <SwiperSlide key={index} className="h-full">
+                <div className={`w-full ${heightClass} relative`}>
                   <Image
                     src={validSrc}
                     alt={validAlt}

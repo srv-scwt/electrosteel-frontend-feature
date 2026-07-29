@@ -26,7 +26,7 @@ export const paintsData = {
     ]
   },
   ManufacturingExcellence: {
-    title: "<h2>Manufacturing <span>Excellence</span></h2>",
+    title: "<h2>Manufacturing <br/> <span>Excellence</span></h2>",
     description: "Electrosteel Industrial Paints are manufactured using advanced process controls, modern infrastructure, and precision-driven systems to ensure consistent quality across every batch.",
     card: [
       { title: "Precision Processing", desc: "Controlled manufacturing systems designed for formulation accuracy and consistency." },
