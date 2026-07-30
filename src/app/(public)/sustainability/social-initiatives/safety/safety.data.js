@@ -2,7 +2,7 @@ export const safetyData = {
   hero: {
     title: "SAFETY",
     subtitle: "Every person who enters our gates must leave safely.",
-    banner: "/images/blog/blogBanner.jpg",
+    banner: "/images/sustainability/social/safety/NewProject(2).webp",
   },
   overview: {
     title: "Safety",
@@ -31,7 +31,7 @@ export const safetyData = {
   },
   commitmentsSection: {
     title: "OUR SAFETY CULTURE RESTS ON FOUR COMMITMENTS",
-    image: "https://electrosteel.onrender.com/uploads/file-1779356229454-826531389.jpg",
+    image: "/images/sustainability/social/safety/NewProject (4).webp",
     commitments: [
       {
         title: "Leadership Visibility",

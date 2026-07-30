@@ -4,7 +4,7 @@ import { HiOutlineUserGroup } from "react-icons/hi2";
 export const trainingData = {
   hero: {
     title: "TRAINING",
-    banner: "/images/blog/blogBanner.jpg",
+    banner: "/images/sustainability/social/training/NewProject(1).webp",
   },
   
   overview: {

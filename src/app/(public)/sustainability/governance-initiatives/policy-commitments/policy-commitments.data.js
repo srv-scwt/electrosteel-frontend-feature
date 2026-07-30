@@ -29,7 +29,7 @@ export const policyCommitmentsData = {
     description: "<p>ECL regularly publishes a comprehensive, full-scale sustainability report — independently third-party assured and prepared in accordance with the Global Reporting Initiative (GRI) Standards. This report comprehensively covers all ESG parameters of the company, duly audited for accuracy and completeness.</p><p>Our sustainability disclosures are independently assured by BSI under ISAE 3000 — one of the most rigorous third-party assurance standards available. This places ECL among a select group of Indian manufacturers who hold independently verified sustainability credentials.</p><p>In alignment with SEBI's Business Responsibility and Sustainability Reporting (BRSR) framework, ECL also prepares and publishes its BRSR as part of its Annual Report, ensuring compliance with the highest standards of mandatory sustainability disclosure for listed companies in India.</p>"
   },
   policyFramework: {
-    title: "Our Governing <span>Policy Framework</span>",
+    title: "Our Governing Policy Framework",
     image: "https://electrosteel.onrender.com/uploads/file-1779356229454-826531389.jpg",
     policies: [
       {

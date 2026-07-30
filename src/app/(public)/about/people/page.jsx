@@ -29,7 +29,7 @@ const page = async () => {
       {LifeAtEclData && (
         <LifeOfEClPeople data={LifeAtEclData?.data?.[0]} />
       )}
-      <ButtonSwiperImageClient images={PeopleData?.data?.people_life_at_ecl?.images} className={`pt-4! pb-0! ${styles.containerLg}`} />
+      <ButtonSwiperImageClient images={PeopleData?.data?.people_life_at_ecl?.images} className={`${styles.containerLg}`} />
 
       <section className={styles.containerLg}>
         <div
@@ -41,7 +41,7 @@ const page = async () => {
           <p>{PeopleData?.data?.people_data_content?.[0]?.description}</p>
         </div>
       </section>
-      <section id="campus-hire-stories" className={`${styles.containerLg} !pt-0`}>
+      <section id="campus-hire-stories" className={`${styles.containerLg}`}>
         <div
           className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}
         >
@@ -56,7 +56,7 @@ const page = async () => {
           defaultTitle={PeopleData?.data?.section_content?.title} 
         />
       </section>
-      <section id="employee-testimonials" className={`${styles.containerLg} !pt-0`}>
+      <section id="employee-testimonials" className={`${styles.containerLg}`}>
         <div
           className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}
         >

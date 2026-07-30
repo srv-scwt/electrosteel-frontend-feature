@@ -1,6 +1,6 @@
 export const pragatiIntroData = {
   description:
-    "<p>PRAGATI means progress—and progress begins with people. Our Leadership Development Program, Pragati, is dedicated to identifying, nurturing, and accelerating future leaders who will drive innovation, excellence, and growth.</p><p class='pt-4'>By fostering continuous learning, leadership capability, and a forward-thinking mindset, Pragati empowers talent to grow with purpose and lead Electrosteel into the future.</p>",
+    "<p>PRAGATI means progress—and progress begins with people. Our Leadership Development Program, Pragati, is dedicated to identifying, nurturing, and accelerating future leaders who will drive innovation, excellence, and growth.By fostering continuous learning, leadership capability, and a forward-thinking mindset, Pragati empowers talent to grow with purpose and lead Electrosteel into the future.</p>",
 };
 
 export const pragatiPillarsData = {
