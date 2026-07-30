@@ -15,10 +15,18 @@ import { createImageSourceURL } from "@/utils";
 // Default fallback image
 const fallbackImage = "/images/board/policies_banner_large.jpg";
 
-const ButtonSliderImage = ({ images, title, imageTitle, imageClassName }) => {
+const ButtonSliderImage = ({ images, title, imageTitle, imageClassName, objectFit = "cover" }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
+
+  // Parse a concrete px height from imageClassName e.g. "h-[450px]" → 450
+  // Falls back to undefined so Swiper uses its natural height in other contexts
+  const parsedHeight = (() => {
+    if (!imageClassName) return undefined;
+    const match = imageClassName.match(/h-\[(\d+)px\]/);
+    return match ? parseInt(match[1], 10) : undefined;
+  })();
 
   useEffect(() => {
     if (!swiperInstance || !prevRef.current || !nextRef.current) {
@@ -32,8 +40,12 @@ const ButtonSliderImage = ({ images, title, imageTitle, imageClassName }) => {
     swiperInstance.navigation.update();
   }, [swiperInstance]);
 
+  // If we have a concrete height, apply it directly to every Swiper layer
+  const heightStyle = parsedHeight ? { height: `${parsedHeight}px` } : {};
+  const containerClass = parsedHeight ? "slider-container relative w-full" : "slider-container relative h-full";
+
   return (
-    <div className="slider-container relative h-full">
+    <div className={containerClass} style={heightStyle}>
       <Swiper
         modules={[Autoplay, A11y, Navigation]} // Removed EffectFade module
         navigation={{
@@ -47,7 +59,8 @@ const ButtonSliderImage = ({ images, title, imageTitle, imageClassName }) => {
         spaceBetween={0}
         loop={true}
         direction="horizontal"
-        className="h-full w-full"
+        className="w-full"
+        style={heightStyle}
       >
         {images && images.length > 0 ? (
           images.map((image, index) => {
@@ -57,13 +70,14 @@ const ButtonSliderImage = ({ images, title, imageTitle, imageClassName }) => {
             const heightClass = imageClassName || "h-[300px] sm:h-[400px] md:h-[500px]";
 
             return (
-              <SwiperSlide key={index} className="h-full">
-                <div className={`w-full ${heightClass} relative`}>
+              <SwiperSlide key={index} style={heightStyle}>
+                <div className={`w-full ${heightClass} relative bg-white`} style={heightStyle}>
                   <Image
                     src={validSrc}
                     alt={validAlt}
                     layout="fill" // Make the image take full space of its parent
-                    objectFit="cover" // Ensure the image maintains its aspect ratio and covers the container
+                    objectFit={objectFit} // Use the dynamic prop
+                    className={`object-${objectFit} object-center`}
                     onError={(e) => (e.target.srcset = fallbackImage)} // Fallback on error (Next.js Image uses srcset)
                   />
                 </div>

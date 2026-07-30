@@ -14,7 +14,7 @@ const BusinessOverview = ({ data }) => {
   `;
 
   return (
-    <section id={"TestPerformed"} className={`${styles.backgroundImg} bg-[url('/images/product-details/background-img.jpg')]`}>
+    <section id={"TestPerformed"} className={`${styles.backgroundImg} bg-[url('/images/product-details/PaintBanner-2.png')]`}>
       <div className={styles.container}>
         <div className={`${cstyle.sectionContent} ${styles.title}`}>
           <HTMLRender htmlString={data?.title} />

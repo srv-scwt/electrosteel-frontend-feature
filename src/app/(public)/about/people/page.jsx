@@ -1,6 +1,6 @@
 import HeroSection from "@/components/common/heroSection";
 import React from "react";
-import { LifeOfEClPeople } from "./_components";
+import { LifeOfEClPeople, CardSlider } from "./_components";
 import ButtonSwiperImageClient from "@/components/common/ButtonSwiperImageClient";
 import styles from "@/app/common.module.css";
 import ImageContentSquareCard from "@/components/common/card/ImageContentSquareCard";
@@ -19,10 +19,8 @@ const page = async () => {
 
   const pragatiImage = formatSliderData(PeopleData?.data?.reward?.pragatiData?.images);
   const pratibhaImage = formatSliderData(PeopleData?.data?.reward?.pratihbaImages?.images);
-  const campusSqareCardImage = createImageSourceURL(PeopleData?.data?.section_content?.image1?.image);
-  const campusSqareCard2Image = createImageSourceURL(PeopleData?.data?.section_content?.image2?.image);
-  const testimonialsSqareCardImage = createImageSourceURL(PeopleData?.data?.testimonial?.image1?.image);
-  const testimonialsSqareCard2Image = createImageSourceURL(PeopleData?.data?.testimonial?.image2?.image);
+
+  console.log("PeopleData?.data?.testimonial?.images: ", PeopleData?.data?.testimonial?.images)
   if (!PeopleData || PeopleData.error) return <SomethingWentWrong />
 
   return (
@@ -53,30 +51,10 @@ const page = async () => {
         <div className={styles.sectionContent}>
           <p>{PeopleData?.data?.section_content?.description}</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-          <div>
-            <ImageContentSquareCard
-              content={
-                PeopleData?.data?.section_content?.image1?.content || ""
-              }
-              image={campusSqareCardImage}
-              imageAlt={
-                PeopleData?.data?.section_content?.title || "image"
-              }
-            />
-          </div>
-          <div>
-            <ImageContentSquareCard
-              content={
-                PeopleData?.data?.section_content?.image2?.content || ""
-              }
-              image={campusSqareCard2Image}
-              imageAlt={
-                PeopleData?.data?.section_content?.title || "image"
-              }
-            />
-          </div>
-        </div>
+        <CardSlider 
+          items={PeopleData?.data?.section_content?.images} 
+          defaultTitle={PeopleData?.data?.section_content?.title} 
+        />
       </section>
       <section id="employee-testimonials" className={`${styles.containerLg} !pt-0`}>
         <div
@@ -88,30 +66,10 @@ const page = async () => {
         <div className={styles.sectionContent}>
           <p>{PeopleData?.data?.testimonial?.description}</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-          <div >
-            <ImageContentSquareCard
-              content={
-                PeopleData?.data?.testimonial?.image1?.content || ""
-              }
-              image={testimonialsSqareCardImage}
-              imageAlt={
-                PeopleData?.data?.testimonial?.title || "image"
-              }
-            />
-          </div>
-          <div>
-            <ImageContentSquareCard
-              content={
-                PeopleData?.data?.testimonial?.image2?.content || ""
-              }
-              image={testimonialsSqareCard2Image}
-              imageAlt={
-                PeopleData?.data?.testimonial?.title || "image"
-              }
-            />
-          </div>
-        </div>
+        <CardSlider 
+          items={PeopleData?.data?.testimonial?.images} 
+          defaultTitle={PeopleData?.data?.testimonial?.title} 
+        />
       </section>
     </>
   );
