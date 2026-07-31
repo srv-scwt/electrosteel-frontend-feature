@@ -288,10 +288,10 @@ const newsRoomData = [
         label: "Latest @ Electrosteel",
         url: "/newsroom/latest-at-electrosteel",
       },
-      {
-        label: "Press and Media",
-        url: "/newsroom/press-and-media",
-      },
+      // {
+      //   label: "Press and Media",
+      //   url: "/newsroom/press-and-media",
+      // },
       {
         label: "Electrosteel on Social",
         url: "/newsroom/electrosteel-on-social",
@@ -300,20 +300,20 @@ const newsRoomData = [
         label: "Newsletters",
         url: "/newsroom/newsletters",
       },
-      {
-        label: "Blog",
-        url: "/newsroom/blog",
-      },
-      {
-        label: "Gallery",
-        url: "/newsroom/gallery",
-        subLinks: [
-          { label: "Photo ", url: "/newsroom/gallery#photo" },
-          { label: "Video  ", url: "/newsroom/gallery#video" },
-          // { label: "News  ", url: "/newsroom/gallery#news" },
+      // {
+      //   label: "Blog",
+      //   url: "/newsroom/blog",
+      // },
+      // {
+      //   label: "Gallery",
+      //   url: "/newsroom/gallery",
+      //   subLinks: [
+      //     { label: "Photo ", url: "/newsroom/gallery#photo" },
+      //     { label: "Video  ", url: "/newsroom/gallery#video" },
+      //     // { label: "News  ", url: "/newsroom/gallery#news" },
 
-        ],
-      },
+      //   ],
+      // },
 
       // {
       //   label: "Events",
