@@ -11,6 +11,11 @@ const CurrentManufacture = ({ data, paints = [] }) => {
       <section id={"current-manufacturing-facilities"} className="!pt-0">
         <div className={`${styles.containerLg} !pt-0`}>
           <div className="block w-full mb-6 lg:mb-8 relative flow-root">
+            {/* Mobile Title (Displays above image on <1024px) */}
+            <div className={`lg:hidden ${styles.sectionContent} ${styles.customUlListing}`}>
+              <HTMLRender htmlString={data?.title} />
+            </div>
+
             <Image 
               src="/images/paints/s-b-i-3.png" 
               alt="Manufacturing Excellence" 
@@ -22,8 +27,12 @@ const CurrentManufacture = ({ data, paints = [] }) => {
               }}
               className="float-none lg:float-right w-full lg:w-[49%] xl:w-[49%] h-auto mb-4 lg:mb-0 lg:ml-8 object-contain object-right-top" 
             />
+            
             <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
-              <HTMLRender htmlString={data?.title} />
+              {/* Desktop Title (Displays next to floated image on >=1024px) */}
+              <div className="hidden lg:block">
+                <HTMLRender htmlString={data?.title} />
+              </div>
               <p className="pr-0 leading-relaxed text-justify">{data?.description}</p>
             </div>
           </div>

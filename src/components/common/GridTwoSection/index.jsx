@@ -27,6 +27,7 @@ const GridTwoSection = ({
   isIFrame=false,
   gridColsClass = "lg:grid-cols-2",
   preContent = null,
+  bannerClassName = "",
 }) => {
   if (!data) return null;
 
@@ -35,7 +36,7 @@ const GridTwoSection = ({
       <div className={`${styles.containerLg} ${className}`}>
         <div className={`grid grid-cols-1 gap-5 md:gap-8 lg:gap-12 items-start ${gridColsClass}`}>
           <div
-            className={`relative w-full flex items-center justify-center h-64 md:h-80 lg:h-full min-h-[320px] lg:min-h-[420px] overflow-hidden ${bannerOrder}`}
+            className={`relative w-full flex items-center justify-center h-64 md:h-80 lg:h-full min-h-[320px] lg:min-h-[420px] overflow-hidden ${bannerOrder} ${bannerClassName}`}
           >
             {isVideo && data?.link ? (
               <VideoWithModal thumbnail={createVideoSourceURL(data?.image)} title="Video" videoLink={isIFrame ? data?.link : data?.video } isIFrame={isIFrame}/>

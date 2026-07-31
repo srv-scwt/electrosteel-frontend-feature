@@ -24,12 +24,63 @@ const ApplicationSection = ({ sectionID, data = [] }) => {
 
     return (
         <section id={sectionID} className={styles.container}>
-            <div className={`grid grid-cols-1 sm:grid-cols-[70%_30%] gap-6 ${cstyle.containerLg}`}>
+            <div className={`grid grid-cols-1 md:grid-cols-[70%_30%] gap-6 ${cstyle.containerLg}`}>
                 <div>
                     <div className={cstyle.sectionContent}>
                         <h2>Applications</h2>
                     </div>
-                    <div className={`grid grid-cols-1 xl:grid-cols-[40%_60%] gap-4`}>
+                    {/* Mobile Accordion Layout (< 768px) */}
+                    <div className="flex md:hidden flex-col gap-2 mt-4">
+                        {data?.map((item, index) => {
+                            const isActive = activeIndex === index;
+                            return (
+                                <div key={index} className="flex flex-col border-b border-white/20 pb-2">
+                                    <button
+                                        onClick={() => setActiveIndex(isActive ? -1 : index)}
+                                        className={`flex justify-between items-center text-left py-3 font-semibold text-[14px] transition-colors ${isActive ? 'text-[#FDD307]' : 'text-white'}`}
+                                    >
+                                        <span>{item.title}</span>
+                                        <span className="text-xl font-bold">{isActive ? '−' : '+'}</span>
+                                    </button>
+                                    
+                                    <div className={`overflow-hidden transition-all duration-300 ${isActive ? 'max-h-[2500px] opacity-100 mt-2 mb-4' : 'max-h-0 opacity-0'}`}>
+                                        <div className={`${cstyle.customUlListing} ${cstyle.customUlListingWhite} ${styles.Listing}`}>
+                                            <div>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                                                    {item?.image1 && (
+                                                        <div className="relative w-full h-[200px]">
+                                                            <Image
+                                                                src={createImageSourceURL(item.image1)}
+                                                                alt="Application"
+                                                                fill
+                                                                className="object-cover rounded-[32px]"
+                                                            />
+                                                        </div>
+                                                    )}
+                                                    {item?.image2 && (
+                                                        <div className="relative w-full h-[200px]">
+                                                            <Image
+                                                                src={createImageSourceURL(item.image2)}
+                                                                alt="Application"
+                                                                fill
+                                                                className="object-cover rounded-[32px]"
+                                                            />
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <div>
+                                                    <HTMLRender htmlString={`${item?.description}`} />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {/* Desktop Split Layout (>= 768px) */}
+                    <div className={`hidden md:grid grid-cols-1 xl:grid-cols-[40%_60%] gap-4`}>
                         <div className={styles.leftUlList}>
                             <ul>
                                 {data?.map((item, index) => (
@@ -75,7 +126,7 @@ const ApplicationSection = ({ sectionID, data = [] }) => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="hidden md:block">
                     <div
                         className={styles.circle}
                         style={{
