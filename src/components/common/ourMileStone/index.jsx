@@ -93,7 +93,7 @@ console.log(groupedTimelineData);
             className="absolute object-cover object-center"
           />
         </div>
-        <div className={styles.triangle}></div>
+    <div className={`hidden md:block ${styles.triangle}`}></div>
       </div>
  
       <div className={`${styles.sectionContentTitle}`}>
