@@ -12,7 +12,7 @@ const CurrentManufacture = ({ data, paints = [] }) => {
         <div className={`${styles.containerLg} !pt-0`}>
           <div className="block w-full mb-6 lg:mb-8 relative flow-root">
             {/* Mobile Title (Displays above image on <1024px) */}
-            <div className={`lg:hidden ${styles.sectionContent} ${styles.customUlListing}`}>
+            <div className={`block lg:hidden w-full pt-8 pb-4 ${styles.sectionContent} ${styles.customUlListing} whitespace-nowrap [&_h2]:!text-[min(6.5vw,26px)]`}>
               <HTMLRender htmlString={data?.title} />
             </div>
 
@@ -30,7 +30,7 @@ const CurrentManufacture = ({ data, paints = [] }) => {
             
             <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
               {/* Desktop Title (Displays next to floated image on >=1024px) */}
-              <div className="hidden lg:block">
+              <div className="hidden lg:block whitespace-nowrap">
                 <HTMLRender htmlString={data?.title} />
               </div>
               <p className="pr-0 leading-relaxed text-justify">{data?.description}</p>
