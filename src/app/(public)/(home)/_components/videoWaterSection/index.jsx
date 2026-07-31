@@ -46,7 +46,7 @@ export default function VideoWaterSection({ waterSectionData }) {
                   className="absolute w-[100%] h-[100%] object-cover object-right"
                 />
               </div>
-              <div className={`relatives ${styles.twoLeaves}`}>
+              <div className={`hidden lg:block relatives ${styles.twoLeaves}`}>
                 <Image
                   src={"/images/leavetwo.png"}
                   fill
