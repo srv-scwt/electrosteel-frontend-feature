@@ -4,16 +4,29 @@ import { trainingData } from "./training.data";
 import TrainingDomainsSection from "./_components/TrainingDomainsSection";
 import cstyles from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
+import GridTwoSection from "@/components/common/GridTwoSection";
+import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import { getTrainingPageData } from "@/services/training.api";
+import { splitLabelAndTitle } from "@/utils";
 
-const page = () => {
+const page = async () => {
+  const trainingRes = await getTrainingPageData();
+  const apiData = trainingRes?.data;
+
+  if (!apiData) return <SomethingWentWrong />;
+
+  const approach = splitLabelAndTitle(apiData.ourApproach?.title);
+  const reach = splitLabelAndTitle(apiData.ourReach?.title);
+  const commitment = splitLabelAndTitle(apiData.ourCommitment?.title);
+
   return (
     <>
-      <HeroSection data={trainingData.hero} />
+      <HeroSection data={apiData.heroSection} />
 
       <section className="scroll-mt-24 pt-4 pb-8">
         <div className={cstyles.containerLg}>
           <div className={`${cstyles.sectionContent} ${cstyles.customUlListing}`}>
-            <div dangerouslySetInnerHTML={{ __html: trainingData.overview.description }} />
+            <div dangerouslySetInnerHTML={{ __html: apiData.introduction?.description }} />
           </div>
         </div>
       </section>
@@ -22,37 +35,51 @@ const page = () => {
       <section className="py-8 bg-gray-50">
         <div className={cstyles.containerLg}>
           <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} ${cstyles.customUlListing}`}>
-            <h2 className="text-[#004aa1]">{trainingData.approach.sectionLabel}</h2>
-            <HTMLRender htmlString={`<h2>${trainingData.approach.title}</h2>`} />
-            <div dangerouslySetInnerHTML={{ __html: trainingData.approach.description }} />
+            <h2 className="text-[#004aa1]">{approach.label}</h2>
+            <HTMLRender htmlString={`<h2>${approach.title}</h2>`} />
+            <div dangerouslySetInnerHTML={{ __html: apiData.ourApproach?.description }} />
           </div>
         </div>
       </section>
 
       {/* TRAINING DOMAINS SECTION */}
-      <TrainingDomainsSection data={trainingData.domains} />
+      <TrainingDomainsSection
+        data={{
+          title: trainingData.domains.title,
+          image: trainingData.domains.image,
+          cards: apiData.whatWeTrain,
+        }}
+      />
 
       {/* OUR REACH SECTION */}
       <section className="py-8 bg-gray-50 mt-8">
         <div className={cstyles.containerLg}>
           <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} ${cstyles.customUlListing}`}>
-            <h2 className="text-[#004aa1]">{trainingData.reach.sectionLabel}</h2>
-            <HTMLRender htmlString={`<h2>${trainingData.reach.title}</h2>`} />
-            <div dangerouslySetInnerHTML={{ __html: trainingData.reach.description }} />
+            <h2 className="text-[#004aa1]">{reach.label}</h2>
+            <HTMLRender htmlString={`<h2>${reach.title}</h2>`} />
+            <div dangerouslySetInnerHTML={{ __html: apiData.ourReach?.description }} />
           </div>
         </div>
       </section>
 
       {/* OUR COMMITMENT SECTION */}
-      <section className="py-8 mb-8">
-        <div className={cstyles.containerLg}>
-          <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} ${cstyles.customUlListing}`}>
-            <h2 className="text-[#004aa1]">{trainingData.commitment.sectionLabel}</h2>
-            <HTMLRender htmlString={`<h2>${trainingData.commitment.title}</h2>`} />
-            <div dangerouslySetInnerHTML={{ __html: trainingData.commitment.description }} />
-          </div>
-        </div>
-      </section>
+      <div className="py-8 mb-8">
+        <GridTwoSection
+          preContent={
+            <div className={`${cstyles.sectionContentSpanDark} mb-6`}>
+              <h2 className="text-[#004aa1]">{commitment.label}</h2>
+              <HTMLRender htmlString={`<h2>${commitment.title}</h2>`} />
+            </div>
+          }
+          data={{
+            description: apiData.ourCommitment?.description,
+            image: apiData.ourCommitment?.image,
+          }}
+          bannerOrder="order-first lg:order-last"
+          contentOrder="order-last lg:order-first"
+          objectPosition="object-contain"
+        />
+      </div>
     </>
   );
 };

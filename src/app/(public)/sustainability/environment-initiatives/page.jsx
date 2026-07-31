@@ -1,10 +1,11 @@
-"use client";
 import React from "react";
 import HeroSection from "@/components/common/heroSection";
 import HTMLRender from "@/components/ui/HTMLRender";
 import styles from "@/app/common.module.css";
 import OverviewTab from "./_components/OverviewTab";
-import { environmentHeroData } from "./environment.data";
+import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import { getEnvironmentInitiativesPageData } from "@/services/environmentInitiatives.api";
+import { splitLabelTitleAndIntro, stripH2 } from "@/utils";
 
 // Emission
 import { emissionData } from "./emission/emission.data";
@@ -22,15 +23,29 @@ import WasteInitiativesSection from "./waste/_components/WasteInitiativesSection
 import { energyData } from "./energy/energy.data";
 import EnergyInitiativesSection from "./energy/_components/EnergyInitiativesSection";
 
-const page = () => {
+const page = async () => {
+  const envRes = await getEnvironmentInitiativesPageData();
+  const apiData = envRes?.data;
+
+  if (!apiData) return <SomethingWentWrong />;
+
+  const emission = splitLabelTitleAndIntro(apiData.emission?.title);
+  const water = splitLabelTitleAndIntro(apiData.water?.title);
+  const waste = splitLabelTitleAndIntro(apiData.waste?.title);
+  const energy = splitLabelTitleAndIntro(apiData.energy?.title);
+
   return (
     <>
       {/* Overview Section */}
-      <HeroSection data={environmentHeroData} />
+      <HeroSection data={apiData.heroSection} />
       <section className="pb-8 pt-8">
         <div className={styles.containerLg}>
           <div className={styles.sectionContent}>
-            <OverviewTab />
+            <OverviewTab
+              introTitle={stripH2(apiData.introduction?.title)}
+              introDescription={apiData.introduction?.description}
+              cards={apiData.environmentalCredentials}
+            />
           </div>
         </div>
       </section>
@@ -40,16 +55,22 @@ const page = () => {
         <section className="">
           <div className={styles.containerLg}>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}>
-              <h2 className="text-[#004aa1]">{emissionData.hero.title}</h2>
-              <HTMLRender htmlString={`<h2>${emissionData.hero.subtitle}</h2>`} />
+              <h2 className="text-[#004aa1]">{emission.label}</h2>
+              <HTMLRender htmlString={`<h2>${emission.title}</h2>`} />
             </div>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark} ${styles.customUlListing}`}>
-              <HTMLRender htmlString={emissionData.introduction?.title} />
-              <HTMLRender htmlString={emissionData.introduction?.description} />
+              <HTMLRender htmlString={`<h3 class="!text-black [&>span]:!text-black">${emission.intro}</h3>`} />
+              <HTMLRender htmlString={apiData.emission?.description} />
             </div>
           </div>
         </section>
-        <EmissionInitiativesSection data={emissionData.initiativesSection} />
+        <EmissionInitiativesSection
+          data={{
+            title: emissionData.initiativesSection.title,
+            image: emissionData.initiativesSection.image,
+            initiatives: apiData.emissionCards,
+          }}
+        />
       </div>
 
       {/* Water Section */}
@@ -57,16 +78,22 @@ const page = () => {
         <section className="">
           <div className={styles.containerLg}>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}>
-              <h2 className="text-[#004aa1]">{waterData.hero.title}</h2>
-              <HTMLRender htmlString={`<h2>${waterData.hero.subtitle}</h2>`} />
+              <h2 className="text-[#004aa1]">{water.label}</h2>
+              <HTMLRender htmlString={`<h2>${water.title}</h2>`} />
             </div>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark} ${styles.customUlListing}`}>
-              <HTMLRender htmlString={waterData.introduction?.title} />
-              <HTMLRender htmlString={waterData.introduction?.description} />
+              <HTMLRender htmlString={`<h3 class="!text-black [&>span]:!text-black">${water.intro}</h3>`} />
+              <HTMLRender htmlString={apiData.water?.description} />
             </div>
           </div>
         </section>
-        <WaterInitiativesSection data={waterData.initiativesSection} />
+        <WaterInitiativesSection
+          data={{
+            title: waterData.initiativesSection.title,
+            image: waterData.initiativesSection.image,
+            initiatives: apiData.waterCards,
+          }}
+        />
       </div>
 
       {/* Waste Section */}
@@ -74,16 +101,22 @@ const page = () => {
         <section className="">
           <div className={styles.containerLg}>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}>
-              <h2 className="text-[#004aa1]">{wasteData.hero.title}</h2>
-              <HTMLRender htmlString={`<h2>${wasteData.hero.subtitle}</h2>`} />
+              <h2 className="text-[#004aa1]">{waste.label}</h2>
+              <HTMLRender htmlString={`<h2>${waste.title}</h2>`} />
             </div>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark} ${styles.customUlListing}`}>
-              <HTMLRender htmlString={wasteData.introduction?.title} />
-              <HTMLRender htmlString={wasteData.introduction?.description} />
+              <HTMLRender htmlString={`<h3 class="!text-black [&>span]:!text-black">${waste.intro}</h3>`} />
+              <HTMLRender htmlString={apiData.waste?.description} />
             </div>
           </div>
         </section>
-        <WasteInitiativesSection data={wasteData.initiativesSection} />
+        <WasteInitiativesSection
+          data={{
+            title: wasteData.initiativesSection.title,
+            image: wasteData.initiativesSection.image,
+            initiatives: apiData.wasteCards,
+          }}
+        />
       </div>
 
       {/* Energy Section */}
@@ -91,16 +124,22 @@ const page = () => {
         <section className="">
           <div className={styles.containerLg}>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}>
-              <h2 className="text-[#004aa1]">{energyData.hero.title}</h2>
-              <HTMLRender htmlString={`<h2>${energyData.hero.subtitle}</h2>`} />
+              <h2 className="text-[#004aa1]">{energy.label}</h2>
+              <HTMLRender htmlString={`<h2>${energy.title}</h2>`} />
             </div>
             <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark} ${styles.customUlListing}`}>
-              <HTMLRender htmlString={energyData.introduction?.title} />
-              <HTMLRender htmlString={energyData.introduction?.description} />
+              <HTMLRender htmlString={`<h3 class="!text-black [&>span]:!text-black">${energy.intro}</h3>`} />
+              <HTMLRender htmlString={apiData.energy?.description} />
             </div>
           </div>
         </section>
-        <EnergyInitiativesSection data={energyData.initiativesSection} />
+        <EnergyInitiativesSection
+          data={{
+            title: energyData.initiativesSection.title,
+            image: energyData.initiativesSection.image,
+            initiatives: apiData.energyCards,
+          }}
+        />
       </div>
     </>
   );

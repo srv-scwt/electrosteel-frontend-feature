@@ -43,7 +43,7 @@ const RewardsRecognitionPage = async () => {
         <div className={`${styles.sectionContent} mb-4`}>
           <h3>{PeopleData?.data?.reward?.pragatiData?.title || "Pragati"}</h3>
         </div>
-        <ButtonSwiperImageClient images={pragatiImage?.imageSrc} title={"Title"} imageTitle={pragatiImage.imageTitle} className={"py-0! mb-8"} />
+        <ButtonSwiperImageClient images={pragatiImage?.imageSrc} imageTitle={pragatiImage.imageTitle} className={"py-0! mb-8"} />
         <ContentSection data={pragatiIntroData} />
         <GridTwoSection 
             data={pragatiPillarsData} 
@@ -56,7 +56,7 @@ const RewardsRecognitionPage = async () => {
         <div className={`${styles.sectionContent} mb-4`}>
           <h3>{PeopleData?.data?.reward?.pratihbaImages?.title || "Pratibha & Pride"}</h3>
         </div>
-        <ButtonSwiperImageClient images={pratibhaImage?.imageSrc} title={"Title"} imageTitle={pratibhaImage.imageTitle} className={"py-0! mb-8"} />
+        <ButtonSwiperImageClient images={pratibhaImage?.imageSrc} imageTitle={pratibhaImage.imageTitle} className={"py-0! mb-8"} />
         <GridTwoSection 
             data={pratibhaIntroData} 
             bannerOrder="order-last lg:order-last"

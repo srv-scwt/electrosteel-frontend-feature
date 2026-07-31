@@ -3,24 +3,27 @@ import styles from "@/app/common.module.css";
 import PaintFacilitiesCard from "@/components/common/card/PaintFacilitiesCard";
 import HTMLRender from "@/components/ui/HTMLRender";
 import Image from "next/image";
+import { createImageSourceURL } from "@/utils";
 
 
 const CurrentManufacture = ({ data, paints = [] }) => {
+  const bannerImage = createImageSourceURL(data?.image, "/images/paints/s-b-i-3.png");
+
   return (
     <>
       <section id={"current-manufacturing-facilities"} className="!pt-0">
         <div className={`${styles.containerLg} !pt-0`}>
           <div className="block w-full mb-6 lg:mb-8 relative flow-root">
-            <Image 
-              src="/images/paints/s-b-i-3.png" 
-              alt="Manufacturing Excellence" 
+            <Image
+              src={bannerImage}
+              alt="Manufacturing Excellence"
               width={800}
               height={800}
               style={{
-                shapeOutside: `url('/images/paints/s-b-i-3.png')`,
+                shapeOutside: `url('${bannerImage}')`,
                 shapeMargin: '5rem',
               }}
-              className="float-none lg:float-right w-full lg:w-[49%] xl:w-[49%] h-auto mb-4 lg:mb-0 lg:ml-8 object-contain object-right-top" 
+              className="float-none lg:float-right w-full lg:w-[49%] xl:w-[49%] h-auto mb-4 lg:mb-0 lg:ml-8 object-contain object-right-top"
             />
             <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
               <HTMLRender htmlString={data?.title} />
@@ -33,7 +36,7 @@ const CurrentManufacture = ({ data, paints = [] }) => {
               const mappedIconId = iconMapping[index] || (index + 1);
               const cardData = {
                 ...item,
-                iconPath: `/images/paints/manufacturing_exellence/${mappedIconId}.png`
+                iconPath: createImageSourceURL(item?.icon, `/images/paints/manufacturing_exellence/${mappedIconId}.png`)
               };
               return (
                 <PaintFacilitiesCard key={item?.title} data={cardData} isDifferent={index % 4 === 1 || index % 4 === 2} isLeft={false} />

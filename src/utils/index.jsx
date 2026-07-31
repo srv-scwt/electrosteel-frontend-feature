@@ -30,6 +30,47 @@ export const createImageSourceURL = (path , fallback = "") => {
     return buildAssetUrl(path, fallback);
 }
 
+// Some CMS sections bundle a short all-caps label ("OUR APPROACH") and the main heading
+// into one title string as two concatenated <h2> tags, in inconsistent order. Split them apart.
+export function splitLabelAndTitle(html) {
+  if (!html) return { label: "", title: "" };
+  const parts = [...html.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/gi)].map((m) => m[1].trim());
+  if (parts.length < 2) return { label: "", title: html };
+
+  const isLabel = (part) => {
+    const text = part.replace(/<[^>]+>/g, "");
+    return /[A-Z]/.test(text) && text === text.toUpperCase();
+  };
+
+  const label = parts.find(isLabel) ?? parts[0];
+  const title = parts.find((part) => part !== label) ?? parts[1];
+  return { label, title };
+}
+
+// Some sections bundle the <h2> wrapper the target component already adds around its own
+// title prop. Strip an outer <h2>...</h2> so the result doesn't double up when re-wrapped.
+export function stripH2(html) {
+  if (typeof html !== "string") return html;
+  return html.replace(/^\s*<h2[^>]*>/i, "").replace(/<\/h2>\s*$/i, "");
+}
+
+// Variant of splitLabelAndTitle for sections that bundle three headings: an all-caps label
+// and main title as <h2>s, plus a smaller intro heading as an <h3>.
+export function splitLabelTitleAndIntro(html) {
+  if (!html) return { label: "", title: "", intro: "" };
+  const h2s = [...html.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/gi)].map((m) => m[1].trim());
+  const intro = html.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i)?.[1]?.trim() ?? "";
+
+  const isLabel = (part) => {
+    const text = part.replace(/<[^>]+>/g, "");
+    return /[A-Z]/.test(text) && text === text.toUpperCase();
+  };
+
+  const label = h2s.find(isLabel) ?? h2s[0] ?? "";
+  const title = h2s.find((part) => part !== label) ?? h2s[1] ?? "";
+  return { label, title, intro };
+}
+
 export function parseCapacity(input) {
   const match = String(input).match(/^(\d+)([%+])?$/);
 

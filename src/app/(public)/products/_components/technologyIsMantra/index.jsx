@@ -68,7 +68,7 @@ const TechnologyMantra = ({ data, images = [] }) => {
 
 
         <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
-          <HTMLRender htmlString={`<p>${data?.description}</p>`} />
+          <HTMLRender htmlString={data?.description} />
         </div>
       </div>
     </section>

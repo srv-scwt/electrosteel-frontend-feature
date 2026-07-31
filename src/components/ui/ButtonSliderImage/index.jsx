@@ -81,11 +81,11 @@ const ButtonSliderImage = ({ images, title, imageTitle, imageClassName, objectFi
                     onError={(e) => (e.target.srcset = fallbackImage)} // Fallback on error (Next.js Image uses srcset)
                   />
                 </div>
-                {title && (
+                {(title || imageTitle?.[index]) && (
                   <div
                     className={`${styles.sectionContent} w-full bg-[#fdd307] py-3 px-5 text-start`}
                   >
-                    <h2 className="m-0! w-full!">{title ?? imageTitle[index]}</h2>
+                    <h2 className="m-0! w-full!">{title || imageTitle?.[index]}</h2>
                   </div>
                 )}
               </SwiperSlide>
