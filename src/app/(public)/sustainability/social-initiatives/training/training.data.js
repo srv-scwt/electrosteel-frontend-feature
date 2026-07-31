@@ -60,6 +60,7 @@ export const trainingData = {
   commitment: {
     sectionLabel: "OUR COMMITMENT",
     title: "Continuous Learning, <span>Continuously Delivered</span>",
+    image: "/images/sustainability/social/training/commitment.webp",
     description: `<p>ECL's commitment to training reflects our broader belief that people are our most important asset. We do not train to tick a box. We train because a skilled employee is a safe employee. Because a quality-conscious team delivers consistent results. Because a person who grows in their career stays, contributes, and makes the organisation stronger.</p>
     <p>Our training programmes are planned annually and executed systematically. We track completion, measure effectiveness, and iterate, ensuring that what we teach is what our people actually need to do their jobs better. The result is not just a more capable workforce, but a more engaged, more motivated, and more loyal one.</p>
     <blockquote style="margin-top:2rem; padding: 1.5rem; background: rgba(0,74,161,0.05); border-left: 4px solid #ffd306; font-style: italic; font-size: 1.125rem; color: #003366;">

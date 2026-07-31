@@ -43,9 +43,10 @@ export default function WasteInitiativesSection({ data }) {
                     <h4 className="font-bebas text-2xl tracking-wide text-[#ffd306]">
                       {item?.title}
                     </h4>
-                    <p className="font-montserrat text-sm leading-relaxed text-white">
-                      {item?.description}
-                    </p>
+                    <p
+                      className="font-montserrat text-sm leading-relaxed text-white"
+                      dangerouslySetInnerHTML={{ __html: item?.description }}
+                    />
                   </div>
                 </div>
               );

@@ -48,9 +48,10 @@ export default function SafetyCommitmentsSection({ data }) {
                         {item?.title}
                       </h4>
                     </div>
-                    <p className="font-montserrat text-sm leading-relaxed text-white">
-                      {item?.description}
-                    </p>
+                    <p
+                      className="font-montserrat text-sm leading-relaxed text-white"
+                      dangerouslySetInnerHTML={{ __html: item?.description }}
+                    />
                   </div>
                 </div>
               );

@@ -7,36 +7,47 @@ import HTMLRender from "@/components/ui/HTMLRender";
 import { safetyData } from "./safety.data";
 import SafetyCommitmentsSection from "./_components/SafetyCommitmentsSection";
 import SafetyCredentialsCards from "./_components/SafetyCredentialsCards";
+import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import { getSafetyPageData } from "@/services/safety.api";
+import { splitLabelAndTitle } from "@/utils";
 import cstyles from "@/app/common.module.css";
 
-const page = () => {
+const page = async () => {
+  const safetyRes = await getSafetyPageData();
+  const apiData = safetyRes?.data;
+
+  if (!apiData) return <SomethingWentWrong />;
+
+  const safetyCulture = splitLabelAndTitle(apiData.safetyCulture?.title);
+
   return (
     <>
-      <HeroSection data={safetyData.hero} />
+      <HeroSection data={apiData.heroSection} />
 
       {/* OVERVIEW SECTION */}
       <section className="scroll-mt-24">
         <div className={cstyles.containerLg}>
           <div className={`${cstyles.sectionContent} ${cstyles.customUlListing}`}>
-            <div dangerouslySetInnerHTML={{ __html: safetyData.overview.description }} />
+            <div dangerouslySetInnerHTML={{ __html: apiData.introduction?.description }} />
           </div>
         </div>
       </section>
 
       {/* CREDENTIALS CARDS SECTION */}
-      <SafetyCredentialsCards />
-
-
+      <SafetyCredentialsCards
+        title={safetyData.credentialsTable.title}
+        cards={apiData.safetyCredentials}
+      />
 
       {/* ISO PRACTICES TABLE SECTION */}
       <section className="bg-gray-50">
         <div className={cstyles.containerLg}>
           <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} mb-6`}>
-            <HTMLRender htmlString={`<h2>${safetyData.isoPracticesTable.title}</h2>`} />
+            <HTMLRender htmlString={`<h2>${apiData.iso45001?.table_data?.title || ""}</h2>`} />
           </div>
           <CommonTable
-            columns={safetyData.isoPracticesTable.columns}
-            rows={safetyData.isoPracticesTable.rows}
+            columns={apiData.iso45001?.table_data?.columns}
+            rows={apiData.iso45001?.table_data?.rows}
           />
         </div>
       </section>
@@ -45,11 +56,11 @@ const page = () => {
       <section className="bg-gray-50">
         <div className={cstyles.containerLg}>
           <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} mb-6`}>
-            <HTMLRender htmlString={`<h2>${safetyData.sa8000Table.title}</h2>`} />
+            <HTMLRender htmlString={`<h2>${apiData.sa8000?.table_data?.title || ""}</h2>`} />
           </div>
           <CommonTable
-            columns={safetyData.sa8000Table.columns}
-            rows={safetyData.sa8000Table.rows}
+            columns={apiData.sa8000?.table_data?.columns}
+            rows={apiData.sa8000?.table_data?.rows}
           />
         </div>
       </section>
@@ -58,20 +69,23 @@ const page = () => {
       <section className="">
         <div className={cstyles.containerLg}>
           <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} mb-6`}>
-            <h2 className="text-[#004aa1]">SAFETY CULTURE</h2>
-            <HTMLRender htmlString={`<h2>${safetyData.safetyCulture.title}</h2>`} />
+            <h2 className="text-[#004aa1]">{safetyCulture.label}</h2>
+            <HTMLRender htmlString={`<h2>${safetyCulture.title}</h2>`} />
           </div>
           <div className={`${cstyles.sectionContent} ${cstyles.customUlListing}`}>
-            <div dangerouslySetInnerHTML={{ __html: safetyData.safetyCulture.description }} />
+            <div dangerouslySetInnerHTML={{ __html: apiData.safetyCulture?.description }} />
           </div>
         </div>
       </section>
 
       {/* COMMITMENTS SECTION */}
-      <SafetyCommitmentsSection data={safetyData.commitmentsSection} />
-
-
-
+      <SafetyCommitmentsSection
+        data={{
+          title: safetyData.commitmentsSection.title,
+          image: safetyData.commitmentsSection.image,
+          commitments: apiData.fourCommitments,
+        }}
+      />
     </>
   );
 };

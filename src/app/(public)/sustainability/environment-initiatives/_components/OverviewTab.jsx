@@ -1,18 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import styles from "@/app/common.module.css";
-import GridTwoSection from "@/components/common/GridTwoSection";
 import HTMLRender from "@/components/ui/HTMLRender";
 import PSystemCommonModal from "@/components/modals/pSystemCommonModal";
 import { OutlineButton } from "@/components/ui/Button";
-import {
-  overviewIntroData,
-  iso14001Data,
-  iso50001Data,
-  epdData,
-  griData,
-  credentialsTableData,
-} from "../environment.data";
+import { createImageSourceURL } from "@/utils";
+import { credentialsTableData } from "../environment.data";
 
 const CredentialCard = ({ title, desc, onKnowMore }) => (
   <article
@@ -37,12 +30,13 @@ const CredentialCard = ({ title, desc, onKnowMore }) => (
       >
         {title}
       </h3>
-      <div className="mt-4 text-[14px] sm:text-[16px] leading-[1.4] text-[#9cc0f0]">
-        {desc}
-      </div>
+      <div
+        className="mt-4 text-[14px] sm:text-[16px] leading-[1.4] text-[#9cc0f0]"
+        dangerouslySetInnerHTML={{ __html: desc }}
+      />
       <div className="mt-auto pt-6 flex justify-end">
-        <OutlineButton 
-          title="Know More" 
+        <OutlineButton
+          title="Know More"
           action={onKnowMore}
           className="!text-[#9cc0f0] hover:!text-white"
         />
@@ -51,34 +45,19 @@ const CredentialCard = ({ title, desc, onKnowMore }) => (
   </article>
 );
 
-const OverviewTab = () => {
+const OverviewTab = ({ introTitle, introDescription, cards = [] }) => {
   const [openModal, setOpenModal] = useState(false);
   const [modalContent, setModalContent] = useState([]);
 
-  const handleKnowMore = (row) => {
-    const title = row[0];
-    let contentData = null;
-
-    if (title === "ISO 14001") {
-      contentData = iso14001Data;
-    } else if (title === "ISO 50001") {
-      contentData = iso50001Data;
-    } else if (title === "EPD") {
-      contentData = epdData;
-    } else if (title === "GRI") {
-      contentData = griData;
-    }
-
-    if (contentData) {
-      setModalContent([
-        {
-          label: `<h3 class="text-[#00418e]">${contentData.title}</h3>`,
-          description: contentData.description,
-          image: contentData.image,
-        },
-      ]);
-      setOpenModal(true);
-    }
+  const handleKnowMore = (item) => {
+    setModalContent([
+      {
+        label: `<h3 class="text-[#00418e]">${item?.banner_title || ""}</h3>`,
+        description: item?.editor_description,
+        image: createImageSourceURL(item?.banner_image),
+      },
+    ]);
+    setOpenModal(true);
   };
 
   return (
@@ -86,10 +65,10 @@ const OverviewTab = () => {
       {/* Intro */}
       <div className="pb-8">
         <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark}`}>
-          <HTMLRender htmlString={`<h2>${overviewIntroData.title}</h2>`} />
+          <HTMLRender htmlString={`<h2>${introTitle}</h2>`} />
         </div>
         <div className={`${styles.sectionContent}`}>
-          <div dangerouslySetInnerHTML={{ __html: overviewIntroData.description }} />
+          <div dangerouslySetInnerHTML={{ __html: introDescription }} />
         </div>
       </div>
 
@@ -99,12 +78,12 @@ const OverviewTab = () => {
           <HTMLRender htmlString={`<h3>${credentialsTableData.title}</h3>`} />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4 xl:gap-6">
-          {credentialsTableData.rows.map((row, index) => (
+          {cards.map((item, index) => (
             <CredentialCard
-              key={index}
-              title={row[0]}
-              desc={row[1]}
-              onKnowMore={() => handleKnowMore(row)}
+              key={item?.id ?? index}
+              title={item?.title}
+              desc={item?.description}
+              onKnowMore={() => handleKnowMore(item)}
             />
           ))}
         </div>
