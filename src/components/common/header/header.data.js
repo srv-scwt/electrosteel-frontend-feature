@@ -310,15 +310,15 @@ const newsRoomData = [
         subLinks: [
           { label: "Photo ", url: "/newsroom/gallery#photo" },
           { label: "Video  ", url: "/newsroom/gallery#video" },
-          { label: "News  ", url: "/newsroom/gallery#news" },
+          // { label: "News  ", url: "/newsroom/gallery#news" },
 
         ],
       },
 
-      {
-        label: "Events",
-        url: "/newsroom/events",
-      },
+      // {
+      //   label: "Events",
+      //   url: "/newsroom/events",
+      // },
     ],
   },
 

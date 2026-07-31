@@ -25,8 +25,12 @@ const CurrentManufacture = ({ data, paints = [] }) => {
               }}
               className="float-none lg:float-right w-full lg:w-[49%] xl:w-[49%] h-auto mb-4 lg:mb-0 lg:ml-8 object-contain object-right-top"
             />
+            
             <div className={`${styles.sectionContent} ${styles.customUlListing}`}>
-              <HTMLRender htmlString={data?.title} />
+              {/* Desktop Title (Displays next to floated image on >=1024px) */}
+              <div className="hidden lg:block">
+                <HTMLRender htmlString={data?.title} />
+              </div>
               <p className="pr-0 leading-relaxed text-justify">{data?.description}</p>
             </div>
           </div>

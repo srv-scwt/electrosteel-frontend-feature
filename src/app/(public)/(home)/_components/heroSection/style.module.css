@@ -10,9 +10,13 @@
   padding-right: clamp(0px, calc(2.4vw - 10.08px), 36px);
 }
 
-.heroSectionWrapper {
+/* .heroSectionWrapper {
   padding-top: clamp(20px, calc(19.6vw - 62.32px), 314px);
   padding-bottom: clamp(30px, calc(22.33vw - 63.79px), 365px);
+} */
+.heroSectionWrapper {
+    padding-top: clamp(20px,15vw - 62.32px,314px);
+    padding-bottom: clamp(30px,15vw - 63.79px,365px);
 }
 
 .bgArrowHeroCut {

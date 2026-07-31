@@ -47,8 +47,9 @@ export default function ManufacturingFacilities({ data, facilities = [] }) {
           modules={[Autoplay, A11y]}
           slidesPerView={1}
           loop={true}
-          // autoplay={{ delay: 2000, disableOnInteraction: false }}
-          speed={1000}
+          autoplay={{ delay: 3000, disableOnInteraction: false, reverseDirection: true  }}
+          speed={3000}
+          
         >
           {Array.isArray(facilities) &&
             facilities.map((f, index) => {

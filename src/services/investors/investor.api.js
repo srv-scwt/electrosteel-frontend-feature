@@ -37,6 +37,7 @@ export async function getInvestorResponse({
       : `/frontend/investor/investors`;
 
     const response = await ServerFetch(endpoint, { mode: "SSR"});
+    
     if (!response) {
       return { data: null, error: "NO_DATA" };
     }

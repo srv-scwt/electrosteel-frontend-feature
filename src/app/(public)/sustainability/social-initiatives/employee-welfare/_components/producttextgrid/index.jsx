@@ -10,11 +10,11 @@ export default function ProductTextGrid({
   label
 }) {
   return (
-    <section className="bg-[#f5f5f5]">
+    <section>
       <div className={cstyles.containerLg}>
         {/* HEADER */}
         <div
-          className={`${cstyles.sectionContent} text-center mx-auto pb-6 md:pb-12`}
+          className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} mb-8`}
         >
           <HTMLRender htmlString={`<h2>${label?.title}</h2>`} />
           <HTMLRender htmlString={label?.description} />

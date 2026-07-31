@@ -2381,7 +2381,7 @@ export default function Navbar() {
                         <span className="ml-1">Video </span>
                       </Link>
                     </li>
-                    <li className="flex items-start">
+                    {/* <li className="flex items-start">
                       <Link
                         href={"/newsroom/gallery#news"}
                         className="hover:text-yellow-400 flex items-start"
@@ -2389,12 +2389,12 @@ export default function Navbar() {
                         <ChevronRight size={16} className={styles.angleIcon} />
                         <span className="ml-1">News</span>
                       </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </li>
 
                 {/* events */}
-                <li className="flex items-start">
+                {/* <li className="flex items-start">
                   <Link
                     href={"/newsroom/events"}
                     className="hover:text-yellow-400 flex items-start"
@@ -2402,7 +2402,7 @@ export default function Navbar() {
                     <ChevronRight size={16} className={styles.angleIcon} />
                     <span className="ml-1">Events</span>
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
           )}
