@@ -12,7 +12,7 @@ import { splitLabelAndTitle } from "@/utils";
 const page = async () => {
   const trainingRes = await getTrainingPageData();
   const apiData = trainingRes?.data;
-
+  console.log(apiData)
   if (!apiData) return <SomethingWentWrong />;
 
   const approach = splitLabelAndTitle(apiData.ourApproach?.title);

@@ -9,7 +9,7 @@ import HTMLRender from "@/components/ui/HTMLRender";
 const FollowUsSocialmedia = async () => {
   const socialData = await getSocialIconsData();
   const socialItem = socialData?.data?.[0];
-
+console.log(socialItem)
   const socialLinks = [
     {
       id: 1,
@@ -31,7 +31,9 @@ const FollowUsSocialmedia = async () => {
       id: 3,
       name: "LinkedIn",
       icon: <FaLinkedin />,
-      url: socialItem?.icon3,
+      url: socialItem?.icon5,
+      
+      
       gradient:
         "bg-[linear-gradient(135deg,_#0A66C2_0%,_#004182_100%)]",
     },
@@ -40,6 +42,7 @@ const FollowUsSocialmedia = async () => {
       name: "Twitter",
       icon: <FaXTwitter />,
       url: socialItem?.icon4,
+      url: socialItem?.icon3,
       gradient:
         "bg-[linear-gradient(135deg,_#111111_0%,_#3B3B3B_100%)]",
     },
@@ -47,7 +50,7 @@ const FollowUsSocialmedia = async () => {
       id: 5,
       name: "Youtube",
       icon: <FaYoutube />,
-      url: socialItem?.icon5,
+      url: socialItem?.icon4,
       gradient:
         "bg-[linear-gradient(135deg,_#FF0033_0%,_#C8102E_100%)]",
     },

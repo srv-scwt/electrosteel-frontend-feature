@@ -35,9 +35,9 @@ export async function getInvestorResponse({
     const endpoint = queryString
       ? `/frontend/investor/investors?${queryString}`
       : `/frontend/investor/investors`;
-
+    console.log(endpoint)
     const response = await ServerFetch(endpoint, { mode: "SSR"});
-    
+    console.log("response: ", response)
     if (!response) {
       return { data: null, error: "NO_DATA" };
     }

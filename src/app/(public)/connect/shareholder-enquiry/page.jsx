@@ -1,21 +1,21 @@
 import HeroSection from "@/components/common/heroSection";
 import React from "react";
 import ShareHolderEnquiryForm from "../_components/forms/ShareholderEnquiryForm";
-import ActiveIndicator from "@/components/ui/ActiveIndicator";
+import { getCommonBanner } from "@/services/commonBanner/commonBanner.api";
 
+const page = async () => {
+  const heroBanner = await getCommonBanner("shareholder-enquiry");
 
-const page = () => {
   return (
     <>
       <HeroSection
         data={{
-          title: "shareholder enquiry",
+          title: heroBanner?.data?.title ?? "Shareholder Enquiry",
+          image: heroBanner?.data?.image ?? "",
           banner: "/images/board/enquiry_banner_big.jpg",
         }}
       />
-      {/* <ActiveIndicator /> */}
-   
-          <ShareHolderEnquiryForm />
+      <ShareHolderEnquiryForm />
     </>
   );
 };

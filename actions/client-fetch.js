@@ -1,6 +1,6 @@
 "use client"
-export async function ClientFetch() {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+export async function ClientFetch(path, init = {}) {
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "";
 
   const res = await fetch(`${baseUrl}${path}`, {
     ...init,

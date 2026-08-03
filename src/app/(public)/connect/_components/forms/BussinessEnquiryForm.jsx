@@ -7,9 +7,11 @@ import InputFieldComponent from "@/components/form/InputFieldComponent";
 import TextAreaFieldComponent from "@/components/form/TextAreaFieldComponent";
 import style from "@/app/common.module.css";
 import { BussinessEnquirySchema } from "../controllers/BussinessEnquirySchema";
+import { submitBusinessEnquiry } from "@/services/enquiry.api";
 
 const BussinessEnquiryForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
 
     const {
         control,
@@ -33,16 +35,37 @@ const BussinessEnquiryForm = () => {
 
     const onSubmit = async (data) => {
         setIsSubmitting(true);
+        setSubmitStatus({ type: "", message: "" });
 
-        console.log("Form Submitted:", data);
+        const payload = {
+            name: data.name,
+            description: data.query, // Mapped from query
+            company_name: data.company_name,
+            email_id: data.email,
+            phone_number: data.mobile,
+            address: data.address,
+            country: data.country,
+            state: data.state,
+            city: data.city,
+            query: data.query,
+        };
 
-        await new Promise((res) => setTimeout(res, 1500));
+        const result = await submitBusinessEnquiry(payload);
 
-        reset();
+        if (result.error) {
+            setSubmitStatus({ type: "error", message: result.error });
+        } else {
+            setSubmitStatus({ type: "success", message: "Enquiry submitted successfully! We will get back to you soon." });
+            reset();
+        }
+
         setIsSubmitting(false);
     };
 
-    const handleClear = () => reset();
+    const handleClear = () => {
+        reset();
+        setSubmitStatus({ type: "", message: "" });
+    };
 
     return (
            <section>
@@ -171,6 +194,13 @@ const BussinessEnquiryForm = () => {
                     Clear
                 </button>
             </div>
+
+            {/* Status Message */}
+            {submitStatus.message && (
+                <div className={`md:col-span-2 p-4 rounded-md text-sm font-medium ${submitStatus.type === "success" ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"}`}>
+                    {submitStatus.message}
+                </div>
+            )}
         </form>
         </div>
         </section>

@@ -8,9 +8,11 @@ import InputFieldComponent from "@/components/form/InputFieldComponent";
 import TextAreaFieldComponent from "@/components/form/TextAreaFieldComponent";
 import { ShareholderFormSchema } from "../controllers/ShareHolderFormSchema";
 import style from "@/app/common.module.css";
+import { submitShareholderEnquiry } from "@/services/enquiry.api";
 
 const ShareHolderEnquiryForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
 
     const {
         control,
@@ -31,18 +33,32 @@ const ShareHolderEnquiryForm = () => {
 
     const onSubmit = async (data) => {
         setIsSubmitting(true);
+        setSubmitStatus({ type: "", message: "" });
 
-        console.log("Form Submitted:", data);
+        const payload = {
+            name: data.name,
+            folio_number: data.folio,
+            shareholding: data.shareholding,
+            email_id: data.email,
+            phone_number: data.mobile,
+            query: data.query,
+        };
 
-        // Simulate API call
-        await new Promise((res) => setTimeout(res, 1500));
+        const result = await submitShareholderEnquiry(payload);
 
-        reset();
+        if (result.error) {
+            setSubmitStatus({ type: "error", message: result.error });
+        } else {
+            setSubmitStatus({ type: "success", message: "Enquiry submitted successfully! We will get back to you soon." });
+            reset();
+        }
+
         setIsSubmitting(false);
     };
 
     const handleClear = () => {
         reset();
+        setSubmitStatus({ type: "", message: "" });
     };
 
     return (
@@ -143,6 +159,13 @@ const ShareHolderEnquiryForm = () => {
                     Clear
                 </button>
             </div>
+
+            {/* Status Message */}
+            {submitStatus.message && (
+                <div className={`md:col-span-2 p-4 rounded-md text-sm font-medium ${submitStatus.type === "success" ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"}`}>
+                    {submitStatus.message}
+                </div>
+            )}
         </form>
             </div>
         </section>

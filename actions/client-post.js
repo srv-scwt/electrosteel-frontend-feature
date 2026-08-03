@@ -1,7 +1,7 @@
 "use client";
 
-export async function ClientPost() {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+export async function ClientPost(path, init = {}) {
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "";
 
   const res = await fetch(`${baseUrl}${path}`, {
     ...init,

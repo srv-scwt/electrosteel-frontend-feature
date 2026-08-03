@@ -3,7 +3,7 @@ import HeroSection from "@/components/common/heroSection";
 import styles from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { getPeoplePageData } from "@/services/people.api";
-import { formatSliderData } from "@/utils";
+import { formatSliderData, createImageSourceURL } from "@/utils";
 import ButtonSwiperImageClient from "@/components/common/ButtonSwiperImageClient";
 import ContentSection from "@/components/common/contentSection";
 import GridTwoSection from "@/components/common/GridTwoSection";
@@ -12,6 +12,7 @@ import { pragatiIntroData, pragatiPillarsData, pratibhaIntroData } from "./rewar
 
 const RewardsRecognitionPage = async () => {
   const PeopleData = await getPeoplePageData();
+  console.log(PeopleData)
   const pragatiImage = formatSliderData(PeopleData?.data?.reward?.pragatiData?.images);
   const pratibhaImage = formatSliderData(PeopleData?.data?.reward?.pratihbaImages?.images);
 
@@ -20,7 +21,7 @@ const RewardsRecognitionPage = async () => {
       <HeroSection
         data={{
           title: "Rewards & Recognition",
-          banner: "/images/board/policies_banner_large.jpg",
+          banner: createImageSourceURL(PeopleData?.data?.reward?.image, "/images/board/policies_banner_large.jpg"),
         }}
       />
       

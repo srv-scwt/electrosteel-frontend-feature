@@ -15,7 +15,7 @@ export async function getPaint() {
         status: response.status ?? null,
       };
     }
-
+console.log(response)
     return {
       data: response.data,
       error: null,

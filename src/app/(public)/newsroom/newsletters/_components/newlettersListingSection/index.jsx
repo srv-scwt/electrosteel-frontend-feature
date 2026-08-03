@@ -31,6 +31,7 @@ function resolveAssetUrl(path, fallback = "") {
 }
 
 const NewslettersListingSection = ({ data, yearData, searchParams }) => {
+  console.log("data: ",data);
   const financialYears = data?.financialYears || [];
   const financialsOption = getFinancialYearOptions(yearData);
   const appendQueryParam = useAppendQueryParam();
@@ -44,6 +45,7 @@ const NewslettersListingSection = ({ data, yearData, searchParams }) => {
       ? allResults
       : financialYears.find((item) => String(item?.year) === activeYear)
           ?.results || [];
+
   const titleYear = activeYear === "all" ? "All" : activeYear;
 
   const handleYearChange = (event) => {

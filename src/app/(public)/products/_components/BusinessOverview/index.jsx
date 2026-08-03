@@ -16,7 +16,11 @@ const BusinessOverview = ({ data, badges = [] }) => {
   `;
 
   return (
-    <section id={"TestPerformed"} className={`${styles.backgroundImg} bg-[url('/images/product-details/PaintBanner-2.png')]`}>
+    <section 
+      id={"TestPerformed"} 
+      className={`${styles.backgroundImg}`}
+      style={{ backgroundImage: `url('${data?.image ? createImageSourceURL(data.image) : '/images/product-details/PaintBanner-2.png'}')` }}
+    >
       <div className={styles.container}>
         <div className={`${cstyle.sectionContent} ${styles.title}`}>
           <HTMLRender htmlString={data?.title} />
