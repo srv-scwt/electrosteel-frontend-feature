@@ -19,9 +19,9 @@ const CurrentManufacture = ({ data, paints = [] }) => {
               <HTMLRender htmlString={data?.title} />
             </div>
 
-            <Image 
-              src="/images/paints/s-b-i-3.png" 
-              alt="Manufacturing Excellence" 
+            <Image
+              src={bannerImage}
+              alt="Manufacturing Excellence"
               width={800}
               height={800}
               style={{
