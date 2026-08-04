@@ -64,7 +64,7 @@ const OfficeInIndia = ({ selectedCountryParam, indiaData, officesOverseasData })
                 className="text-2xl text-[#ffffff] font-semibold mb-5 flex gap-2 items-start"
               >
                 <HTMLRender htmlString={indiaData?.sub_heading || "<h3>India</h3>"} />
-                <Tooltip message="This is a Tooltip" />
+                <Tooltip message="Find nearest office" />
               </h3>
 
               <select

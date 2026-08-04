@@ -8,10 +8,7 @@ import { getQualityCertificate } from '@/services/qualityCertificate.api'
 
 const page = async() => {
     const apiResponse = await getQualityCertificate();
-    
-      console.log("apiResponse",apiResponse)
     const data = apiResponse?.data || {};
-      console.log("getQualityCertificate",data)
     const heroData = {
       banner: createImageSourceURL(data.heroSection?.image) ?? "/images/board/policies_banner_large.jpg",
       title: data.heroSection?.title ?? "Certificate",
@@ -21,7 +18,7 @@ const page = async() => {
       <HeroSection data={heroData} />
       <SuperiorQualityProductSection data={data.introduction?.[0]} />
       <QualityCertificatesTable data={data.certificates} />
-      <FollowUsSocialmedia />
+      {/* <FollowUsSocialmedia /> */}
     </>
   )
 }

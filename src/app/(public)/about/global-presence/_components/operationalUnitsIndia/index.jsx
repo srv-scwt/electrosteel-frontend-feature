@@ -47,7 +47,7 @@ const OperationalUnitsIndia = ({ operationalUnits = [] }) => {
 
           <h3 id="operational-units-india" className="flex gap-2">
             India
-            <Tooltip message="This is a Tooltip" />
+            <Tooltip message="Find nearest office" />
           </h3>
 
           <Swiper

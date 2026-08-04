@@ -3,6 +3,7 @@ import CommonTable from '@/components/common/CommonTable';
 import styles from "@/app/common.module.css";
 import React from 'react';
 import { OutlineButtonLink } from "@/components/ui/Button";
+import { FiDownload } from "react-icons/fi";
 
 const DownloadButton = () => (
     <OutlineButtonLink title="Download" action="_blank" goto="#" />
@@ -29,17 +30,18 @@ const RadioDownload = ({ name, options, instant = false }) => {
                         className="cursor-pointer accent-[#004aa1]"
                     />
                     {opt.label}
+                    {selectedUrl === opt.url && !instant && (
+                        <FiDownload 
+                            size={16} 
+                            className="text-[#004aa1] hover:text-[#00aaff] transition-colors"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                window.open(opt.url, "_blank");
+                            }}
+                        />
+                    )}
                 </label>
             ))}
-            {!instant && selectedUrl && (
-                <div className="mt-2 w-[130px]">
-                    <OutlineButtonLink 
-                        goto={selectedUrl} 
-                        action="_blank" 
-                        title="Download" 
-                    />
-                </div>
-            )}
         </div>
     );
 };

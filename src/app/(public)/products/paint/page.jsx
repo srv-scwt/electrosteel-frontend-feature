@@ -100,7 +100,10 @@ const Paint = async () => {
       <BusinessOverview data={{ ...paintData.whyChooseEclPaintsPaint, card: checklist }} badges={badges} />
 
       <ComprehensiveProducts
-        data={paintData.productCategoriesPaint}
+        data={{
+          ...paintData.productCategoriesPaint,
+          download_link: "/images/paint/Paint-Catalogue-V6-Curved.pdf",
+        }}
         productCategories={productCategories}
         alwaysProductCard
       />

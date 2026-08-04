@@ -80,7 +80,7 @@ const OverseasOffices = ({ selectedCountryParam, data }) => {
     <div id="offices-overseas" className="flex h-full flex-col">
       <h3 className="text-2xl text-[#ffffff] font-semibold mb-5 flex gap-2 items-start">
         <HTMLRender htmlString={data?.sub_heading || "<h3>Overseas</h3>"} />
-        <Tooltip message="This is a Tooltip" />
+        <Tooltip message="Find nearest office" />
       </h3>
 
       <select
