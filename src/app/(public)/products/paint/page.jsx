@@ -33,7 +33,7 @@ function renderContactDesc(desc) {
   const lines = desc.split("\n").map((line) => line.trim()).filter(Boolean);
 
   return (
-    <div className="flex flex-col space-y-0.5">
+    <p className="flex flex-col space-y-0.5">
       {lines.map((line, idx) => {
         if (line.includes("@")) {
           return (
@@ -58,7 +58,7 @@ function renderContactDesc(desc) {
         }
         return <span key={idx}>{line}</span>;
       })}
-    </div>
+    </p>
   );
 }
 
@@ -124,7 +124,7 @@ const Paint = async () => {
       <section id="paint-experts">
         <div className={`${cstyles.containerLg}`}>
           <div className={`${cstyles.sectionContent} ${cstyles.customUlListing} mb-8`}>
-            <HTMLRender htmlString={paintData.talkToOurPaintExpertsPaint?.title} />
+            <HTMLRender htmlString={paintData.talkToOurPaintExpertsPaint?.title?.replace("OurPaint", "Our Paint")} />
             <p>{paintData.talkToOurPaintExpertsPaint?.description}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
