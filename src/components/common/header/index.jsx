@@ -590,7 +590,7 @@ export default function Navbar() {
             </li>
             <li className="flex items-start">
               <Link
-                href={"/resource-and-download/brouchre"}
+                href={"/resource-and-download/brochure"}
                 className="hover:text-yellow-400 flex items-start"
                 onClick={() => setCategoryDrawer(false)}
               >

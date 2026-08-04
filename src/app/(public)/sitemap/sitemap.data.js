@@ -367,7 +367,7 @@ export const sitemapSections = [
     description: "Quality certificates plus the downloadable resource categories available publicly.",
     items: [
       { label: "Quality Certificate", path: "/quality/certificate" },
-      { label: "Brochure", path: "/resource-and-download/brouchre" },
+      { label: "Brochure", path: "/resource-and-download/brochure" },
       { label: "Certificates", path: "/resource-and-download/certificate" },
       { label: "Other Downloads", path: "/resource-and-download/other" },
       { label: "Policies", path: "/resource-and-download/policy" },

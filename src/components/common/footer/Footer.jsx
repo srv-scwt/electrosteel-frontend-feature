@@ -1,13 +1,25 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import styles from "./style.module.css";
 import Image from "next/image";
 import { footerData, copyrightLinks, supportPartnersImage, socialMedia } from './footer.data'
+import { getSocialIconsData } from "@/services/social-icons/socialIcons.api";
+
 // comment
-const Footer = () => {
- 
+const Footer = async () => {
+  const socialApiData = await getSocialIconsData();
+  const socialItem = socialApiData?.data?.[0];
+
+  const updatedSocialLinks = socialMedia[0].links.map(link => {
+    let url = link.url;
+    if (link.platform === "LinkedIn") url = socialItem?.icon5 || url;
+    if (link.platform === "Facebook") url = socialItem?.icon1 || url;
+    if (link.platform === "Instagram") url = socialItem?.icon2 || url;
+    if (link.platform === "Twitter") url = socialItem?.icon3 || url;
+    if (link.platform === "YouTube") url = socialItem?.icon4 || url;
+    return { ...link, url };
+  });
+
   return (
     <footer className="bg-[#00418E] text-white">
       <div className={styles.containerLg}>
@@ -162,7 +174,7 @@ const Footer = () => {
               </ul>
               {/* SOCIAL MEDIA ICONS */}
               <div className="flex items-center gap-3">
-                {socialMedia[0].links.map((link, i) => (
+                {updatedSocialLinks.map((link, i) => (
                   <Link key={i} href={link.url} target="_blank">
                     <div className={styles.socialLinkIcon}>
                       <Image

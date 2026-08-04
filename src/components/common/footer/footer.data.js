@@ -69,7 +69,7 @@ const footerData = [
     address: [
       {
         label: [
-          "Rashid Colony",
+          "Rathod Colony",
           "P.O. Rajgangpur",
           "Dist - Sundergarh",
           "Odisha - 770017",

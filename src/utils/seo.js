@@ -345,7 +345,7 @@ const SEO_ROUTE_PAGES = [
   { pathname: "/products/others-products", pageName: "Other Products" },
   { pathname: "/resource-and-download/policy", pageName: "Policy" },
   { pathname: "/resource-and-download/other", pageName: "Others" },
-  { pathname: "/resource-and-download/brouchre", pageName: "Brouchers" },
+  { pathname: "/resource-and-download/brochure", pageName: "Brouchers" },
   {
     pathname: "/resource-and-download/certificate",
     pageName: "Certificate",

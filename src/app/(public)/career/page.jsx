@@ -54,9 +54,9 @@ const page = () => {
       <HeroSection data={careerData.hero} />
 
       {/* OVERVIEW SECTION */}
-      <section id="overview" className="scroll-mt-24 pb-0">
+      <section id="overview" className="scroll-mt-24">
         
-        <div className={`${cstyles.containerLg}`}>
+        <div className={`${cstyles.containerLg} !pb-0`}>
           <div className={`${cstyles.sectionContent} mb-6`}>
             <HTMLRender htmlString={careerData.overview.subTitle} />
           </div>
@@ -75,21 +75,21 @@ const page = () => {
       </section>
 
       {/* JOIN US SECTION */}
-      <section id="join-us" className="scroll-mt-24 pb-0">
+      <section id="join-us" className="scroll-mt-24">
         <ContentSection data={careerData.joinUs} />
         
-        <div className={`${cstyles.containerLg} !pt-0`}>
-          <div className={`${cstyles.sectionContent} mb-6`}>
+        <div className={`${cstyles.containerLg} !pt-0 !pb-0`}>
+          {/* <div className={`${cstyles.sectionContent} mb-6`}>
             <HTMLRender htmlString={careerData.joinUs.currentOpenings.title} />
           </div>
           
           {careerData.joinUs.currentOpenings.description && (
             <div className="mb-4 text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)]" dangerouslySetInnerHTML={{ __html: careerData.joinUs.currentOpenings.description }} />
-          )}
+          )} */}
 
-          <div className="mb-8">
+          {/* <div className="mb-8">
             <CommonTab tabsData={currentOpeningsTabs} />
-          </div>
+          </div> */}
 
           <Checklist title={careerData.joinUs.whatWeLookFor.title} items={careerData.joinUs.whatWeLookFor.checklist} />
           <Checklist title={careerData.joinUs.whatWeOffer.title} items={careerData.joinUs.whatWeOffer.checklist} />
@@ -97,8 +97,8 @@ const page = () => {
       </section>
 
       {/* KHOJ SECTION */}
-      <section id="khoj" className="scroll-mt-24 pb-0">
-        <ContentSection data={{ title: careerData.khoj.title, description: `<p>${careerData.khoj.description}</p>` }} />
+      <section id="khoj" className="scroll-mt-24">
+        <ContentSection data={{ title: careerData.khoj.title, description: `<h3>${careerData.khoj.description}</h3>` }} />
         <div className="-mt-16 md:-mt-32">
           <ContentSection data={careerData.khoj.khojIntro} />
         </div>
