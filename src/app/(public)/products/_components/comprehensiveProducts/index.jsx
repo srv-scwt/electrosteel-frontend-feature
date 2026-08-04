@@ -2,10 +2,12 @@ import PaintApprovalsCard from "@/components/common/card/PaintApprovalsCard";
 import React from "react";
 import styles from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
+import { OutlineButtonLink } from "@/components/ui/Button";
+import { createImageSourceURL } from "@/utils";
 
 import ProductCategoryCard from "@/components/common/card/ProductCategoryCard";
 
-const ComprehensiveProducts = ({ data, productCategories =[], isDarkSection = false }) => {
+const ComprehensiveProducts = ({ data, productCategories =[], isDarkSection = false, alwaysProductCard = false }) => {
   return (
     <>
       <section id={"product-range"} className={isDarkSection ? "bg-[#003366] text-white" : ""}>
@@ -17,7 +19,7 @@ const ComprehensiveProducts = ({ data, productCategories =[], isDarkSection = fa
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
             {Array.isArray(productCategories) && productCategories?.map((item, index) => (
               <div key={item?.title} className="h-full">
-                {item.image ? (
+                {(alwaysProductCard || item.image) ? (
                   <ProductCategoryCard data={item} />
                 ) : (
                   <PaintApprovalsCard
@@ -27,6 +29,14 @@ const ComprehensiveProducts = ({ data, productCategories =[], isDarkSection = fa
                 )}
               </div>
             ))}
+          </div>
+          
+          <div className="mt-10 flex justify-center w-full">
+            <OutlineButtonLink
+              goto={createImageSourceURL(data?.download_link)}
+              action={"_blank"}
+              title={"Download"}
+            />
           </div>
         </div>
       </section>

@@ -9,7 +9,7 @@ import HTMLRender from '@/components/ui/HTMLRender';
 
 
 const CardSection = ({ data = [] }) => {
-    console.log(data);
+  
     
     return (
         <section id="ourProductSection" className="bg-[#F5F5F5]">

@@ -7,7 +7,7 @@ import { createVideoSourceURL } from "@/utils";
 
 export default function VideoWaterSection({ waterSectionData }) {
   const dropWaterSectionData = waterSectionData?.[0];
-  console.log(dropWaterSectionData);
+
   
   return (
     <section className="relative w-full overflow-hidden">

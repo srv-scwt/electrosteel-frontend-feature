@@ -2,262 +2,84 @@
 import CommonTable from '@/components/common/CommonTable';
 import styles from "@/app/common.module.css";
 import React from 'react';
+import { OutlineButtonLink } from "@/components/ui/Button";
 
+const DownloadButton = () => (
+    <OutlineButtonLink title="Download" action="_blank" goto="#" />
+);
 
 const qualityCertificates = [
-    // table row 1
     {
         title: "SYSTEM CERTIFICATES",
         columns: [
-            "Sl. No.",
-            "Certifying Body",
-            "Accreditation of Certifying Body",
-            "Certificate",
-            "Standard",
-            "Download PDF",
+            "SL. NO.",
+            "CERTIFYING BODY",
+            "ACCREDITATION OF CERTIFYING BODY",
+            "CERTIFICATE",
+            "STANDARD",
+            "DOWNLOAD PDF",
         ],
         rows: [
             {
-                no: 1, certifyingbody: "BRITISH STANDARDS INSTITUTION (BSI,UK)", accreditation: "IAF, International Accreditation Forum UKAS, UK's National Accreditation Body", certificate: "QUALITY MANAGEMENT SYSTEM", standard: "ISO 9001:2015", downloadpdf: (
-                    <div className="flex flex-col gap-2">
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name=""
-                                value="KHARDHA"
-                            />
-                            KHARDHA (KW)
-                        </label>
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name=""
-                                value="SRIKALAHASTHI"
-                            />
-                            SRIKALAHASTHI (SW)
-                        </label>
-                        <button className="mt-2 w-[130px] bg-[#00418e] text-white px-3 py-2 rounded hover:bg-[#00306b] transition"
-                        >
-                            Download
-                        </button>
-                    </div>
-                ),
+                no: 1, certifyingbody: "BRITISH STANDARDS INSTITUTION (BSI, UK)", accreditation: "IAF, International Accreditation Forum, UKAS (UK's National Accreditation Body)", certificate: "QUALITY MANAGEMENT SYSTEM", standard: "ISO 9001:2015", downloadpdf: <DownloadButton />
             },
             {
-                no: 2, certifyingbody: "BRITISH STANDARDS INSTITUTION (BSI,UK)", accreditation: "IAF, International Accreditation Forum ANAB", certificate: "ENVIRONMENT MANAGEMENT SYSTEM", standard: "ISO 14001: 2015", downloadpdf: (
-                    <div className="flex flex-col gap-2">
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name=""
-                                value="KHARDHA"
-                            />
-                            KHARDHA (KW)
-                        </label>
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name=""
-                                value="SRIKALAHASTHI"
-                            />
-                            SRIKALAHASTHI (SW)
-                        </label>
-                        <button className="mt-2 w-[130px] bg-[#00418e] text-white px-3 py-2 rounded hover:bg-[#00306b] transition"
-                        >
-                            Download
-                        </button>
-                    </div>
-                ),
+                no: 2, certifyingbody: "BRITISH STANDARDS INSTITUTION (BSI, UK)", accreditation: "IAF, International Accreditation Forum, ANAB", certificate: "ENVIRONMENT MANAGEMENT SYSTEM", standard: "ISO 14001:2015", downloadpdf: <DownloadButton />
             },
-
             {
-                no: 3, certifyingbody: "BRITISH STANDARDS INSTITUTION (BSI,UK)", accreditation: "UKAS, UK's National Accreditation Body", certificate: "ENERGY MANAGEMENT SYSTEM", standard: "ISO 50001:2018", downloadpdf: (
-                    <div className="flex flex-col gap-2">
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name=""
-                                value="KHARDHA"
-                            />
-                            KHARDHA (KW)
-                        </label>
-                        <button className="mt-2 w-[130px] bg-[#00418e] text-white px-3 py-2 rounded hover:bg-[#00306b] transition"
-                        >
-                            Download
-                        </button>
-                    </div>
-                ),
+                no: 3, certifyingbody: "BRITISH STANDARDS INSTITUTION (BSI, UK)", accreditation: "UKAS (UK's National Accreditation Body)", certificate: "ENERGY MANAGEMENT SYSTEM", standard: "ISO 50001:2018 - KHARDHA (KW)", downloadpdf: <DownloadButton />
             },
-
             {
-                no: 4, certifyingbody: "BRITISH STANDARDS INSTITUTION (BSI,UK)", accreditation: "UKAS, UK's National Accreditation Body", certificate: "OCCUPATIONAL HEALTH AND SAFETY MANAGEMENT SYSTEM", standard: "ISO 45001 :2018", downloadpdf: (
-                    <div className="flex flex-col gap-2">
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name=""
-                                value="KHARDHA"
-                            />
-                            KHARDHA (KW)
-                        </label>
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name=""
-                                value="SRIKALAHASTHI"
-                            />
-                            SRIKALAHASTHI (SW)
-                        </label>
-                        <button className="mt-2 w-[130px] bg-[#00418e] text-white px-3 py-2 rounded hover:bg-[#00306b] transition"
-                        >
-                            Download
-                        </button>
-                    </div>
-                ),
+                no: 4, certifyingbody: "BRITISH STANDARDS INSTITUTION (BSI, UK)", accreditation: "UKAS (UK's National Accreditation Body)", certificate: "OCCUPATIONAL HEALTH AND SAFETY MANAGEMENT SYSTEM", standard: "ISO 45001:2018", downloadpdf: <DownloadButton />
             },
-
             {
-                no: 5, certifyingbody: "BRITISH STANDARDS INSTITUTION (BSI,UK)", accreditation: "SAAS, Social Accountability Accreditation Services", certificate: "SOCIAL ACCOUNTABILITY SYSTEM", standard: "SA 8000 :2014", downloadpdf: (
-                    <div className="flex flex-col gap-2">
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name=""
-                                value="KHARDHA"
-                            />
-                            KHARDHA (KW)
-                        </label>
-                        <button className="mt-2 w-[130px] bg-[#00418e] text-white px-3 py-2 rounded hover:bg-[#00306b] transition"
-                        >
-                            Download
-                        </button>
-                    </div>
-                ),
+                no: 5, certifyingbody: "BRITISH STANDARDS INSTITUTION (BSI, UK)", accreditation: "SAAS, Social Accountability Accreditation Services", certificate: "SOCIAL ACCOUNTABILITY SYSTEM", standard: "SA 8000:2014 - KHARDHA (KW)", downloadpdf: <DownloadButton />
             },
-
         ],
     },
-
-    // table row 2
     {
         title: "PRODUCT CERTIFICATES",
         columns: [
-            "Sl. No.",
-            "Certifying Body",
-            "Accreditation of Certifying Body",
-            "Certificate",
-            "Standard",
-            "Range",
-            "Scope",
-            "Download PDF",
+            "SL. NO.",
+            "CERTIFYING BODY",
+            "ACCREDITATION OF CERTIFYING BODY",
+            "CERTIFICATE",
+            "STANDARD",
+            "RANGE",
+            "SCOPE",
+            "DOWNLOAD PDF",
         ],
         rows: [
             {
-                no: 1, certifyingbody: "BRITISH STANDARDS INSTITUTION (BSI,UK)", accreditation: "", certificate: "KITEMARK", standard: "EN545 & ISO2531 EN598 & ISO7186", range: "DN80 - DN1000", scope: "For drinking water and sewerage application", downloadpdf: (
-                    <div className="flex flex-col gap-2">
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name=""
-                                value="KHARDHA"
-                            />
-                            KHARDHA (KW)
-                        </label>
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name=""
-                                value="SRIKALAHASTHI"
-                            />
-                            SRIKALAHASTHI (SW)
-                        </label>
-                        <button className="mt-2 w-[130px] bg-[#00418e] text-white px-3 py-2 rounded hover:bg-[#00306b] transition"
-                        >
-                            Download
-                        </button>
-                    </div>
-                ),
+                no: 1, certifyingbody: "BRITISH STANDARD INSTITUTE (BSI, UK)", accreditation: "KITEMARK", certificate: "EN545 & ISO2531, EN598 & ISO7186", standard: "DN80 - DN1000", range: "For drinking water and sewerage application", scope: <DownloadButton />, downloadpdf: ""
             },
-
             {
-                no: 2, certifyingbody: "DEUTSCHER VEREIN DES GAS- UND WASSERFACHES (DVGW, GERMAN)", accreditation: "DAKKS, National accreditation body for the Federal Republic of GERMANY", certificate: "DVGW Cert", standard: "EN545", range: "DN80 - DN1000", scope: "Drinking water application", downloadpdf: (
-                    <div className="flex flex-col gap-2">
-                        <button className="mt-2 w-[130px] bg-[#00418e] text-white px-3 py-2 rounded hover:bg-[#00306b] transition"
-                        >
-                            Download
-                        </button>
-                    </div>
-                ),
+                no: 2, certifyingbody: "DEUTSCHER VEREIN DES GAS- UND WASSERFACHES (DVGW, GERMANY)", accreditation: "DAKKS, National Accreditation Body of Germany", certificate: "DVGW Cert", standard: "EN545", range: "DN80 - DN1000", scope: "Drinking water application", downloadpdf: <DownloadButton />
             },
-
-
         ],
     },
-
-    // table row 3
     {
         title: "LICENSE WITH ENDORSEMENT",
         columns: [
-            "Sl. No.",
-            "License Issued By",
-            "Product",
-            "Plant",
-            "Standard",
-            "Download",
+            "SL. NO.",
+            "LICENSE ISSUED BY",
+            "PRODUCT",
+            "PLANT",
+            "STANDARD",
+            "DOWNLOAD",
         ],
         rows: [
             {
-                no: 1, licenseissuedby: "BIS", product: "DI Pipe", plant: "Khardah", standard: "IS 8329 : 2000", download: (
-                    <div className="flex flex-col gap-2">
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name=""
-                                value="KHARDHA"
-                            />
-                            License With Endorsement
-                        </label>
-                        <button className="mt-2 w-[130px] bg-[#00418e] text-white px-3 py-2 rounded hover:bg-[#00306b] transition"
-                        >
-                            Download
-                        </button>
-                    </div>
-                ),
+                no: 1, licenseissuedby: "BIS", product: "DI Pipe", plant: "Khardah", standard: "IS 8329:2000", download: "License With Endorsement"
             },
-
             {
-                no: 2, licenseissuedby: "BIS", product: "DI Fittings", plant: "Khardah", standard: "IS 9523 : 2000", download: (
-                    <div className="flex flex-col gap-2">
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name=""
-                                value="KHARDHA"
-                            />
-                            License With Endorsement
-                        </label>
-                        <button className="mt-2 w-[130px] bg-[#00418e] text-white px-3 py-2 rounded hover:bg-[#00306b] transition"
-                        >
-                            Download
-                        </button>
-                    </div>
-                ),
+                no: 2, licenseissuedby: "BIS", product: "DI Fittings", plant: "Khardah", standard: "IS 9523:2000", download: "License With Endorsement"
             },
-
         ],
     },
 ];
 
-// const headerCell =
-//     "text-left md:p-4 sm:p-3 p-2 bg-[#f00] text-white border border-white sticky top-0";
-// const cell = "text-left md:p-4 sm:p-3 p-2 border border-gray-200";
-
-
 const QualityCertificatesTable = () => {
-
-    const columns = ["Sl. No.", "Certifying Body", "Accreditation of Certifying Body", "Certificate", "Standard", "Download PDF"]
-        ;
-
     return (
         <section className='bg-[#f9f9f9]'>
             <div className={styles.containerLg}>
@@ -289,7 +111,6 @@ const QualityCertificatesTable = () => {
                                         r.download,
                                     ];
                                 } else {
-                                    // default SYSTEM CERTIFICATES
                                     return [
                                         r.no,
                                         r.certifyingbody,

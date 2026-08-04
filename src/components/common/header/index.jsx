@@ -120,7 +120,7 @@ export default function Navbar() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log("Searching for:", searchQuery);
+
   };
 
   const [openIndex, setOpenIndex] = useState(null);
@@ -598,7 +598,7 @@ export default function Navbar() {
                 <span className="ml-1">Brochure</span>
               </Link>
             </li>
-            <li className="flex items-start">
+            {/* <li className="flex items-start">
               <Link
                 href={"/resource-and-download/other"}
                 className="hover:text-yellow-400 flex items-start"
@@ -607,7 +607,7 @@ export default function Navbar() {
                 <ChevronRight size={16} className={styles.angleIcon} />
                 <span className="ml-1">Other</span>
               </Link>
-            </li>
+            </li> */}
           </ul>
           {/* <div className={styles.sectionContentCategory}>
             <h4>Select Category Of User</h4>

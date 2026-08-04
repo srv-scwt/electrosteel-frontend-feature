@@ -31,7 +31,7 @@ function resolveAssetUrl(path, fallback = "") {
 }
 
 const NewslettersListingSection = ({ data, yearData, searchParams }) => {
-  console.log("data: ",data);
+
   const financialYears = data?.financialYears || [];
   const financialsOption = getFinancialYearOptions(yearData);
   const appendQueryParam = useAppendQueryParam();

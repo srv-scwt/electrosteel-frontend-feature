@@ -9,7 +9,7 @@ import HTMLRender from "@/components/ui/HTMLRender";
 
 export default function HistoryModal({ isOpen, action, historyData }) {
   if (!isOpen || !historyData) return null;
-console.log(historyData);
+
 const title = historyData?.heading ?? historyData?.title
 
   // const historyData = {

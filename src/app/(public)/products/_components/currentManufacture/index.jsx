@@ -7,7 +7,7 @@ import { createImageSourceURL } from "@/utils";
 
 
 const CurrentManufacture = ({ data, paints = [] }) => {
-  console.log(data)
+
   const bannerImage = createImageSourceURL(data?.image, "/images/paints/s-b-i-3.png");
 
   return (

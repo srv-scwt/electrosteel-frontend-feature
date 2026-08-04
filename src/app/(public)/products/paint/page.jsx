@@ -102,6 +102,7 @@ const Paint = async () => {
       <ComprehensiveProducts
         data={paintData.productCategoriesPaint}
         productCategories={productCategories}
+        alwaysProductCard
       />
 
       <ApplicationSection

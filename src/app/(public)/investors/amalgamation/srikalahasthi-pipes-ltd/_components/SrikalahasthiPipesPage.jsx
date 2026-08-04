@@ -49,8 +49,6 @@ export default async function SrikalahasthiPipesPage({
     banner: "/images/board/policies_banner_large.jpg",
   };
 
-  console.log(investors?.data?.statusCode);
-  
   return (
     <>
       <HeroSection data={heroData} />

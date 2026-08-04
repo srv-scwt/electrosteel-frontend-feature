@@ -5,7 +5,7 @@ import HTMLRender from '@/components/ui/HTMLRender';
 import { createImageSourceURL } from '@/utils';
 
 const ChooseElectrosteel = ({data}) => {
-  console.log(data);
+ 
   
   return (
    <div

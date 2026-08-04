@@ -9,7 +9,7 @@ import { getEventsDetailsBySlug } from "@/services/events.api";
 const page = async ({ params }) => {
   const { id } = await params;
   const PageDetails = await getEventsDetailsBySlug(id);
-  console.log(PageDetails);
+
   
   if (!PageDetails || PageDetails?.error) return <SomethingWentWrong />;
 

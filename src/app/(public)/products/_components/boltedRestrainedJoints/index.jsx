@@ -6,7 +6,7 @@ import CommonTable from "@/components/common/CommonTable";
 import { createImageSourceURL } from "@/utils";
 
 const BoltedRestrainedJoints = ({ data, className = "", label , title , roundedCLass , CommonTableClass }) => {
-  console.log(data);
+
   
   return (
     <section className="bg-white !py-0">

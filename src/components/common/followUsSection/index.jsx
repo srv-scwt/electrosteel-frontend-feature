@@ -9,7 +9,7 @@ import HTMLRender from "@/components/ui/HTMLRender";
 const FollowUsSocialmedia = async () => {
   const socialData = await getSocialIconsData();
   const socialItem = socialData?.data?.[0];
-console.log(socialItem)
+
   const socialLinks = [
     {
       id: 1,

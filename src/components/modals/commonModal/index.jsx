@@ -2,7 +2,7 @@
 import React from "react";
 
 const CommonModal = ({ open, onClose, title, children }) => {
-  console.log("open: ", open)
+
   if (!open) return null;
 
   return (

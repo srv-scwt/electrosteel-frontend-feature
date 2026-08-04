@@ -12,7 +12,7 @@ import { pragatiIntroData, pragatiPillarsData, pratibhaIntroData } from "./rewar
 
 const RewardsRecognitionPage = async () => {
   const PeopleData = await getPeoplePageData();
-  console.log(PeopleData)
+
   const pragatiImage = formatSliderData(PeopleData?.data?.reward?.pragatiData?.images);
   const pratibhaImage = formatSliderData(PeopleData?.data?.reward?.pratihbaImages?.images);
 

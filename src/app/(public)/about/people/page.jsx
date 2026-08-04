@@ -20,7 +20,7 @@ const page = async () => {
   const pragatiImage = formatSliderData(PeopleData?.data?.reward?.pragatiData?.images);
   const pratibhaImage = formatSliderData(PeopleData?.data?.reward?.pratihbaImages?.images);
 
-  console.log("PeopleData?.data?.testimonial?.images: ", PeopleData?.data?.testimonial?.images)
+
   if (!PeopleData || PeopleData.error) return <SomethingWentWrong />
 
   return (

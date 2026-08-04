@@ -4,15 +4,15 @@ import SocialSection from './_components/socialSection'
 import { getSocialData } from '@/services/socialData.api'
 import SomethingWentWrong from '@/components/common/SomethingWentsWrong'
 import { getCommonBanner } from '@/services/commonBanner/commonBanner.api'
-import { createImageSourceURL } from '@/utils'
 import FollowUsSocialmedia from '@/components/common/followUsSection'
 
 const page = async () => {
   const homeBanner = await getCommonBanner("ElectrosteelonSocial");
-
+ 
   const heroData = {
     title: homeBanner?.data?.title ?? "Electrosteel on Social",
-    video: createImageSourceURL(homeBanner?.data?.image) ?? "/images/board/electrosteel-on-Social_banner_big.jpg"
+    image: homeBanner?.data?.image ?? "",
+    banner: "/images/newsletters/eclonsocial/Electrosteel-on-Social (4).webp"
   };
 
   const SocialData = await getSocialData();

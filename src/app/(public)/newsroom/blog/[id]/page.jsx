@@ -62,7 +62,7 @@ const page = async ({ params }) => {
       "/images/blog/blogBanner.jpg",
     title: BlogDetails?.data?.banner_title ?? "Blog",
   };
-console.log(BlogDetails);
+
 
   const imageArr =
     BlogDetails?.data?.slider_image?.map((item) => ({

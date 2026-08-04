@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import videoCardStyles from "@/components/common/card/VideoImageBadgeCard/style.module.css";
@@ -7,7 +8,7 @@ const ProductCategoryCard = ({ data }) => {
   return (
     <article 
       className={`${videoCardStyles.socialCardWrapper} !p-0 flex flex-col`} 
-      style={{ cursor: 'default', minHeight: '100%', maxWidth: 'none' }}
+      style={{ cursor: 'default', minHeight: '100%', maxWidth: 'none', overflow: 'visible' }}
     >
       <div className="relative">
         <div className={`${videoCardStyles.socialCardImage} rounded-t-[32px] border border-gray-300 bg-white p-4 sm:p-6`}>

@@ -32,7 +32,7 @@ const OurMileStoneSection = ({ isBottomLinkActive = true, data, timelineData = [
 
     return chunkArray(timelineData, 14);
   }, [timelineData]);
-console.log(groupedTimelineData);
+
 
  
   const handleModal = (selected, open) => {

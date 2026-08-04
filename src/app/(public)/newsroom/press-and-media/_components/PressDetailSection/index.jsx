@@ -20,7 +20,7 @@ export default function PressDetailSection({ data }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
-  console.log(data);
+
   
 
   useEffect(() => {

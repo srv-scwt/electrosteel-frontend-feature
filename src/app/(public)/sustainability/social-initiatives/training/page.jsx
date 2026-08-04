@@ -45,9 +45,9 @@ const page = async () => {
       {/* TRAINING DOMAINS SECTION */}
       <TrainingDomainsSection
         data={{
-          title: trainingData.domains.title,
-          image: trainingData.domains.image,
-          cards: apiData.whatWeTrain,
+          title: apiData.whatWeTrain?.sectionData?.title ?? trainingData.domains.title,
+          image: apiData.whatWeTrain?.sectionData?.image ?? trainingData.domains.image,
+          cards: apiData.whatWeTrain?.items,
         }}
       />
 
