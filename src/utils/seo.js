@@ -498,7 +498,8 @@ export function buildMetadata({ seoData, currentURL } = {}) {
       images: [finalSEO.image],
     },
     icons: {
-      icon: "/favicon.ico",
+      icon: "/images/favicon.png",
+      shortcut: "/images/favicon.png",
     },
   };
 }
