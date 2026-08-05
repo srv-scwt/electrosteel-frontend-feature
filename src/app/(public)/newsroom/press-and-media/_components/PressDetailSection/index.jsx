@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useRef } from "react";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import style from "@/app/common.module.css";
@@ -19,20 +19,21 @@ const fallbackImage = "/images/board/policies_banner_large.jpg";
 export default function PressDetailSection({ data }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-  const [swiperInstance, setSwiperInstance] = useState(null);
 
-  
+  // The nav buttons live outside the Swiper container, so Swiper can't find them
+  // by its default selectors. Wire them up once the instance exists — by then the
+  // sibling refs are attached, so we never read refs during render. Only one of the
+  // two sliders below renders at a time, so they can share these refs.
+  const handleSwiper = useCallback((swiper) => {
+    if (!prevRef.current || !nextRef.current) return;
 
-  useEffect(() => {
-    if (!swiperInstance || !prevRef.current || !nextRef.current) return;
+    swiper.params.navigation.prevEl = prevRef.current;
+    swiper.params.navigation.nextEl = nextRef.current;
 
-    swiperInstance.params.navigation.prevEl = prevRef.current;
-    swiperInstance.params.navigation.nextEl = nextRef.current;
-
-    swiperInstance.navigation.destroy();
-    swiperInstance.navigation.init();
-    swiperInstance.navigation.update();
-  }, [swiperInstance]);
+    swiper.navigation.destroy();
+    swiper.navigation.init();
+    swiper.navigation.update();
+  }, []);
 
   if (!data) return null;
 
@@ -53,11 +54,8 @@ export default function PressDetailSection({ data }) {
               {images.length > 0 ? (
                 <Swiper
                   modules={[Autoplay, A11y, Navigation]}
-                  navigation={{
-                    nextEl: nextRef.current,
-                    prevEl: prevRef.current,
-                  }}
-                  onSwiper={setSwiperInstance}
+                  navigation={{ enabled: true }}
+                  onSwiper={handleSwiper}
                   slidesPerView={1}
                   autoplay={{
                     delay: 4000,
@@ -159,11 +157,8 @@ export default function PressDetailSection({ data }) {
               {images.length > 0 ? (
                 <Swiper
                   modules={[Autoplay, A11y, Navigation]}
-                  navigation={{
-                    nextEl: nextRef.current,
-                    prevEl: prevRef.current,
-                  }}
-                  onSwiper={setSwiperInstance}
+                  navigation={{ enabled: true }}
+                  onSwiper={handleSwiper}
                   slidesPerView={1}
                   autoplay={{
                     delay: 4000,

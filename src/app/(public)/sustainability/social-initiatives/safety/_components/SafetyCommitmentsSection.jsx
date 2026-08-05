@@ -5,6 +5,7 @@ import React from "react";
 import cstyles from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { createImageSourceURL } from "@/utils";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 export default function SafetyCommitmentsSection({ data }) {
   if (!data) return null;
@@ -50,7 +51,7 @@ export default function SafetyCommitmentsSection({ data }) {
                     </div>
                     <p
                       className="font-montserrat text-sm leading-relaxed text-white"
-                      dangerouslySetInnerHTML={{ __html: item?.description }}
+                      dangerouslySetInnerHTML={{ __html: sanitizeHtml(item?.description) }}
                     />
                   </div>
                 </div>

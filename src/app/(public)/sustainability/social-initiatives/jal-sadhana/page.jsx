@@ -15,7 +15,7 @@ import {
   AudioPopUp
 } from "./_components";
 import { getJolsadhana } from "@/services/jolsadhana.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 
 const page = async () => {
   const jolsadhanaData = await getJolsadhana();

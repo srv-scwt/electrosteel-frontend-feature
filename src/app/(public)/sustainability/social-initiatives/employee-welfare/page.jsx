@@ -2,7 +2,7 @@ import React from "react";
 import HeroSection from "@/components/common/heroSection";
 import ProductTextGrid from "./_components/producttextgrid";
 import { getEmployeewelfare } from "@/services/employeeWelfare.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 
 const page = async () => {
   const Employeewelfare = await getEmployeewelfare();

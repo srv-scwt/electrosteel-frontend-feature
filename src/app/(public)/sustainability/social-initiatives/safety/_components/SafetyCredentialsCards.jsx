@@ -5,6 +5,7 @@ import PSystemCommonModal from "@/components/modals/pSystemCommonModal";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { OutlineButton } from "@/components/ui/Button";
 import { createImageSourceURL } from "@/utils";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const CredentialCard = ({ title, desc, onKnowMore }) => (
   <article
@@ -31,7 +32,7 @@ const CredentialCard = ({ title, desc, onKnowMore }) => (
       </h3>
       <div
         className="mt-4 text-[14px] sm:text-[16px] leading-[1.4] text-[#9cc0f0]"
-        dangerouslySetInnerHTML={{ __html: desc }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(desc) }}
       />
       <div className="mt-auto pt-6 flex justify-end">
         <OutlineButton

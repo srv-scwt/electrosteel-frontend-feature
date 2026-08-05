@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useRef } from "react";
 import PropTypes from "prop-types";
 import styles from "@/app/common.module.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -18,7 +18,6 @@ const fallbackImage = "/images/board/policies_banner_large.jpg";
 const ButtonSliderImage = ({ images, title, imageTitle, imageClassName, objectFit = "cover" }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-  const [swiperInstance, setSwiperInstance] = useState(null);
 
   // Parse a concrete px height from imageClassName e.g. "h-[450px]" → 450
   // Falls back to undefined so Swiper uses its natural height in other contexts
@@ -28,17 +27,20 @@ const ButtonSliderImage = ({ images, title, imageTitle, imageClassName, objectFi
     return match ? parseInt(match[1], 10) : undefined;
   })();
 
-  useEffect(() => {
-    if (!swiperInstance || !prevRef.current || !nextRef.current) {
+  // The nav buttons live outside the Swiper container, so Swiper can't find them
+  // by its default selectors. Wire them up once the instance exists — by then the
+  // sibling refs are attached, so we never read refs during render.
+  const handleSwiper = useCallback((swiper) => {
+    if (!prevRef.current || !nextRef.current) {
       return;
     }
 
-    swiperInstance.params.navigation.prevEl = prevRef.current;
-    swiperInstance.params.navigation.nextEl = nextRef.current;
-    swiperInstance.navigation.destroy();
-    swiperInstance.navigation.init();
-    swiperInstance.navigation.update();
-  }, [swiperInstance]);
+    swiper.params.navigation.prevEl = prevRef.current;
+    swiper.params.navigation.nextEl = nextRef.current;
+    swiper.navigation.destroy();
+    swiper.navigation.init();
+    swiper.navigation.update();
+  }, []);
 
   // If we have a concrete height, apply it directly to every Swiper layer
   const heightStyle = parsedHeight ? { height: `${parsedHeight}px` } : {};
@@ -48,11 +50,8 @@ const ButtonSliderImage = ({ images, title, imageTitle, imageClassName, objectFi
     <div className={containerClass} style={heightStyle}>
       <Swiper
         modules={[Autoplay, A11y, Navigation]} // Removed EffectFade module
-        navigation={{
-          nextEl: nextRef.current,
-          prevEl: prevRef.current,
-        }}
-        onSwiper={setSwiperInstance}
+        navigation={{ enabled: true }}
+        onSwiper={handleSwiper}
         slidesPerView={1}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         speed={1000}

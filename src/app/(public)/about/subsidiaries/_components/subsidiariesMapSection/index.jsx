@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import styles from "./style.module.css";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 // import styles from "@/app/common.module.css";
 
 /**
@@ -356,9 +357,10 @@ const SubsidiariesMapSection = () => {
                             className={`${styles.popover} ${openId === o.id ? styles.open : ""}`}
                             // Position absolutely; JS will set left/top when open
                             dangerouslySetInnerHTML={{
-                                __html:
+                                __html: sanitizeHtml(
                                 `<button class="${styles.closeBtn}" aria-label="Close" title="Close">×</button>` +
-                                `<div class="${styles.popContent}">${o.html}</div>`,
+                                `<div class="${styles.popContent}">${o.html}</div>`
+                                ),
                             }}
                             onClick={(e) => {
                                 if (e.target.closest(`.${styles.closeBtn}`)) {

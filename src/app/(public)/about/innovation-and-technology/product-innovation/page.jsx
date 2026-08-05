@@ -3,7 +3,7 @@ import React from 'react'
 import { ElectrolockJoint } from './_components'
 import GridTwoSection from '@/components/common/GridTwoSection';
 import { getProductInnovation } from '@/services/productInnovation.api';
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
+import SomethingWentWrong from '@/components/common/SomethingWentWrong';
 
 
 const page = async () => {

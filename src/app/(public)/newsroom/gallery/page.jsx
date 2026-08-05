@@ -4,7 +4,7 @@ import React from "react";
 import GalleryGrid from "../_components/gallerygrid";
 import VideoGrid from "../_components/videogrid";
 import NewsGrid from "../_components/newsGrid";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getBlogResponseByCategory } from "@/services/blogs/blog.api";
 
 const page = async () => {

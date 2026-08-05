@@ -3,7 +3,7 @@ import HeroSection from "@/components/common/heroSection";
 import HTMLRender from "@/components/ui/HTMLRender";
 import styles from "@/app/common.module.css";
 import OverviewTab from "./_components/OverviewTab";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getEnvironmentInitiativesPageData } from "@/services/environmentInitiatives.api";
 import { splitLabelTitleAndIntro, stripH2 } from "@/utils";
 

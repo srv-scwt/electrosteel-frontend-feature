@@ -22,7 +22,7 @@ const ElectrolockJoint = () => {
                 <li>Needs specially manufactured fittings with a hood on the socket and Weld Bead on spigot.</li>
                 <li>Needs special accessories such as Gland, Split Retainer Ring and Nuts/ Hook Bolts.</li>
                 <li>Normal gasket to be used for sealing.</li>
-                <li>The Hook Bolts with the support from the socket hood holds the gland and the socket together. The welding bead on the other pipe's spigot cannot pass through Retainer Ring housed in the gland, ensures restraining of axial movement between the two components.</li>
+                <li>The Hook Bolts with the support from the socket hood holds the gland and the socket together. The welding bead on the other pipe&apos;s spigot cannot pass through Retainer Ring housed in the gland, ensures restraining of axial movement between the two components.</li>
                 <li>Easy to assemble and disassemble when required.</li>
               </ul>
             </div>

@@ -8,7 +8,7 @@ import ApplicationSection from "../_components/applicationSection";
 
 import ContentListSection from "./_components/pushonsec";
 import { getRubberProducts } from "@/services/product/rubberProducts.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 
 const page = async () => {
   const rubberProductsData = await getRubberProducts();

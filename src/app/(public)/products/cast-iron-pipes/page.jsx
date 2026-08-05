@@ -1,6 +1,6 @@
 import GridTwoSection from "@/components/common/GridTwoSection";
 import HeroSection from "@/components/common/heroSection";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getCastIronPipes } from "@/services/product/castIronPipes.api";
 import React from "react";
 

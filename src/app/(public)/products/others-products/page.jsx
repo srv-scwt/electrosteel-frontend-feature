@@ -5,7 +5,7 @@ import TwoGridImageSection from "@/components/common/TwoGridImageSection";
 import styles from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { getOtherProductsAll } from "@/services/product/otherProducts/otherProductsAll.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getFinishedProductByCategory } from "@/services/product/otherProducts/FinishedProductByCategory.api";
 
 const Page = async () => {

@@ -130,7 +130,7 @@ export const sitemapSections = [
     items: [
       {
         label: "Life at Electrosteel",
-        path: "/careers/life-at-electrosteel",
+        path: "/career/life-at-electrosteel",
       },
       { label: "Offices", path: "/connect/offices" },
       { label: "Business Enquiry", path: "/connect/business-enquiry" },
@@ -154,31 +154,6 @@ export const sitemapSections = [
     ],
   },
   {
-    title: "Digital",
-    description: "Digitally-focused media sections for events, videos, and social content.",
-    items: [
-      { label: "Events", path: "/digital/events" },
-      {
-        label: "Latest at Electrosteel",
-        path: "/digital/latest-at-electrosteel",
-      },
-      { label: "Newsletters", path: "/digital/newsletters" },
-      { label: "Digital Videos", path: "/digital/digital-videos" },
-      {
-        label: "Electrosteel on Social",
-        path: "/digital/electrosteel-on-social",
-      },
-    ],
-  },
-  {
-    title: "News",
-    description: "The legacy news section and its current static blog detail route.",
-    items: [
-      { label: "Blog", path: "/news/blog" },
-      { label: "Blog Details", path: "/news/blog/details" },
-    ],
-  },
-  {
     title: "Newsroom",
     description: "Expanded newsroom pages for blogs, events, press updates, and galleries.",
     items: [
@@ -192,7 +167,6 @@ export const sitemapSections = [
       },
       { label: "Press and Media", path: "/newsroom/press-and-media" },
       { label: "Blog", path: "/newsroom/blog" },
-      { label: "Blog Details", path: "/newsroom/blog/details" },
       { label: "Gallery", path: "/newsroom/gallery" },
     ],
   },

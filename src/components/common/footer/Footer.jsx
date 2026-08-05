@@ -17,7 +17,6 @@ const Footer = async () => {
     socialItem?.icon4,
     socialItem?.icon5,
   ].filter(Boolean);
-console.log( socialMedia[0])
   const updatedSocialLinks = socialMedia[0].links.map(link => {
     let url = link.url;
     const matchedUrl = apiLinks.find(api_url => {
@@ -32,7 +31,6 @@ console.log( socialMedia[0])
 
     return { ...link, url: matchedUrl || url };
   });
-  console.log("updatedSocialLinks: ", updatedSocialLinks)
 
   return (
     <footer className="bg-[#00418E] text-white">

@@ -14,7 +14,6 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 
 export default function ManufacturingFacilities({ data, facilities = [] }) {
-  console.log(data);
   
   return (
     <section className={`relative ${styles.spacingTop} ${styles.spacingBottom}`}>

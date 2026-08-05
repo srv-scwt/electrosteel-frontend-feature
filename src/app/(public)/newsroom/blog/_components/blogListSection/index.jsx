@@ -20,6 +20,12 @@ const BlogListSection = ({ data }) => {
                 <article key={blog.id}>
                   <div className={styles.blogCard}>
                     <Link href={`/newsroom/blog/${blog?.slug}`}>
+                      {/* Sized entirely by `.blogCard img` in CSS, and
+                          createImageSourceURL yields "" when the CMS has no
+                          image — next/image throws on an empty src, while <img>
+                          degrades. images.unoptimized is on, so there is no
+                          optimization to gain here either. */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={createImageSourceURL(blog.image)} alt="img" />
                     </Link>
                     <div className={styles.sectionContent}>

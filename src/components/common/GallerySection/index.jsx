@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay, Navigation } from "swiper/modules";
@@ -16,7 +16,6 @@ const GallerySection = ({ contentHidden = false, imageData = [], data , padding=
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const videoRefs = useRef([]);
-  const [swiperInstance, setSwiperInstance] = useState(null);
   const mediaItems = Array.isArray(imageData) ? imageData : [];
   const hasMultipleSlides = mediaItems.length > 1;
   const sliderContent =
@@ -31,23 +30,21 @@ const GallerySection = ({ contentHidden = false, imageData = [], data , padding=
     ? "h-[50vh] md:h-[55vh] lg:h-[60vh]"
     : "h-[50vh] md:h-[60vh] lg:h-[70vh]";
 
-  useEffect(() => {
-    if (
-      !swiperInstance ||
-      !hasMultipleSlides ||
-      !prevRef.current ||
-      !nextRef.current
-    ) {
+  // The nav buttons live outside the Swiper container, so Swiper can't find them
+  // by its default selectors. Wire them up once the instance exists — by then the
+  // sibling refs are attached, so we never read refs during render.
+  const attachNavigation = (swiper) => {
+    if (!hasMultipleSlides || !prevRef.current || !nextRef.current) {
       return;
     }
 
-    swiperInstance.params.navigation.prevEl = prevRef.current;
-    swiperInstance.params.navigation.nextEl = nextRef.current;
+    swiper.params.navigation.prevEl = prevRef.current;
+    swiper.params.navigation.nextEl = nextRef.current;
 
-    swiperInstance.navigation.destroy();
-    swiperInstance.navigation.init();
-    swiperInstance.navigation.update();
-  }, [hasMultipleSlides, swiperInstance]);
+    swiper.navigation.destroy();
+    swiper.navigation.init();
+    swiper.navigation.update();
+  };
 
   const syncActiveVideo = (swiper) => {
     const activeIndex = swiper?.realIndex ?? 0;
@@ -90,14 +87,7 @@ const GallerySection = ({ contentHidden = false, imageData = [], data , padding=
             <div className="slider-container relative w-full">
               <Swiper
                 modules={[Autoplay, A11y, Navigation]}
-                navigation={
-                  hasMultipleSlides
-                    ? {
-                        nextEl: nextRef.current,
-                        prevEl: prevRef.current,
-                      }
-                    : false
-                }
+                navigation={hasMultipleSlides ? { enabled: true } : false}
                 rewind={hasMultipleSlides}
                 speed={1000}
                 slidesPerView={1}
@@ -114,7 +104,7 @@ const GallerySection = ({ contentHidden = false, imageData = [], data , padding=
                 }
                 onSwiper={(swiper) => {
                   swiperRef.current = swiper;
-                  setSwiperInstance(swiper);
+                  attachNavigation(swiper);
                   requestAnimationFrame(() => syncActiveVideo(swiper));
                 }}
                 onSlideChange={syncActiveVideo}

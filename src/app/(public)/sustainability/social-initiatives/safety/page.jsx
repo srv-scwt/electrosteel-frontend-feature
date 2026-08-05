@@ -7,10 +7,11 @@ import HTMLRender from "@/components/ui/HTMLRender";
 import { safetyData } from "./safety.data";
 import SafetyCommitmentsSection from "./_components/SafetyCommitmentsSection";
 import SafetyCredentialsCards from "./_components/SafetyCredentialsCards";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getSafetyPageData } from "@/services/safety.api";
 import { splitLabelAndTitle } from "@/utils";
 import cstyles from "@/app/common.module.css";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const page = async () => {
   const safetyRes = await getSafetyPageData();
@@ -28,7 +29,7 @@ const page = async () => {
       <section className="scroll-mt-24">
         <div className={cstyles.containerLg}>
           <div className={`${cstyles.sectionContent} ${cstyles.customUlListing}`}>
-            <div dangerouslySetInnerHTML={{ __html: apiData.introduction?.description }} />
+            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(apiData.introduction?.description) }} />
           </div>
         </div>
       </section>
@@ -73,7 +74,7 @@ const page = async () => {
             <HTMLRender htmlString={`<h2>${safetyCulture.title}</h2>`} />
           </div>
           <div className={`${cstyles.sectionContent} ${cstyles.customUlListing}`}>
-            <div dangerouslySetInnerHTML={{ __html: apiData.safetyCulture?.description }} />
+            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(apiData.safetyCulture?.description) }} />
           </div>
         </div>
       </section>

@@ -63,7 +63,7 @@ const JoinElectrosteelFamilyModal = ({ onClose }) => {
           >
             atanu.chowdhury@electrosteel.com
           </a>{" "}
-          with 'Fraud' in the subject line.
+          with &apos;Fraud&apos; in the subject line.
         </p>
 
         <h3 className="mt-6 text-lg font-semibold">
@@ -83,7 +83,7 @@ const JoinElectrosteelFamilyModal = ({ onClose }) => {
               address.
             </li>
             <li>
-              If the email begins with "Dear Sir" or "Dear User", it’s likely
+              If the email begins with &quot;Dear Sir&quot; or &quot;Dear User&quot;, it’s likely
               not legitimate.
             </li>
             <li>

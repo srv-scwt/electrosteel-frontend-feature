@@ -21,7 +21,7 @@ export const trainingData = {
 
   domains: {
     title: "What We Train",
-    image: "https://electrosteel.onrender.com/uploads/file-1779356229454-826531389.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/uploads/file-1779356229454-826531389.jpg`,
     cards: [
       {
         title: "Health, Safety & Environment",

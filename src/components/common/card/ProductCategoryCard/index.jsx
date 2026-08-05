@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import videoCardStyles from "@/components/common/card/VideoImageBadgeCard/style.module.css";
 import { createImageSourceURL } from "@/utils";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const ProductCategoryCard = ({ data }) => {
   return (
@@ -29,7 +30,7 @@ const ProductCategoryCard = ({ data }) => {
       <div className="px-[clamp(16px,2.8vw,24px)] pb-[clamp(16px,2.8vw,24px)] flex-1">
         <div className={`${videoCardStyles.sectionContent} mt-3`}>
           {data?.title && <h3 className="uppercase">{data.title}</h3>}
-          {data?.desc && <p dangerouslySetInnerHTML={{ __html: data.desc }} />}
+          {data?.desc && <p dangerouslySetInnerHTML={{ __html: sanitizeHtml(data.desc) }} />}
         </div>
       </div>
     </article>

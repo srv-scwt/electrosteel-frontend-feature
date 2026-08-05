@@ -30,7 +30,7 @@ const videoList = [
         description:
             (
                 <>
-                <p>In keeping with the commitment to the 'Art of Giving', #Electrosteel's senior management hosted a delightful food fest for all employees, 'Khake Zaroor Jaana'.</p> <p>Khake Zaroor Jaana loosely translates to "Do Please Eat Before You Go" in English. This phrase is commonly used in a hospitable context in India, and reflects a cultural emphasis on hospitality.</p>
+                <p>In keeping with the commitment to the &apos;Art of Giving&apos;, #Electrosteel&apos;s senior management hosted a delightful food fest for all employees, &apos;Khake Zaroor Jaana&apos;.</p> <p>Khake Zaroor Jaana loosely translates to &quot;Do Please Eat Before You Go&quot; in English. This phrase is commonly used in a hospitable context in India, and reflects a cultural emphasis on hospitality.</p>
 <p>Serving smiles and building bonds, Khake Zaroor Jaana is all about coming together, sharing a meal, and celebrating the family that we are at Electrosteel.</p>
                 </>
                 
@@ -45,7 +45,7 @@ const videoList = [
         description:
             (
                 <>
-                <p>Electrosteel Castings Ltd is delighted to present a candid conversation with the legendary Lt. Shri Asim Sarkar, one of the pillars behind Electrosteel's Ductile Iron Pipes journey.</p>
+                <p>Electrosteel Castings Ltd is delighted to present a candid conversation with the legendary Lt. Shri Asim Sarkar, one of the pillars behind Electrosteel&apos;s Ductile Iron Pipes journey.</p>
 <p>From indigenous innovation to timeless values, he shares insights, reflections, and a message for future generations. When you stand on the shoulders of giants, you see farther!</p>
                 </>
                 

@@ -2,7 +2,7 @@ import HeroSection from '@/components/common/heroSection'
 import React from 'react'
 import SocialSection from './_components/socialSection'
 import { getSocialData } from '@/services/socialData.api'
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong'
+import SomethingWentWrong from '@/components/common/SomethingWentWrong'
 import { getCommonBanner } from '@/services/commonBanner/commonBanner.api'
 import FollowUsSocialmedia from '@/components/common/followUsSection'
 

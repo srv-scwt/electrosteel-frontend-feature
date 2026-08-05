@@ -1,10 +1,10 @@
 "use client"
-import React, { useState } from "react";
+import React from "react";
 import styles from "@/app/common.module.css";
 import PressMediaCard from "@/components/common/card/PressMediaCard";
 const PressClient = ({ className, data = [] }) => {
   if (!data?.length) return null;
-  const [video , setVideo] = useState()
+
   return (
     <section>
       <div
@@ -15,7 +15,6 @@ const PressClient = ({ className, data = [] }) => {
             <PressMediaCard
               key={post?.id || index}
               post={post}
-              onVideoOpen={setVideo}
               goTo={`/newsroom/press-and-media/${post?.slug}`}
             />
           ))}

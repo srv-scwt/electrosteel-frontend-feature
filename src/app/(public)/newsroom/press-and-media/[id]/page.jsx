@@ -3,7 +3,7 @@ import PressDetailSection from "../_components/PressDetailSection";
 import PressClient from "../_components/PressClient";
 import style from "@/app/common.module.css";
 import { getBlogDetailsBySlug } from "@/services/blogs/blog-slug.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { createImageSourceURL } from "@/utils";
 import { getBlogResponseByCategory } from "@/services/blogs/blog.api";
 

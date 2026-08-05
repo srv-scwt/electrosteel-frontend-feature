@@ -4,7 +4,7 @@ import HeroSection from "@/components/common/heroSection";
 import HTMLRender from "@/components/ui/HTMLRender";
 import ElectrosteelImageCarousel from "../_components/ElectrosteelImageCarousel";
 import { createImageSourceURL, formatDate } from "@/utils";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getBlogDetailsBySlug } from "@/services/blogs/blog-slug.api";
 
 const page = async({ params }) => {

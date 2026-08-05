@@ -3,7 +3,16 @@ import "server-only";
 import { getFinishedProductByCategory } from "@/services/product/otherProducts/FinishedProductByCategory.api";
 import { sanitizeTextContent } from "@/utils";
 
-export const SITE_URL = "https://electrosteel-frontend-feature.vercel.app/";
+// Drives canonical + Open Graph URLs, so this must be the real public origin in
+// production. Set NEXT_PUBLIC_SITE_URL per environment; the fallback is only a
+// preview deployment and will emit wrong canonicals if it is ever used live.
+const FALLBACK_SITE_URL = "https://electrosteel-frontend-feature.vercel.app";
+
+export const SITE_URL = `${(
+  process.env.NEXT_PUBLIC_SITE_URL || FALLBACK_SITE_URL
+)
+  .trim()
+  .replace(/\/+$/, "")}/`;
 
 export const DEFAULT_SEO = {
   title: "Electrosteel",
@@ -217,7 +226,6 @@ const SEO_ROUTE_PAGES = [
   },
   { pathname: "/newsroom/newsletters", pageName: "Newsletter" },
   { pathname: "/newsroom/blog", pageName: "Blogs" },
-  { pathname: "/news/blog", pageName: "Blogs" },
   { pathname: "/newsroom/gallery", pageName: "Gallery" },
   { pathname: "/newsroom/events", pageName: "Events" },
   {
@@ -405,16 +413,51 @@ export function getSeoRouteConfig(pathname = "/") {
   return SEO_ROUTE_BY_PATHNAME[normalizePathname(pathname)] || null;
 }
 
+const IMAGE_REFERENCE_PATTERN =
+  /^(https?:\/\/|\/|data:)|\.(jpe?g|png|webp|gif|svg|avif)(\?|$)/i;
+
+function isImageReference(value) {
+  const text = String(value ?? "").trim();
+  return text.length > 0 && IMAGE_REFERENCE_PATTERN.test(text);
+}
+
+// The CMS currently returns these three keys shifted by one: `title` carries the
+// keywords, `description` carries the title, and `image` carries the description.
+// Rather than hard-coding that, detect it — a record that exposes a `keywords`
+// key, or whose `image` really does look like an image, is already correct. This
+// way the metadata keeps working when the backend mapping is fixed.
+function readSeoFields(seoRecord) {
+  if (!seoRecord) {
+    return { keywords: null, title: null, description: null };
+  }
+
+  const isShifted =
+    !("keywords" in seoRecord) && !isImageReference(seoRecord.image);
+
+  if (isShifted) {
+    return {
+      keywords: seoRecord.title,
+      title: seoRecord.description,
+      description: seoRecord.image,
+    };
+  }
+
+  return {
+    keywords: seoRecord.keywords,
+    title: seoRecord.title,
+    description: seoRecord.description,
+  };
+}
+
 export function buildMetadata({ seoData, currentURL } = {}) {
   const normalizedSeoData = pickSeoRecord(seoData);
+  const seoFields = readSeoFields(normalizedSeoData);
 
-  // API keys are currently mapped incorrectly, so title/description/keywords
-  // are intentionally read from the wrong properties.
   const finalSEO = {
-    keywords: normalizeSeoText(normalizedSeoData?.title, DEFAULT_SEO.title),
-    title: normalizeSeoText(normalizedSeoData?.description, DEFAULT_SEO.title),
+    keywords: normalizeSeoText(seoFields.keywords, DEFAULT_SEO.title),
+    title: normalizeSeoText(seoFields.title, DEFAULT_SEO.title),
     description: normalizeSeoText(
-      normalizedSeoData?.image,
+      seoFields.description,
       DEFAULT_SEO.description
     ),
     image: DEFAULT_SEO.image,
@@ -455,7 +498,8 @@ export function buildMetadata({ seoData, currentURL } = {}) {
       images: [finalSEO.image],
     },
     icons: {
-      icon: "/favicon.ico",
+      icon: "/images/favicon.png",
+      shortcut: "/images/favicon.png",
     },
   };
 }

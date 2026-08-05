@@ -6,9 +6,9 @@ import cstyles from "@/app/common.module.css";
 import { OutlineButtonLink } from "@/components/ui/Button";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { createImageSourceURL, createVideoSourceURL } from "../../../../../utils";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 export default function ElectroSteelSection({ data }) {
-  console.log(data);
   
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -28,8 +28,8 @@ export default function ElectroSteelSection({ data }) {
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${styles.sectionContent}`}>
               {/* <HTMLRender htmlString={data?.box_data1 ?? ""} />
               <HTMLRender htmlString={data?.box_data2 ?? ""} /> */}
-              <div dangerouslySetInnerHTML={{ __html: data?.box_data1 }} />
-              <div dangerouslySetInnerHTML={{ __html: data?.box_data2 }} />
+              <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(data?.box_data1) }} />
+              <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(data?.box_data2) }} />
             </div>
             <div className="pt-4 pb-8">
               <OutlineButtonLink

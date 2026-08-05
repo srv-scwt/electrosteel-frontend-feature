@@ -5,14 +5,14 @@ import TrainingDomainsSection from "./_components/TrainingDomainsSection";
 import cstyles from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
 import GridTwoSection from "@/components/common/GridTwoSection";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getTrainingPageData } from "@/services/training.api";
 import { splitLabelAndTitle } from "@/utils";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const page = async () => {
   const trainingRes = await getTrainingPageData();
   const apiData = trainingRes?.data;
-  console.log(apiData)
   if (!apiData) return <SomethingWentWrong />;
 
   const approach = splitLabelAndTitle(apiData.ourApproach?.title);
@@ -26,7 +26,7 @@ const page = async () => {
       <section className="scroll-mt-24 pt-4 pb-8">
         <div className={cstyles.containerLg}>
           <div className={`${cstyles.sectionContent} ${cstyles.customUlListing}`}>
-            <div dangerouslySetInnerHTML={{ __html: apiData.introduction?.description }} />
+            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(apiData.introduction?.description) }} />
           </div>
         </div>
       </section>
@@ -37,7 +37,7 @@ const page = async () => {
           <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} ${cstyles.customUlListing}`}>
             <h2 className="text-[#004aa1]">{approach.label}</h2>
             <HTMLRender htmlString={`<h2>${approach.title}</h2>`} />
-            <div dangerouslySetInnerHTML={{ __html: apiData.ourApproach?.description }} />
+            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(apiData.ourApproach?.description) }} />
           </div>
         </div>
       </section>
@@ -57,7 +57,7 @@ const page = async () => {
           <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} ${cstyles.customUlListing}`}>
             <h2 className="text-[#004aa1]">{reach.label}</h2>
             <HTMLRender htmlString={`<h2>${reach.title}</h2>`} />
-            <div dangerouslySetInnerHTML={{ __html: apiData.ourReach?.description }} />
+            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(apiData.ourReach?.description) }} />
           </div>
         </div>
       </section>

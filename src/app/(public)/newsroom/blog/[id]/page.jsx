@@ -4,7 +4,7 @@ import GallerySection from '@/components/common/GallerySection';
 import BlogWrapper from '../_components/blogWrapper';
 import { getBlogDetailsBySlug } from '@/services/blogs/blog-slug.api';
 import { getBlogResponseByCategory } from '@/services/blogs/blog.api';
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
+import SomethingWentWrong from '@/components/common/SomethingWentWrong';
 import { createImageSourceURL } from '@/utils';
 
 const getAdjacentBlogs = ({ currentSlug, blogDetails, blogList }) => {

@@ -7,8 +7,8 @@ import BoltedRestrainedJoints from '../../_components/boltedRestrainedJoints';
 import { BoltedRestrainedData, ElectrolockJoint, flangedPipeHeaders, flangedPipeSections } from '../../data/m.data';
 import FlangedJointsTable from '../../_components/flangedJoints';
 import MechanicalJoint from '../_components/mechanicalJoint';
-import { getDiFittingJointingSystem } from '@/services/product/diFittingJointingSystem.api copy';
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
+import { getDiFittingJointingSystem } from '@/services/product/diFittingJointingSystem.api';
+import SomethingWentWrong from '@/components/common/SomethingWentWrong';
 
 const page = async () => {
   const DiFittingData = await getDiFittingJointingSystem();

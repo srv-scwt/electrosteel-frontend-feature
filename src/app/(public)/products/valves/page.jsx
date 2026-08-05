@@ -9,7 +9,7 @@ import ProtectionSystemSectionInternal from './_components/protectionSectionInte
 import { divalvesPInternal, divalvesproductDetails } from '../data/m.data';
 import ChooseElectrosteelContent from './_components/chooseContent';
 import { getValves } from '@/services/product/valves.api';
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
+import SomethingWentWrong from '@/components/common/SomethingWentWrong';
 import { getFinishedProductByCategory } from '@/services/product/otherProducts/FinishedProductByCategory.api';
 import { createImageSourceURL } from '@/utils';
 

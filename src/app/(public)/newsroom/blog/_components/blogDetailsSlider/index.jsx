@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { Pagination } from "swiper/modules";
@@ -11,7 +12,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const BlogDetailsSlider = ({ slides }) => {
+const BlogDetailsSlider = ({ slides = [] }) => {
   return (
     <div className="blog-details-slider">
       <Swiper
@@ -26,11 +27,15 @@ const BlogDetailsSlider = ({ slides }) => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-[400px] md:h-[760px]">
-              <img
-                src={slide.img}
-                alt={slide.alt || `Slide ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
+              {slide?.img ? (
+                <Image
+                  src={slide.img}
+                  alt={slide.alt || `Slide ${index + 1}`}
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                />
+              ) : null}
             </div>
           </SwiperSlide>
         ))}
