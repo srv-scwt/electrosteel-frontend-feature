@@ -34,9 +34,9 @@ const socialMedia = [
     type: "social",
     links: [
       { platform: "LinkedIn", image:'/images/social1.png' , url: "/social/linkedin" },
-      { platform: "Facebook", image:'/images/social2.png' , url: "/social/facebook" },
-      { platform: "Instagram", image:'/images/social3.png' , url: "/social/instagram" },
-      { platform: "Twitter", image:'/images/social4.png' , url: "/social/twitter" },
+      { platform: "Facebook", image:'/images/social3.png' , url: "/social/facebook" },
+      { platform: "Instagram", image:'/images/social4.png' , url: "/social/instagram" },
+      { platform: "Twitter", image:'/images/social2.png' , url: "/social/twitter" },
       { platform: "YouTube", image:'/images/social5.png' , url: "/social/youtube" },
     ],
   },

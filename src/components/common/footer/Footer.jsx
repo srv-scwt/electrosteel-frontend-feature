@@ -10,15 +10,29 @@ const Footer = async () => {
   const socialApiData = await getSocialIconsData();
   const socialItem = socialApiData?.data?.[0];
 
+  const apiLinks = [
+    socialItem?.icon1,
+    socialItem?.icon2,
+    socialItem?.icon3,
+    socialItem?.icon4,
+    socialItem?.icon5,
+  ].filter(Boolean);
+console.log( socialMedia[0])
   const updatedSocialLinks = socialMedia[0].links.map(link => {
     let url = link.url;
-    if (link.platform === "LinkedIn") url = socialItem?.icon5 || url;
-    if (link.platform === "Facebook") url = socialItem?.icon1 || url;
-    if (link.platform === "Instagram") url = socialItem?.icon2 || url;
-    if (link.platform === "Twitter") url = socialItem?.icon3 || url;
-    if (link.platform === "YouTube") url = socialItem?.icon4 || url;
-    return { ...link, url };
+    const matchedUrl = apiLinks.find(api_url => {
+      const lower = api_url.toLowerCase();
+      if (link.platform === "LinkedIn" && lower.includes("linkedin")) return true;
+      if (link.platform === "Facebook" && lower.includes("facebook")) return true;
+      if (link.platform === "Instagram" && lower.includes("instagram")) return true;
+      if (link.platform === "Twitter" && (lower.includes("twitter") || lower.includes("x.com"))) return true;
+      if (link.platform === "YouTube" && lower.includes("youtube")) return true;
+      return false;
+    });
+
+    return { ...link, url: matchedUrl || url };
   });
+  console.log("updatedSocialLinks: ", updatedSocialLinks)
 
   return (
     <footer className="bg-[#00418E] text-white">
