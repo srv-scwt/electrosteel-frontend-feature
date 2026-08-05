@@ -10,7 +10,7 @@ export const waterData = {
   },
   initiativesSection: {
     title: "HOW WE MANAGE WATER",
-    image: "https://electrosteel.onrender.com/uploads/file-1779356229454-826531389.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/uploads/file-1779356229454-826531389.jpg`,
     initiatives: [
       {
         title: "Closed-Loop Process Water Recycling",

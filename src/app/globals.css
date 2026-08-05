@@ -288,7 +288,7 @@ input {
   animation: modalFadeIn 0.25s ease-out;
 }
 
-/* .swiper-button-next,
-.swiper-button-prev {
+.swiper-button-next.rounded-full,
+.swiper-button-prev.rounded-full {
   opacity: 0;
-} */
+}

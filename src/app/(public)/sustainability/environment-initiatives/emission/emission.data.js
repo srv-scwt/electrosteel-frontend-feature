@@ -1,3 +1,4 @@
+
 export const emissionData = {
   hero: {
     title: "EMISSION",
@@ -10,7 +11,7 @@ export const emissionData = {
   },
   initiativesSection: {
     title: "HOW WE MANAGE EMISSIONS",
-    image: "https://electrosteel.onrender.com/uploads/file-1779356229454-826531389.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/uploads/file-1779356229454-826531389.jpg`,
     initiatives: [
       {
         title: "Continuous Emission Monitoring",

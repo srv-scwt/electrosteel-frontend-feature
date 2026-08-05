@@ -30,7 +30,7 @@ export const policyCommitmentsData = {
   },
   policyFramework: {
     title: "Our Governing Policy Framework",
-    image: "https://electrosteel.onrender.com/uploads/file-1779356229454-826531389.jpg",
+    image: "/images/sustainability/governance_initiatives/policy-commitements-bg.webp",
     policies: [
       {
         title: "Environmental Policy",
