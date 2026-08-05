@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { ChevronDown, Menu, X, ChevronRight, ChevronUp } from "lucide-react";
 import Link from "next/link";
@@ -69,6 +70,7 @@ export default function Navbar() {
 
   const [flagDrawer, setFlagDrawer] = useState(false);
   const [categoryDrawer, setCategoryDrawer] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
@@ -130,6 +132,25 @@ export default function Navbar() {
   };
 
   const [showAllFlags, setShowAllFlags] = useState(false);
+
+  // The header lives in the root layout, so it survives client-side navigation.
+  // Without this, a mega menu opened by hover stays open on the page the user
+  // just navigated to: onMouseLeave never fires once the menu unmounts from
+  // under the pointer. Keyed on the pathname string, so it compares by value and
+  // closes during render — before the new page paints, with no extra round trip.
+  const pathname = usePathname();
+  const [previousPathname, setPreviousPathname] = useState(pathname);
+
+  if (previousPathname !== pathname) {
+    setPreviousPathname(pathname);
+    setHoveredLink(null);
+    setIsOpen(false);
+    setIsSearchOpen(false);
+    setOpenIndex(null);
+    setFlagDrawer(false);
+    setCategoryDrawer(false);
+    setShowAllFlags(false);
+  }
 
   return (
     <header
