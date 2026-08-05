@@ -8,7 +8,7 @@ import JointingSystemSection from "../_components/jointingSystemsSection";
 import ProtectionSystemSection from "../_components/protectionSystemSection";
 import DipProductDetails from "../_components/dipProductDetailsTable";
 import { getDuctileIronPipes } from "@/services/product/ductileIronPipes.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 
 const page = async () => {
   const DuctileIronPipesData = await getDuctileIronPipes();

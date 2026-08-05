@@ -5,7 +5,7 @@ import React from "react";
 import BoltedRestrainedJoints from "../../_components/boltedRestrainedJoints";
 import FlangedJointsTable from "../../_components/flangedJoints";
 import { getDipipesJointingSystem } from "@/services/product/dipipesJointingSystem.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import ToothGasketRestrained from "../../_components/toothGasketRestrained";
 
 const page = async () => {

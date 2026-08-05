@@ -9,7 +9,7 @@ import OptionalUnitsOverseas from './_components/optionalUnitsOverseas'
 import { countrieData, IndiaOffice, OfficeData, OperationalUnits, OverseasData, OverseasUnits } from './_components/m.data'
 import CountriesAbout from './_components/countriesAbout'
 import { getGlobalPresence } from '@/services/global-presence.api'
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong'
+import SomethingWentWrong from '@/components/common/SomethingWentWrong'
 import { getGlobalOverseas } from '@/services/globalOverseas.api'
 import { getCommonBanner } from '@/services/commonBanner/commonBanner.api'
 
@@ -33,7 +33,6 @@ const page = async ({ searchParams }) => {
   const unitsData = await getGlobalPresence("global-operational-units");
   const GlobalOverseas = await getGlobalOverseas();
   const heroBanner = await getCommonBanner("global-presence");
-  console.log("HERO BANNER API RESPONSE: ", heroBanner);
   
 
   const registeredOffice = RegisteredData?.data?.data?.[0];

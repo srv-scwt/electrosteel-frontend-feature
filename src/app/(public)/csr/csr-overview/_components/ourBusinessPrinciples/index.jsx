@@ -14,7 +14,7 @@ const OurBusinessPrinciples = () => {
               CSR at the core of <span>our business principles</span> 
             </h2>
             <p>
-              Corporate Social Responsibility has a long tradition in Electrosteel. For the last many decades, we have created a niche for ourselves, not just as a technology and innovation pioneer, but also as a Company that lives its mantra of "technology that cares".
+              Corporate Social Responsibility has a long tradition in Electrosteel. For the last many decades, we have created a niche for ourselves, not just as a technology and innovation pioneer, but also as a Company that lives its mantra of &quot;technology that cares&quot;.
             </p>
             <p>We engage regularly with our stakeholders to understand their needs and concerns and look to strengthen their communities with our endeavors. The guiding principle behind our CSR activities is to maximize the impact it has on the quality of lives of the community.</p>
           </div>

@@ -3,7 +3,7 @@
 import HeroSection from "@/components/common/heroSection";
 import React from "react";
 import PressClient from "./_components/PressClient";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getBlogResponseByCategory } from "@/services/blogs/blog.api";
 import { getCommonBanner } from "@/services/commonBanner/commonBanner.api";
 import { createImageSourceURL } from "@/utils";

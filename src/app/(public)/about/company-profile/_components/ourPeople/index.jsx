@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FiMaximize, FiMinimize, FiPause, FiPlay } from "react-icons/fi";
 import styles from "./style.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
@@ -16,12 +16,14 @@ export default function OurPeople({ data }) {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isControlsVisible, setIsControlsVisible] = useState(false);
 
-  const clearControlsTimeout = () => {
+  // Only touches refs and state setters, so it is safe to keep referentially
+  // stable — the mount effect below depends on it.
+  const clearControlsTimeout = useCallback(() => {
     if (controlsTimeoutRef.current) {
       clearTimeout(controlsTimeoutRef.current);
       controlsTimeoutRef.current = null;
     }
-  };
+  }, []);
 
   const clearPreviewTimeout = () => {
     if (previewTimeoutRef.current) {
@@ -30,18 +32,21 @@ export default function OurPeople({ data }) {
     }
   };
 
-  const showControls = (fullscreenMode) => {
-    setIsControlsVisible(true);
-    clearControlsTimeout();
+  const showControls = useCallback(
+    (fullscreenMode) => {
+      setIsControlsVisible(true);
+      clearControlsTimeout();
 
-    if (!fullscreenMode) {
-      return;
-    }
+      if (!fullscreenMode) {
+        return;
+      }
 
-    controlsTimeoutRef.current = setTimeout(() => {
-      setIsControlsVisible(false);
-    }, 1500);
-  };
+      controlsTimeoutRef.current = setTimeout(() => {
+        setIsControlsVisible(false);
+      }, 1500);
+    },
+    [clearControlsTimeout]
+  );
 
   const stopHoverPreview = ({ restorePosition = true } = {}) => {
     const videoElement = videoRef.current;
@@ -120,7 +125,7 @@ export default function OurPeople({ data }) {
       isPreviewingRef.current = false;
       videoElement.pause();
     };
-  }, []);
+  }, [showControls, clearControlsTimeout]);
 
   const handlePointerEnter = () => {
     showControls(isFullscreen);

@@ -2,7 +2,7 @@ import React from "react";
 import TopSection from "./topSection";
 import BottomSection from "./bottomSection";
 import { getJolsadhana } from "@/services/jolsadhana.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { createVideoSourceURL } from "@/utils";
 
 const SustainableWaterMangement = async () => {

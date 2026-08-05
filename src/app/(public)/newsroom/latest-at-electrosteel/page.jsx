@@ -2,7 +2,7 @@ import React from 'react'
 import LatestElectrosteelListing from './_components/latestElectrosteelListSection'
 import HeroSectionVideo from '@/components/common/heroSectionVideo'
 import HeroSection from '@/components/common/heroSection'
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
+import SomethingWentWrong from '@/components/common/SomethingWentWrong';
 import { getBlogResponseByCategory } from '@/services/blogs/blog.api';
 import { getCommonBanner } from '@/services/commonBanner/commonBanner.api';
 import { createImageSourceURL } from '@/utils';

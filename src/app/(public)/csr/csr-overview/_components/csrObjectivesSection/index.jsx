@@ -13,7 +13,7 @@ const CsrObjectives = () => {
             <h2>
               CSR <span>Objectives</span>
             </h2>
-            <p className='mb-4'><strong>Electrosteel's CSR projects aim towards bringing a holistic development of the individual and the society. Our primary goals are:</strong></p>
+            <p className='mb-4'><strong>Electrosteel&apos;s CSR projects aim towards bringing a holistic development of the individual and the society. Our primary goals are:</strong></p>
             <div className={styles.customUlListing}>
               <ul>
                 <li>To develop an equitable society by helping to create and foster livelihood opportunities for the underprivileged and marginalized communities.</li>

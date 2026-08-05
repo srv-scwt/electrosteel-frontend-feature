@@ -39,6 +39,11 @@ const BlogDetailsContent = ({ data }) => {
               />
             </div>
             <h3>{data?.description}</h3>
+            {/* Floated and sized by `img.alignRight` in CSS, and
+                createImageSourceURL yields "" when the CMS has no image —
+                next/image throws on an empty src, while <img> degrades.
+                images.unoptimized is on, so there is nothing to optimize. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={createImageSourceURL(data?.image)}
               alt={data?.title}

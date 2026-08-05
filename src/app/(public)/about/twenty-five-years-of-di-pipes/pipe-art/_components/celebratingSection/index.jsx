@@ -16,7 +16,7 @@ const CelebartingSection = () => {
               CELEBRATING <span>MILESTONES THROUGH</span> MASTERPIECES
             </h2>
             <p>At Electrosteel, we are celebrating 25 years of pioneering Ductile Iron Pipes in India.</p>
-            <p>To celebrate our glorious journey, we initiated "Inspiration Canvas" - an art project that uses our pipes as a canvas to depict our values of <strong>Trust, Innovation, Responsibility, Purity and Expanding Boundaries.</strong></p>
+            <p>To celebrate our glorious journey, we initiated &quot;Inspiration Canvas&quot; - an art project that uses our pipes as a canvas to depict our values of <strong>Trust, Innovation, Responsibility, Purity and Expanding Boundaries.</strong></p>
             <p>It all began when we asked for participation, and entries just started pouring in! Having selected our best artists, we gave them themes to paint under the able guidance of a professional artist. What followed were these beautiful expressions of art and creativity on our pipes.</p>
             <p>We have given these art installations pride of place at our establishments, where they will be preserved for posterity. These pieces of art stand testimony to the pioneering spirit that makes us who we are.</p>
             <p><strong>#technologythatcares</strong></p>

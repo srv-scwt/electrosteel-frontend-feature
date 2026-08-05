@@ -8,7 +8,6 @@ const LegendVideoCard = ({ className, events = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [videoLink, setVideoLink] = useState(null);
 
-  console.log(events );
   
 
   const handleVideoOpen = (id) => {

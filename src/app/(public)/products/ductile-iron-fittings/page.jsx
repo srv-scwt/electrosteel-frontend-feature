@@ -7,7 +7,7 @@ import JointingSystemSection from '../_components/jointingSystemsSection';
 import ApplicationSection from '../_components/applicationSection';
 import ProtectionSystemSection from '../_components/protectionSystemSection';
 import { getDuctileIronFittings } from '@/services/product/ductileIronFittings.api';
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
+import SomethingWentWrong from '@/components/common/SomethingWentWrong';
 import { createImageSourceURL } from '@/utils';
 
 

@@ -3,14 +3,17 @@
 import { useEffect } from "react";
 
 export default function CarrerEnquiryModal({ open, onClose, children }) {
-  if (!open) return null;
-
-  // Close when pressing ESC
+  // Close when pressing ESC. Hooks must run on every render, so the effect stays
+  // above the early return and no-ops while the modal is closed.
   useEffect(() => {
+    if (!open) return;
+
     const handleEsc = (e) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
-  }, []);
+  }, [open, onClose]);
+
+  if (!open) return null;
 
   return (
     <div

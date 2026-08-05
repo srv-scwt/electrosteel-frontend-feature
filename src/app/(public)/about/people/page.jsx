@@ -5,7 +5,7 @@ import ButtonSwiperImageClient from "@/components/common/ButtonSwiperImageClient
 import styles from "@/app/common.module.css";
 import ImageContentSquareCard from "@/components/common/card/ImageContentSquareCard";
 import { getPeoplePageData } from "@/services/people.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { createImageSourceURL, formatSliderData } from "@/utils";
 import { getBlogResponseByCategory } from "@/services/blogs/blog.api";

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, useRef } from "react";
 
 export default function ActiveIndicator() {
   const pathname = usePathname();
@@ -13,14 +12,12 @@ export default function ActiveIndicator() {
     { label: "Careers Enquiry", slug: "/connect/careers-enquiry" },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const tabRefs = useRef([]);
-
-  useEffect(() => {
-    const index = items.findIndex((i) => pathname === i.slug);
-    setActiveIndex(index === -1 ? 0 : index);
-  }, [pathname]);
-
+  // Derived straight from the pathname — no state to fall out of sync.
+  // findIndex returns -1 when nothing matches, which falls back to the first tab.
+  const activeIndex = Math.max(
+    0,
+    items.findIndex((i) => pathname === i.slug)
+  );
 
   return (
     <div className="relative w-full border-b border-gray-300 mt-6">
@@ -29,7 +26,6 @@ export default function ActiveIndicator() {
           <Link
             key={item.slug}
             href={item.slug}
-            ref={(el) => (tabRefs.current[i] = el)}
             className={`py-4 text-sm md:text-base font-medium transition-all duration-200 relative
               hover:text-blue-600 
               ${

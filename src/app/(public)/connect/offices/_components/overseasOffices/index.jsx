@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import styles from "@/app/common.module.css";
 import commonStyles from "./style.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -36,9 +36,9 @@ const normalizeSlug = (value) =>
     .replace(/\s+/g, "-");
 
 const OverseasOffices = ({ selectedCountryParam, data }) => {
-  const overseasOffices = data?.data || [];
-
   const groupedData = useMemo(() => {
+    const overseasOffices = data?.data || [];
+
     return overseasOffices.reduce((acc, office) => {
       const country = office?.country || office?.title || "Others";
 
@@ -47,7 +47,7 @@ const OverseasOffices = ({ selectedCountryParam, data }) => {
 
       return acc;
     }, {});
-  }, [overseasOffices]);
+  }, [data]);
 
   const countries = Object.keys(groupedData);
 
@@ -70,11 +70,19 @@ const OverseasOffices = ({ selectedCountryParam, data }) => {
 
   const [activeCountry, setActiveCountry] = useState("");
 
-  useEffect(() => {
-    if (countries.length) {
-      setActiveCountry(getCountryFromQuery(selectedCountryParam));
-    }
-  }, [selectedCountryParam, countries.join("|")]);
+  // Re-seed the selection from the query param whenever it (or the country list)
+  // changes, while leaving a manual dropdown choice alone in between. Keyed on a
+  // string so this compares by value and settles during render rather than
+  // cascading through an effect.
+  const countryResetKey = `${selectedCountryParam ?? ""}|${countries.join("|")}`;
+  const [previousCountryResetKey, setPreviousCountryResetKey] = useState(null);
+
+  if (previousCountryResetKey !== countryResetKey) {
+    setPreviousCountryResetKey(countryResetKey);
+    setActiveCountry(
+      countries.length ? getCountryFromQuery(selectedCountryParam) : ""
+    );
+  }
 
   return (
     <div id="offices-overseas" className="flex h-full flex-col">

@@ -64,6 +64,11 @@ const CookieConsent = () => {
     (key) => preferences[key]
   );
 
+  // Stored consent lives in localStorage/sessionStorage, which don't exist during
+  // SSR, so it can only be read after mount — `isReady` gates rendering until then
+  // to avoid a hydration mismatch. These values become user-editable state from
+  // here on, so useSyncExternalStore isn't a fit.
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     const storedConsent = readStoredConsent();
 
@@ -81,6 +86,7 @@ const CookieConsent = () => {
     setIsBannerVisible(!isDismissed);
     setIsReady(true);
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   useEffect(() => {
     if (!isModalOpen) {

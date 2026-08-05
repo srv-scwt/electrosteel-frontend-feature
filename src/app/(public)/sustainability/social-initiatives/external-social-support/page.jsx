@@ -4,7 +4,7 @@ import HeroSection from "@/components/common/heroSection";
 import SocialInactiveSection from "@/components/common/socialinactiveSec";
 import GridTwoSection from "@/components/common/GridTwoSection";
 import { getExternalSocial } from "@/services/externalSocialSupport.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 
 const page = async () => {
   const ExternalSocial = await getExternalSocial();

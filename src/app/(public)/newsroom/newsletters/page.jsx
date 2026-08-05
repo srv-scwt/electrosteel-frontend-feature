@@ -1,5 +1,5 @@
 import HeroSection from "@/components/common/heroSection";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getInvestorResponse } from "@/services/investors/investor.api";
 import { getCommonBanner } from "@/services/commonBanner/commonBanner.api";
 import { createImageSourceURL } from "@/utils";

@@ -4,7 +4,7 @@ import VisionSection from './_components/visionSection'
 import GuidingPrinciples from './_components/guidingPrinciplesSection'
 import GridTwoSection from '@/components/common/GridTwoSection';
 import { getVisionMisson } from '@/services/visionMission.api';
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
+import SomethingWentWrong from '@/components/common/SomethingWentWrong';
 
 
 

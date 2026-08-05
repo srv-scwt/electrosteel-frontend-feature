@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 import styles from "./style.module.css";
 import cstyles from "@/app/common.module.css";
@@ -33,6 +33,16 @@ const BlogFilter = ({ data, searchParams }) => {
 
   const [search, setSearch] = useState(searchByParam);
 
+  // Re-sync the input when the URL param changes underneath us (back/forward
+  // navigation, or a cleared filter). Both are strings, so this compares by value
+  // and settles in a single render instead of cascading through an effect.
+  const [previousSearchParam, setPreviousSearchParam] = useState(searchByParam);
+
+  if (previousSearchParam !== searchByParam) {
+    setPreviousSearchParam(searchByParam);
+    setSearch(searchByParam);
+  }
+
   const selectedMonth =
     yearMonthArr?.months?.find(
       (item) => String(item?.value) === selectedMonthParam
@@ -40,10 +50,6 @@ const BlogFilter = ({ data, searchParams }) => {
   const selectedYear =
     yearMonthArr?.years?.find((item) => item?.value === selectedYearParam) ||
     fallbackYearOption;
-
-  useEffect(() => {
-    setSearch(searchByParam);
-  }, [searchByParam]);
 
   const handleMonthChange = (option) => {
     appendQueryParam("month", option?.value ? String(option.value) : "");

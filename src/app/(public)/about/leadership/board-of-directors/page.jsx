@@ -2,7 +2,7 @@ import HeroSection from "@/components/common/heroSection";
 import React from "react";
 import DirectorSection from "./_components/directorSection";
 import { getAllDirectors } from "@/services/allDirectors.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getCommonBanner } from "@/services/commonBanner/commonBanner.api";
 import { createImageSourceURL } from "@/utils";
 

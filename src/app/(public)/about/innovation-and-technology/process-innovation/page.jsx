@@ -1,6 +1,6 @@
 import GridTwoSection from '@/components/common/GridTwoSection';
 import HeroSection from '@/components/common/heroSection';
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
+import SomethingWentWrong from '@/components/common/SomethingWentWrong';
 import { getProcessInnovation } from '@/services/processInnovation.api';
 import React from 'react'
 

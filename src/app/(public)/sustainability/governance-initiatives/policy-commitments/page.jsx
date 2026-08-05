@@ -5,11 +5,12 @@ import GridTwoSection from "@/components/common/GridTwoSection";
 import CommonTable from "@/components/common/CommonTable";
 import { policyCommitmentsData } from "./policy-commitments.data";
 import PolicyFrameworkSection from "./_components/PolicyFrameworkSection.jsx";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getPolicyCommitmentsPageData } from "@/services/policyCommitments.api";
 import cstyles from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { splitLabelAndTitle } from "@/utils";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const page = async () => {
   const policyRes = await getPolicyCommitmentsPageData();
@@ -110,7 +111,7 @@ const page = async () => {
           <div className={`${cstyles.sectionContent} ${cstyles.sectionContentSpanDark} ${cstyles.customUlListing}`}>
             <h2 className="text-[#004aa1]">{continuousImprovement.label}</h2>
             <HTMLRender htmlString={`<h2>${continuousImprovement.title}</h2>`} />
-            <div dangerouslySetInnerHTML={{ __html: apiData.continuousImprovement?.description }} />
+            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(apiData.continuousImprovement?.description) }} />
           </div>
         </div>
       </section>

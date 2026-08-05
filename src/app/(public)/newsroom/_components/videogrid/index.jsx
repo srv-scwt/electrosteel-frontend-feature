@@ -119,7 +119,7 @@ export default function VideoGallery({ sectionId, data = [] }) {
                       playsInline
                       preload="metadata"
                       className="w-full h-full object-cover"
-                      onError={() => console.log("Video error:", videoSrc)}
+                      onError={() => console.error("Video error:", videoSrc)}
                     >
                       <source src={createVideoSourceURL(videoSrc)} type="video/mp4" />
                     </video>

@@ -7,7 +7,7 @@ import FlangePipeTable from "../_components/FlangePipetypesTable";
 import ChooseListSection from "@/components/common/ChooseListSection";
 import ApplicationSection from "../_components/applicationSection";
 import { getDuctileIronFlangePipes } from "@/services/product/ductileIronFlangePipe.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 
 const page = async () => {
   const DiFlangePipesData = await getDuctileIronFlangePipes();

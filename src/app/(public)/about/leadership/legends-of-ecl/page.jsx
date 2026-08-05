@@ -2,7 +2,7 @@ import HeroSection from '@/components/common/heroSection'
 import React from 'react'
 import { LegendVideoCard } from './_components'
 import { getEclLegends } from '@/services/legendsEcl.api';
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
+import SomethingWentWrong from '@/components/common/SomethingWentWrong';
 
 
 const page = async () => {

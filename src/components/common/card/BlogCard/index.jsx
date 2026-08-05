@@ -37,6 +37,11 @@ const BlogCard = ({ blog = {} }) => {
             <article className={styles.cardItem}>
                 <div className={styles.blogCard}>
                     <Link href={href}>
+                        {/* Sized entirely by `.blogCard img` in CSS, and imageSrc
+                            is "" when the CMS has no image — next/image throws on
+                            an empty src, while <img> degrades. images.unoptimized
+                            is on, so there is no optimization to gain either. */}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={imageSrc} alt={blog?.title || "Blog"} />
                     </Link>
                     {formattedDate ? (

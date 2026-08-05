@@ -2,7 +2,7 @@ import HeroSection from '@/components/common/heroSection'
 import React from 'react'
 import GridTwoSection from '@/components/common/GridTwoSection';
 import { getPrestigious } from '@/services/prestigious.api';
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
+import SomethingWentWrong from '@/components/common/SomethingWentWrong';
 
 const page = async () => {
   const prestigiousData = await getPrestigious();

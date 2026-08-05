@@ -11,7 +11,7 @@ import {
 } from "./_components";
 import HorizontalCardSection from "./_components/HorizontalCardSection";
 import { businessData, businessTitle } from "./_components/HorizontalCardSection/bussiness.data";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getHomeListing } from "@/services/home.api";
 import { getSocialData } from "@/services/socialData.api";
 

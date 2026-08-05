@@ -9,7 +9,7 @@ import {
 } from "./company-profile/_components";
 import HeroSection from "@/components/common/heroSection";
 import GridTwoSection from "@/components/common/GridTwoSection";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getAboutUs } from "@/services/aboutUs.api";
 
 const page = async () => {

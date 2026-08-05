@@ -1,5 +1,5 @@
 import HeroSection from "@/components/common/heroSection";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { INVESTOR_PAGE_HERO_CATEGORY_MAP } from "../../_components/investorsHero.data";
 import { getCommonBanner } from "@/services/commonBanner/commonBanner.api";
 import { getUnclaimedDividendsResponse } from "@/services/investors/investor.api";

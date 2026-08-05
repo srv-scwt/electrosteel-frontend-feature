@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function SomethingWentWrong({
@@ -8,8 +7,13 @@ export default function SomethingWentWrong({
   message = "We couldn’t process your request right now. Please try again later.",
   showRetry = true,
   errorCode = "API_FAILED",
+  onRetry,
 }) {
   const router = useRouter();
+
+  // Error boundaries pass Next's `reset`, which re-renders the segment without a
+  // full page load. Fall back to a reload when used as a plain "API is down" card.
+  const handleRetry = onRetry ?? (() => window.location.reload());
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-[#0c5894] via-[#0a4c80] to-[#083b66] px-4">
@@ -20,13 +24,6 @@ export default function SomethingWentWrong({
 
         {/* 🖼️ Illustration */}
         <div className="relative h-48 bg-linear-to-br from-[#0c5894] to-[#083b66] flex items-center justify-center">
-          <Image
-            src="/img/search/blog-demo.webp"
-            alt="Error"
-            fill
-            priority
-            className="object-cover opacity-20"
-          />
           <div className="relative z-10 flex flex-col items-center text-white">
             <div className="h-14 w-14 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-3xl">
               ⚠️
@@ -51,7 +48,7 @@ export default function SomethingWentWrong({
           <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
             {showRetry && (
               <button
-                onClick={() => window.location.reload()}
+                onClick={handleRetry}
                 className="inline-flex items-center justify-center rounded-xl bg-[#0c5894] hover:bg-[#094a7b] text-white px-6 py-3 text-sm font-medium shadow-lg shadow-[#0c5894]/30 transition-all active:scale-95"
               >
                 Try Again

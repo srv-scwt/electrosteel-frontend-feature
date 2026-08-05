@@ -3,7 +3,7 @@ import HeroSection from "@/components/common/heroSection";
 import HTMLRender from "@/components/ui/HTMLRender";
 import styles from "@/app/common.module.css";
 import { getOurCommitments } from "@/services/ourCommitment.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 const heroData = {
   banner: "/images/product-details/ductile-iron-pipes-banner.png",
   title: "OUR COMMITMENT GOING FORWARD",

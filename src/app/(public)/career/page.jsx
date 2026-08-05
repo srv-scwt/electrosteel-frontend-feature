@@ -7,6 +7,7 @@ import { Check } from "lucide-react";
 import cstyles from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { careerData } from "./career.data";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 // Reusable Checklist Component
 const Checklist = ({ title, items }) => (
@@ -60,17 +61,17 @@ const page = () => {
           <div className={`${cstyles.sectionContent} mb-6`}>
             <HTMLRender htmlString={careerData.overview.subTitle} />
           </div>
-          <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)] mb-8" dangerouslySetInnerHTML={{ __html: careerData.overview.description }} />
+          <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)] mb-8" dangerouslySetInnerHTML={{ __html: sanitizeHtml(careerData.overview.description) }} />
           
           <Checklist title={careerData.whyJoinUs.title} items={careerData.whyJoinUs.checklist} />
           {careerData.whyJoinUs.postDescription && (
-            <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)] mb-8" dangerouslySetInnerHTML={{ __html: careerData.whyJoinUs.postDescription }} />
+            <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)] mb-8" dangerouslySetInnerHTML={{ __html: sanitizeHtml(careerData.whyJoinUs.postDescription) }} />
           )}
 
           <div className={`${cstyles.sectionContent} mb-6`}>
             <HTMLRender htmlString={careerData.ourPromise.title} />
           </div>
-          <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)]" dangerouslySetInnerHTML={{ __html: careerData.ourPromise.description }} />
+          <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)]" dangerouslySetInnerHTML={{ __html: sanitizeHtml(careerData.ourPromise.description) }} />
         </div>
       </section>
 
@@ -84,7 +85,7 @@ const page = () => {
           </div>
           
           {careerData.joinUs.currentOpenings.description && (
-            <div className="mb-4 text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)]" dangerouslySetInnerHTML={{ __html: careerData.joinUs.currentOpenings.description }} />
+            <div className="mb-4 text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)]" dangerouslySetInnerHTML={{ __html: sanitizeHtml(careerData.joinUs.currentOpenings.description) }} />
           )} */}
 
           {/* <div className="mb-8">

@@ -2,7 +2,7 @@ import HeroSection from "@/components/common/heroSection";
 import FAQAccordion from "./_components/FAQAccordion";
 import styles from "@/app/common.module.css";
 import { getCommonBanner } from "@/services/commonBanner/commonBanner.api";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getBlogResponseByCategory } from "@/services/blogs/blog.api";
 import { createImageSourceURL, groupByTitle } from "@/utils";
 

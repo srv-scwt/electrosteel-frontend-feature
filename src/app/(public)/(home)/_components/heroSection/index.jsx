@@ -33,7 +33,7 @@ export default function HeroSection({ slides, miniStats }) {
     }, 12000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [slides?.length]);
 
   // Handle mute/unmute toggle
   const toggleMute = () => {

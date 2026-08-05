@@ -19,9 +19,7 @@ export function handleServerFetchError(error, label = "SERVER_FETCH_ERROR") {
   };
 }
 
-export async function ServerFetch(path,
-  config,
-  init) {
+export async function ServerFetch(path, config = {}, init) {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   if (!baseUrl) {
@@ -40,9 +38,10 @@ export async function ServerFetch(path,
         ? { cache: "no-store" }
         : { next: { revalidate: config.revalidate } }),
     });
-    
-    
-    if (!res.status) {
+
+    // res.status is always a number, so the previous `!res.status` check never
+    // fired and error responses fell through to be parsed as data.
+    if (!res.ok) {
       console.error("fetchServer failed:", path, res.status);
       return null;
     }

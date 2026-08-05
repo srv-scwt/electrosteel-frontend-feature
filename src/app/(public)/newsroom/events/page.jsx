@@ -1,7 +1,7 @@
 import React from "react";
 import { ChooseOurEvents, HandPickedVideos, LatestEvents, UpcomingEvents } from "./_components";
 import HeroSection from "@/components/common/heroSection";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getEventPage } from "@/services/events.api";
 
 const page = async () => {

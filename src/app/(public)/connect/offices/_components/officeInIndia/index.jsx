@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import styles from "@/app/common.module.css";
 import commonStyles from "./style.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -29,9 +29,9 @@ const toArray = (value) => {
 };
 
 const OfficeInIndia = ({ selectedCountryParam, indiaData, officesOverseasData }) => {
-  const offices = indiaData?.data || [];
-
   const groupedData = useMemo(() => {
+    const offices = indiaData?.data || [];
+
     return offices.reduce((acc, office) => {
       const region = office?.direction || "Others";
 
@@ -40,16 +40,17 @@ const OfficeInIndia = ({ selectedCountryParam, indiaData, officesOverseasData })
 
       return acc;
     }, {});
-  }, [offices]);
+  }, [indiaData]);
 
   const regions = Object.keys(groupedData);
-  const [activeTab, setActiveTab] = useState("");
 
-  useEffect(() => {
-    if (regions.length && !regions.includes(activeTab)) {
-      setActiveTab(regions[0]);
-    }
-  }, [regions, activeTab]);
+  // Derive the active tab rather than syncing it in an effect: an explicit
+  // selection wins as long as it still exists, otherwise fall back to the first
+  // region. This keeps the tab valid when the data changes, with no extra render.
+  const [selectedRegion, setSelectedRegion] = useState("");
+  const activeTab = regions.includes(selectedRegion)
+    ? selectedRegion
+    : regions[0] ?? "";
 
   return (
     <section className="bg-[#004aa1]" id="offices">
@@ -69,7 +70,7 @@ const OfficeInIndia = ({ selectedCountryParam, indiaData, officesOverseasData })
 
               <select
                 value={activeTab}
-                onChange={(e) => setActiveTab(e.target.value)}
+                onChange={(e) => setSelectedRegion(e.target.value)}
                 className={`${styles.customSelectDropdown} border rounded-[12px] border-[#ffffff] py-3 px-3 md:px-[30px] !bg-[#ffffff] focus:outline-none w-full text-[#00418e] mb-4 uppercase`}
               >
                 {regions.map((region) => (

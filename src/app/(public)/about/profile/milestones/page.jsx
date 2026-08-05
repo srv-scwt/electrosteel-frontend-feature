@@ -2,7 +2,7 @@ import HeroSection from '@/components/common/heroSection'
 import React from 'react'
 import OurMileStoneSection from '@/components/common/ourMileStone'
 import { getMilestonePageData } from '@/services/milestone.api';
-import SomethingWentWrong from '@/components/common/SomethingWentsWrong';
+import SomethingWentWrong from '@/components/common/SomethingWentWrong';
  
 const page = async () => {
   const MileStoneData = await getMilestonePageData();

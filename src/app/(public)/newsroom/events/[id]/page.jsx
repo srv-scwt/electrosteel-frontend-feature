@@ -2,7 +2,7 @@ import HeroSection from "@/components/common/heroSection";
 import React from "react";
 import EventDetails from "../_components/eventDetails";
 import GallerySection from "@/components/common/GallerySection";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { createImageSourceURL } from "@/utils";
 import { getEventsDetailsBySlug } from "@/services/events.api";
 

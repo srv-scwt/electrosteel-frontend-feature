@@ -12,7 +12,7 @@ import ComprehensiveProducts from "../_components/comprehensiveProducts";
 import ComprehensiveProductRange from "./_components/comprehensiveProductRange";
 import BusinessOverview from "../_components/BusinessOverview";
 import ApplicationSection from "../_components/applicationSection";
-import SomethingWentWrong from "@/components/common/SomethingWentsWrong";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getPaint } from "@/services/product/paint.api";
 import { paintsData } from "./paint.data";
 import { stripH2 } from "@/utils";
