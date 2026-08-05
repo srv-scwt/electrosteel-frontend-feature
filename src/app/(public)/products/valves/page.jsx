@@ -31,7 +31,7 @@ const page = async () => {
       title: valvesData?.data?.parsedDIValvesGotaQuery?.title,
       description: valvesData?.data?.parsedDIValvesGotaQuery?.description,
       image: valvesData?.data?.parsedDIValvesGotaQuery?.image,
-      btn_title: "Connect Us Now",
+      btn_title: "Enquire Now",
       link: valvesData?.data?.parsedDIValvesGotaQuery?.url,
     },
   ];

@@ -10,7 +10,7 @@ export const wasteData = {
   },
   initiativesSection: {
     title: "HOW WE MANAGE WASTE",
-    image: "/images/board/csr_banner_big.jpg", // Selected a relevant sustainability image
+    image: "/images/sustainability/environment_initiatives/sustainability-waste.webp", // Selected a relevant sustainability image
     initiatives: [
       {
         title: "Industrial By-Product Utilisation",

@@ -11,7 +11,7 @@ export const emissionData = {
   },
   initiativesSection: {
     title: "HOW WE MANAGE EMISSIONS",
-    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/uploads/file-1779356229454-826531389.jpg`,
+    image: "/images/sustainability/environment_initiatives/sustainability-emission.webp",
     initiatives: [
       {
         title: "Continuous Emission Monitoring",

@@ -19,7 +19,7 @@ const page = async () => {
   return (
     <>
       <HeroSection data={heroData} />
-      <FollowUsSocialmedia />
+      {/* <FollowUsSocialmedia /> */}
       <CardSectionGrid data={data} />
     </>
   );

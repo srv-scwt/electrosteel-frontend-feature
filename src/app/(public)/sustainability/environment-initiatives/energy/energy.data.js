@@ -10,7 +10,7 @@ export const energyData = {
   },
   initiativesSection: {
     title: "HOW WE MANAGE ENERGY",
-    image: "/images/board/csr_banner_big.jpg", // Selected a relevant sustainability image
+    image: "/images/sustainability/environment_initiatives/sustainability-energy.webp", // Selected a relevant sustainability image
     initiatives: [
       {
         title: "ISO 50001 Energy Management System",

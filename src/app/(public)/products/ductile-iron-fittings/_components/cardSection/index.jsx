@@ -9,8 +9,8 @@ import HTMLRender from '@/components/ui/HTMLRender';
 
 
 const CardSection = ({ data = [] }) => {
-  
-    
+
+
     return (
         <section id="ourProductSection" className="bg-[#F5F5F5]">
             <div className={cstyle.containerLg}>
@@ -41,7 +41,7 @@ const CardSection = ({ data = [] }) => {
                                 <div className={cstyle.sectionContent}>
                                     <h4 className='text-[#05509E]'>{product?.title}</h4>
                                     <HTMLRender htmlString={`${product?.description}`} />
-                                    <ButtonLink goto={product?.link ?? "#"} title={"View Product Brochures"} className={`${styles.viewBtn} mt-[16px]`} />
+                                    <ButtonLink goto={product?.link ?? "#"} title={index % 2 === 0 ? "View Product Brochures" : "Enquire Now"} className={`${styles.viewBtn} mt-[16px]`} />
                                 </div>
                             </div>
                         );
