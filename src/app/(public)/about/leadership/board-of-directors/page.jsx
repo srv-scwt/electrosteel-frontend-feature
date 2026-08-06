@@ -45,15 +45,16 @@ const page = async () => {
                 const linkTitle = item.title || "Details of Directorship and Full-time Position in Body Corporates held by Directors";
                 const linkUrl = item.download_link || "";
                 return (
-                  <a
-                    key={index}
-                    href={linkUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primaryBlue text-lg font-medium transition-colors block"
-                  >
-                    {linkTitle}
-                  </a>
+                  <h3 key={index} className="!mb-0">
+                    <a
+                      href={linkUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primaryBlue transition-colors block fontF-primary"
+                    >
+                      {linkTitle}
+                    </a>
+                  </h3>
                 );
               })}
             </div>
