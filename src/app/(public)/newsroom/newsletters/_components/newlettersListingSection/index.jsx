@@ -97,6 +97,7 @@ const NewslettersListingSection = ({ data, yearData, searchParams }) => {
                     <Link
                       href={pdfLink}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="relative block aspect-square w-full overflow-hidden rounded-[12px] mb-3"
                     >
                       <Image
@@ -107,7 +108,7 @@ const NewslettersListingSection = ({ data, yearData, searchParams }) => {
                       />
                     </Link>
 
-                    <Link href={pdfLink} target="_blank">
+                    <Link href={pdfLink} target="_blank" rel="noopener noreferrer">
                       <p className="mb-3 !text-[#545454] hover:!text-[#004aa1] transition ease-in-out">
                         {title}
                       </p>
@@ -116,6 +117,7 @@ const NewslettersListingSection = ({ data, yearData, searchParams }) => {
                     <Link
                       href={pdfLink}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="btn-outline-text"
                     >
                       <span>Download</span>

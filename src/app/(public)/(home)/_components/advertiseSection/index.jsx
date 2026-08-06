@@ -33,7 +33,7 @@ const AdvertiseSection = ({ AdvertiseData, ulData }) => {
                     <HTMLRender htmlString={`<h4>${AdvertiseData?.image_title ?? ""}</h4>`} />
                     <div className="flex items-center gap-4">
                       <div className={`${styles.downloadStoreImage} lg:flex-1`}>
-                        <Link href={AdvertiseData?.apple_store_link} target="_blank" className="hover:opacity-90">
+                        <Link href={AdvertiseData?.apple_store_link} target="_blank" rel="noopener noreferrer" className="hover:opacity-90">
                           <Image
                             src={createImageSourceURL(AdvertiseData?.image1)}
                             alt="app store"
@@ -43,7 +43,7 @@ const AdvertiseSection = ({ AdvertiseData, ulData }) => {
                         </Link>
                       </div>
                       <div className={`${styles.downloadStoreImage} lg:flex-1`}>
-                        <Link href={AdvertiseData?.play_store_link} target="_blank" className="hover:opacity-90">
+                        <Link href={AdvertiseData?.play_store_link} target="_blank" rel="noopener noreferrer" className="hover:opacity-90">
                           <Image
                             src={createImageSourceURL(AdvertiseData?.image2)}
                             alt="app store"

@@ -125,7 +125,7 @@ const Footer = async () => {
                   {/* {section.type === "social" && (
                 <div className="flex space-x-2 mt-2">
                   {section.links.map((link, i) => (
-                    <Link key={i} href={link.url} target="_blank">
+                    <Link key={i} href={link.url} target="_blank" rel="noopener noreferrer">
                       <div className={styles.socialLinkIcon}>
                         <Image
                           src={link.image}
@@ -187,7 +187,7 @@ const Footer = async () => {
               {/* SOCIAL MEDIA ICONS */}
               <div className="flex items-center gap-3">
                 {updatedSocialLinks.map((link, i) => (
-                  <Link key={i} href={link.url} target="_blank">
+                  <Link key={i} href={link.url} target="_blank" rel="noopener noreferrer">
                     <div className={styles.socialLinkIcon}>
                       <Image
                         src={link.image}

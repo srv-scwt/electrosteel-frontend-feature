@@ -33,7 +33,7 @@ const BannerSectionCarousel = ({ images }) => {
       >
         {images?.map((item, index) => (
           <SwiperSlide key={index}>
-            <Link target="_blank" href={createImageSourceURL(item?.img)}>
+            <Link target="_blank" rel="noopener noreferrer" href={createImageSourceURL(item?.img)}>
               <div className="relative w-full h-64 md:h-80 lg:h-full">
                 <Image
                   src={createImageSourceURL(item?.img)}

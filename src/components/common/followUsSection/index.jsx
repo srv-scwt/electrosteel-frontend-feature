@@ -68,6 +68,7 @@ const FollowUsSocialmedia = async () => {
                 <Link
                   href={social.url}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className={`flex gap-3 items-center justify-center text-white hover:opacity-90 text-sm md:text-[20px] p-4 shadow-md border  rounded-[12px] transition duration-300 hover:shadow-lg ${social.gradient}`}
                 >
                   {social.icon} {social.name}
