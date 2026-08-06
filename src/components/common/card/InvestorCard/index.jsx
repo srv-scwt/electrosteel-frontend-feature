@@ -3,12 +3,12 @@
 import React from "react";
 import Image from "next/image";
 import { OutlineButtonLink } from "@/components/ui/Button";
-import { SlCalender } from "react-icons/sl";
+
 import { createImageSourceURL, truncateText } from "@/utils";
 
 export default function InvestorCard({ post }) {
   const title = post?.title || post?.fileName || "";
-  const date = post?.date || "";
+
   const src = post?.src || post?.pdf || post?.filelink || post?.audio || "";
 
   const extension = src?.split(".").pop()?.toLowerCase() || "";
@@ -44,11 +44,6 @@ export default function InvestorCard({ post }) {
           {truncateText(title, 10)}
         </h3>
 
-        <div className="mt-5 flex items-center gap-2 text-[16px] leading-[1.4] text-[#9cc0f0]">
-          <span className="font-medium text-[#9cc0f0]">Uploaded on:</span>
-          <SlCalender size={14} color="white" />
-          <strong className="font-bold text-white">{date}</strong>
-        </div>
 
         <div className="mt-auto pt-6">
           {isPdf ? (

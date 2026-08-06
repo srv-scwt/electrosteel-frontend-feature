@@ -79,7 +79,7 @@ const footerData = [
     ],
     contacts: [
       { name: "K. K. Jha", phone: "+91 9771455335", url: "/" },
-      { name: "Ganeshan", phone: "+91 8895852693", url: "/" },
+      // { name: "Ganeshan", phone: "+91 8895852693", url: "/" },
     ],
   },
   {
