@@ -1,128 +1,196 @@
 import React from "react";
 import HeroSection from "@/components/common/heroSection";
-import ContentSection from "@/components/common/contentSection";
 import CommonTable from "@/components/common/CommonTable";
-import CommonTab from "@/components/common/CommonTab";
 import { Check } from "lucide-react";
 import cstyles from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
-import { careerData } from "./career.data";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import { getCareersData } from "@/services/career.api";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
+import { createImageSourceURL } from "@/utils";
+
+// Helper to ensure raw text is wrapped in <p> so `.sectionContent p` CSS applies Montserrat font
+const wrapInParagraph = (htmlString) => {
+  if (!htmlString) return "";
+  const trimmed = htmlString.trim();
+  if (trimmed.startsWith("<")) return trimmed;
+  return `<p>${trimmed}</p>`;
+};
 
 // Reusable Checklist Component
-const Checklist = ({ title, items }) => (
-  <div className="mt-0 mb-6">
-    {title && (
-      <div className={`${cstyles.sectionContent} mb-6`}>
-        <HTMLRender htmlString={title} />
-      </div>
-    )}
-    <ul className="space-y-3">
-      {items.map((item, index) => (
-        <li key={index} className="flex items-start">
-          <Check size={20} className="text-[#004aa1] mt-1 mr-3 flex-shrink-0" />
-          <span className="text-[#333] leading-relaxed">{item}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const page = () => {
-  // Map current openings to CommonTab structure
-  const currentOpeningsTabs = careerData.joinUs.currentOpenings.categories.map((category) => ({
-    id: category.id,
-    title: category.title,
-    content: (
-      <div className="p-4">
-        <h5 className="text-[#004aa1] font-bold text-lg mb-4">{category.title} Opportunities</h5>
-        <div className="flex flex-wrap gap-3">
-          {category.functions.map((func, i) => (
-            <span 
-              key={i} 
-              className="px-4 py-2 bg-gray-100 text-gray-800 text-sm font-medium rounded-full shadow-sm border border-gray-200"
-            >
-              {func}
-            </span>
-          ))}
+const Checklist = ({ title, description, items }) => {
+  if (!items || items.length === 0) return null;
+  return (
+    <div className="mt-0 mb-6">
+      {title && (
+        <div className={`${cstyles.sectionContent} mb-6`}>
+          <HTMLRender htmlString={title} />
         </div>
-      </div>
-    ),
-  }));
+      )}
+      {description && (
+        <div className={`${cstyles.sectionContent} mb-6`}>
+          <HTMLRender htmlString={wrapInParagraph(description)} />
+        </div>
+      )}
+      <ul className="space-y-3">
+        {items.map((item, index) => (
+          <li key={index} className="flex items-start">
+            <Check size={20} className="text-[#004aa1] mt-1 mr-3 flex-shrink-0" />
+            <span className="text-[#333] leading-relaxed">
+              <HTMLRender htmlString={item} />
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+const page = async () => {
+  const response = await getCareersData();
+  if (!response || !response.success || !response.data) {
+    return <SomethingWentWrong />;
+  }
+
+  const apiData = response.data;
+  const {
+    hero,
+    buildFuture,
+    exploreOpportunity,
+    khojTheCampusDrive,
+    rolesOfferedUnderKhoj,
+  } = apiData;
+
+  const heroData = {
+    title: hero?.title,
+    banner: createImageSourceURL(hero?.image),
+  };
+
+  // Safe mapping of 'Why Join Us' checklist
+  const whyJoinUsChecklist = buildFuture?.table_headers?.headerTop?.map(h => h.label) || [];
+  
+  // Safe mapping of 'What we look for' checklist
+  const whatWeLookForChecklist = exploreOpportunity?.table_data?.columns || [];
+  
+  // Safe mapping of 'What we offer' checklist (skipping the first item which is usually the title row in this CMS structure)
+  const whatWeOfferChecklist = exploreOpportunity?.table_data2?.slice(1)?.map(x => x.text) || [];
+  
+  // Safe mapping of 'The Khoj Journey' checklist
+  const khojJourneyChecklist = khojTheCampusDrive?.table_headers?.headerTop?.map(h => h.label) || [];
+  const khojJourneyDescription = khojTheCampusDrive?.table_headers?.description;
+  
+  // Safe mapping of 'Programme highlights' table data
+  const programmeHighlightsHeaders = ["Topic", "Description"];
+  const programmeHighlightsRows = khojTheCampusDrive?.table_data?.rows || [];
+
+  // Safe mapping for 'Roles Offered' which is stored in khojTheCampusDrive.table_data2
+  const rolesOfferedChecklist = khojTheCampusDrive?.table_data2?.slice(1)?.map(x => x.text) 
+    || rolesOfferedUnderKhoj?.table_data?.columns 
+    || rolesOfferedUnderKhoj?.table_headers?.headerTop?.map(h => h.label) 
+    || [];
+  const rolesOfferedTitle = khojTheCampusDrive?.table_data2?.[0]?.title || rolesOfferedUnderKhoj?.title || "ROLES OFFERED";
 
   return (
     <>
-      <HeroSection data={careerData.hero} />
+      <HeroSection data={heroData} />
 
       {/* OVERVIEW SECTION */}
       <section id="overview" className="scroll-mt-24">
-        
-        <div className={`${cstyles.containerLg} !pb-0`}>
-          <div className={`${cstyles.sectionContent} mb-6`}>
-            <HTMLRender htmlString={careerData.overview.subTitle} />
-          </div>
-          <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)] mb-8" dangerouslySetInnerHTML={{ __html: sanitizeHtml(careerData.overview.description) }} />
-          
-          <Checklist title={careerData.whyJoinUs.title} items={careerData.whyJoinUs.checklist} />
-          {careerData.whyJoinUs.postDescription && (
-            <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)] mb-8" dangerouslySetInnerHTML={{ __html: sanitizeHtml(careerData.whyJoinUs.postDescription) }} />
+        <div className={`${cstyles.containerLg}`}>
+          {buildFuture && (
+            <div className={`${cstyles.sectionContent} ${cstyles.customUlListing} mb-8`}>
+              {buildFuture.title && <HTMLRender htmlString={`<h2>${buildFuture.title}</h2>`} />}
+              <HTMLRender htmlString={wrapInParagraph(buildFuture.description)} />
+            </div>
           )}
 
-          <div className={`${cstyles.sectionContent} mb-6`}>
-            <HTMLRender htmlString={careerData.ourPromise.title} />
-          </div>
-          <div className="text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)]" dangerouslySetInnerHTML={{ __html: sanitizeHtml(careerData.ourPromise.description) }} />
+          {whyJoinUsChecklist.length > 0 && (
+            <Checklist title={`<h3>${buildFuture?.table_data?.title || "WHY JOIN ELECTROSTEEL"}</h3>`} items={whyJoinUsChecklist} />
+          )}
+
+          {buildFuture?.table_data2?.[0]?.title && (
+            <div className={`${cstyles.sectionContent} mb-6`}>
+              <HTMLRender htmlString={`<h3>${buildFuture.table_data2[0].title}</h3>`} />
+            </div>
+          )}
+          {buildFuture?.table_data2?.[0]?.description && (
+            <div className={`${cstyles.sectionContent} mb-8`}>
+              <HTMLRender htmlString={wrapInParagraph(buildFuture.table_data2[0].description)} />
+            </div>
+          )}
         </div>
       </section>
 
       {/* JOIN US SECTION */}
       <section id="join-us" className="scroll-mt-24">
-        <ContentSection data={careerData.joinUs} />
-        
-        <div className={`${cstyles.containerLg} !pt-0 !pb-0`}>
-          {/* <div className={`${cstyles.sectionContent} mb-6`}>
-            <HTMLRender htmlString={careerData.joinUs.currentOpenings.title} />
-          </div>
+        <div className={`${cstyles.containerLg} !pt-0`}>
+          {exploreOpportunity && (
+            <div className={`${cstyles.sectionContent} ${cstyles.customUlListing} mb-8`}>
+              {exploreOpportunity.title && <HTMLRender htmlString={`<h2>${exploreOpportunity.title}</h2>`} />}
+              <HTMLRender htmlString={wrapInParagraph(exploreOpportunity.description)} />
+            </div>
+          )}
           
-          {careerData.joinUs.currentOpenings.description && (
-            <div className="mb-4 text-[#545454] font-medium text-[clamp(14px,2.5vw,18px)]" dangerouslySetInnerHTML={{ __html: sanitizeHtml(careerData.joinUs.currentOpenings.description) }} />
-          )} */}
-
-          {/* <div className="mb-8">
-            <CommonTab tabsData={currentOpeningsTabs} />
-          </div> */}
-
-          <Checklist title={careerData.joinUs.whatWeLookFor.title} items={careerData.joinUs.whatWeLookFor.checklist} />
-          <Checklist title={careerData.joinUs.whatWeOffer.title} items={careerData.joinUs.whatWeOffer.checklist} />
+          {whatWeLookForChecklist.length > 0 && (
+            <Checklist title={`<h3>${exploreOpportunity?.table_data?.title || "WHAT WE LOOK FOR"}</h3>`} items={whatWeLookForChecklist} />
+          )}
+          {whatWeOfferChecklist.length > 0 && (
+            <Checklist title={`<h3>${exploreOpportunity?.table_data2?.[0]?.title || "WHAT WE OFFER"}</h3>`} items={whatWeOfferChecklist} />
+          )}
         </div>
       </section>
 
       {/* KHOJ SECTION */}
       <section id="khoj" className="scroll-mt-24">
-        <ContentSection data={{ title: careerData.khoj.title, description: `<h3>${careerData.khoj.description}</h3>` }} />
-        <div className="-mt-16 md:-mt-32">
-          <ContentSection data={careerData.khoj.khojIntro} />
-        </div>
-
         <div className={`${cstyles.containerLg} !pt-0`}>
-          <div className={`${cstyles.sectionContent} mb-6`}>
-            <HTMLRender htmlString={careerData.khoj.programmeHighlights.title} />
-          </div>
           
-          <div className="mb-6">
-            <CommonTable 
-              columns={careerData.khoj.programmeHighlights.table.tableHeaders.map(h => h.text)} 
-              rows={careerData.khoj.programmeHighlights.table.tableBody} 
-              className="!mt-2"
-            />
-          </div>
+          {khojTheCampusDrive && (
+            <div className={`${cstyles.sectionContent} ${cstyles.customUlListing} mb-8`}>
+              {khojTheCampusDrive.title && <HTMLRender htmlString={`<h2>${khojTheCampusDrive.title}</h2>`} />}
+              <HTMLRender htmlString={wrapInParagraph(khojTheCampusDrive.description)} />
+            </div>
+          )}
+          
+          {khojTheCampusDrive?.table_data3 && (
+            <div className={`${cstyles.sectionContent} ${cstyles.customUlListing} mb-8`}>
+              {khojTheCampusDrive.table_data3.title && <HTMLRender htmlString={`<h3>${khojTheCampusDrive.table_data3.title}</h3>`} />}
+              <HTMLRender htmlString={wrapInParagraph(khojTheCampusDrive.table_data3.description)} />
+            </div>
+          )}
 
-          <Checklist title={careerData.khoj.rolesOffered.title} items={careerData.khoj.rolesOffered.checklist} />
-          <Checklist title={careerData.khoj.khojJourney.title} items={careerData.khoj.khojJourney.checklist} />
+          {khojTheCampusDrive?.table_data?.title && (
+            <div className={`${cstyles.sectionContent} mb-6`}>
+              <HTMLRender htmlString={`<h3>${khojTheCampusDrive.table_data.title}</h3>`} />
+            </div>
+          )}
+          
+          {programmeHighlightsRows.length > 0 && (
+            <div className="mb-6">
+              <CommonTable 
+                columns={programmeHighlightsHeaders} 
+                rows={programmeHighlightsRows} 
+                className="!mt-2"
+              />
+            </div>
+          )}
+
+          {rolesOfferedChecklist.length > 0 && (
+             <Checklist 
+               title={`<h3>${rolesOfferedTitle}</h3>`} 
+               items={rolesOfferedChecklist} 
+             />
+          )}
+
+          {khojJourneyChecklist.length > 0 && (
+            <Checklist 
+              title={`<h3>${khojTheCampusDrive?.table_headers?.title || "THE KHOJ JOURNEY"}</h3>`} 
+              description={khojJourneyDescription}
+              items={khojJourneyChecklist} 
+            />
+          )}
         </div>
       </section>
-
-      </>
+    </>
   );
 };
 

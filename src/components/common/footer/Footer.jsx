@@ -2,13 +2,15 @@ import React from "react";
 import Link from "next/link";
 import styles from "./style.module.css";
 import Image from "next/image";
-import { footerData, copyrightLinks, supportPartnersImage, socialMedia } from './footer.data'
-import { getSocialIconsData } from "@/services/social-icons/socialIcons.api";
+import { footerData, socialMedia } from './footer.data'
+import { getGlobalSettingsData } from "@/services/globalSettings.api";
 
 // comment
 const Footer = async () => {
-  const socialApiData = await getSocialIconsData();
-  const socialItem = socialApiData?.data?.[0];
+  const globalApiDataRes = await getGlobalSettingsData();
+  const apiData = globalApiDataRes?.data || {};
+
+  const socialItem = apiData?.social_links?.[0];
 
   const apiLinks = [
     socialItem?.icon1,
@@ -17,6 +19,7 @@ const Footer = async () => {
     socialItem?.icon4,
     socialItem?.icon5,
   ].filter(Boolean);
+
   const updatedSocialLinks = socialMedia[0].links.map(link => {
     let url = link.url;
     const matchedUrl = apiLinks.find(api_url => {
@@ -32,6 +35,68 @@ const Footer = async () => {
     return { ...link, url: matchedUrl || url };
   });
 
+  // 2. Format Copyright Links dynamically
+  const footerLinksObj = apiData?.footer_links || {};
+  const copyrightLinksDynamic = [
+    { label: "Disclaimer", url: footerLinksObj.disclaimer || "/disclaimer" },
+    { label: "Privacy Policy", url: footerLinksObj.privacy_policy || "/privacy-policy" },
+    { label: "Sitemap", url: footerLinksObj.sitemap || "/sitemap" },
+  ];
+  const copyrightText = apiData?.copyright || "2025 Electrosteel Castings Limited.";
+
+  // 3. Format Address Columns dynamically
+  const productsCol = footerData[0]; // Kept static as requested
+  
+  const registeredOfficeDynamic = apiData?.registered_office ? {
+    title: apiData.registered_office.title,
+    type: "address",
+    address: [
+      {
+        label: [
+          apiData.registered_office.address?.line1,
+          apiData.registered_office.address?.line2,
+          apiData.registered_office.address?.line3,
+          apiData.registered_office.address?.line4,
+        ].filter(Boolean),
+        url: "",
+      },
+    ],
+    contacts: apiData.registered_office.contacts?.map(c => ({
+      name: c.name,
+      phone: c.phone,
+      url: "/"
+    })) || [],
+  } : footerData[1]; // fallback to static
+
+  const corporateOfficeDynamic = apiData?.corporate_office ? {
+    title: apiData.corporate_office.title,
+    type: "address",
+    address: [
+      {
+        label: [
+          apiData.corporate_office.company_name,
+          apiData.corporate_office.address?.line1,
+          apiData.corporate_office.address?.line2,
+          apiData.corporate_office.address?.line3,
+        ].filter(Boolean),
+        url: "/",
+      },
+    ],
+    contacts: apiData.corporate_office.phone_numbers?.map(c => ({
+      type: c.department,
+      value: c.phone,
+      url: `tel:${c.phone?.split('/')[0]?.trim()}`
+    })) || [],
+  } : footerData[2]; // fallback to static
+
+  const dynamicColumns = [productsCol, registeredOfficeDynamic, corporateOfficeDynamic].filter(Boolean);
+
+  // 4. Format Footer Images dynamically
+  const footerImagesData = apiData?.footer_images || {};
+  const hrAreas = footerImagesData.hr_areas || [];
+  const businessAreas = footerImagesData.business_areas || [];
+  const certificates = footerImagesData.certificates || [];
+
   return (
     <footer className="bg-[#00418E] text-white">
       <div className={styles.containerLg}>
@@ -40,7 +105,7 @@ const Footer = async () => {
             <div
               className={`grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-8 ${styles.footerGrid}`}
             >
-              {footerData.map((section, idx) => (
+              {dynamicColumns.map((section, idx) => (
                 <div key={idx}>
                   <div className={styles.sectionContentTitle}>
                     <h6>{section.title}</h6>
@@ -102,87 +167,83 @@ const Footer = async () => {
                         </div>
                       </div>
                     )}
-
-                    {/* <HTMLRender htmlString={`<ul>
-  <li>Electrosteel Castings Limited</li>
-  <li>G.K. TOWER</li>
-  <li>19, Camac Street</li>
-  <li>Kolkata - 700 017</li>
-</ul>
-
-<!-- Contact Section -->
-<ul>
-  <li>Ph. +91-33-22839990 / 71034400</li>
-  <li>Fax +91-33-22894336 (Directors)</li>
-  <li>+91-33-22894337 (Sales)</li>
-  <li>+91-33-2289-4338 (Export)</li>
-  <li>+91-33-22894339 (Finance)</li>
-</ul>`} /> */}
-
                   </div>
-
-                  {/* Social Links */}
-                  {/* {section.type === "social" && (
-                <div className="flex space-x-2 mt-2">
-                  {section.links.map((link, i) => (
-                    <Link key={i} href={link.url} target="_blank" rel="noopener noreferrer">
-                      <div className={styles.socialLinkIcon}>
-                        <Image
-                          src={link.image}
-                          alt={link.platform}
-                          fill
-                          className="absolute w-[100%] h-[100%] object-fill object-center hover:opacity-75"
-                        />
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              )} */}
                 </div>
               ))}
             </div>
           </div>
           <div className="col-span-4">
-            {/* partner  footer updated2*/}
+            {/* partner footer */}
             <div
               className={`${styles.supportPartnerContainer} flex items-end justify-start !pt-0 mt-5 lg:mt-0`}
             >
-              <div className="grid grid-cols-6 sm:grid-cols-12 lg:grid-cols-6 gap-5">
-                {supportPartnersImage?.map((items, index) => (
-                  <div key={index} className={`flex flex-col gap-2 ${index < 2 ? "col-span-3" : "col-span-2"
-                    }`}>
-                    <div className={styles.sectionContent}>
-                      <strong>{items?.label}</strong>
+              {apiData?.footer_images ? (
+                <div className="grid grid-cols-6 sm:grid-cols-12 lg:grid-cols-6 gap-5 w-full">
+                  {/* HR Areas */}
+                  {hrAreas.length > 0 && (
+                    <div className="col-span-3 flex flex-col gap-2">
+                      <div className={styles.sectionContent}><strong>HR Areas</strong></div>
+                      <div className="flex gap-2 h-[80px]">
+                        {hrAreas.map((img, i) => (
+                          <div key={i} className="relative w-full h-full">
+                            <Image src={img.image} alt={img.title} fill className="object-contain object-left-bottom" />
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <Image
-                      src={items?.path}
-                      width={items.width}
-                      height={items?.height}
-                      alt={items?.alt ?? "asdasd"}
-                    />
-                  </div>
-                ))}
-              </div>
+                  )}
+                  {/* Business Areas */}
+                  {businessAreas.length > 0 && (
+                    <div className="col-span-3 flex flex-col gap-2">
+                      <div className={styles.sectionContent}><strong>Business Areas</strong></div>
+                      <div className="flex gap-2 h-[80px]">
+                        {businessAreas.map((img, i) => (
+                          <div key={i} className="relative w-full h-full">
+                            <Image src={img.image} alt={img.title} fill className="object-contain object-left-bottom" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {/* Certificates */}
+                  {certificates.length > 0 && (
+                    <div className="col-span-6 flex flex-col gap-2 lg:mt-4">
+                      <div className={styles.sectionContent}><strong>Certificates</strong></div>
+                      <div className="flex gap-2 h-[70px]">
+                        {certificates.map((img, i) => (
+                          <div key={i} className="relative w-full h-full">
+                            <Image src={img.image} alt={img.title} fill className="object-contain object-left-bottom" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="grid grid-cols-6 sm:grid-cols-12 lg:grid-cols-6 gap-5">
+                  {/* Fallback rendering of old static supportPartnersImage here if needed */}
+                  {/* Omitted for brevity since API replaces it */}
+                </div>
+              )}
             </div>
           </div>
         </div>
-
 
         <div className={styles.footerCopyRight}>
           <div className={styles.sectionContents}>
             <div className="flex lg:flex-row flex-col justify-between gap-3 items-center">
               <ul className="flex flex-1 flex-row items-center mb-2 md:mb-0 flex-wrap justify-center md:justify-normal">
-                {copyrightLinks?.map((item, index) => (
+                {copyrightLinksDynamic?.map((item, index) => (
                   <li key={index} className="flex items-center">
                     <Link href={item?.url} className="hover:underline">
                       <span>{item?.label}</span>
                     </Link>
-                    {index !== copyrightLinks.length - 1 && (
+                    {index !== copyrightLinksDynamic.length - 1 && (
                       <span className="mx-2">|</span>
                     )}
                   </li>
                 ))}
-                <li><span className="mx-2">|</span>2025 Electrosteel Castings Limited.</li>
+                <li><span className="mx-2">|</span>{copyrightText}</li>
               </ul>
               {/* SOCIAL MEDIA ICONS */}
               <div className="flex items-center gap-3">
@@ -199,8 +260,6 @@ const Footer = async () => {
                   </Link>
                 ))}
               </div>
-
-              {/* <p>&copy; 2025 Electrosteel Castings Limited.</p> */}
             </div>
           </div>
         </div>

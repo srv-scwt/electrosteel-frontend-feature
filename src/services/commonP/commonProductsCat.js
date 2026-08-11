@@ -18,6 +18,7 @@ export async function getCommonProductsCategory(pageName, exact = "false") {
         status: response.status ?? null,
       };
     }
+    
 
     return {
       data: response.data,

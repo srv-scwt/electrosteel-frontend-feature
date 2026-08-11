@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./style.module.css";
+import cstyles from "@/app/common.module.css";
 import Image from "next/image";
 import { OutlineButton } from "@/components/ui/Button";
 import TrackerRope from "./TrackerRope";
@@ -15,6 +16,13 @@ const getPreviewText = (text, maxLength = 100) => {
   const strippedString = text.replace(/(<([^>]+)>)/gi, "");
   if (strippedString.length <= maxLength) return strippedString;
   return strippedString.substring(0, maxLength) + '...';
+};
+
+const wrapInParagraph = (htmlString) => {
+  if (!htmlString) return "";
+  const trimmed = htmlString.trim();
+  if (trimmed.startsWith("<")) return trimmed;
+  return `<p>${trimmed}</p>`;
 };
 
 const OurJourney = ({ label, data = [] }) => {
@@ -157,7 +165,9 @@ const groupedData = data.reduce((result, item, index) => {
         onClose={() => setModalData(null)}
         title={modalData?.title || "Initiative Details"}
       >
-        <HTMLRender htmlString={modalData?.description} />
+        <div className={`${cstyles.sectionContent} ${cstyles.customUlListing}`}>
+          <HTMLRender htmlString={wrapInParagraph(modalData?.description)} />
+        </div>
       </CommonModal>
     </section>
   );

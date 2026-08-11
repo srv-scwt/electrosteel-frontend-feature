@@ -5,7 +5,7 @@ import styles from "./style.module.css";
 import { OutlineButtonLink } from "@/components/ui/Button";
 import { createImageSourceURL } from "@/utils";
 
-export default function CardSectionGrid({data , CardTitle="Product Broucher"}) {
+export default function CardSectionGrid({data , CardTitle="Product Brochure"}) {
   return (
     <section className="bg-[#f9f9f9]">
       <div className={cstyles.containerLg}>

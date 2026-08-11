@@ -14,7 +14,7 @@ const page = async () => {
     banner:
       createImageSourceURL(homeBanner?.data?.image) ??
       "/images/board/policies_banner_large.jpg",
-    title: homeBanner?.data?.title ?? "Broucher",
+    title: homeBanner?.data?.title ?? "Brochure",
   };
   return (
     <>
