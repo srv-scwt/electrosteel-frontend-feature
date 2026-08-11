@@ -13,6 +13,7 @@ const contentSecurityPolicy = [
   "frame-src 'self' https://www.youtube.com https://xcdn.x0pa.ai",
   "frame-ancestors 'self'",
   "base-uri 'self'",
+  "media-src 'self' https://www.electrosteel.com https://*.electrosteel.com",
   "form-action 'self'",
   "object-src 'none'",
 ].join("; ");
