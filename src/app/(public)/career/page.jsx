@@ -17,6 +17,20 @@ const wrapInParagraph = (htmlString) => {
   return `<p>${trimmed}</p>`;
 };
 
+// Helper to make the second half (N/2) of a heading blue by wrapping them in a span
+const formatHeading = (text) => {
+  if (!text) return "";
+  const words = text.trim().split(/\s+/);
+  
+  // Calculate exactly half the words (rounding down for odd numbers)
+  const numBlueWords = Math.floor(words.length / 2);
+  
+  if (words.length <= 1) return `<span>${text}</span>`;
+  
+  const splitIndex = words.length - numBlueWords;
+  return `${words.slice(0, splitIndex).join(" ")} <span>${words.slice(splitIndex).join(" ")}</span>`;
+};
+
 // Reusable Checklist Component
 const Checklist = ({ title, description, items }) => {
   if (!items || items.length === 0) return null;
@@ -99,7 +113,7 @@ const page = async () => {
         <div className={`${cstyles.containerLg}`}>
           {buildFuture && (
             <div className={`${cstyles.sectionContent} ${cstyles.customUlListing} mb-8`}>
-              {buildFuture.title && <HTMLRender htmlString={`<h2>${buildFuture.title}</h2>`} />}
+              {buildFuture.title && <HTMLRender htmlString={`<h2>${formatHeading(buildFuture.title)}</h2>`} />}
               <HTMLRender htmlString={wrapInParagraph(buildFuture.description)} />
             </div>
           )}
@@ -126,7 +140,7 @@ const page = async () => {
         <div className={`${cstyles.containerLg} !pt-0`}>
           {exploreOpportunity && (
             <div className={`${cstyles.sectionContent} ${cstyles.customUlListing} mb-8`}>
-              {exploreOpportunity.title && <HTMLRender htmlString={`<h2>${exploreOpportunity.title}</h2>`} />}
+              {exploreOpportunity.title && <HTMLRender htmlString={`<h2>${formatHeading(exploreOpportunity.title)}</h2>`} />}
               <HTMLRender htmlString={wrapInParagraph(exploreOpportunity.description)} />
             </div>
           )}
@@ -146,7 +160,7 @@ const page = async () => {
           
           {khojTheCampusDrive && (
             <div className={`${cstyles.sectionContent} ${cstyles.customUlListing} mb-8`}>
-              {khojTheCampusDrive.title && <HTMLRender htmlString={`<h2>${khojTheCampusDrive.title}</h2>`} />}
+              {khojTheCampusDrive.title && <HTMLRender htmlString={`<h2>${formatHeading(khojTheCampusDrive.title)}</h2>`} />}
               <HTMLRender htmlString={wrapInParagraph(khojTheCampusDrive.description)} />
             </div>
           )}
