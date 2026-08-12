@@ -51,7 +51,6 @@ const Page = async () => {
                 ?.toLowerCase()
                 ?.replace(/\s+/g, "-")
             }
-            className={index === 1 ? "!pt-4 pb-0!" : index !== FinishedProductData?.data?.length - 1 ? "!pt-3" : ""}
           />
         )
       })};
@@ -89,7 +88,6 @@ const Page = async () => {
                   ?.toLowerCase()
                   ?.replace(/\s+/g, "-")
               }
-              className={index === 1 ? "!pt-4 pb-0!" : index !== SemiFinishedProductData?.data?.length - 1 ? "!pt-3" : ""}
             />
           );
         })}

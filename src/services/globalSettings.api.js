@@ -3,7 +3,7 @@ import { ServerFetch } from "../../actions/server-fetch";
 export async function getGlobalSettingsData() {
   try {
     const response = await ServerFetch("/frontend/careers/global-settings", {
-      mode: "SSR",
+      revalidate: 10,
     });
 
     return response;

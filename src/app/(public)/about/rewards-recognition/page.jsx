@@ -25,14 +25,7 @@ const RewardsRecognitionPage = async () => {
         }}
       />
       
-      <section className={`${styles.containerLg} pt-4! pb-0!`}>
-        <RewardsTab />
-      </section>
-
-      <section id="rewards-and-recognitions" className={`${styles.containerLg} pt-0! mt-4`}>
-        <div className={`${styles.sectionContent} ${styles.sectionContentSpanDark} mb-8`}>
-          <HTMLRender htmlString={`<h3>${PeopleData?.data?.reward?.title}</h3>`} />
-        </div>
+      <section id="rewards-and-recognitions" className={`${styles.containerLg}`}>
         <div className={`${styles.sectionContent}`}>
           <p>
             At Electrosteel, we believe that recognizing and rewarding exceptional performance is fundamental to fostering a culture of excellence. Our comprehensive rewards framework ensures that dedication, innovation, and leadership are celebrated at every level, motivating our teams to consistently exceed expectations and drive sustainable growth.

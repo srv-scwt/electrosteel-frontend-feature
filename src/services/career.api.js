@@ -3,7 +3,7 @@ import {ServerFetch} from "../../actions/server-fetch";
 export async function getCareersData() {
   try {
     const response = await ServerFetch("/frontend/careers", {
-      mode: "SSR",
+      revalidate: 10,
     });
   
     return response;

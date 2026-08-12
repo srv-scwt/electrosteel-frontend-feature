@@ -33,6 +33,7 @@ const CredentialCard = ({ title, desc, onKnowMore }) => (
       </h3>
       <div
         className="mt-4 text-[14px] sm:text-[16px] leading-[1.4] text-[#9cc0f0]"
+        style={{ fontFamily: "var(--font-montserrat)" }}
         dangerouslySetInnerHTML={{ __html: sanitizeHtml(desc) }}
       />
       <div className="mt-auto pt-6 flex justify-end">

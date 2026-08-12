@@ -68,7 +68,7 @@ const BussinessEnquiryForm = () => {
     };
 
     return (
-           <section>
+           <section style={{ fontFamily: "var(--font-montserrat)" }}>
         <div className={style.containerLg}>
         <div  className={style.sectionContent}>
             <div className="text-end">
