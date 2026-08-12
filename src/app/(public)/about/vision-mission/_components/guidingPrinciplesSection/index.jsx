@@ -30,14 +30,14 @@ export default function GuidingPrinciples() {
     {
       id: 4,
       img: "/images/icons/icon7.png",
-      bg: "#004aa1",
+      bg: "#fdc700",
       title: "Community Development",
       desc: "We do not live for bread alone. The Company is committed to contributing meaningfully to the community and society in which it lives.",
     },
     {
       id: 5,
       img: "/images/icons/icon8.png",
-      bg: "#004aa1",
+      bg: "#fdc700",
       title: "Leadership",
       desc: "Electrosteel's focus is to emerge as a great company - with leaders not only at the top, but at every level.",
     },
@@ -51,7 +51,7 @@ export default function GuidingPrinciples() {
     {
       id: 7,
       img: "/images/icons/icon10.png",
-      bg: "#004aa1",
+      bg: "#fdc700",
       title: "Teamwork",
       desc: "The Company recognizes its primary obligation to generate a superior return for its shareowners through a prudent strategy, reasonable payouts of dividend and a fair degree of corporate transparency that does not threaten its competitive position in the marketplace.",
     },

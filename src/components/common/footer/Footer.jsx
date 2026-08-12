@@ -36,16 +36,25 @@ const Footer = async () => {
   });
 
   // 2. Format Copyright Links dynamically
-  const footerLinksObj = apiData?.footer_links || {};
-  const copyrightLinksDynamic = [
-    { label: "Disclaimer", url: footerLinksObj.disclaimer || "/disclaimer" },
-    { label: "Privacy Policy", url: footerLinksObj.privacy_policy || "/privacy-policy" },
-    { label: "Sitemap", url: footerLinksObj.sitemap || "/sitemap" },
-  ];
+  const footerLinksArr = Array.isArray(apiData?.footer_links) ? apiData.footer_links : [];
+  const copyrightLinksDynamic = footerLinksArr.length > 0 
+    ? footerLinksArr.map(link => ({ label: link.text || link.label, url: link.url }))
+    : [
+        { label: "Disclaimer", url: "/disclaimer" },
+        { label: "Privacy Policy", url: "/privacy-policy" },
+        { label: "Sitemap", url: "/sitemap" },
+      ];
   const copyrightText = apiData?.copyright || "2025 Electrosteel Castings Limited.";
 
   // 3. Format Address Columns dynamically
-  const productsCol = footerData[0]; // Kept static as requested
+  const productsCol = apiData?.products?.length > 0 ? {
+    title: "PRODUCTS",
+    type: "list",
+    items: apiData.products.map(p => ({
+      label: p.title,
+      url: p.link
+    }))
+  } : footerData[0];
   
   const registeredOfficeDynamic = apiData?.registered_office ? {
     title: apiData.registered_office.title,
@@ -153,13 +162,16 @@ const Footer = async () => {
                                 </>
                               ) : (
                                 <>
-                                  <strong>{contact.type}</strong>{" "}
+                                  {contact.type && (contact.type.toLowerCase() === 'fax' || contact.type.toLowerCase().includes('ph')) ? <strong>{contact.type} </strong> : null}
                                   <Link
                                     href={`${contact.url}`}
                                     className="hover:underline"
                                   >
-                                    {contact.value}
+                                    {contact.value?.split('(')[0]?.trim()}
                                   </Link>
+                                  {contact.value?.includes('(') 
+                                    ? ` (${contact.value.substring(contact.value.indexOf('(') + 1)}` 
+                                    : (contact.type && contact.type.toLowerCase() !== 'fax' && !contact.type.toLowerCase().includes('ph') ? ` (${contact.type})` : "")}
                                 </>
                               )}
                             </p>
@@ -186,7 +198,7 @@ const Footer = async () => {
                       <div className="flex gap-2 h-[80px]">
                         {hrAreas.map((img, i) => (
                           <div key={i} className="relative w-full h-full">
-                            <Image src={img.image} alt={img.title} fill className="object-contain object-left-bottom" />
+                            <Image src={img.image} alt="" fill className="object-contain object-left-bottom" />
                           </div>
                         ))}
                       </div>
@@ -199,7 +211,7 @@ const Footer = async () => {
                       <div className="flex gap-2 h-[80px]">
                         {businessAreas.map((img, i) => (
                           <div key={i} className="relative w-full h-full">
-                            <Image src={img.image} alt={img.title} fill className="object-contain object-left-bottom" />
+                            <Image src={img.image} alt="" fill className="object-contain object-left-bottom" />
                           </div>
                         ))}
                       </div>
@@ -207,13 +219,20 @@ const Footer = async () => {
                   )}
                   {/* Certificates */}
                   {certificates.length > 0 && (
-                    <div className="col-span-6 flex flex-col gap-2 lg:mt-4">
-                      <div className={styles.sectionContent}><strong>Certificates</strong></div>
-                      <div className="flex gap-2 h-[70px]">
+                    <div className="col-span-6 flex flex-col gap-2">
+                      <div className={styles.sectionContent}>
+                        <strong>Certificates</strong>
+                      </div>
+                      <div className="flex flex-row gap-10 items-center">
                         {certificates.map((img, i) => (
-                          <div key={i} className="relative w-full h-full">
-                            <Image src={img.image} alt={img.title} fill className="object-contain object-left-bottom" />
-                          </div>
+                          <Image
+                            key={i}
+                            src={img.image}
+                            width={140}
+                            height={90}
+                            alt={img.title}
+                            className="!h-[85px] !w-auto object-contain"
+                          />
                         ))}
                       </div>
                     </div>
@@ -235,7 +254,7 @@ const Footer = async () => {
               <ul className="flex flex-1 flex-row items-center mb-2 md:mb-0 flex-wrap justify-center md:justify-normal">
                 {copyrightLinksDynamic?.map((item, index) => (
                   <li key={index} className="flex items-center">
-                    <Link href={item?.url} className="hover:underline">
+                    <Link href={item?.url || "#"} className="hover:underline">
                       <span>{item?.label}</span>
                     </Link>
                     {index !== copyrightLinksDynamic.length - 1 && (
@@ -243,7 +262,6 @@ const Footer = async () => {
                     )}
                   </li>
                 ))}
-                <li><span className="mx-2">|</span>{copyrightText}</li>
               </ul>
               {/* SOCIAL MEDIA ICONS */}
               <div className="flex items-center gap-3">
