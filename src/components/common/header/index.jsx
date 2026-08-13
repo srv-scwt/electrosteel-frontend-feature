@@ -63,6 +63,28 @@ const navLinks = [
   }
 ];
 
+/**
+ * Splits `text` into alternating non-match / match segments and wraps
+ * every matching segment in a yellow <mark> so the searched keyword is
+ * visually highlighted. Matching is case-insensitive; original casing is
+ * preserved. Returns the original string unchanged when keyword is empty.
+ */
+function highlightText(text, keyword) {
+  if (!keyword?.trim() || !text) return text;
+  const escaped = keyword.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const regex = new RegExp(`(${escaped})`, "gi");
+  const parts = text.split(regex);
+  return parts.map((part, i) =>
+    regex.test(part) ? (
+      <mark key={i} style={{ background: "#FDD307", color: "inherit", borderRadius: "2px", padding: "0 1px" }}>
+        {part}
+      </mark>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(null);
@@ -78,6 +100,13 @@ export default function Navbar() {
   const searchContainerRef = useRef(null);
   const debounceRef = useRef(null);
   const router = useRouter();
+
+  // Infinite-scroll state
+  const searchPageRef = useRef(1);           // current page already loaded
+  const searchTotalRef = useRef(0);          // total results from API
+  const isFetchingMoreRef = useRef(false);   // synchronous guard — prevents duplicate in-flight requests
+  const [isFetchingMore, setIsFetchingMore] = useState(false); // drives the loading indicator
+  const scrollListRef = useRef(null);        // scrollable results container
 
   const [flagDrawer, setFlagDrawer] = useState(false);
   const [categoryDrawer, setCategoryDrawer] = useState(false);
@@ -159,9 +188,43 @@ export default function Navbar() {
     closeSearch();
   }, [router, closeSearch]);
 
-  // Debounced search — fires 300ms after the user stops typing
+  // Scroll handler — attached as onScroll to the results container
+  const handleDropdownScroll = useCallback(async (e) => {
+    const el = e.currentTarget;
+    const nearBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 60;
+    if (!nearBottom) return;
+
+    // Guard: already fetching or all pages loaded
+    if (isFetchingMoreRef.current) return;
+    const loaded = searchPageRef.current * 5; // limit per page is 5
+    if (searchTotalRef.current > 0 && loaded >= searchTotalRef.current) return;
+
+    isFetchingMoreRef.current = true;
+    setIsFetchingMore(true);
+
+    const nextPage = searchPageRef.current + 1;
+    const json = await fetchSearchResults(searchQuery, { page: nextPage, limit: 5 });
+    const newResults = Array.isArray(json?.results) ? json.results : [];
+
+    if (newResults.length > 0) {
+      setSearchResults((prev) => [...prev, ...newResults]);
+      searchPageRef.current = nextPage;
+      searchTotalRef.current = json?.total ?? searchTotalRef.current;
+    }
+
+    isFetchingMoreRef.current = false;
+    setIsFetchingMore(false);
+  }, [searchQuery]);
+
+  // Debounced search — resets to page 1 on every new keyword
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
+
+    // Reset all infinite-scroll tracking on each new keyword
+    searchPageRef.current = 1;
+    searchTotalRef.current = 0;
+    isFetchingMoreRef.current = false;
+    setIsFetchingMore(false);
 
     if (!searchQuery.trim()) {
       setSearchResults([]);
@@ -172,12 +235,14 @@ export default function Navbar() {
 
     setIsSearchLoading(true);
     setShowDropdown(true);
+    setSearchResults([]); // clear previous keyword results immediately
 
     debounceRef.current = setTimeout(async () => {
-      const json = await fetchSearchResults(searchQuery);
+      const json = await fetchSearchResults(searchQuery, { page: 1, limit: 5 });
       // API returns results in json.results
       const results = Array.isArray(json?.results) ? json.results : [];
       setSearchResults(results);
+      searchTotalRef.current = json?.total ?? 0;
       setIsSearchLoading(false);
     }, 300);
 
@@ -432,7 +497,7 @@ export default function Navbar() {
               {/* Autocomplete Dropdown */}
               {showDropdown && (
                 <div
-                  className="absolute left-0 right-0 top-full mt-1 bg-white border border-gray-200 rounded-[12px] shadow-lg z-[200] overflow-hidden"
+                  className="absolute left-0 right-0 top-full mt-1 bg-white border border-gray-200 rounded-[12px] shadow-lg z-[200]"
                   style={{ fontFamily: "var(--font-montserrat)" }}
                 >
                   {isSearchLoading ? (
@@ -440,29 +505,47 @@ export default function Navbar() {
                       Searching...
                     </div>
                   ) : searchResults.length > 0 ? (
-                    <ul>
-                      {searchResults.map((result, index) => (
-                        <li key={result?.id ?? index}>
-                          <button
-                            type="button"
-                            onClick={() => handleResultClick(result?.link)}
-                            className="w-full text-left px-4 py-3 text-sm text-[#545454] hover:bg-[#f0f5ff] hover:text-[#004aa1] transition-colors duration-150 border-b border-gray-100 last:border-b-0 cursor-pointer"
-                          >
-                            {/* Title — may contain HTML like OUR <span>VISION</span> */}
-                            <span
-                              className="block font-semibold text-[#1E2934] leading-snug"
-                              dangerouslySetInnerHTML={{ __html: result?.title || "" }}
-                            />
-                            {/* Description — plain text preview */}
-                            {result?.description && (
-                              <span className="block mt-0.5 text-xs text-[#545454] leading-snug line-clamp-2">
-                                {result.description}
-                              </span>
-                            )}
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
+                    /* Scrollable list — onScroll triggers next page when user nears the bottom */
+                    <div
+                      ref={scrollListRef}
+                      onScroll={handleDropdownScroll}
+                      className="overflow-y-auto"
+                      style={{ maxHeight: "320px" }}
+                    >
+                      <ul>
+                        {searchResults.map((result, index) => {
+                          // Strip HTML tags from title so we can highlight plain text safely
+                          const plainTitle = (result?.title || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+
+                          return (
+                            <li key={result?.id ?? index}>
+                              <button
+                                type="button"
+                                onClick={() => handleResultClick(result?.link)}
+                                className="w-full text-left px-4 py-3 text-sm text-[#545454] hover:bg-[#f0f5ff] hover:text-[#004aa1] transition-colors duration-150 border-b border-gray-100 last:border-b-0 cursor-pointer"
+                              >
+                                {/* Title — HTML tags stripped, keyword highlighted */}
+                                <span className="block font-semibold text-[#1E2934] leading-snug">
+                                  {highlightText(plainTitle, searchQuery)}
+                                </span>
+                                {/* Description — plain text, keyword highlighted */}
+                                {result?.description && (
+                                  <span className="block mt-0.5 text-xs text-[#545454] leading-snug line-clamp-2">
+                                    {highlightText(result.description, searchQuery)}
+                                  </span>
+                                )}
+                              </button>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      {/* Loading indicator — shown while fetching the next page */}
+                      {isFetchingMore && (
+                        <div className="flex justify-center py-2">
+                          <span className="text-xs text-[#545454]">Loading more...</span>
+                        </div>
+                      )}
+                    </div>
                   ) : (
                     <div className="px-4 py-3 text-sm text-[#545454]">
                       No results found
