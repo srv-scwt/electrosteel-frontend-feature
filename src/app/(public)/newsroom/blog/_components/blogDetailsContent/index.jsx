@@ -46,11 +46,11 @@ const BlogDetailsContent = ({ data }) => {
                 next/image throws on an empty src, while <img> degrades.
                 images.unoptimized is on, so there is nothing to optimize. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            {/* <img
               src={createImageSourceURL(data?.image)}
               alt={data?.title}
               className={styles.alignRight}
-            />
+            /> */}
             <HTMLRender htmlString={data?.editor_description} />
           </div>
         </div>

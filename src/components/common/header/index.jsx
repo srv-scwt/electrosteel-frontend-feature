@@ -175,12 +175,8 @@ export default function Navbar() {
 
     debounceRef.current = setTimeout(async () => {
       const json = await fetchSearchResults(searchQuery);
-      // The API may return results in json.data or json.data.data — adapt to actual shape
-      const results = Array.isArray(json?.data)
-        ? json.data
-        : Array.isArray(json?.data?.data)
-        ? json.data.data
-        : [];
+      // API returns results in json.results
+      const results = Array.isArray(json?.results) ? json.results : [];
       setSearchResults(results);
       setIsSearchLoading(false);
     }, 300);
@@ -452,7 +448,17 @@ export default function Navbar() {
                             onClick={() => handleResultClick(result?.link)}
                             className="w-full text-left px-4 py-3 text-sm text-[#545454] hover:bg-[#f0f5ff] hover:text-[#004aa1] transition-colors duration-150 border-b border-gray-100 last:border-b-0 cursor-pointer"
                           >
-                            {result?.title || result?.name || ""}
+                            {/* Title — may contain HTML like OUR <span>VISION</span> */}
+                            <span
+                              className="block font-semibold text-[#1E2934] leading-snug"
+                              dangerouslySetInnerHTML={{ __html: result?.title || "" }}
+                            />
+                            {/* Description — plain text preview */}
+                            {result?.description && (
+                              <span className="block mt-0.5 text-xs text-[#545454] leading-snug line-clamp-2">
+                                {result.description}
+                              </span>
+                            )}
                           </button>
                         </li>
                       ))}
