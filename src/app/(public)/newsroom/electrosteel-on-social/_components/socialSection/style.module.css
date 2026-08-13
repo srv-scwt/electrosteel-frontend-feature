@@ -80,7 +80,7 @@
   line-height: 1.2;
   letter-spacing: 0%;
   color: #ffffff;
-  word-break: break-all;
+  /* word-break: break-all; */
 }
 
 .socialCardWrapper {

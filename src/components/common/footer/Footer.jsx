@@ -25,15 +25,22 @@ const Footer = async () => {
     const matchedUrl = apiLinks.find(api_url => {
       const lower = api_url.toLowerCase();
       if (link.platform === "LinkedIn" && lower.includes("linkedin")) return true;
+      if (link.platform === "Twitter" && (lower.includes("twitter") || lower.includes("x.com"))) return true;
       if (link.platform === "Facebook" && lower.includes("facebook")) return true;
       if (link.platform === "Instagram" && lower.includes("instagram")) return true;
-      if (link.platform === "Twitter" && (lower.includes("twitter") || lower.includes("x.com"))) return true;
       if (link.platform === "YouTube" && lower.includes("youtube")) return true;
       return false;
     });
 
     return { ...link, url: matchedUrl || url };
   });
+
+  // Force fixed platform order
+  const platformOrder = ["LinkedIn", "Twitter", "Facebook", "Instagram", "YouTube"];
+
+  const sortedSocialLinks = [...updatedSocialLinks].sort(
+    (a, b) => platformOrder.indexOf(a.platform) - platformOrder.indexOf(b.platform)
+  );
 
   // 2. Format Copyright Links dynamically
   const footerLinksArr = Array.isArray(apiData?.footer_links) ? apiData.footer_links : [];
@@ -252,20 +259,34 @@ const Footer = async () => {
           <div className={styles.sectionContents}>
             <div className="flex lg:flex-row flex-col justify-between gap-3 items-center">
               <ul className="flex flex-1 flex-row items-center mb-2 lg:mb-0 flex-wrap justify-center lg:justify-normal text-center lg:text-left">
-                {copyrightLinksDynamic?.map((item, index) => (
-                  <li key={index} className="flex items-center text-[13px] lg:text-base">
-                    <Link href={item?.url || "#"} className="hover:underline">
-                      <span>{item?.label}</span>
-                    </Link>
-                    {index !== copyrightLinksDynamic.length - 1 && (
-                      <span className="mx-2">|</span>
-                    )}
-                  </li>
-                ))}
+                {copyrightLinksDynamic?.map((item, index) => {
+                  const isLast = index === copyrightLinksDynamic.length - 1;
+                  const isSecondLast = index === copyrightLinksDynamic.length - 2;
+                  const nextIsLast = isSecondLast && !item?.url; // "Developed & Maintained by" case
+
+                  return (
+                    <li key={index} className="flex items-center text-[13px] lg:text-base">
+                      {item?.url ? (
+                        <Link
+                          href={item.url}
+                          className="hover:underline"
+                          {...(isLast && { target: "_blank", rel: "noopener noreferrer" })}
+                        >
+                          <span>{item?.label}</span>
+                        </Link>
+                      ) : (
+                        <span>{item?.label}</span>
+                      )}
+                      {!isLast && (
+                        <span className="mx-1">{nextIsLast ? "" : "|"}</span>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
               {/* SOCIAL MEDIA ICONS */}
               <div className="flex items-center gap-3">
-                {updatedSocialLinks.map((link, i) => (
+                {sortedSocialLinks.map((link, i) => (
                   <Link key={i} href={link.url} target="_blank" rel="noopener noreferrer">
                     <div className={styles.socialLinkIcon}>
                       <Image
