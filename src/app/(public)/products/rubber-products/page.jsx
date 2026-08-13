@@ -26,27 +26,27 @@ const page = async () => {
         contentOrder="order-1"
         sectionID="overview"
       />
-      <ChooseListSection data={rubberProductsData?.data?.whyChooseElectrosteel?.[0]} />
+      <ChooseListSection sectionID="whyChooseElectrosteel" data={rubberProductsData?.data?.whyChooseElectrosteel?.[0]} />
       <GridTwoSection
         data={rubberProductsData?.data?.productDetails?.[0]}
         bannerOrder={"order-1 lg:order-2"}
         contentOrder={"order-2 lg:order-1"}
-        sectionID={"keyBenefits"}
+        sectionID={"productDetails"}
         className={"!pb-0"}
       />
-      <ChooseListSection data={rubberProductsData?.data?.benefitsAdvantages?.[0]} />
+      <ChooseListSection sectionID="benefitsAdvantages" data={rubberProductsData?.data?.benefitsAdvantages?.[0]} />
       <GridTwoSection
         data={rubberProductsData?.data?.productRange?.[0]}
         bannerOrder={"order-1 lg:order-2"}
         contentOrder={"order-1 lg:order-2"}
-        sectionID="valveRange"
+        sectionID="productRange"
         buttonLink="/"
       />
 
       <ApplicationSection sectionID={"applications"} data={rubberProductsData?.data?.applications} />
       <ContentListSection
         data={rubberProductsData?.data?.ourCertifications?.[0]}
-        sectionID="rubber-details"
+        sectionID="ourCertifications"
       />
     </>
   );

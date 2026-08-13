@@ -1463,7 +1463,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/rubber-products#productdetails"}
+                          href={"/products/rubber-products#productDetails"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1475,7 +1475,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/rubber-products#appications"}
+                          href={"/products/rubber-products#applications"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1487,7 +1487,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/rubber-products#advantages"}
+                          href={"/products/rubber-products#benefitsAdvantages"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
