@@ -15,6 +15,7 @@ export async function getBlogDetailsBySlug(slug) {
         status: response.status ?? null,
       };
     }
+    console.log(`/frontend/blogs/by-slug/${slug}`,response)
 
     return {
       data: response.data?.[0] ?? response.data,

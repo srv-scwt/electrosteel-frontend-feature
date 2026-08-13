@@ -41,6 +41,7 @@ export async function getBlogResponseByCategory({
       : `/frontend/blogs/blogListPage`;
 
     const response = await ServerFetch(endpoint, { mode: "SSR" });
+    console.log("endpoint: ",endpoint,response)
     if (!response) {
       return { data: null, error: "NO_DATA" };
     }
