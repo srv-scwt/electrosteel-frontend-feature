@@ -13,14 +13,27 @@ const FollowUsSocialmedia = async () => {
   const socialLinks = [
     {
       id: 1,
-      name: "Facebook",
-      icon: <FaFacebook />,
-      url: socialItem?.icon1,
-      gradient:
-        "bg-[linear-gradient(135deg,_#1877F2_0%,_#0D5BD7_100%)]",
+      name: "LinkedIn",
+      icon: <FaLinkedin />,
+      url: socialItem?.icon5,
+      gradient: "bg-[linear-gradient(135deg,_#0A66C2_0%,_#004182_100%)]",
     },
     {
       id: 2,
+      name: "Twitter",
+      icon: <FaXTwitter />,
+      url: socialItem?.icon3,
+      gradient: "bg-[linear-gradient(135deg,_#111111_0%,_#3B3B3B_100%)]",
+    },
+    {
+      id: 3,
+      name: "Facebook",
+      icon: <FaFacebook />,
+      url: socialItem?.icon1,
+      gradient: "bg-[linear-gradient(135deg,_#1877F2_0%,_#0D5BD7_100%)]",
+    },
+    {
+      id: 4,
       name: "Instagram",
       icon: <FaInstagram />,
       url: socialItem?.icon2,
@@ -28,31 +41,11 @@ const FollowUsSocialmedia = async () => {
         "bg-[linear-gradient(135deg,_#F58529_0%,_#FEDA77_20%,_#DD2A7B_55%,_#8134AF_80%,_#515BD4_100%)]",
     },
     {
-      id: 3,
-      name: "LinkedIn",
-      icon: <FaLinkedin />,
-      url: socialItem?.icon5,
-      
-      
-      gradient:
-        "bg-[linear-gradient(135deg,_#0A66C2_0%,_#004182_100%)]",
-    },
-    {
-      id: 4,
-      name: "Twitter",
-      icon: <FaXTwitter />,
-      url: socialItem?.icon4,
-      url: socialItem?.icon3,
-      gradient:
-        "bg-[linear-gradient(135deg,_#111111_0%,_#3B3B3B_100%)]",
-    },
-    {
       id: 5,
       name: "Youtube",
       icon: <FaYoutube />,
       url: socialItem?.icon4,
-      gradient:
-        "bg-[linear-gradient(135deg,_#FF0033_0%,_#C8102E_100%)]",
+      gradient: "bg-[linear-gradient(135deg,_#FF0033_0%,_#C8102E_100%)]",
     },
   ].filter((social) => typeof social.url === "string" && social.url.trim());
 

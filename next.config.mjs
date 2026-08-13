@@ -40,7 +40,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "electrosteel.onrender.com",
+        hostname: "electrosteel.com",
         pathname: "/uploads/**",
       },
     ],

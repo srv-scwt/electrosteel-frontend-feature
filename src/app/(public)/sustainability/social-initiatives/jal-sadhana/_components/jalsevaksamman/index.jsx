@@ -7,7 +7,7 @@ import { createImageSourceURL } from "@/utils";
 
 const JalSevakSanam = ({ data }) => {
 
-  
+
   return (
     <section id="jal-sevak-samman" className={`${styles.spacingX} relative w-full overflow-hidden`}>
       {/* Background Image */}
@@ -30,9 +30,11 @@ const JalSevakSanam = ({ data }) => {
           <div className={styles.sectionContent}>
             <HTMLRender htmlString={`<h2>${data?.title}</h2>`} />
             <HTMLRender htmlString={`<p>${data?.description}</p>`} />
-            <div className={styles.sectionLink}>
-              <OutlineButtonLink goto={data?.link ?? "#"} title={"Know More"} className={`!text-white`} />
-            </div>
+            {data?.link && (
+              <div className={styles.sectionLink}>
+                <OutlineButtonLink goto={data.link} title={"Know More"} className={`!text-white`} />
+              </div>
+            )}
           </div>
 
           {/* Right Section */}

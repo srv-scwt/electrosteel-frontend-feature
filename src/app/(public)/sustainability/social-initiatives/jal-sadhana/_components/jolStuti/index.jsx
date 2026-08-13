@@ -51,9 +51,11 @@ export default function JolStuti({ data = [] }) {
                     <HTMLRender htmlString={`<h3>${slides?.title ?? ""}</h3>`} className={`${styles.sectionContentTitle} ${styles.sectionContent} w-full`} />
                     <HTMLRender htmlString={slides?.description ?? ""} className={`${styles.sectionContentTitle} ${styles.sectionContent} w-full`} />
                   </div>
-                  <div>
-                    <OutlineButtonLink goto={slides?.link ?? "#"} title={"Explore Jal Stuti"} />
-                  </div>
+                  {slides?.link && (
+                    <div>
+                      <OutlineButtonLink goto={slides.link} title={"Explore Jal Stuti"} />
+                    </div>
+                  )}
                 </div>
               </div>
             </SwiperSlide>

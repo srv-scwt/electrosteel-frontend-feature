@@ -48,10 +48,12 @@ const JalManthan = ({ data = [] }) => {
                 {/* Left Section */}
                 <div className={`${styles.sectionContentTitle} ${styles.sectionContent} ${cstyles.customUlListing} ${cstyles.customUlListingWhite} ${styles.Listing}`}>
                   <HTMLRender htmlString={`<h3>${slides?.title ?? ""}</h3>`} className={`${styles.sectionContentTitle} ${styles.sectionContent} ${cstyles.customUlListing} ${cstyles.customUlListingWhite} ${styles.Listing} w-full`} />
-                  <HTMLRender htmlString={slides?.description ?? ""} className={`${styles.sectionContentTitle} ${styles.sectionContent} ${cstyles.customUlListing} ${cstyles.customUlListingWhite} ${styles.Listing} w-full`}  />
-                  <div className={styles.sectionLink}>
-                    <OutlineButtonLink goto={slides?.link ?? '#'} title={"Explore Jal Manthan"} className={`!text-white`} />
-                  </div>
+                  <HTMLRender htmlString={slides?.description ?? ""} className={`${styles.sectionContentTitle} ${styles.sectionContent} ${cstyles.customUlListing} ${cstyles.customUlListingWhite} ${styles.Listing} w-full`} />
+                  {slides?.link && (
+                    <div className={styles.sectionLink}>
+                      <OutlineButtonLink goto={slides.link} title={"Explore Jal Manthan"} className={`!text-white`} />
+                    </div>
+                  )}
                 </div>
 
                 {/* Right Section */}

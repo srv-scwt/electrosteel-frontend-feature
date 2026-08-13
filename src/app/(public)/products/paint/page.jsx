@@ -65,7 +65,6 @@ function renderContactDesc(desc) {
 const Paint = async () => {
   const paintRes = await getPaint();
   const paintData = paintRes?.data;
-
   if (!paintData) return <SomethingWentWrong />;
 
   const checklist = safeParseJSONArray(paintData?.whyChooseEclPaintsPaint?.checklist);
@@ -110,7 +109,7 @@ const Paint = async () => {
 
       <ApplicationSection
         sectionID="applications"
-        data={paintsData.Application}
+        data={paintData.paintapplication}
       />
 
       <ComprehensiveProductRange data={paintData.comprehensiveProductRange} />

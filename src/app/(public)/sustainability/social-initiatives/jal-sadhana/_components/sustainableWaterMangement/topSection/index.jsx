@@ -24,13 +24,15 @@ const TopSection = ({ data }) => {
           <div className={styles.sectionContent}>
             <HTMLRender htmlString={data?.title} />
             <HTMLRender htmlString={data?.description} />
-            <div className={styles.cardLink}>
-              <OutlineButtonLink
-                goto={data?.url || "#"}
-                title={"read more"}
-                className={"btn-white"}
-              />
-            </div>
+            {data?.url && (
+              <div className={styles.cardLink}>
+                <OutlineButtonLink
+                  goto={data.url}
+                  title={"read more"}
+                  className={"btn-white"}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

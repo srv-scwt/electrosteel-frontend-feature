@@ -17,24 +17,18 @@ export default function Breadcrumb() {
       </Link>
 
       {pathParts.map((part, idx) => {
-        const href = "/" + pathParts.slice(0, idx + 1).join("/");
         const isLast = idx === pathParts.length - 1;
 
         return (
           <span key={idx} className="flex items-center gap-1">
             <span>/</span>
-            {isLast ? (
-              <span className="text-gray-600 font-medium capitalize">
-                {decodeURIComponent(part.replace(/-/g, " "))}
-              </span>
-            ) : (
-              <Link
-                href={href}
-                className="text-[#00418E] hover:underline transition capitalize"
-              >
-                {decodeURIComponent(part.replace(/-/g, " "))}
-              </Link>
-            )}
+            <span
+              className={`capitalize ${
+                isLast ? "text-gray-600 font-medium" : "text-gray-500"
+              }`}
+            >
+              {decodeURIComponent(part.replace(/-/g, " "))}
+            </span>
           </span>
         );
       })}

@@ -27,14 +27,16 @@ export default function HeroSection({ data }) {
           >
             <HTMLRender htmlString={`<h1>${data?.title}</h1>`} />
             <HTMLRender htmlString={`<p>${data?.description}</p>`} />
-            
-            <div className="">
-              <ButtonLink
-                goto={data?.url ?? "#"}
-                title={"view more"}
-                className={"btn-green btn-white"}
-              />
-            </div>
+
+            {data?.url && (
+              <div className="">
+                <ButtonLink
+                  goto={data.url}
+                  title={"view more"}
+                  className={"btn-green btn-white"}
+                />
+              </div>
+            )}
           </div>
 
           {/* Right Content */}

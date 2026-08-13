@@ -14,7 +14,6 @@ const ApplicationSection = ({ sectionID, data = [] }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const activeData = data[activeIndex];
 
-
     // const total = data.\.length;
     const total = data.length;
 
