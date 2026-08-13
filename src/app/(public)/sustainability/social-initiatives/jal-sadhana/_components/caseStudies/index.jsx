@@ -18,7 +18,7 @@ const CaseStudies = ({ data = [] }) => {
             className={`${styles.sectionContentTitle} ${styles.sectionContentTitlemain} flex-1`}
           >
             <h2>
-              Case <span>studies</span>
+              Water  <span>Matters</span>
             </h2>
           </div>
         </div>

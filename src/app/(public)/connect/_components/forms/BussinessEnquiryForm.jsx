@@ -85,7 +85,6 @@ const BussinessEnquiryForm = () => {
                 name="name"
                 control={control}
                 label="Name"
-                placeholder="Enter name"
                 error={errors.name}
                 isRequired
             />
@@ -95,7 +94,6 @@ const BussinessEnquiryForm = () => {
                 name="company_name"
                 control={control}
                 label="Company Name"
-                placeholder="Enter company name"
                 error={errors.company_name}
                 isRequired
             />
@@ -105,7 +103,6 @@ const BussinessEnquiryForm = () => {
                 name="email"
                 control={control}
                 label="Email"
-                placeholder="Enter email"
                 type="email"
                 error={errors.email}
                 isRequired
@@ -116,7 +113,6 @@ const BussinessEnquiryForm = () => {
                 name="mobile"
                 control={control}
                 label="Mobile"
-                placeholder="Enter mobile"
                 error={errors.mobile}
                 isRequired
             />
@@ -127,7 +123,6 @@ const BussinessEnquiryForm = () => {
                     name="country"
                     control={control}
                     label="Country"
-                    placeholder="Enter country"
                     error={errors.country}
                     isRequired
                 />
@@ -136,7 +131,6 @@ const BussinessEnquiryForm = () => {
                     name="state"
                     control={control}
                     label="State"
-                    placeholder="Enter state"
                     error={errors.state}
                     isRequired
                 />
@@ -145,7 +139,6 @@ const BussinessEnquiryForm = () => {
                     name="city"
                     control={control}
                     label="City / Town"
-                    placeholder="Enter city or town"
                     error={errors.city}
                     isRequired
                 />
@@ -156,7 +149,6 @@ const BussinessEnquiryForm = () => {
                 name="address"
                 control={control}
                 label="Address"
-                placeholder="Enter address"
                 rows={5}
                 error={errors.address}
             />
@@ -166,7 +158,6 @@ const BussinessEnquiryForm = () => {
                 name="query"
                 control={control}
                 label="Query"
-                placeholder="Enter your query"
                 rows={5}
                 error={errors.query}
                 isRequired

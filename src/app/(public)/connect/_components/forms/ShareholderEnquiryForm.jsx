@@ -79,7 +79,6 @@ const ShareHolderEnquiryForm = () => {
                 name="name"
                 control={control}
                 label="Name of the Shareholder"
-                placeholder="Enter shareholder name"
                 error={errors.name}
                 isRequired
             />
@@ -89,7 +88,6 @@ const ShareHolderEnquiryForm = () => {
                 name="folio"
                 control={control}
                 label="Folio No. / DP ID / Client ID"
-                placeholder="Enter details"
                 error={errors.folio}
                 isRequired
             />
@@ -99,7 +97,6 @@ const ShareHolderEnquiryForm = () => {
                 name="shareholding"
                 control={control}
                 label="Shareholding (No. of Shares)"
-                placeholder="Enter shareholding"
                 type="number"
                 error={errors.shareholding}
             />
@@ -109,7 +106,6 @@ const ShareHolderEnquiryForm = () => {
                 name="email"
                 control={control}
                 label="Email"
-                placeholder="Enter email"
                 type="email"
                 error={errors.email}
                 isRequired
@@ -120,7 +116,6 @@ const ShareHolderEnquiryForm = () => {
                 name="mobile"
                 control={control}
                 label="Mobile"
-                placeholder="Enter mobile"
                 error={errors.mobile}
             />
 
@@ -129,7 +124,6 @@ const ShareHolderEnquiryForm = () => {
                 name="query"
                 control={control}
                 label="Query"
-                placeholder="Enter your query"
                 rows={5}
                 error={errors.query}
                 isRequired

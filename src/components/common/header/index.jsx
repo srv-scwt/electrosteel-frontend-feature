@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { ChevronDown, Menu, X, ChevronRight, ChevronUp } from "lucide-react";
@@ -24,6 +25,7 @@ import {
 } from "./header.data";
 import { IoSearch } from "react-icons/io5";
 import { GoSearch } from "react-icons/go";
+import { fetchSearchResults } from "@/services/search.api";
 
 const navLinks = [
   { name: "ABOUT", href: "/", tagType: "button", children: aboutUsData },
@@ -68,6 +70,14 @@ export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Search autocomplete state
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearchLoading, setIsSearchLoading] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const searchContainerRef = useRef(null);
+  const debounceRef = useRef(null);
+  const router = useRouter();
+
   const [flagDrawer, setFlagDrawer] = useState(false);
   const [categoryDrawer, setCategoryDrawer] = useState(false);
 
@@ -111,8 +121,13 @@ export default function Navbar() {
   };
 
   const toggleSearch = () => {
-    setIsSearchOpen(!isSearchOpen);
-    if (!isSearchOpen) {
+    if (isSearchOpen) {
+      setIsSearchOpen(false);
+      setSearchQuery("");
+      setSearchResults([]);
+      setShowDropdown(false);
+    } else {
+      setIsSearchOpen(true);
       // Focus on search input when opening
       setTimeout(() => {
         document.getElementById("search-input")?.focus();
@@ -122,8 +137,64 @@ export default function Navbar() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-
+    if (searchResults.length > 0 && searchResults[0]?.link) {
+      router.push(searchResults[0].link);
+      closeSearch();
+    }
   };
+
+  const closeSearch = useCallback(() => {
+    setIsSearchOpen(false);
+    setSearchQuery("");
+    setSearchResults([]);
+    setShowDropdown(false);
+  }, []);
+
+  const handleResultClick = useCallback((link) => {
+    if (!link) return;
+    router.push(link);
+    closeSearch();
+  }, [router, closeSearch]);
+
+  // Debounced search — fires 300ms after the user stops typing
+  useEffect(() => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+
+    if (!searchQuery.trim()) {
+      setSearchResults([]);
+      setShowDropdown(false);
+      setIsSearchLoading(false);
+      return;
+    }
+
+    setIsSearchLoading(true);
+    setShowDropdown(true);
+
+    debounceRef.current = setTimeout(async () => {
+      const json = await fetchSearchResults(searchQuery);
+      // The API may return results in json.data or json.data.data — adapt to actual shape
+      const results = Array.isArray(json?.data)
+        ? json.data
+        : Array.isArray(json?.data?.data)
+        ? json.data.data
+        : [];
+      setSearchResults(results);
+      setIsSearchLoading(false);
+    }, 300);
+
+    return () => clearTimeout(debounceRef.current);
+  }, [searchQuery]);
+
+  // Close dropdown when user clicks outside the search container
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(e.target)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
 
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -342,26 +413,57 @@ export default function Navbar() {
         }`}
       >
         <Container>
-          <div className="flex items-center w-full">
-            <form onSubmit={handleSearch} className="flex-1 flex items-center">
+          <div className="flex items-center w-full" ref={searchContainerRef}>
+            <form onSubmit={handleSearch} className="flex-1 flex items-center relative">
               <input
                 id="search-input"
                 type="text"
-                placeholder="Search by keywords"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full py-2 px-4 text-gray-800 focus:outline-none text-lg"
+                autoComplete="off"
               />
               <button
                 type="submit"
                 className={`ml-4 !cursor-pointer text-gray-600 hover:text-gray-800 focus:outline-none`}
               >
-                {/* <FaSearch size={20} color="#1E2934" /> */}
                 <GoSearch size={24} color="#1E2934" />
               </button>
+
+              {/* Autocomplete Dropdown */}
+              {showDropdown && (
+                <div
+                  className="absolute left-0 right-0 top-full mt-1 bg-white border border-gray-200 rounded-[12px] shadow-lg z-[200] overflow-hidden"
+                  style={{ fontFamily: "var(--font-montserrat)" }}
+                >
+                  {isSearchLoading ? (
+                    <div className="px-4 py-3 text-sm text-[#545454]">
+                      Searching...
+                    </div>
+                  ) : searchResults.length > 0 ? (
+                    <ul>
+                      {searchResults.map((result, index) => (
+                        <li key={result?.id ?? index}>
+                          <button
+                            type="button"
+                            onClick={() => handleResultClick(result?.link)}
+                            className="w-full text-left px-4 py-3 text-sm text-[#545454] hover:bg-[#f0f5ff] hover:text-[#004aa1] transition-colors duration-150 border-b border-gray-100 last:border-b-0 cursor-pointer"
+                          >
+                            {result?.title || result?.name || ""}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="px-4 py-3 text-sm text-[#545454]">
+                      No results found
+                    </div>
+                  )}
+                </div>
+              )}
             </form>
             <button
-              onClick={toggleSearch}
+              onClick={closeSearch}
               className="ml-4 !cursor-pointer text-gray-600 hover:text-gray-800 focus:outline-none"
               aria-label="Close search"
             >
