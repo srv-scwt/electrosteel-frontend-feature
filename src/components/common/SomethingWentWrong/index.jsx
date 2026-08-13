@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
+import { startRouteProgress } from "@/components/common/RouteProgressBar";
+
 export default function SomethingWentWrong({
   title = "Something went wrong",
   message = "We couldn’t process your request right now. Please try again later.",
@@ -56,7 +58,10 @@ export default function SomethingWentWrong({
             )}
 
             <button
-              onClick={() => router.push("/")}
+              onClick={() => {
+                startRouteProgress();
+                router.push("/");
+              }}
               className="inline-flex items-center justify-center rounded-xl border border-[#0c5894]/30 text-[#0c5894] hover:bg-[#0c5894]/10 px-6 py-3 text-sm font-medium transition-all active:scale-95"
             >
               Go to Home

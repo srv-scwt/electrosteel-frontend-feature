@@ -26,6 +26,7 @@ import {
 import { IoSearch } from "react-icons/io5";
 import { GoSearch } from "react-icons/go";
 import { fetchSearchResults } from "@/services/search.api";
+import { startRouteProgress } from "@/components/common/RouteProgressBar";
 
 const navLinks = [
   { name: "ABOUT", href: "/", tagType: "button", children: aboutUsData },
@@ -138,6 +139,7 @@ export default function Navbar() {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchResults.length > 0 && searchResults[0]?.link) {
+      startRouteProgress();
       router.push(searchResults[0].link);
       closeSearch();
     }
@@ -152,6 +154,7 @@ export default function Navbar() {
 
   const handleResultClick = useCallback((link) => {
     if (!link) return;
+    startRouteProgress();
     router.push(link);
     closeSearch();
   }, [router, closeSearch]);

@@ -3,6 +3,7 @@ import "./globals.css";
 import CookieConsent from "@/components/common/CookieConsent";
 import Footer from "@/components/common/footer/Footer";
 import Header from "@/components/common/header";
+import RouteProgressBar from "@/components/common/RouteProgressBar";
 import { buildMetadata, SITE_URL } from "@/utils/seo";
 
 const bebasNeue = Bebas_Neue({
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${bebasNeue.variable} ${montserrat.variable} ${poppins.variable} antialiased`}>
+        <RouteProgressBar />
         <Header/>
         {children}
         <Footer />
