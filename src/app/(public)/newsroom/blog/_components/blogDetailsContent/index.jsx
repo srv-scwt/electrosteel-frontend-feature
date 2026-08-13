@@ -6,7 +6,7 @@ import { OutlineBackButtonLink } from "@/components/ui/Button";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { createImageSourceURL, formatDate } from "@/utils";
 import commonStyles from "@/app/common.module.css";
- 
+
 const BlogDetailsContent = ({ data }) => {
   return (
     <>
@@ -24,12 +24,14 @@ const BlogDetailsContent = ({ data }) => {
                       {formatDate(data?.date)}
                     </span>
                   </div>
-                  <div className="flex gap-3 mb-0">
-                    <MapPin />{" "}
-                    <span className="text-[#004AA1] uppercase">
-                      {data?.location}
-                    </span>
-                  </div>
+                  {data?.location && (
+                    <div className="flex gap-3 mb-0">
+                      <MapPin />{" "}
+                      <span className="text-[#004AA1] uppercase">
+                        {data?.location}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
               <OutlineBackButtonLink
@@ -38,7 +40,7 @@ const BlogDetailsContent = ({ data }) => {
                 className={"btn-back-outline-text"}
               />
             </div>
-            <h3>{data?.description}</h3>
+            {/* <h3>{data?.description}</h3> */}
             {/* Floated and sized by `img.alignRight` in CSS, and
                 createImageSourceURL yields "" when the CMS has no image —
                 next/image throws on an empty src, while <img> degrades.

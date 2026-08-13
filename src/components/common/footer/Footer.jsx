@@ -37,13 +37,13 @@ const Footer = async () => {
 
   // 2. Format Copyright Links dynamically
   const footerLinksArr = Array.isArray(apiData?.footer_links) ? apiData.footer_links : [];
-  const copyrightLinksDynamic = footerLinksArr.length > 0 
+  const copyrightLinksDynamic = footerLinksArr.length > 0
     ? footerLinksArr.map(link => ({ label: link.text || link.label, url: link.url }))
     : [
-        { label: "Disclaimer", url: "/disclaimer" },
-        { label: "Privacy Policy", url: "/privacy-policy" },
-        { label: "Sitemap", url: "/sitemap" },
-      ];
+      { label: "Disclaimer", url: "/disclaimer" },
+      { label: "Privacy Policy", url: "/privacy-policy" },
+      { label: "Sitemap", url: "/sitemap" },
+    ];
   const copyrightText = apiData?.copyright || "2025 Electrosteel Castings Limited.";
 
   // 3. Format Address Columns dynamically
@@ -55,7 +55,7 @@ const Footer = async () => {
       url: p.link
     }))
   } : footerData[0];
-  
+
   const registeredOfficeDynamic = apiData?.registered_office ? {
     title: apiData.registered_office.title,
     type: "address",
@@ -169,8 +169,8 @@ const Footer = async () => {
                                   >
                                     {contact.value?.split('(')[0]?.trim()}
                                   </Link>
-                                  {contact.value?.includes('(') 
-                                    ? ` (${contact.value.substring(contact.value.indexOf('(') + 1)}` 
+                                  {contact.value?.includes('(')
+                                    ? ` (${contact.value.substring(contact.value.indexOf('(') + 1)}`
                                     : (contact.type && contact.type.toLowerCase() !== 'fax' && !contact.type.toLowerCase().includes('ph') ? ` (${contact.type})` : "")}
                                 </>
                               )}
@@ -223,7 +223,7 @@ const Footer = async () => {
                       <div className={styles.sectionContent}>
                         <strong>Certificates</strong>
                       </div>
-                      <div className="flex flex-row gap-10 items-center">
+                      <div className="flex flex-row gap-4 sm:gap-10 items-center footer-certificates-logo">
                         {certificates.map((img, i) => (
                           <Image
                             key={i}
@@ -231,7 +231,7 @@ const Footer = async () => {
                             width={140}
                             height={90}
                             alt={img.title}
-                            className="!h-[85px] !w-auto object-contain"
+                            className="!h-[50px] sm:!h-[85px] !w-auto object-contain"
                           />
                         ))}
                       </div>
@@ -251,9 +251,9 @@ const Footer = async () => {
         <div className={styles.footerCopyRight}>
           <div className={styles.sectionContents}>
             <div className="flex lg:flex-row flex-col justify-between gap-3 items-center">
-              <ul className="flex flex-1 flex-row items-center mb-2 md:mb-0 flex-wrap justify-center md:justify-normal">
+              <ul className="flex flex-1 flex-row items-center mb-2 lg:mb-0 flex-wrap justify-center lg:justify-normal text-center lg:text-left">
                 {copyrightLinksDynamic?.map((item, index) => (
-                  <li key={index} className="flex items-center">
+                  <li key={index} className="flex items-center text-[13px] lg:text-base">
                     <Link href={item?.url || "#"} className="hover:underline">
                       <span>{item?.label}</span>
                     </Link>

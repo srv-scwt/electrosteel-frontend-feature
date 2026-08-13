@@ -4,12 +4,12 @@ import cstyle from "@/app/common.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { createImageSourceURL } from "@/utils";
 
-const ChooseListSection = ({ data }) => {
+const ChooseListSection = ({ data, sectionID }) => {
   const backgroundImage = createImageSourceURL(data?.image, "/images/product-details/background-img.jpg");
 
   return (
     <div
-      id="appications"
+      id={sectionID}
       className={styles.backgroundImg}
       style={{ backgroundImage: `url('${backgroundImage}')` }}
     >

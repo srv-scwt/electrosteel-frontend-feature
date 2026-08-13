@@ -191,6 +191,11 @@
     width: 110px;
     height: 110px;
   }
+
+
+  .jalImage img {
+    object-fit: contain;
+  }
 }
 
 @media (max-width: 576px) {
