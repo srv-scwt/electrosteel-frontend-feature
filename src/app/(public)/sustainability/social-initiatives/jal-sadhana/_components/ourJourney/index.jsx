@@ -30,29 +30,35 @@ const OurJourney = ({ label, data = [] }) => {
   const [modalData, setModalData] = useState(null);
 
   const totalSteps = data.flat().length;
-  
+
   const [completedCount, setCompletedCount] = useState(0);
-const chunkSize = 4;
+  const chunkSize = 4;
 
-const groupedData = data.reduce((result, item, index) => {
-  const chunkIndex = Math.floor(index / chunkSize);
+  const groupedData = data.reduce((result, item, index) => {
+    const chunkIndex = Math.floor(index / chunkSize);
 
-  if (!result[chunkIndex]) {
-    result[chunkIndex] = [];
-  }
+    if (!result[chunkIndex]) {
+      result[chunkIndex] = [];
+    }
 
-  result[chunkIndex].push(item);
-  return result;
-}, []);
+    result[chunkIndex].push(item);
+    return result;
+  }, []);
   useEffect(() => {
+    if (totalSteps === 0) return;
+
     const interval = setInterval(() => {
-      setCompletedCount((prev) =>
-        prev === totalSteps ? 0 : prev + 1
-      );
-    }, 3000);
+      setCompletedCount((prev) => {
+        if (prev >= totalSteps) {
+          clearInterval(interval);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 1000);
 
     return () => clearInterval(interval);
-  }, [totalSteps , data]);
+  }, [totalSteps, data]);
 
   useEffect(() => {
     const container = containerRef.current;

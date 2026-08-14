@@ -12,6 +12,6 @@ export const BussinessEnquirySchema = Yup.object().shape({
     country: Yup.string().required("Country is required").test(noHtmlTags),
     state: Yup.string().required("State is required").test(noHtmlTags),
     city: Yup.string().required("City is required").test(noHtmlTags),
-    address: Yup.string().nullable().test(noHtmlTags),
+    address: Yup.string().required("Address is required").test(noHtmlTags),
     query: Yup.string().required("Query is required").test(noHtmlTags),
 });

@@ -151,6 +151,7 @@ const BussinessEnquiryForm = () => {
                 label="Address"
                 rows={5}
                 error={errors.address}
+                isRequired
             />
 
             {/* Query */}

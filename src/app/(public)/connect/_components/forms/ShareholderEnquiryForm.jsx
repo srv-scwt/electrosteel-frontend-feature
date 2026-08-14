@@ -99,6 +99,7 @@ const ShareHolderEnquiryForm = () => {
                 label="Shareholding (No. of Shares)"
                 type="number"
                 error={errors.shareholding}
+                isRequired
             />
 
             {/* Email */}
