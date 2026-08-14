@@ -12,8 +12,8 @@ import "swiper/css/navigation";
 import HTMLRender from "@/components/ui/HTMLRender";
 import useLoadMoreData from "@/hooks/useLoadMoreData";
 
-const OptionalUnitsOverseas = ({data}) => {
-    const { visibleData, hasMore, handleLoadMore } = useLoadMoreData(data?.data, 6);
+const OptionalUnitsOverseas = ({ data }) => {
+  const { visibleData, hasMore, handleLoadMore } = useLoadMoreData(data?.data, 6);
   return (
     <section className="bg-[#fafafa]" id="operational-units-overseas">
       <div className={`${styles.containerLg}`}>
@@ -60,17 +60,21 @@ const OptionalUnitsOverseas = ({data}) => {
                               )}
 
                               <div className="mt-3 flex gap-4 items-center justify-between">
-                                <ButtonLink
-                                  goto={office?.map_link || "#"}
-                                  title="Google Map"
-                                  className={`${commonStyles.manualCSSBTN}`}
-                                />
+                                {office?.map_link && (
+                                  <ButtonLink
+                                    goto={office.map_link}
+                                    title="Google Map"
+                                    className={`${commonStyles.manualCSSBTN}`}
+                                  />
+                                )}
 
-                                <OutlineButtonLink
-                                  goto={office?.btn_link || "#"}
-                                  title="Read More"
-                                  className={commonStyles.manualReadMore}
-                                />
+                                {office?.btn_link && (
+                                  <OutlineButtonLink
+                                    goto={office.btn_link}
+                                    title="Read More"
+                                    className={commonStyles.manualReadMore}
+                                  />
+                                )}
                               </div>
                             </div>
                           </SwiperSlide>
@@ -94,17 +98,21 @@ const OptionalUnitsOverseas = ({data}) => {
                         )}
 
                         <div className="mt-3 flex gap-4 items-center justify-between">
-                          <ButtonLink
-                            goto={offices?.[0]?.map_link || "#"}
-                            title="Google Map"
-                            className={`${commonStyles.manualCSSBTN}`}
-                          />
+                          {offices?.[0]?.map_link && (
+                            <ButtonLink
+                              goto={offices[0].map_link}
+                              title="Google Map"
+                              className={`${commonStyles.manualCSSBTN}`}
+                            />
+                          )}
 
-                          <OutlineButtonLink
-                            goto={offices?.[0]?.btn_link || "#"}
-                            title="Read More"
-                            className={commonStyles.manualReadMore}
-                          />
+                          {offices?.[0]?.btn_link && (
+                            <OutlineButtonLink
+                              goto={offices[0].btn_link}
+                              title="Read More"
+                              className={commonStyles.manualReadMore}
+                            />
+                          )}
                         </div>
                       </div>
                     )}
@@ -113,7 +121,7 @@ const OptionalUnitsOverseas = ({data}) => {
               );
             })}
           </div>
-           {hasMore ? (
+          {hasMore ? (
             <div className={`flex w-full items-center justify-center pt-8`}>
               <OutlineButton
                 action={handleLoadMore}

@@ -43,7 +43,7 @@ const navLinks = [
     children: investorData,
   },
    {
-    name: "NEWS ROOM",
+    name: "NEWSROOM",
     href: "/news-room",
     tagType: "button",
     children: newsRoomData,
@@ -268,6 +268,29 @@ export default function Navbar() {
 
   const [showAllFlags, setShowAllFlags] = useState(false);
 
+  // Touch browsers synthesise a mouseenter on tap and then tear that hover down
+  // again a few ms later, which slammed the flag drawer shut the instant it
+  // opened. Restrict hover to a real mouse and let touch use the click toggle.
+  const handleFlagHover = (open) => (event) => {
+    if (event.pointerType === "mouse") setFlagDrawer(open);
+  };
+
+  // With hover gated off on touch, nothing else closes the drawer there.
+  useEffect(() => {
+    if (!flagDrawer) return;
+
+    const handleOutsideFlagClick = (e) => {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+      if (target.closest("[data-flag-toggle], [data-flag-panel]")) return;
+      setFlagDrawer(false);
+    };
+
+    document.addEventListener("pointerdown", handleOutsideFlagClick);
+    return () =>
+      document.removeEventListener("pointerdown", handleOutsideFlagClick);
+  }, [flagDrawer]);
+
   // The header lives in the root layout, so it survives client-side navigation.
   // Without this, a mega menu opened by hover stays open on the page the user
   // just navigated to: onMouseLeave never fires once the menu unmounts from
@@ -306,9 +329,14 @@ export default function Navbar() {
               </div>
             </Link>
             <button
+              type="button"
+              data-flag-toggle
+              aria-expanded={flagDrawer}
+              aria-label="Our overseas offices"
               className={`flex items-center cursor-pointer space-x-1 ${styles.flagWrapper} ${styles.logoFlag}`}
-              onMouseEnter={() => setFlagDrawer(true)}
-              onMouseLeave={() => setFlagDrawer(false)}
+              onClick={() => setFlagDrawer((open) => !open)}
+              onPointerEnter={handleFlagHover(true)}
+              onPointerLeave={handleFlagHover(false)}
             >
               <Image
                 src="/images/animated-india-flag-2b.gif"
@@ -317,17 +345,12 @@ export default function Navbar() {
                 height={isScrolled ? 17 : 20}
                 className="transition-all duration-300"
               />
-              {flagDrawer ? (
-                <ChevronUp
-                  size={isScrolled ? 14 : 16}
-                  className="text-black transition-all duration-300"
-                />
-              ) : (
-                <ChevronDown
-                  size={isScrolled ? 14 : 16}
-                  className="text-black transition-all duration-300"
-                />
-              )}
+              {/* Rotated rather than swapped for ChevronUp: replacing the node
+                  under the finger makes touch browsers fire a bogus mouseleave. */}
+              <ChevronDown
+                size={isScrolled ? 14 : 16}
+                className={`text-black transition-all duration-300 ${flagDrawer ? "rotate-180" : ""}`}
+              />
             </button>
           </div>
 
@@ -430,10 +453,14 @@ export default function Navbar() {
           </div>
           <div className={`${styles.hamburger2} items-center self-end gap-2`}>
             <button
+              type="button"
+              data-flag-toggle
+              aria-expanded={flagDrawer}
+              aria-label="Our overseas offices"
               className={`flex items-center space-x-1 ${styles.flagWrapper2} ${styles.flagHamburger}`}
-              // onClick={() => setFlagDrawer(!flagDrawer)}
-              onMouseEnter={() => setFlagDrawer(true)}
-              onMouseLeave={() => setFlagDrawer(false)}
+              onClick={() => setFlagDrawer((open) => !open)}
+              onPointerEnter={handleFlagHover(true)}
+              onPointerLeave={handleFlagHover(false)}
             >
               <Image
                 src="/images/animated-india-flag-2b.gif"
@@ -442,17 +469,10 @@ export default function Navbar() {
                 height={isScrolled ? 17 : 20}
                 className="transition-all duration-300"
               />
-              {flagDrawer ? (
-                <ChevronUp
-                  size={isScrolled ? 14 : 16}
-                  className="text-black transition-all duration-300"
-                />
-              ) : (
-                <ChevronDown
-                  size={isScrolled ? 14 : 16}
-                  className="text-black transition-all duration-300"
-                />
-              )}
+              <ChevronDown
+                size={isScrolled ? 14 : 16}
+                className={`text-black transition-all duration-300 ${flagDrawer ? "rotate-180" : ""}`}
+              />
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -718,9 +738,10 @@ export default function Navbar() {
 
       {flagDrawer && (
         <div
+          data-flag-panel
           className={`${styles.flagContainer} absolute w-[100%] top-[70%] lg:top-[90%] sm:max-w-max right-0 lg:left-0 md:left-[75px] bg-[#ffffff] text-white z-50 shadow-lg`}
-          onMouseEnter={() => setFlagDrawer(true)}
-          onMouseLeave={() => setFlagDrawer(false)}
+          onPointerEnter={handleFlagHover(true)}
+          onPointerLeave={handleFlagHover(false)}
         >
           <div className={styles.sectionContentFlag}>
             <h4>OUR OVERSEAS OFFICES</h4>
@@ -2505,10 +2526,10 @@ export default function Navbar() {
           {/* Only showing a couple for brevity, but all should be implemented similarly */}
 
           {/* NEWS ROOM Dropdown */}
-          {hoveredLink === "NEWS ROOM" && (
+          {hoveredLink === "NEWSROOM" && (
             <div
               className={`${styles.smallSubNav} absolute left-1/1 transform -translate-x-1/1 bg-[#00418E] text-white py-4 px-6 w-60 z-50 rounded-[12px] shadow-lg`}
-              onMouseEnter={() => handleLinkHover("NEWS ROOM")}
+              onMouseEnter={() => handleLinkHover("NEWSROOM")}
               onMouseLeave={handleLinkLeave}
             >
               <ul className="space-y-3 navlistnametext">

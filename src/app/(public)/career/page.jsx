@@ -21,12 +21,12 @@ const wrapInParagraph = (htmlString) => {
 const formatHeading = (text) => {
   if (!text) return "";
   const words = text.trim().split(/\s+/);
-  
+
   // Calculate exactly half the words (rounding down for odd numbers)
   const numBlueWords = Math.floor(words.length / 2);
-  
+
   if (words.length <= 1) return `<span>${text}</span>`;
-  
+
   const splitIndex = words.length - numBlueWords;
   return `${words.slice(0, splitIndex).join(" ")} <span>${words.slice(splitIndex).join(" ")}</span>`;
 };
@@ -42,7 +42,7 @@ const Checklist = ({ title, description, items }) => {
         </div>
       )}
       {description && (
-        <div className={`${cstyles.sectionContent} mb-6`}>
+        <div className={`${cstyles.sectionContent} mb-0`}>
           <HTMLRender htmlString={wrapInParagraph(description)} />
         </div>
       )}
@@ -50,7 +50,7 @@ const Checklist = ({ title, description, items }) => {
         {items.map((item, index) => (
           <li key={index} className="flex items-start">
             <Check size={20} className="text-[#004aa1] mt-1 mr-3 flex-shrink-0" />
-            <span className="text-[#333] leading-relaxed">
+            <span className="text-[14px] md:text-[18px] text-[#333] md:text-[#545454] leading-relaxed [&_*]:font-[500]">
               <HTMLRender htmlString={item} />
             </span>
           </li>
@@ -82,25 +82,25 @@ const page = async () => {
 
   // Safe mapping of 'Why Join Us' checklist
   const whyJoinUsChecklist = buildFuture?.table_headers?.headerTop?.map(h => h.label) || [];
-  
+
   // Safe mapping of 'What we look for' checklist
   const whatWeLookForChecklist = exploreOpportunity?.table_data?.columns || [];
-  
+
   // Safe mapping of 'What we offer' checklist (skipping the first item which is usually the title row in this CMS structure)
   const whatWeOfferChecklist = exploreOpportunity?.table_data2?.slice(1)?.map(x => x.text) || [];
-  
+
   // Safe mapping of 'The Khoj Journey' checklist
   const khojJourneyChecklist = khojTheCampusDrive?.table_headers?.headerTop?.map(h => h.label) || [];
   const khojJourneyDescription = khojTheCampusDrive?.table_headers?.description;
-  
+
   // Safe mapping of 'Programme highlights' table data
   const programmeHighlightsHeaders = ["Topic", "Description"];
   const programmeHighlightsRows = khojTheCampusDrive?.table_data?.rows || [];
 
   // Safe mapping for 'Roles Offered' which is stored in khojTheCampusDrive.table_data2
-  const rolesOfferedChecklist = khojTheCampusDrive?.table_data2?.slice(1)?.map(x => x.text) 
-    || rolesOfferedUnderKhoj?.table_data?.columns 
-    || rolesOfferedUnderKhoj?.table_headers?.headerTop?.map(h => h.label) 
+  const rolesOfferedChecklist = khojTheCampusDrive?.table_data2?.slice(1)?.map(x => x.text)
+    || rolesOfferedUnderKhoj?.table_data?.columns
+    || rolesOfferedUnderKhoj?.table_headers?.headerTop?.map(h => h.label)
     || [];
   const rolesOfferedTitle = khojTheCampusDrive?.table_data2?.[0]?.title || rolesOfferedUnderKhoj?.title || "ROLES OFFERED";
 
@@ -144,7 +144,7 @@ const page = async () => {
               <HTMLRender htmlString={wrapInParagraph(exploreOpportunity.description)} />
             </div>
           )}
-          
+
           {whatWeLookForChecklist.length > 0 && (
             <Checklist title={`<h3>${exploreOpportunity?.table_data?.title || "WHAT WE LOOK FOR"}</h3>`} items={whatWeLookForChecklist} />
           )}
@@ -157,14 +157,14 @@ const page = async () => {
       {/* KHOJ SECTION */}
       <section id="khoj" className="scroll-mt-24">
         <div className={`${cstyles.containerLg} !pt-0`}>
-          
+
           {khojTheCampusDrive && (
             <div className={`${cstyles.sectionContent} ${cstyles.customUlListing} mb-8`}>
               {khojTheCampusDrive.title && <HTMLRender htmlString={`<h2>${formatHeading(khojTheCampusDrive.title)}</h2>`} />}
               <HTMLRender htmlString={wrapInParagraph(khojTheCampusDrive.description)} />
             </div>
           )}
-          
+
           {khojTheCampusDrive?.table_data3 && (
             <div className={`${cstyles.sectionContent} ${cstyles.customUlListing} mb-8`}>
               {khojTheCampusDrive.table_data3.title && <HTMLRender htmlString={`<h3>${khojTheCampusDrive.table_data3.title}</h3>`} />}
@@ -177,29 +177,29 @@ const page = async () => {
               <HTMLRender htmlString={`<h3>${khojTheCampusDrive.table_data.title}</h3>`} />
             </div>
           )}
-          
+
           {programmeHighlightsRows.length > 0 && (
             <div className="mb-6">
-              <CommonTable 
-                columns={programmeHighlightsHeaders} 
-                rows={programmeHighlightsRows} 
+              <CommonTable
+                columns={programmeHighlightsHeaders}
+                rows={programmeHighlightsRows}
                 className="!mt-2"
               />
             </div>
           )}
 
           {rolesOfferedChecklist.length > 0 && (
-             <Checklist 
-               title={`<h3>${rolesOfferedTitle}</h3>`} 
-               items={rolesOfferedChecklist} 
-             />
+            <Checklist
+              title={`<h3>${rolesOfferedTitle}</h3>`}
+              items={rolesOfferedChecklist}
+            />
           )}
 
           {khojJourneyChecklist.length > 0 && (
-            <Checklist 
-              title={`<h3>${khojTheCampusDrive?.table_headers?.title || "THE KHOJ JOURNEY"}</h3>`} 
+            <Checklist
+              title={`<h3>${khojTheCampusDrive?.table_headers?.title || "THE KHOJ JOURNEY"}</h3>`}
               description={khojJourneyDescription}
-              items={khojJourneyChecklist} 
+              items={khojJourneyChecklist}
             />
           )}
         </div>
