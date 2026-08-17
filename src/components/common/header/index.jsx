@@ -2122,7 +2122,7 @@ export default function Navbar() {
                       <li className="flex items-start">
                         <Link
                           href={
-                            "/investors/reports-and-accounts/accounts-of-joints-venture"
+                            "/investors/reports-and-accounts/accounts-of-joint-venture"
                           }
                           className="hover:text-yellow-400 flex items-start"
                         >
@@ -2131,7 +2131,7 @@ export default function Navbar() {
                             className={styles.angleIcon}
                           />
                           <span className="ml-1">
-                            Accounts of Joints Venture
+                            Accounts of Joint Venture
                           </span>
                         </Link>
                       </li>

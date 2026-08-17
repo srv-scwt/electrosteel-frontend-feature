@@ -5,7 +5,6 @@ import HTMLRender from '@/components/ui/HTMLRender';
 
 const SuperiorQualityProductSection = ({ data }) => {
     if (!data) return null;
-
     return (
         <section>
             <div className={styles.containerLg}>

@@ -5,6 +5,7 @@ export const sitemapSections = [
     items: [
       { label: "Home", path: "/" },
       { label: "Facilities", path: "/facilities" },
+      { label: "FAQ", path: "/faq" },
       { label: "Sitemap", path: "/sitemap" },
       { label: "Disclaimer", path: "/disclaimer" },
       { label: "Privacy Policy", path: "/privacy-policy" },
@@ -119,8 +120,36 @@ export const sitemapSections = [
     description: "Current sustainability initiative pages published under the public app.",
     items: [
       {
+        label: "Environment Initiatives",
+        path: "/sustainability/environment-initiatives",
+      },
+      {
+        label: "Policy Commitments",
+        path: "/sustainability/governance-initiatives/policy-commitments",
+      },
+      {
         label: "Jal Sadhana",
         path: "/sustainability/social-initiatives/jal-sadhana",
+      },
+      {
+        label: "Employee Welfare",
+        path: "/sustainability/social-initiatives/employee-welfare",
+      },
+      {
+        label: "Training",
+        path: "/sustainability/social-initiatives/training",
+      },
+      {
+        label: "Safety",
+        path: "/sustainability/social-initiatives/safety",
+      },
+      {
+        label: "External Social Support",
+        path: "/sustainability/social-initiatives/external-social-support",
+      },
+      {
+        label: "Commitment Going Forward",
+        path: "/sustainability/social-initiatives/commitment-going-forward",
       },
     ],
   },
@@ -128,10 +157,12 @@ export const sitemapSections = [
     title: "Careers & Connect",
     description: "Career information, offices, and enquiry entry points.",
     items: [
+      { label: "Careers", path: "/career" },
       {
         label: "Life at Electrosteel",
         path: "/career/life-at-electrosteel",
       },
+      { label: "Career Enquiry", path: "/career/career-enquiry" },
       { label: "Offices", path: "/connect/offices" },
       { label: "Business Enquiry", path: "/connect/business-enquiry" },
       { label: "Careers Enquiry", path: "/connect/careers-enquiry" },
@@ -230,11 +261,11 @@ export const sitemapSections = [
       },
       {
         label: "Accounts of Joint Venture",
-        path: "/investors/reports-and-accounts/accounts-of-joints-venture",
+        path: "/investors/reports-and-accounts/accounts-of-joint-venture",
       },
       {
         label: "Accounts of Joint Venture Archive",
-        path: "/investors/reports-and-accounts/accounts-of-joints-venture/archive",
+        path: "/investors/reports-and-accounts/accounts-of-joint-venture/archive",
       },
     ],
   },

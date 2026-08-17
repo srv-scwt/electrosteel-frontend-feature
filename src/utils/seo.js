@@ -60,7 +60,7 @@ export const SEO_PAGE_CATEGORIES = [
     category: "seoAccountsOfSubsidiaries",
   },
   {
-    pageName: "Accounts of Joints Venture",
+    pageName: "Accounts of Joint Venture",
     category: "seoAccountsOfJointsVenture",
   },
   {
@@ -245,8 +245,8 @@ const SEO_ROUTE_PAGES = [
     pageName: "Accounts of Subsidiaries",
   },
   {
-    pathname: "/investors/reports-and-accounts/accounts-of-joints-venture",
-    pageName: "Accounts of Joints Venture",
+    pathname: "/investors/reports-and-accounts/accounts-of-joint-venture",
+    pageName: "Accounts of Joint Venture",
   },
   {
     pathname: "/investors/code-of-conduct-and-policies",

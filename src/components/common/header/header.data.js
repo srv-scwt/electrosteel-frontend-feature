@@ -18,15 +18,16 @@ const aboutUsData = [
   {
     section: "People",
     links: [
+      { label: "People", url: "/about/people" },
       { label: "OverView", url: "/about/people#overview" },
       {
         label: "Life at ECL",
         url: "/about/people#life-at-ecl",
         subLinks: [
-          { label: "Employee Engagement ", url: "/about/people#employee-engagement" },
+          { label: "Employee Engagement", url: "/about/people#employee-engagement" },
           { label: "Campus Hire Stories", url: "/about/people#campus-hire-stories" },
           { label: "Employee Testimonials", url: "/about/people#employee-testimonials" },
-        ]
+        ],
       },
       {
         label: "Rewards and Recognitions",
@@ -34,21 +35,21 @@ const aboutUsData = [
         subLinks: [
           { label: "Pragati", url: "/about/rewards-recognition#pragati" },
           { label: "Pratibha & Pride", url: "/about/rewards-recognition#pratibha-pride" },
-        ]
+        ],
       },
     ],
   },
   {
-    section: "Global Presence",
-    url: "/about/global-presence",
+    section: "global presence",
     links: [
+      { label: "global presence", url: "/about/global-presence" },
       {
         label: "Offices",
         url: "/about/global-presence#offices",
         subLinks: [
           { label: "India", url: "/about/global-presence#offices-india" },
           { label: "Overseas", url: "/about/global-presence#offices-overseas" },
-        ]
+        ],
       },
       {
         label: "Operational Units",
@@ -56,18 +57,16 @@ const aboutUsData = [
         subLinks: [
           { label: "India", url: "/about/global-presence#operational-units-india" },
           { label: "Overseas", url: "/about/global-presence#operational-units-overseas" },
-        ]
+        ],
       },
     ],
   },
-
   {
     section: "Innovation and Technology",
     links: [
       { label: "Product Innovation", url: "/about/innovation-and-technology/product-innovation" },
       { label: "Prestigious Projects", url: "/about/innovation-and-technology/prestigious-projects" },
-      { label: "Process Innovation",
-        path: "/about/innovation-and-technology/process-innovation" },
+      { label: "Process Innovation", url: "/about/innovation-and-technology/process-innovation" },
     ],
   },
 ];
@@ -76,69 +75,73 @@ const productsData = [
   {
     section: "Ductile Iron Pipes",
     links: [
+      { label: "Ductile Iron Pipes", url: "/products/ductile-iron-pipes" },
       { label: "Product Details", url: "/products/ductile-iron-pipes#product-details" },
       { label: "Applications", url: "/products/ductile-iron-pipes#applications" },
       { label: "Jointing Systems", url: "/products/ductile-iron-pipes#jointing-systems" },
       { label: "Protection System", url: "/products/ductile-iron-pipes#protection-system" },
     ],
   },
-
   {
     section: "Ductile Iron Flange Pipe",
     links: [
+      { label: "Ductile Iron Flange Pipe", url: "/products/ductile-iron-flange-pipe" },
       { label: "Product Details", url: "/products/ductile-iron-flange-pipe#product-details" },
       { label: "Applications", url: "/products/ductile-iron-flange-pipe#applications" },
       { label: "Advantages", url: "/products/ductile-iron-flange-pipe#advantages" },
     ],
   },
-
   {
     section: "Ductile Iron Fittings",
     links: [
-      { label: "Overview", url: "/products/ductile-iron-fittings#overview" },
+      { label: "Ductile Iron Fittings", url: "/products/ductile-iron-fittings" },
       { label: "Product Details", url: "/products/ductile-iron-fittings#product-details" },
       { label: "Applications", url: "/products/ductile-iron-fittings#applications" },
+      { label: "Jointing Systems", url: "/products/ductile-iron-fittings#jointing-systems" },
       { label: "Protection System", url: "/products/ductile-iron-fittings#protection-system" },
     ],
   },
-
   {
-    section: "DI Valves",
+    section: "Valves",
     links: [
+      { label: "Valves", url: "/products/valves" },
+      { label: "Overview", url: "/products/valves#overview" },
       { label: "Product Details", url: "/products/valves#product-details" },
       { label: "Applications", url: "/products/valves#applications" },
-      { label: "Jointing Systems", url: "/products/valves#jointing-systems" },
       { label: "Protection System", url: "/products/valves#protection-system" },
     ],
   },
-
   {
     section: "Rubber Products",
     links: [
-      { label: "Overview", url: "/products/rubber-products/overview" },
+      { label: "Rubber Products", url: "/products/rubber-products" },
+      { label: "Overview", url: "/products/rubber-products#overview" },
+      { label: "Product Details", url: "/products/rubber-products#productDetails" },
+      { label: "Applications", url: "/products/rubber-products#applications" },
+      { label: "Advantages", url: "/products/rubber-products#benefitsAdvantages" },
     ],
   },
-
   {
-    section: "Cast Iron Pipes",
-    url: "/products/paint",
+    section: "Cast iron pipes",
     links: [
+      { label: "Cast iron pipes", url: "/products/cast-iron-pipes" },
       { label: "Overview", url: "/products/cast-iron-pipes#overview" },
     ],
   },
   {
-    section: "Paint ",
+    section: "Paint",
     links: [
+      { label: "Paint", url: "/products/paint" },
       { label: "Overview", url: "/products/paint#overview" },
       { label: "Manufacturing Excellence", url: "/products/paint#current-manufacturing-facilities" },
       { label: "Product Categories", url: "/products/paint#product-range" },
       { label: "Applications", url: "/products/paint#applications" },
     ],
   },
-
   {
     section: "Others",
     links: [
+      { label: "Others", url: "/products/others-products" },
       { label: "Metallurgical Coke", url: "/products/others-products#metallurgical-coke" },
       { label: "Sponge Iron", url: "/products/others-products#sponge-iron" },
       { label: "Silico Manganese Ferro Alloy", url: "/products/others-products#silico-manganese-ferro-alloy" },
@@ -160,30 +163,26 @@ const sustainabilityData = [
       { label: "Energy", url: "/sustainability/environment-initiatives#energy" },
     ],
   },
-
   {
     section: "Social Initiatives",
     links: [
       { label: "Safety", url: "/sustainability/social-initiatives/safety" },
       { label: "Employee Welfare", url: "/sustainability/social-initiatives/employee-welfare" },
       { label: "External Social Support", url: "/sustainability/social-initiatives/external-social-support" },
-      { label: " Our Commitments", url: "/sustainability/social-initiatives/commitment-going-forward" },
-
+      { label: "Our Commitments", url: "/sustainability/social-initiatives/commitment-going-forward" },
       {
         label: "Jal Sadhana",
+        url: "/sustainability/social-initiatives/jal-sadhana",
         subLinks: [
           { label: "Overview", url: "/sustainability/social-initiatives/jal-sadhana#overview" },
           { label: "Jal Sevak Samman", url: "/sustainability/social-initiatives/jal-sadhana#jal-sevak-samman" },
           { label: "Jal Stuti", url: "/sustainability/social-initiatives/jal-sadhana#jal-stuti" },
           { label: "Jal Manthan", url: "/sustainability/social-initiatives/jal-sadhana#jal-manthan" },
-          
         ],
       },
-
       { label: "Training", url: "/sustainability/social-initiatives/training" },
     ],
   },
-
   {
     section: "Governance Initiatives",
     links: [
@@ -199,23 +198,21 @@ const investorData = [
       { label: "Quarterly Results", url: "/investors/financials/quarterly-results" },
     ],
   },
-
   {
     section: "Reports & Accounts",
     links: [
       { label: "Annual Reports", url: "/investors/reports-and-accounts/annual-reports" },
       { label: "Accounts of Subsidiaries", url: "/investors/reports-and-accounts/accounts-of-subsidiaries" },
-      { label: "Accounts of Joint Venture", url: "/investors/reports-and-accounts/accounts-of-joints-venture" },
+      { label: "Accounts of Joint Venture", url: "/investors/reports-and-accounts/accounts-of-joint-venture" },
     ],
   },
-
   {
     section: "Code of conduct And Policies",
     links: [
+      { label: "Code of conduct And Policies", url: "/investors/code-of-conduct-and-policies" },
       { label: "Overview", url: "/investors/code-of-conduct-and-policies#overview" },
     ],
   },
-
   {
     section: "Amalgamation",
     links: [
@@ -225,32 +222,22 @@ const investorData = [
       { label: "Srikalahasthi Pipes Ltd", url: "/investors/amalgamation/srikalahasthi-pipes-ltd" },
     ],
   },
-
   {
     section: "Shareholder Information",
     links: [
       { label: "Shareholding Pattern", url: "/investors/shareholder-information/shareholding-pattern" },
       { label: "Newspaper Publications", url: "/investors/shareholder-information/newspaper-publication" },
+      { label: "Corporate Governance Quarterly Compliance", url: "/investors/shareholder-information/corporate-governance" },
       {
-        label: "Corporate Governance Quarterly Compliance",
-        url: "/investors/shareholder-information/corporate-governance",
-      },
-      { label: "Mergers", url: "/investors/shareholder-information/mergers" },
-
-      // Nested submenu
-      {
-        label: "General meeting and postal ballots",
+        label: "Mergers",
+        url: "/investors/shareholder-information/mergers",
         subLinks: [
           { label: "Notice", url: "/investors/shareholder-information/notices" },
           { label: "160 Notice", url: "/investors/shareholder-information/160-notices" },
           { label: "Voting Results", url: "/investors/shareholder-information/voting-results" },
         ],
       },
-
-      {
-        label: "Transfer of share to DEMAT Account of IEPF authority",
-        url: "/investors/shareholder-information/iepf-suspense-account",
-      },
+      { label: "Transfer of share to DEMAT Account of IEPF authority", url: "/investors/shareholder-information/iepf-suspense-account" },
       { label: "Unclaimed Dividends", url: "/investors/shareholder-information/unclaimed-dividends" },
       { label: "Extract of annual return", url: "/investors/shareholder-information/extract-of-annual-return" },
       { label: "Disclosures to stock exchange", url: "/investors/shareholder-information/disclosures-to-stock-exchange" },
@@ -258,23 +245,19 @@ const investorData = [
       { label: "Annual Return", url: "/investors/shareholder-information/annual-return" },
     ],
   },
-
   {
     section: "Investor Info",
     links: [
       { label: "Investor relations", url: "/investors/investor-info/investor-relations" },
       { label: "Credit ratings", url: "/investors/investor-info/credit-ratings" },
-      {
-        label: "Investor presentation and other documents",
-        url: "/investors/investor-info/investor-presentation-and-other-documents",
-      },
+      { label: "Investor presentation and other documents", url: "/investors/investor-info/investor-presentation-and-other-documents" },
       { label: "Shareholder Enquiry", url: "/connect/shareholder-enquiry" },
     ],
   },
-
   {
     section: "Board approved CSR projects",
     links: [
+      { label: "Board approved CSR projects", url: "/investors/csr" },
       { label: "Overview", url: "/investors/csr" },
     ],
   },
@@ -284,44 +267,11 @@ const newsRoomData = [
   {
     section: "",
     links: [
-      {
-        label: "Latest @ Electrosteel",
-        url: "/newsroom/latest-at-electrosteel",
-      },
-      // {
-      //   label: "Press and Media",
-      //   url: "/newsroom/press-and-media",
-      // },
-      {
-        label: "Electrosteel on Social",
-        url: "/newsroom/electrosteel-on-social",
-      },
-      {
-        label: "Newsletters",
-        url: "/newsroom/newsletters",
-      },
-      // {
-      //   label: "Blog",
-      //   url: "/newsroom/blog",
-      // },
-      // {
-      //   label: "Gallery",
-      //   url: "/newsroom/gallery",
-      //   subLinks: [
-      //     { label: "Photo ", url: "/newsroom/gallery#photo" },
-      //     { label: "Video  ", url: "/newsroom/gallery#video" },
-      //     // { label: "News  ", url: "/newsroom/gallery#news" },
-
-      //   ],
-      // },
-
-      // {
-      //   label: "Events",
-      //   url: "/newsroom/events",
-      // },
+      { label: "Latest @ Electrosteel", url: "/newsroom/latest-at-electrosteel" },
+      { label: "Electrosteel on Social", url: "/newsroom/electrosteel-on-social" },
+      { label: "Newsletters", url: "/newsroom/newsletters" },
     ],
   },
-
 ];
 
 const careersData = [
@@ -330,8 +280,7 @@ const careersData = [
     links: [
       { label: "Overview", url: "/career" },
       { label: "Join Us", url: "/career#join-us" },
-      { label: "Khoj – The Campus Drive", url: "/career#khoj" },
-      // { label: "Career Enquiry", url: "/career/career-enquiry" },
+      { label: "Khoj- The Campus Drive", url: "/career#khoj" },
     ],
   },
 ];
@@ -344,7 +293,6 @@ const connectData = [
       { label: "Shareholder Enquiry", url: "/connect/shareholder-enquiry" },
     ],
   },
-
 ];
 
 // comment
