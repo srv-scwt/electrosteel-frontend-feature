@@ -1645,7 +1645,7 @@ export default function Navbar() {
                       href={"/products/paint"}
                       className="hover:opacity-85 flex items-start"
                     >
-                      <h4 className="navlistheadernametext mt-4 mb-3">Paint</h4>
+                      <h4 className="navlistheadernametext mt-4 mb-3">Industrial Paint</h4>
                     </Link>
                     <ul className="space-y-2 navlistnametext">
                       <li className="flex items-start">

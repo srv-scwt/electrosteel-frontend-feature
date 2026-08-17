@@ -129,9 +129,9 @@ const productsData = [
     ],
   },
   {
-    section: "Paint",
+    section: "Industrial Paint",
     links: [
-      { label: "Paint", url: "/products/paint" },
+      { label: "Industrial Paint", url: "/products/paint" },
       { label: "Overview", url: "/products/paint#overview" },
       { label: "Manufacturing Excellence", url: "/products/paint#current-manufacturing-facilities" },
       { label: "Product Categories", url: "/products/paint#product-range" },
