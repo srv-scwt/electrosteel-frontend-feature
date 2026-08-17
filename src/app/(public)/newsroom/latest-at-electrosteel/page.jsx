@@ -6,7 +6,9 @@ import SomethingWentWrong from '@/components/common/SomethingWentWrong';
 import { getBlogResponseByCategory } from '@/services/blogs/blog.api';
 import { getCommonBanner } from '@/services/commonBanner/commonBanner.api';
 import { createImageSourceURL } from '@/utils';
+import { BLOG_PAGE_SIZE } from '@/services/blogs/blog.client.api';
 
+const LATEST_AT_ECL_CATEGORY = "latestATECLPage";
 
 const page = async () => {
   const homeBanner = await getCommonBanner("LatestAtElectrosteel");
@@ -20,7 +22,9 @@ const page = async () => {
   };
 
   const LatestEclCardData = await getBlogResponseByCategory({
-    category: "latestATECLPage",
+    category: LATEST_AT_ECL_CATEGORY,
+    page: 1,
+    limit: BLOG_PAGE_SIZE,
   });
   if (!LatestEclCardData || LatestEclCardData.error) return <SomethingWentWrong />
 
@@ -31,7 +35,12 @@ const page = async () => {
       ) : (
         <HeroSection data={heroData} />
       )}
-      <LatestElectrosteelListing data={LatestEclCardData?.data} />
+      <LatestElectrosteelListing
+        data={LatestEclCardData?.data}
+        pagination={LatestEclCardData?.pagination}
+        category={LATEST_AT_ECL_CATEGORY}
+        pageSize={BLOG_PAGE_SIZE}
+      />
     </>
   )
 }

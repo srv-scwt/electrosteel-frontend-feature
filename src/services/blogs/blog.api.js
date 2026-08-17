@@ -8,6 +8,8 @@ export async function getBlogResponseByCategory({
   month,
   keywords,
   search_by,
+  page,
+  limit,
 } = {}) {
   try {
     const normalizeParam = (value) =>
@@ -35,13 +37,22 @@ export async function getBlogResponseByCategory({
       params.set("keywords", normalizedKeywords);
     }
 
+    // The API paginates and defaults to 10 per response, so callers that want
+    // a different window (or a later page) have to ask for it explicitly.
+    if (page) {
+      params.set("page", String(page));
+    }
+
+    if (limit) {
+      params.set("limit", String(limit));
+    }
+
     const queryString = params.toString();
     const endpoint = queryString
       ? `/frontend/blogs?${queryString}`
       : `/frontend/blogs/blogListPage`;
 
     const response = await ServerFetch(endpoint, { mode: "SSR" });
-    console.log("endpoint: ",endpoint,response)
     if (!response) {
       return { data: null, error: "NO_DATA" };
     }
@@ -56,6 +67,7 @@ export async function getBlogResponseByCategory({
 
     return {
       data: response?.data,
+      pagination: response?.pagination ?? null,
       error: null,
       status: response.statusCode===200 ? true : false,
     };
