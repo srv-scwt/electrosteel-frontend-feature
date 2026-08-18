@@ -42,13 +42,13 @@ const navLinks = [
     tagType: "button",
     children: investorData,
   },
-   {
+  {
     name: "NEWSROOM",
     href: "/news-room",
     tagType: "button",
     children: newsRoomData,
   },
-   { name: "CAREER", href: "/career", tagType: "button", children: careersData },
+  { name: "CAREER", href: "/career", tagType: "button", children: careersData },
   {
     name: "CONNECT",
     href: "/connect",
@@ -379,7 +379,7 @@ export default function Navbar() {
                     >
                       {link.name}
                     </button>
-                         {link.href === "/sustainability" && <Image className="absolute bottom-0 right-0" width={30} height={60} alt="plant" src="/images/plantgrow.gif" />}
+                    {link.href === "/sustainability" && <Image className="absolute bottom-0 right-0" width={30} height={60} alt="plant" src="/images/plantgrow.gif" />}
                   </li>
                 ),
               )}
@@ -490,11 +490,9 @@ export default function Navbar() {
       </Container>
       {/* Search Overlay */}
       <div
-        className={`fixed top-0 right-0 ${
-          styles.headerSearchContainer
-        } w-[100vw] cursor-pointer max-w-full bg-white z-50 flex items-center shadow-lg transform transition-transform duration-500 ease-in-out ${
-          isSearchOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 ${styles.headerSearchContainer
+          } w-[100vw] cursor-pointer max-w-full bg-white z-50 flex items-center shadow-lg transform transition-transform duration-500 ease-in-out ${isSearchOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <Container>
           <div className="flex items-center w-full" ref={searchContainerRef}>
@@ -2617,7 +2615,7 @@ export default function Navbar() {
                         <span className="ml-1">Video </span>
                       </Link>
                     </li> */}
-                    {/* <li className="flex items-start">
+                {/* <li className="flex items-start">
                       <Link
                         href={"/newsroom/gallery#news"}
                         className="hover:text-yellow-400 flex items-start"
@@ -2626,7 +2624,7 @@ export default function Navbar() {
                         <span className="ml-1">News</span>
                       </Link>
                     </li> */}
-                  {/* </ul> */}
+                {/* </ul> */}
                 {/* </li>  */}
 
                 {/* events */}
@@ -2669,12 +2667,12 @@ export default function Navbar() {
                     <span className="ml-1">Khoj- The Campus Drive</span>
                   </Link>
                 </li>
-                {/* <li className="flex items-start">
+                <li className="flex items-start">
                   <Link href={"/career/career-enquiry"} className="hover:text-yellow-400 flex items-start">
                     <ChevronRight size={16} className={styles.angleIcon} />
                     <span className="ml-1">Career Enquiry</span>
                   </Link>
-                </li> */}
+                </li>
               </ul>
             </div>
           )}

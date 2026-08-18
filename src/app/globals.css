@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Tailwind v4's preflight no longer sets cursor: pointer on buttons, so every
+   button across the site fell back to the default arrow. Restore it here
+   instead of adding a class to each one; :not(:disabled) leaves disabled
+   buttons (and their cursor-not-allowed styling) alone. */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
