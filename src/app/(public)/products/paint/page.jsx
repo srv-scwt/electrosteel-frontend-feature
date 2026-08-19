@@ -16,6 +16,7 @@ import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getPaint } from "@/services/product/paint.api";
 import { paintsData } from "./paint.data";
 import { stripH2 } from "@/utils";
+import CardSection from "./_components/cardSection";
 
 function safeParseJSONArray(value) {
   if (Array.isArray(value)) return value;
@@ -74,6 +75,23 @@ const Paint = async () => {
     ...item,
     image: item.icon,
   }));
+
+  const boxdata = [
+    {
+      title: "Explore our Product Range",
+      description: "Check our complete portfolio of products.",
+      image: "https://www.electrosteel.com/electrosteel-static-assets/1786014019518-file-1778767728765-684139422.webp",
+      btn_title: "View Product Brochures",
+      link: "/resource-and-download/brochure",
+    },
+    {
+      title: "Got a Query?",
+      description: "Submit your enquiry here, and our team will get back to you.",
+      image: "https://www.electrosteel.com/electrosteel-static-assets/1786014406057-file-1778761081430-589725434.webp",
+      btn_title: "Enquire Now",
+      link: "/connect/business-enquiry",
+    },
+  ];
 
   return (
     <>
@@ -139,6 +157,7 @@ const Paint = async () => {
           </div>
         </div>
       </section>
+      <CardSection data={boxdata} />
     </>
   );
 };

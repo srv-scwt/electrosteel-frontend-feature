@@ -14,8 +14,8 @@ const JointingSystemSection = ({ sectionID, isDownloadLink = true, label, data =
 
   const toggleExpand = (index) => {
     setExpandedIndexes(prev => ({
-        ...prev,
-        [index]: !prev[index]
+      ...prev,
+      [index]: !prev[index]
     }));
   };
 
@@ -70,9 +70,9 @@ const JointingSystemSection = ({ sectionID, isDownloadLink = true, label, data =
                   </p>
                   <div className='flex gap-3 items-center flex-wrap justify-between'>
                     <ButtonLink goto={product?.sectionID} title={"More"} className={styles.moreBtn} />
-                    {isDownloadLink && (
+                    {isDownloadLink && product?.link && (
                       <OutlineButtonLink
-                        goto={createImageSourceURL(product?.link)}
+                        goto={createImageSourceURL(product.link)}
                         title={"Download"}
                       />
                     )}

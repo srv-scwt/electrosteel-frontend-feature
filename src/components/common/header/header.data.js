@@ -142,7 +142,7 @@ const productsData = [
     section: "Others",
     links: [
       { label: "Others", url: "/products/others-products" },
-      { label: "Metallurgical Coke", url: "/products/others-products#metallurgical-coke" },
+      { label: "Metallurgical Coke", url: "/products/others-products#metallurgical-coke-" },
       { label: "Sponge Iron", url: "/products/others-products#sponge-iron" },
       { label: "Silico Manganese Ferro Alloy", url: "/products/others-products#silico-manganese-ferro-alloy" },
       { label: "SPL Gold Cement", url: "/products/others-products#spl-gold-cement" },

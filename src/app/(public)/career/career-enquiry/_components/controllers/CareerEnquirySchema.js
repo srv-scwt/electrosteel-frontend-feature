@@ -1,5 +1,9 @@
 import * as Yup from "yup";
 import { noHtmlTags } from "@/app/(public)/connect/_components/controllers/noHtmlTags";
+import {
+    EMAIL_MESSAGE,
+    EMAIL_PATTERN,
+} from "@/app/(public)/connect/_components/controllers/emailPattern";
 
 export const MAX_PDF_BYTES = 5 * 1024 * 1024;
 
@@ -7,8 +11,17 @@ export const CareerEnquirySchema = Yup.object().shape({
     name: Yup.string().trim().required("Name is required").test(noHtmlTags),
     email: Yup.string()
         .trim()
-        .email("Invalid email")
-        .required("Email is required"),
+        .required("Email is required")
+        .matches(EMAIL_PATTERN, {
+            message: EMAIL_MESSAGE,
+            excludeEmptyString: true,
+        })
+        .test(
+            "no-consecutive-dots",
+            EMAIL_MESSAGE,
+            (value) => !value || !value.includes("..")
+        )
+        .max(254, "Email is too long"),
     phone: Yup.string()
         .trim()
         .required("Phone is required")

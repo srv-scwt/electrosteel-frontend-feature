@@ -9,11 +9,27 @@ import ProtectionSystemSection from "../_components/protectionSystemSection";
 import DipProductDetails from "../_components/dipProductDetailsTable";
 import { getDuctileIronPipes } from "@/services/product/ductileIronPipes.api";
 import SomethingWentWrong from "@/components/common/SomethingWentWrong";
+import CardSection from "./_components/cardSection";
 
 const page = async () => {
   const DuctileIronPipesData = await getDuctileIronPipes();
   if (!DuctileIronPipesData || DuctileIronPipesData.error) return <SomethingWentWrong />
-
+  const boxdata = [
+    {
+      title: "Explore our Product Range",
+      description: "Check our complete portfolio of products.",
+      image: "https://www.electrosteel.com/electrosteel-static-assets/1786014019518-file-1778767728765-684139422.webp",
+      btn_title: "View Product Brochures",
+      link: "/resource-and-download/brochure",
+    },
+    {
+      title: "Got a Query?",
+      description: "Submit your enquiry here, and our team will get back to you.",
+      image: "https://www.electrosteel.com/electrosteel-static-assets/1786014406057-file-1778761081430-589725434.webp",
+      btn_title: "Enquire Now",
+      link: "/connect/business-enquiry",
+    },
+  ];
   return (
     <>
       <HeroSection data={DuctileIronPipesData?.data?.heroSection} />
@@ -55,6 +71,7 @@ const page = async () => {
         data={DuctileIronPipesData?.data?.protectionExternal}
       />
 
+      <CardSection data={boxdata} />
     </>
   );
 };

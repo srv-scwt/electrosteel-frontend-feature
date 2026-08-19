@@ -1712,7 +1712,7 @@ export default function Navbar() {
                     <ul className="space-y-2 navlistnametext">
                       <li className="flex items-start">
                         <Link
-                          href={"/products/others-products#metallurgical-coke"}
+                          href={"/products/others-products#metallurgical-coke-"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight

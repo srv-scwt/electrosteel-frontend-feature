@@ -108,6 +108,8 @@ const ShareHolderEnquiryForm = () => {
                 control={control}
                 label="Email"
                 type="email"
+                inputMode="email"
+                autoComplete="email"
                 error={errors.email}
                 isRequired
             />
@@ -117,7 +119,15 @@ const ShareHolderEnquiryForm = () => {
                 name="mobile"
                 control={control}
                 label="Mobile"
+                type="tel"
+                inputMode="numeric"
+                autoComplete="tel"
+                maxLength={15}
+                // Strips anything non-numeric as it is typed or pasted, so the
+                // field can never hold text in the first place.
+                sanitize={(value) => value.replace(/\D/g, "")}
                 error={errors.mobile}
+                isRequired
             />
 
             {/* Query */}

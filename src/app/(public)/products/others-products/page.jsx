@@ -7,11 +7,29 @@ import HTMLRender from "@/components/ui/HTMLRender";
 import { getOtherProductsAll } from "@/services/product/otherProducts/otherProductsAll.api";
 import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getFinishedProductByCategory } from "@/services/product/otherProducts/FinishedProductByCategory.api";
+import CardSection from "./_components/cardSection";
 
 const Page = async () => {
   const OtherProductsData = await getOtherProductsAll();
   const FinishedProductData = await getFinishedProductByCategory("otherProductsfinishedProduct");
   const SemiFinishedProductData = await getFinishedProductByCategory("otherProductssemiFinishedProduct");
+
+  const boxdata = [
+    {
+      title: "Explore our Product Range",
+      description: "Check our complete portfolio of products.",
+      image: "https://www.electrosteel.com/electrosteel-static-assets/1786014019518-file-1778767728765-684139422.webp",
+      btn_title: "View Product Brochures",
+      link: "/resource-and-download/brochure",
+    },
+    {
+      title: "Got a Query?",
+      description: "Submit your enquiry here, and our team will get back to you.",
+      image: "https://www.electrosteel.com/electrosteel-static-assets/1786014406057-file-1778761081430-589725434.webp",
+      btn_title: "Enquire Now",
+      link: "/connect/business-enquiry",
+    },
+  ];
 
   if (!OtherProductsData || OtherProductsData.error) return <SomethingWentWrong />
 
@@ -97,6 +115,7 @@ const Page = async () => {
         data={OtherProductsData?.data?.otherProductsGallery1?.[0]}
         data1={OtherProductsData?.data?.otherProductsGallery2?.[0]}
       />
+      <CardSection data={boxdata} />
     </>
   );
 };
