@@ -57,13 +57,11 @@ const nextConfig = {
     return [
       {
         source: "/about/corporate-profile.php",
-        has: [{ type: "host", value: "electrosteel.com" }],
         destination: "https://www.electrosteel.com/about",
         permanent: true,
       },
       {
         source: "/about/company-profile.php",
-        has: [{ type: "host", value: "electrosteel.com" }],
         destination: "https://www.electrosteel.com/about",
         permanent: true,
       },
