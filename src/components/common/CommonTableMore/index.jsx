@@ -11,7 +11,7 @@ import { createImageSourceURL } from "@/utils";
 const CommonTableMore = ({ className, data }) => {
   const [openModal, setOpenModal] = useState(false);
   const [modalData, setModalData] = useState([]);
-
+  console.log(data, 'data data');
   if (!data) return null;
 
   const { table } = data;
@@ -50,7 +50,7 @@ const CommonTableMore = ({ className, data }) => {
                     <div className="flex flex-col gap-2">
                       <p>{row?.guiding}</p>
 
-                      {row?.modal && row?.modal?.length > 0 ? (
+                      {row?.modal?.length > 0 && row.modal[0].label && row.modal[0].description1 ? (
                         <OutlineButton
                           action={() => handleMoreClick(row)}
                           title={"MORE "}
