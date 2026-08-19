@@ -83,7 +83,7 @@ export default function SrikalahasthiPipesSection({
     activeYear === "all"
       ? normalizedSections
       : normalizedSections.filter((section) => section.year === activeYear);
-  const groupedSections = groupSectionsBySectionTitle(filteredSections);
+  const groupedSections = groupSectionsBySectionTitle(filteredSections).slice().reverse();
 
   const renderInvestorCards = (results = []) => (
     <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
@@ -115,8 +115,7 @@ export default function SrikalahasthiPipesSection({
                       <div
                         key={
                           headingGroup.heading ||
-                          `${
-                            sectionGroup.sectionTitle || "section"
+                          `${sectionGroup.sectionTitle || "section"
                           }-${headingIndex}`
                         }
                         className="space-y-6"

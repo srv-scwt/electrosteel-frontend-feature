@@ -240,7 +240,7 @@ const CareerEnquiryForm = () => {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className={`rounded-[12px] px-6 py-2 text-white transition-all duration-200 ${isSubmitting
+                            className={`rounded-[12px] px-10 py-3 text-white transition-all duration-200 ${isSubmitting
                                 ? "animate-pulse cursor-not-allowed bg-gray-400"
                                 : "bg-[#003366] hover:bg-[#002952]"
                                 }`}
@@ -251,7 +251,7 @@ const CareerEnquiryForm = () => {
                         <button
                             type="button"
                             onClick={handleClear}
-                            className="rounded-[12px] bg-yellow-500 px-6 py-2 text-black transition-all duration-200 hover:bg-yellow-600"
+                            className="rounded-[12px] bg-yellow-500 px-10 py-3 text-black transition-all duration-200 hover:bg-yellow-600"
                         >
                             Clear
                         </button>

@@ -1,3 +1,7 @@
+h3:empty,
+p:empty {
+  display: none;
+}
 .containerLg {
   max-width: 90vw;
   margin: auto auto;
@@ -68,18 +72,22 @@
   letter-spacing: 0%;
   text-align: center;
   color: #3aa364;
+  margin-bottom: 0.5rem;
 }
 
 .sectionContentCard p {
   font-family: var(--font-montserrat);
   font-weight: 400;
-  font-style: Regular;
   font-size: clamp(14px, 2.8vw, 18px);
   line-height: 100%;
   letter-spacing: 0%;
   text-align: center;
   vertical-align: middle;
   color: #545454;
+  line-height: 28px;
+}
+.sectionContentCard p > br{
+  display: none;
 }
 
 .earthRoundContainer {

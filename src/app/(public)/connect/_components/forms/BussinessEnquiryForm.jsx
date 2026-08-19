@@ -68,142 +68,141 @@ const BussinessEnquiryForm = () => {
     };
 
     return (
-           <section style={{ fontFamily: "var(--font-montserrat)" }}>
-        <div className={style.containerLg}>
-        <div  className={style.sectionContent}>
-            <div className="text-end">
-            <p><strong>Fields marked with <span className="text-red-600">*</span> are mandatory</strong></p>
-            </div>
-        </div>
-        
-        <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"
-        >
-            {/* Name */}
-            <InputFieldComponent
-                name="name"
-                control={control}
-                label="Name"
-                error={errors.name}
-                isRequired
-            />
-
-            {/* Company Name */}
-            <InputFieldComponent
-                name="company_name"
-                control={control}
-                label="Company Name"
-                error={errors.company_name}
-                isRequired
-            />
-
-            {/* Email */}
-            <InputFieldComponent
-                name="email"
-                control={control}
-                label="Email"
-                type="email"
-                inputMode="email"
-                autoComplete="email"
-                error={errors.email}
-                isRequired
-            />
-
-            {/* Mobile */}
-            <InputFieldComponent
-                name="mobile"
-                control={control}
-                label="Mobile"
-                type="tel"
-                inputMode="numeric"
-                autoComplete="tel"
-                maxLength={15}
-                // Strips anything non-numeric as it is typed or pasted, so the
-                // field can never hold text in the first place.
-                sanitize={(value) => value.replace(/\D/g, "")}
-                error={errors.mobile}
-                isRequired
-            />
-
-            {/* Country / State / City — 3 Column Row */}
-            <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <InputFieldComponent
-                    name="country"
-                    control={control}
-                    label="Country"
-                    error={errors.country}
-                    isRequired
-                />
-
-                <InputFieldComponent
-                    name="state"
-                    control={control}
-                    label="State"
-                    error={errors.state}
-                    isRequired
-                />
-
-                <InputFieldComponent
-                    name="city"
-                    control={control}
-                    label="City / Town"
-                    error={errors.city}
-                    isRequired
-                />
-            </div>
-
-            {/* Address */}
-            <TextAreaFieldComponent
-                name="address"
-                control={control}
-                label="Address"
-                rows={5}
-                error={errors.address}
-                isRequired
-            />
-
-            {/* Query */}
-            <TextAreaFieldComponent
-                name="query"
-                control={control}
-                label="Query"
-                rows={5}
-                error={errors.query}
-                isRequired
-            />
-
-            {/* Buttons */}
-            <div className="md:col-span-2 flex gap-4">
-                <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`px-6 py-2 rounded-[12px] text-white transition-all duration-200 
-                        ${isSubmitting
-                            ? "bg-gray-400 cursor-not-allowed animate-pulse"
-                            : "bg-[#003366] hover:bg-[#002952]"
-                        }`}
-                >
-                    {isSubmitting ? "Submitting..." : "Submit"}
-                </button>
-
-                <button
-                    type="button"
-                    onClick={handleClear}
-                    className="px-6 py-2 rounded-[12px] bg-yellow-500 text-black hover:bg-yellow-600 transition-all duration-200"
-                >
-                    Clear
-                </button>
-            </div>
-
-            {/* Status Message */}
-            {submitStatus.message && (
-                <div className={`md:col-span-2 p-4 rounded-md text-sm font-medium ${submitStatus.type === "success" ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"}`}>
-                    {submitStatus.message}
+        <section style={{ fontFamily: "var(--font-montserrat)" }}>
+            <div className={style.containerLg}>
+                <div className={style.sectionContent}>
+                    <div className="text-end">
+                        <p><strong>Fields marked with <span className="text-red-600">*</span> are mandatory</strong></p>
+                    </div>
                 </div>
-            )}
-        </form>
-        </div>
+
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"
+                >
+                    {/* Name */}
+                    <InputFieldComponent
+                        name="name"
+                        control={control}
+                        label="Name"
+                        error={errors.name}
+                        isRequired
+                    />
+
+                    {/* Company Name */}
+                    <InputFieldComponent
+                        name="company_name"
+                        control={control}
+                        label="Company Name"
+                        error={errors.company_name}
+                        isRequired
+                    />
+
+                    {/* Email */}
+                    <InputFieldComponent
+                        name="email"
+                        control={control}
+                        label="Email"
+                        type="email"
+                        inputMode="email"
+                        autoComplete="email"
+                        error={errors.email}
+                        isRequired
+                    />
+
+                    {/* Mobile */}
+                    <InputFieldComponent
+                        name="mobile"
+                        control={control}
+                        label="Mobile"
+                        type="tel"
+                        inputMode="numeric"
+                        autoComplete="tel"
+                        maxLength={15}
+                        // Strips anything non-numeric as it is typed or pasted, so the
+                        // field can never hold text in the first place.
+                        sanitize={(value) => value.replace(/\D/g, "")}
+                        error={errors.mobile}
+                        isRequired
+                    />
+
+                    {/* Country / State / City — 3 Column Row */}
+                    <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <InputFieldComponent
+                            name="country"
+                            control={control}
+                            label="Country"
+                            error={errors.country}
+                            isRequired
+                        />
+
+                        <InputFieldComponent
+                            name="state"
+                            control={control}
+                            label="State"
+                            error={errors.state}
+                            isRequired
+                        />
+
+                        <InputFieldComponent
+                            name="city"
+                            control={control}
+                            label="City / Town"
+                            error={errors.city}
+                            isRequired
+                        />
+                    </div>
+
+                    {/* Address */}
+                    <TextAreaFieldComponent
+                        name="address"
+                        control={control}
+                        label="Address"
+                        rows={5}
+                        error={errors.address}
+                        isRequired
+                    />
+
+                    {/* Query */}
+                    <TextAreaFieldComponent
+                        name="query"
+                        control={control}
+                        label="Query"
+                        rows={5}
+                        error={errors.query}
+                        isRequired
+                    />
+
+                    {/* Buttons */}
+                    <div className="md:col-span-2 flex gap-4">
+                        <button
+                            type="button"
+                            onClick={handleClear}
+                            className="px-10 py-3 rounded-[12px] bg-transparent border border-yellow-500 text-yellow-600 hover:bg-yellow-500 hover:text-black transition-all duration-200"
+                        >
+                            Clear
+                        </button>
+                        <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className={`px-10 py-3 rounded-[12px] text-white transition-all duration-200 
+                        ${isSubmitting
+                                    ? "bg-gray-400 cursor-not-allowed animate-pulse"
+                                    : "bg-[#003366] hover:bg-[#002952]"
+                                }`}
+                        >
+                            {isSubmitting ? "Submitting..." : "Submit"}
+                        </button>
+                    </div>
+
+                    {/* Status Message */}
+                    {submitStatus.message && (
+                        <div className={`md:col-span-2 p-4 rounded-md text-sm font-medium ${submitStatus.type === "success" ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"}`}>
+                            {submitStatus.message}
+                        </div>
+                    )}
+                </form>
+            </div>
         </section>
     );
 };

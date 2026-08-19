@@ -228,7 +228,7 @@
   }
 
   .buttonIconPadding {
-    padding-block: 10px !important;
+    padding-block: 20px !important;
   }
 }
 
@@ -239,7 +239,7 @@
   }
 
   .buttonIconPadding {
-    padding-block: 16px;
+    padding-block: 20px;
   }
 
   .rightIcons button {
@@ -255,7 +255,7 @@
   }
 
   .buttonIconPadding {
-    padding-block: 16px;
+    padding-block: 20px;
   }
 }
 
@@ -266,7 +266,7 @@
   }
 
   .buttonIconPadding {
-    padding-block: 16px;
+    padding-block: 20px;
   }
 
   .searchBtn svg {

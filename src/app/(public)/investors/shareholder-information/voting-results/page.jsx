@@ -5,6 +5,7 @@ const page = ({ searchParams }) => (
   <InvestorCategoryPage
     searchParams={searchParams}
     {...InvestorPageConfigObject.generalMeetingAndPostalBallotsVotingResults}
+    archieveLink={""}
   />
 );
 

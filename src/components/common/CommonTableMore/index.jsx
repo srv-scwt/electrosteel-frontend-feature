@@ -60,6 +60,7 @@ const CommonTableMore = ({ className, data }) => {
                           goto={createImageSourceURL(row?.download)}
                           title={"DOWNLOAD"}
                           className={""}
+                          action={"_blank"}
                         />
                       ) : null}
                     </div>
