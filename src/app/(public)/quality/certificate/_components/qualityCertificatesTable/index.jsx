@@ -81,7 +81,7 @@ const QualityCertificatesTable = ({ data = [] }) => {
     // Map license with endorsement
     const licenseCertsData = data.find(c => c.category === 'license-with-endorsement');
     const licenseRows = licenseCertsData?.items?.map((item, index) => {
-        const options = item.pdfs?.map(pdf => ({ label: pdf.plant_name, url: pdf.pdf_file })) || [];
+        const options = item.pdfs?.map(pdf => ({ label: pdf.title, url: pdf.pdf_file })) || [];
         return [
             index + 1,
             item.license_issued_by,
