@@ -20,13 +20,14 @@ import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 const page = async () => {
   const jolsadhanaData = await getJolsadhana();
   if (!jolsadhanaData || jolsadhanaData.error) return <SomethingWentWrong />
-
+  console.log("jolsadhanaData", jolsadhanaData?.data);
   return (
     <>
       <HeroSection data={jolsadhanaData?.data?.heroData} />
       <WhatisJalSadhana
         label={jolsadhanaData?.data?.whatIsJalSadhana}
         data={jolsadhanaData?.data?.whatIsJalSadhana?.slider_images || []}
+        rotateImage={jolsadhanaData?.data?.whatIsJalSadhana?.image || null}
       />
       <JalSevakSanam data={jolsadhanaData?.data?.jalSevakSaman?.[0]} />
       <JolStuti data={jolsadhanaData?.data?.jalStuti || []} />

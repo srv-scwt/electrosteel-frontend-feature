@@ -4,7 +4,7 @@ import styles from "./style.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { createImageSourceURL } from "@/utils";
 
-export default function WhatisJalSadhana({ label, data = [] }) {
+export default function WhatisJalSadhana({ label, data = [], rotateImage = null }) {
   return (
     <section id="overview" className="relative">
       {/* White overlay */}
@@ -38,7 +38,7 @@ export default function WhatisJalSadhana({ label, data = [] }) {
         <div className={styles.earthRoundWrapper}>
           <div className={styles.earthRound}>
             <Image
-              src={"/images/earthround.png"}
+              src={rotateImage || "/images/earthround.png"}
               fill
               className="absolute w-[100%] h-[100%]"
               alt="earth"

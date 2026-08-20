@@ -119,7 +119,7 @@ const Paint = async () => {
       <ComprehensiveProducts
         data={{
           ...paintData.productCategoriesPaint,
-          download_link: "/images/paint/Paint-Catalogue-V6-Curved.pdf",
+          download_link: "/images/paint/Paint-Catalogue-V6.pdf",
         }}
         productCategories={productCategories}
         alwaysProductCard
