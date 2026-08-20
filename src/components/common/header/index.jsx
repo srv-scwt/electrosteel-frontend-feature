@@ -1351,21 +1351,21 @@ export default function Navbar() {
                     </ul>
                   </div>
 
-                  {/* Ductile Iron Flange Pipe */}
+                  {/* Ductile Iron Flange Pipes */}
                   <div>
                     <Link
-                      href={"/products/ductile-iron-flange-pipe"}
+                      href={"/products/ductile-iron-flange-pipes"}
                       className="hover:opacity-85 flex items-start"
                     >
                       <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
-                        Ductile Iron Flange Pipe
+                        Ductile Iron Flange Pipes
                       </h4>
                     </Link>
                     <ul className="space-y-2 navlistnametext">
                       <li className="flex items-start">
                         <Link
                           href={
-                            "/products/ductile-iron-flange-pipe#product-details"
+                            "/products/ductile-iron-flange-pipes#product-details"
                           }
                           className="hover:text-yellow-400 flex items-start"
                         >
@@ -1379,7 +1379,7 @@ export default function Navbar() {
                       <li className="flex items-start">
                         <Link
                           href={
-                            "/products/ductile-iron-flange-pipe#applications"
+                            "/products/ductile-iron-flange-pipes#applications"
                           }
                           className="hover:text-yellow-400 flex items-start"
                         >
@@ -1392,7 +1392,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/ductile-iron-flange-pipe#advantages"}
+                          href={"/products/ductile-iron-flange-pipes#advantages"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1640,7 +1640,7 @@ export default function Navbar() {
                   </div>
                   <div>
                     <Link
-                      href={"/products/paint"}
+                      href={"/products/industrial-paint"}
                       className="hover:opacity-85 flex items-start"
                     >
                       <h4 className="navlistheadernametext mt-4 mb-3">Industrial Paint</h4>
@@ -1648,7 +1648,7 @@ export default function Navbar() {
                     <ul className="space-y-2 navlistnametext">
                       <li className="flex items-start">
                         <Link
-                          href={"/products/paint#overview"}
+                          href={"/products/industrial-paint#overview"}
                           className="hover:text-yellow-400 flex items-start"
                           onClick={() => setHoveredLink(null)}
                         >
@@ -1661,7 +1661,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/paint#current-manufacturing-facilities"}
+                          href={"/products/industrial-paint#current-manufacturing-facilities"}
                           className="hover:text-yellow-400 flex items-start"
                           onClick={() => setHoveredLink(null)}
                         >
@@ -1674,7 +1674,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/paint#product-range"}
+                          href={"/products/industrial-paint#product-range"}
                           className="hover:text-yellow-400 flex items-start"
                           onClick={() => setHoveredLink(null)}
                         >
@@ -1687,7 +1687,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/paint#applications"}
+                          href={"/products/industrial-paint#applications"}
                           className="hover:text-yellow-400 flex items-start"
                           onClick={() => setHoveredLink(null)}
                         >

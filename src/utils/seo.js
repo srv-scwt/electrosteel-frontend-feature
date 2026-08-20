@@ -6,7 +6,7 @@ import { sanitizeTextContent } from "@/utils";
 // Drives canonical + Open Graph URLs, so this must be the real public origin in
 // production. Set NEXT_PUBLIC_SITE_URL per environment; the fallback is only a
 // preview deployment and will emit wrong canonicals if it is ever used live.
-const FALLBACK_SITE_URL = "https://electrosteel-frontend-feature.vercel.app";
+const FALLBACK_SITE_URL = "https://electrosteel.com";
 
 export const SITE_URL = `${(
   process.env.NEXT_PUBLIC_SITE_URL || FALLBACK_SITE_URL
@@ -339,8 +339,8 @@ const SEO_ROUTE_PAGES = [
     pageName: "DI Fittings Jointing System",
   },
   {
-    pathname: "/products/ductile-iron-flange-pipe",
-    pageName: "Ductile Iron Flange Pipe",
+    pathname: "/products/ductile-iron-flange-pipes",
+    pageName: "Ductile Iron Flange Pipes",
   },
   {
     pathname: "/products/ductile-iron-fittings",
@@ -348,7 +348,7 @@ const SEO_ROUTE_PAGES = [
   },
   { pathname: "/products/valves", pageName: "Valves" },
   { pathname: "/products/rubber-products", pageName: "Rubber Products" },
-  { pathname: "/products/paint", pageName: "Paint" },
+  { pathname: "/products/industrial-paint", pageName: "Industrial Paint" },
   { pathname: "/products/cast-iron-pipes", pageName: "Cast Iron Pipes" },
   { pathname: "/products/others-products", pageName: "Other Products" },
   { pathname: "/resource-and-download/policy", pageName: "Policy" },

@@ -36,6 +36,7 @@ const page = async () => {
         data={DiFlangePipesData?.data?.flangeTable?.data}
         tableHeaders={DiFlangePipesData?.data?.flangeTable?.data?.tableHeaders}
         tableData={DiFlangePipesData?.data?.flangeTable?.data?.tableData}
+        sectionId={"product-details"}
       />
       <ChooseListSection sectionID={"advantages"} data={DiFlangePipesData?.data?.advantages?.[0]} />
       <ApplicationSection sectionID={"applications"} data={DiFlangePipesData?.data?.applications || []} />

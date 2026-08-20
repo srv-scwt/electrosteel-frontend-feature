@@ -238,6 +238,14 @@ const CareerEnquiryForm = () => {
 
                     <div className="flex gap-4 md:col-span-2">
                         <button
+                            type="button"
+                            onClick={handleClear}
+                            className="px-10 py-3 rounded-[12px] bg-transparent border border-yellow-500 text-yellow-600 hover:bg-yellow-500 hover:text-black transition-all duration-200"
+                        >
+                            Clear
+                        </button>
+
+                        <button
                             type="submit"
                             disabled={isSubmitting}
                             className={`rounded-[12px] px-10 py-3 text-white transition-all duration-200 ${isSubmitting
@@ -246,14 +254,6 @@ const CareerEnquiryForm = () => {
                                 }`}
                         >
                             {isSubmitting ? "Submitting..." : "Submit"}
-                        </button>
-
-                        <button
-                            type="button"
-                            onClick={handleClear}
-                            className="rounded-[12px] bg-yellow-500 px-10 py-3 text-black transition-all duration-200 hover:bg-yellow-600"
-                        >
-                            Clear
                         </button>
                     </div>
 

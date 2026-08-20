@@ -90,8 +90,8 @@
   font-family: var(--font-montserrat);
   font-weight: 500;
   font-style: Medium;
-  font-size: clamp(14px, 2.8vw, 26px);
-  line-height: 1.2;
+  font-size: clamp(14px, 2.8vw, 22px);
+  line-height: 1.5;
   letter-spacing: 0%;
   color: #545454;
   word-break: normal;
@@ -140,7 +140,7 @@
 
   .sectionContent h3 {
     font-size: clamp(14px, 1.5vw, 20px);
-    line-height: 1.2;
+    line-height: 1.5;
   }
 
   .socialCardWrapper1 {

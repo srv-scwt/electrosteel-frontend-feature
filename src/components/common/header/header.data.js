@@ -83,12 +83,12 @@ const productsData = [
     ],
   },
   {
-    section: "Ductile Iron Flange Pipe",
+    section: "Ductile Iron Flange Pipes",
     links: [
-      { label: "Ductile Iron Flange Pipe", url: "/products/ductile-iron-flange-pipe" },
-      { label: "Product Details", url: "/products/ductile-iron-flange-pipe#product-details" },
-      { label: "Applications", url: "/products/ductile-iron-flange-pipe#applications" },
-      { label: "Advantages", url: "/products/ductile-iron-flange-pipe#advantages" },
+      { label: "Ductile Iron Flange Pipes", url: "/products/ductile-iron-flange-pipes" },
+      { label: "Product Details", url: "/products/ductile-iron-flange-pipes#product-details" },
+      { label: "Applications", url: "/products/ductile-iron-flange-pipes#applications" },
+      { label: "Advantages", url: "/products/ductile-iron-flange-pipes#advantages" },
     ],
   },
   {
@@ -131,11 +131,11 @@ const productsData = [
   {
     section: "Industrial Paint",
     links: [
-      { label: "Industrial Paint", url: "/products/paint" },
-      { label: "Overview", url: "/products/paint#overview" },
-      { label: "Manufacturing Excellence", url: "/products/paint#current-manufacturing-facilities" },
-      { label: "Product Categories", url: "/products/paint#product-range" },
-      { label: "Applications", url: "/products/paint#applications" },
+      { label: "Industrial Paint", url: "/products/industrial-paint" },
+      { label: "Overview", url: "/products/industrial-paint#overview" },
+      { label: "Manufacturing Excellence", url: "/products/industrial-paint#current-manufacturing-facilities" },
+      { label: "Product Categories", url: "/products/industrial-paint#product-range" },
+      { label: "Applications", url: "/products/industrial-paint#applications" },
     ],
   },
   {

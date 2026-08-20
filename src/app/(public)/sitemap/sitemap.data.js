@@ -101,12 +101,12 @@ export const sitemapSections = [
         path: "/products/ductile-iron-fittings/jointing-systems",
       },
       {
-        label: "Ductile Iron Flange Pipe",
-        path: "/products/ductile-iron-flange-pipe",
+        label: "Ductile Iron Flange Pipes",
+        path: "/products/ductile-iron-flange-pipes",
       },
       { label: "Cast Iron Pipes", path: "/products/cast-iron-pipes" },
       { label: "Rubber Products", path: "/products/rubber-products" },
-      { label: "Paint", path: "/products/paint" },
+      { label: "Industrial Paint", path: "/products/industrial-paint" },
       { label: "Other Products", path: "/products/others-products" },
       { label: "Valves", path: "/products/valves" },
       {

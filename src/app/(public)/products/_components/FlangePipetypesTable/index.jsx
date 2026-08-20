@@ -5,10 +5,11 @@ import style from "./style.module.css";
 import HTMLRender from "@/components/ui/HTMLRender";
 import { IoChevronDown, IoChevronForward } from "react-icons/io5";
 
-const FlangePipeTable = ({ data, tableHeaders, tableData }) => {
+const FlangePipeTable = ({ data, tableHeaders, tableData, sectionId }) => {
   const [open, setOpen] = useState(true);
+  const sectionIdd = sectionId || "cardName"; // Default section ID if not provided
   return (
-    <section className="bg-white" id="cardName">
+    <section className="bg-white" id={sectionIdd}>
       <div className={styles.containerLg}>
         <div className={styles.sectionContent}>
           <div>

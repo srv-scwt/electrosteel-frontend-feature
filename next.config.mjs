@@ -392,7 +392,7 @@ const nextConfig = {
       },
       {
         source: "/products/flange-pipe.php",
-        destination: "https://www.electrosteel.com/products/ductile-iron-flange-pipe",
+        destination: "https://www.electrosteel.com/products/ductile-iron-flange-pipes",
         permanent: true,
       },
       {
@@ -402,12 +402,12 @@ const nextConfig = {
       },
       {
         source: "/products/flanged_joint.php",
-        destination: "https://www.electrosteel.com/products/ductile-iron-flange-pipe",
+        destination: "https://www.electrosteel.com/products/ductile-iron-flange-pipes",
         permanent: true,
       },
       {
         source: "/products/bolted_restrained_joint.php",
-        destination: "https://www.electrosteel.com/products/ductile-iron-flange-pipe",
+        destination: "https://www.electrosteel.com/products/ductile-iron-flange-pipes",
         permanent: true,
       },
       {
