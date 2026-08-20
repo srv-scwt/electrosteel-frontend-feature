@@ -8,7 +8,7 @@ import styles from "./style.module.css";
  * Works as Tabs (desktop) + Accordion (mobile)
  * Accepts `tabsData` prop from parent component
  */
-const CommonTab = ({ tabsData }) => {
+const CommonTab = ({ tabsData, tabListClassName = "", tabContentClassName = "" }) => {
   const [activeTab, setActiveTab] = useState(tabsData?.[0]?.id || null);
   const [openAccordion, setOpenAccordion] = useState(tabsData?.[0]?.id || null);
 
@@ -20,7 +20,7 @@ const CommonTab = ({ tabsData }) => {
   return (
     <div className={styles.customTabWrapper}>
       {/* --- Desktop Tabs --- */}
-      <ul className={`hidden md:flex ${styles.commonTab}`}>
+      <ul className={`hidden md:flex ${styles.commonTab} ${tabListClassName}`}>
         {tabsData.map((tab) => (
           <li
             key={tab.id}
@@ -45,7 +45,7 @@ const CommonTab = ({ tabsData }) => {
 
       {/* --- Desktop Tab Content --- */}
       <div
-        className={`hidden md:block ${styles.commonTabContent} bg-white p-5 md:pt-[30px] rounded-md lg:rounded-[12px] shadow-md`}
+        className={`hidden md:block ${styles.commonTabContent} bg-white p-5 md:pt-[30px] rounded-md lg:rounded-[12px] shadow-md ${tabContentClassName}`}
       >
         {tabsData.find((t) => t.id === activeTab)?.content}
       </div>

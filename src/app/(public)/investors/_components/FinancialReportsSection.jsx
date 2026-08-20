@@ -22,6 +22,11 @@ export default function FinancialReportsSection({
   latestFeild = false,
   showTitle = true,
   sectionTitle = false,
+  yearQueryKey = "year",
+  titleFollowsYear = true,
+  containerClassName = styles.containerLg,
+  subHeading = "",
+  headingLink = null,
 }) {
   const financialYears = data?.financialYears || [];
   const financialsOption = yearFieldDropdown
@@ -29,9 +34,9 @@ export default function FinancialReportsSection({
     : [];
 
   const appendQueryParam = useAppendQueryParam();
-  const selectedYearParam = Array.isArray(searchParams?.year)
-    ? searchParams.year[0]
-    : searchParams?.year;
+  const selectedYearParam = Array.isArray(searchParams?.[yearQueryKey])
+    ? searchParams[yearQueryKey][0]
+    : searchParams?.[yearQueryKey];
   const selectedYear = selectedYearParam || financialsOption?.[0]?.value;
   const selectedOption =
     financialsOption.find((item) => item.value === selectedYear) ||
@@ -46,7 +51,7 @@ export default function FinancialReportsSection({
       : financialYears.find((item) => item.year === activeYear)?.results || []
     : allResults;
   const titleYear =
-    showYearDropdown && activeYear && activeYear !== "all"
+    titleFollowsYear && showYearDropdown && activeYear && activeYear !== "all"
       ? activeYear.replace("FY ", "FY <span>") + "</span>"
       : titleYearExceptional;
   const showArchiveLink = latestFeild && archieveLink;
@@ -57,8 +62,17 @@ export default function FinancialReportsSection({
     financialYears.some((item) => item?.heading);
 
   const handleYearChange = (option) => {
-    appendQueryParam("year", option?.value);
+    appendQueryParam(yearQueryKey, option?.value);
   };
+
+  const renderHeading = () =>
+    headingField ? (
+      <h2 className="whitespace-nowrap">{heading}</h2>
+    ) : (
+      <HTMLRender
+        htmlString={`<h2 class="whitespace-nowrap">${titleYear}</h2>`}
+      />
+    );
 
   const renderInvestorCards = (results = []) => (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4 xl:gap-6">
@@ -75,15 +89,39 @@ export default function FinancialReportsSection({
   );
 
   return (
-    <section className={styles.containerLg}>
+    <section className={containerClassName}>
       <div className={styles.sectionContent}>
         {showTitle && (
           <div className="w-full flex flex-col lg:flex-row lg:items-center justify-between mb-4 gap-4">
-            {headingField ? (<h2 className="whitespace-nowrap">{heading}</h2>
+            {subHeading || headingLink?.href ? (
+              <div>
+                {renderHeading()}
+
+                {headingLink?.href && (
+                  <Link
+                    href={headingLink.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-fit max-w-full flex gap-3 items-center bg-white border border-gray-200 rounded-md p-4 mb-5 shadow-sm hover:shadow-md transition-shadow duration-200"
+                  >
+                    <span className="relative w-[30px] h-[30px] flex-shrink-0">
+                      <Image
+                        src="/images/icons/pdf.png"
+                        alt="pdf icon"
+                        fill
+                        className="object-contain"
+                      />
+                    </span>
+                    <p className="text-[#545454] hover:text-[#00418e] transition-colors duration-200">
+                      {headingLink.label}
+                    </p>
+                  </Link>
+                )}
+
+                {subHeading && <p className="!font-bold">{subHeading}</p>}
+              </div>
             ) : (
-            <HTMLRender
-              htmlString={`<h2 class="whitespace-nowrap">${titleYear}</h2>`}
-            />
+              renderHeading()
             )}
 
 
