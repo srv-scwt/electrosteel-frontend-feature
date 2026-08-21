@@ -55,6 +55,11 @@ export default function SocialSection({ data }) {
             }}
           >
             {Array.isArray(data) && data?.map((post, index) => {
+              const description = post?.message ?? "";
+              const plainText = description.replace(/<[^>]*>/g, "").trim();
+              const words = plainText.split(/\s+/).filter(Boolean);
+              const truncatedDescription =
+                words.length >= 10 ? `${words.slice(0, 10).join(" ")}...` : plainText;
               const imageSrc = createImageSourceURL(
                 post?.full_picture,
                 "/images/blog/card/img1.png"
@@ -82,12 +87,7 @@ export default function SocialSection({ data }) {
                     </div>
                     <div className={styles.sectionContent}>
                       <span>{post?.date}</span>
-                      <h3>
-                        {message.length >= 100
-                          ? `${message.slice(0, 100)}...`
-                          : message
-                        }
-                      </h3>
+                      <h3>{truncatedDescription}</h3>
                       <div className={styles.cardLink}>
                         <OutlineButtonLink goto={post?.permalink_url ?? "/"} action={"_blank"} title={"Read More"} />
                       </div>

@@ -59,6 +59,10 @@ export default function HorizontalCardSection({ cardData = [] }) {
           >
             {Array.isArray(cardData) && cardData?.map((post, index) => {
               const description = post?.description ?? "";
+              const plainText = description.replace(/<[^>]*>/g, "").trim();
+              const words = plainText.split(/\s+/).filter(Boolean);
+              const truncatedDescription =
+                words.length >= 10 ? `${words.slice(0, 10).join(" ")}...` : plainText;
 
               return (
                 <SwiperSlide key={index} className={styles.cardSlide}>
@@ -73,11 +77,7 @@ export default function HorizontalCardSection({ cardData = [] }) {
                     </div>
                     <div className={styles.sectionContent}>
                       <span>{formatDate(post?.date)}</span>
-                      <HTMLRender htmlString={`<h3>${description.length >= 80
-                          ? `${description.slice(0, 80)}...`
-                          : description
-                        }
-                      </h3>`} />
+                      <HTMLRender htmlString={`<h3>${truncatedDescription}</h3>`} />
                       <div className={styles.cardLink}>
                         <OutlineButtonLink goto={`newsroom/blog/${post.slug}` ?? '#1'} title={"Read More"} />
                       </div>
