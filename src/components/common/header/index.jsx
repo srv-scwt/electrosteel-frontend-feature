@@ -988,17 +988,12 @@ export default function Navbar() {
                 {/* People */}
                 <div className="xl:col-span-3">
                   <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
-                    <Link
-                      href={"/about/people"}
-                      className="hover:text-yellow-400 flex items-start"
-                    >
-                      People
-                    </Link>
+                    People
                   </h4>
                   <ul className="space-y-2 navlistnametext">
                     <li className="flex items-start">
                       <Link
-                        href={"/about/people#overview"}
+                        href={"/about/people"}
                         className="hover:text-yellow-400 flex items-start"
                       >
                         <ChevronRight size={16} className={styles.angleIcon} />
@@ -1103,16 +1098,23 @@ export default function Navbar() {
                 {/* Global Presence */}
                 <div className="xl:col-span-3">
                   <div>
-                    <Link
-                      href={"/about/global-presence"}
-                      className="hover:opacity-85 flex items-start"
-                    >
-                      <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
-                        global presence
-                      </h4>
-                    </Link>
+                    <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
+                      global presence
+                    </h4>
                     <ul className="space-y-2 navlistnametext">
                       <li className="">
+                        <div className="flex items-start mb-3">
+                          <Link
+                            href={"/about/global-presence"}
+                            className="hover:text-yellow-400 flex items-start"
+                          >
+                            <ChevronRight
+                              size={16}
+                              className={styles.angleIcon}
+                            />
+                            <span className="ml-1">Overview</span>
+                          </Link>
+                        </div>
                         <div className="flex items-start">
                           <Link
                             href={"/about/global-presence#offices"}
@@ -1887,19 +1889,6 @@ export default function Navbar() {
                       </li>
                     </ul>
                   </div>
-                  <div>
-                    <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
-                      Environment compliance
-                    </h4>
-                    <ul className="space-y-2 navlistnametext">
-                      <li className="flex items-start">
-                        <Link href="/sustainability/governance-initiatives/csr-evironment-compliance-reports" className="hover:text-yellow-400 flex items-start">
-                          <ChevronRight size={16} className={styles.angleIcon} />
-                          <span className="ml-1">Overview</span>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
                 </div>
 
                 {/* Social Initiatives */}
@@ -2055,6 +2044,19 @@ export default function Navbar() {
                         <Link href="/sustainability/governance-initiatives/policy-commitments" className="hover:text-yellow-400 flex items-start">
                           <ChevronRight size={16} className={styles.angleIcon} />
                           <span className="ml-1">Policy Commitments</span>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
+                      Environment compliance
+                    </h4>
+                    <ul className="space-y-2 navlistnametext">
+                      <li className="flex items-start">
+                        <Link href="/sustainability/governance-initiatives/csr-evironment-compliance-reports" className="hover:text-yellow-400 flex items-start">
+                          <ChevronRight size={16} className={styles.angleIcon} />
+                          <span className="ml-1">Overview</span>
                         </Link>
                       </li>
                     </ul>

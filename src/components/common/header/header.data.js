@@ -18,8 +18,7 @@ const aboutUsData = [
   {
     section: "People",
     links: [
-      { label: "People", url: "/about/people" },
-      { label: "OverView", url: "/about/people#overview" },
+      { label: "OverView", url: "/about/people" },
       {
         label: "Life at ECL",
         url: "/about/people#life-at-ecl",
@@ -42,7 +41,7 @@ const aboutUsData = [
   {
     section: "global presence",
     links: [
-      { label: "global presence", url: "/about/global-presence" },
+      { label: "Overview", url: "/about/global-presence" },
       {
         label: "Offices",
         url: "/about/global-presence#offices",
@@ -161,12 +160,6 @@ const sustainabilityData = [
     ],
   },
   {
-    section: "Environment compliance",
-    links: [
-      { label: "Overview", url: "/sustainability/governance-initiatives/csr-evironment-compliance-reports" },
-    ],
-  },
-  {
     section: "Social Initiatives",
     links: [
       { label: "Safety", url: "/sustainability/social-initiatives/safety" },
@@ -190,6 +183,12 @@ const sustainabilityData = [
     section: "Governance Initiatives",
     links: [
       { label: "Policy Commitments", url: "/sustainability/governance-initiatives/policy-commitments" },
+    ],
+  },
+  {
+    section: "Environment compliance",
+    links: [
+      { label: "Overview", url: "/sustainability/governance-initiatives/csr-evironment-compliance-reports" },
     ],
   },
 ];

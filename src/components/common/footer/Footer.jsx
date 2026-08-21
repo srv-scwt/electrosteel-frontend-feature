@@ -218,7 +218,9 @@ const Footer = async () => {
                       <div className="flex gap-2 h-[80px]">
                         {businessAreas.map((img, i) => (
                           <div key={i} className="relative w-full h-full">
-                            <Image src={img.image} alt="" fill className="object-contain object-left-bottom" />
+                            <Link target="_blank" href="/images/162355236_Electrosteel_Group_Wins_ET_Iconic_Awards_171023.pdf">
+                              <Image src={img.image} alt="" fill className="object-contain object-left-bottom" />
+                            </Link>
                           </div>
                         ))}
                       </div>
