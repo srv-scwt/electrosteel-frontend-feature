@@ -26,7 +26,7 @@
   letter-spacing: 6%;
   text-align: center;
   text-transform: uppercase;
-  color: #444348;
+  color: #545454;
 }
 .sectionContentTitle h3 {
   font-family: var(--font-bebas-neue);
@@ -56,7 +56,7 @@
   font-size: clamp(14px, 2.5vw, 20px);
   line-height: 1.4;
   letter-spacing: 0%;
-  color: #444348;
+  color: #545454;
 }
 .productBoxContainer{
   padding: clamp(16px,2.5vw,32px);

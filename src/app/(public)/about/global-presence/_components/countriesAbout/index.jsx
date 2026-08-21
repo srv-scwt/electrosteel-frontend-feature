@@ -10,7 +10,7 @@ const CountriesAbout = ({ data }) => {
             >
                 <h4>{data?.heading}</h4>
             </div>
-            <div>
+            <div className={`${styles.sectionContent}`}>
                 <HTMLRender htmlString={data?.sub_heading} />
             </div>
         </section>

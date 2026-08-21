@@ -75,7 +75,7 @@ const productsData = [
   {
     section: "Ductile Iron Pipes",
     links: [
-      { label: "Ductile Iron Pipes", url: "/products/ductile-iron-pipes" },
+      { label: "Overview", url: "/products/ductile-iron-pipes" },
       { label: "Product Details", url: "/products/ductile-iron-pipes#product-details" },
       { label: "Applications", url: "/products/ductile-iron-pipes#applications" },
       { label: "Jointing Systems", url: "/products/ductile-iron-pipes#jointing-systems" },
@@ -85,7 +85,7 @@ const productsData = [
   {
     section: "Ductile Iron Flange Pipes",
     links: [
-      { label: "Ductile Iron Flange Pipes", url: "/products/ductile-iron-flange-pipes" },
+      { label: "Overview", url: "/products/ductile-iron-flange-pipes" },
       { label: "Product Details", url: "/products/ductile-iron-flange-pipes#product-details" },
       { label: "Applications", url: "/products/ductile-iron-flange-pipes#applications" },
       { label: "Advantages", url: "/products/ductile-iron-flange-pipes#advantages" },
@@ -94,7 +94,7 @@ const productsData = [
   {
     section: "Ductile Iron Fittings",
     links: [
-      { label: "Ductile Iron Fittings", url: "/products/ductile-iron-fittings" },
+      { label: "overview", url: "/products/ductile-iron-fittings" },
       { label: "Product Details", url: "/products/ductile-iron-fittings#product-details" },
       { label: "Applications", url: "/products/ductile-iron-fittings#applications" },
       { label: "Jointing Systems", url: "/products/ductile-iron-fittings#jointing-systems" },
@@ -104,8 +104,7 @@ const productsData = [
   {
     section: "Valves",
     links: [
-      { label: "Valves", url: "/products/valves" },
-      { label: "Overview", url: "/products/valves#overview" },
+      { label: "Overview", url: "/products/valves" },
       { label: "Product Details", url: "/products/valves#product-details" },
       { label: "Applications", url: "/products/valves#applications" },
       { label: "Protection System", url: "/products/valves#protection-system" },
@@ -114,7 +113,7 @@ const productsData = [
   {
     section: "Rubber Products",
     links: [
-      { label: "Rubber Products", url: "/products/rubber-products" },
+      { label: "Overview", url: "/products/rubber-products" },
       { label: "Overview", url: "/products/rubber-products#overview" },
       { label: "Product Details", url: "/products/rubber-products#productDetails" },
       { label: "Applications", url: "/products/rubber-products#applications" },
@@ -124,29 +123,27 @@ const productsData = [
   {
     section: "Cast iron pipes",
     links: [
-      { label: "Cast iron pipes", url: "/products/cast-iron-pipes" },
-      { label: "Overview", url: "/products/cast-iron-pipes#overview" },
+      { label: "Overview", url: "/products/cast-iron-pipes" },
     ],
   },
   {
-    section: "Industrial Paint",
+    section: "Industrial Paints",
     links: [
-      { label: "Industrial Paint", url: "/products/industrial-paint" },
-      { label: "Overview", url: "/products/industrial-paint#overview" },
-      { label: "Manufacturing Excellence", url: "/products/industrial-paint#current-manufacturing-facilities" },
-      { label: "Product Categories", url: "/products/industrial-paint#product-range" },
-      { label: "Applications", url: "/products/industrial-paint#applications" },
+      { label: "Overview", url: "/products/industrial-paints" },
+      { label: "Manufacturing Excellence", url: "/products/industrial-paints#current-manufacturing-facilities" },
+      { label: "Product Categories", url: "/products/industrial-paints#product-range" },
+      { label: "Applications", url: "/products/industrial-paints#applications" },
     ],
   },
   {
     section: "Others",
     links: [
-      { label: "Others", url: "/products/others-products" },
+      { label: "Overview", url: "/products/others-products" },
       { label: "Metallurgical Coke", url: "/products/others-products#metallurgical-coke-" },
-      { label: "Sponge Iron", url: "/products/others-products#sponge-iron" },
-      { label: "Silico Manganese Ferro Alloy", url: "/products/others-products#silico-manganese-ferro-alloy" },
+      { label: "Sponge Iron", url: "/products/others-products#sponge-iron-" },
+      { label: "Silico Manganese Ferro Alloy", url: "/products/others-products#silico-manganese-ferro-alloy-" },
       { label: "SPL Gold Cement", url: "/products/others-products#spl-gold-cement" },
-      { label: "Ferro Silicon", url: "/products/others-products#ferro-silicon" },
+      { label: "Ferro Silicon", url: "/products/others-products#ferro-silicon-" },
       { label: "Pig Iron", url: "/products/others-products#pig-iron" },
     ],
   },
@@ -161,6 +158,12 @@ const sustainabilityData = [
       { label: "Water", url: "/sustainability/environment-initiatives#water" },
       { label: "Waste", url: "/sustainability/environment-initiatives#waste" },
       { label: "Energy", url: "/sustainability/environment-initiatives#energy" },
+    ],
+  },
+  {
+    section: "Environment compliance",
+    links: [
+      { label: "Overview", url: "/sustainability/governance-initiatives/csr-evironment-compliance-reports" },
     ],
   },
   {

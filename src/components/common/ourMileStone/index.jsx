@@ -108,7 +108,7 @@ const OurMileStoneSection = ({ isBottomLinkActive = true, data, timelineData = [
               src={"/images/gif/rp.gif"}
               fill
               alt="pipe"
-              className="absolute object-contain object-center"
+              className="absolute object-fill object-center"
             />
             <div className={styles.mileStoneContent}>
               <ul>

@@ -45,7 +45,7 @@ const CommonTab = ({ tabsData, tabListClassName = "", tabContentClassName = "" }
 
       {/* --- Desktop Tab Content --- */}
       <div
-        className={`hidden md:block ${styles.commonTabContent} bg-white p-5 md:pt-[30px] rounded-md lg:rounded-[12px] shadow-md ${tabContentClassName}`}
+        className={`hidden md:block ${styles.commonTabContent} bg-white p-5 md:pt-[30px] rounded-md lg:rounded-[12px] ${tabContentClassName}`}
       >
         {tabsData.find((t) => t.id === activeTab)?.content}
       </div>

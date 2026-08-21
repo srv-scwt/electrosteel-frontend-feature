@@ -56,8 +56,8 @@
 .bgWhiteContent p:nth-child(1) {
   font-family: var(--font-bebas-neue), sans-serif;
   font-weight: 400;
-  font-size: clamp(24px, 3vw, 48px);
-  line-height: 100%;
+  font-size: clamp(24px, 3vw, 48px) !important;
+  line-height: 100% !important;
   letter-spacing: 0%;
   color: #fdd307;
 }

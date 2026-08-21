@@ -267,3 +267,11 @@
         line-height: 22px;
     }
 }
+/* Match the global 18px/1.4 body scale above tablet - the rule above uses
+   !important, which would otherwise outrank it. */
+@media (min-width: 769px) {
+  .popContent p {
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+  }
+}

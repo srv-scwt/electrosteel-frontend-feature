@@ -14,10 +14,10 @@ const normalizeHref = (goto, fallback = "#") => {
   return goto ?? fallback;
 };
 
-const ButtonLink = ({ goto, title, className , iconActive = true }) => {
+const ButtonLink = ({ goto, title, className , iconActive = true, action }) => {
   return (
     <>
-      <Link href={normalizeHref(goto)} className={`btn btn-primary ${className}`}>
+      <Link href={normalizeHref(goto)} target={action} className={`btn btn-primary ${className}`}>
         <span>{title}</span>
                  {/* {title?.toLowerCase() === "load more" ? <IoReload size={20} /> :     <HiOutlineArrowLongRight size={20} />} */}
         {iconActive ?  <HiOutlineArrowLongRight size={20} /> : "" }

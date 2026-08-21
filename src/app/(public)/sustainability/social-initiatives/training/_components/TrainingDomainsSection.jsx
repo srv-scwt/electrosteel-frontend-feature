@@ -38,7 +38,7 @@ export default function TrainingDomainsSection({ data }) {
               return (
                 <div
                   key={index}
-                  className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 transition-all duration-300 hover:bg-white/20"
+                  className={`${cstyles.newStyleBox} bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 transition-all duration-300 hover:bg-white/20`}
                 >
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-3">

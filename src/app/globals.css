@@ -5,6 +5,7 @@
    instead of adding a class to each one; :not(:disabled) leaves disabled
    buttons (and their cursor-not-allowed styling) alone. */
 @layer base {
+
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
@@ -76,6 +77,7 @@ nav {
   font-weight: 300;
   font-family: var(--font-montserrat), sans-serif;
 }
+
 .btn {
   padding: clamp(8.5px, 1.4vw, 18px) clamp(8px, 1.4vw, 16px);
   width: clamp(127px, 18vw, 212px);
@@ -92,12 +94,14 @@ nav {
     width: 196px;
   }
 }
+
 @media (max-width: 1024px) {
   .btn {
     padding: clamp(8.5px, 1.5vw, 12px) clamp(8px, 1.4vw, 10px);
     width: clamp(127px, 16vw, 170px);
   }
 }
+
 .btn-primary span {
   color: #000000;
   font-family: var(--font-montserrat);
@@ -123,6 +127,7 @@ nav {
   transform: translateX(-30px);
   opacity: 0;
 }
+
 .bottom-end {
   align-content: end;
 }
@@ -132,35 +137,42 @@ nav {
   border: 2px solid #fdd307;
   border-radius: 50px;
 }
+
 .btn-green {
   background-color: #3aa364;
   border: 2px solid #3aa364;
   /* border-radius: 8px; */
 }
-.btn-Outlined{
+
+.btn-Outlined {
   border: 1px solid #004aa1;
   color: #004aa1;
-    border-radius: 8px;
+  border-radius: 8px;
 }
+
 .btn-white * {
   color: #ffffff !important;
 }
+
 .btn-white span {
   color: #ffffff !important;
 }
-.fontF-primary{
-    font-family: var(--font-bebas-neue), sans-serif !important;
+
+.fontF-primary {
+  font-family: var(--font-bebas-neue), sans-serif !important;
 }
-.fontF-secondary{
+
+.fontF-secondary {
   font-family: var(--font-montserrat) !important;
 }
 
 p,
 table,
 ul,
-li{
-  font-family: var(--font-montserrat) ;
+li {
+  font-family: var(--font-montserrat);
 }
+
 .btn-outline-text {
   font-family: var(--font-montserrat);
   font-weight: 700;
@@ -178,6 +190,7 @@ li{
   cursor: pointer;
   width: max-content;
 }
+
 .btn-outline-view-archive {
   font-family: var(--font-montserrat);
   font-weight: 700;
@@ -194,14 +207,14 @@ li{
   width: max-content;
 }
 
-.btn-text{
-    font-family: var(--font-montserrat);
+.btn-text {
+  font-family: var(--font-montserrat);
   font-weight: 700;
   font-size: clamp(14px, 1vw, 16px);
-    line-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  line-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -210,9 +223,11 @@ li{
   transition: all 0.5s ease-in-out;
   position: relative;
 }
-.btn-outline-text:hover{
+
+.btn-outline-text:hover {
   padding-right: 30px;
 }
+
 .btn-outline-text:hover span {
   transform: translateX(30px);
 }
@@ -230,57 +245,70 @@ li{
   transform: translateX(20px);
   opacity: 0;
 }
-.know-more-btn-font span{
+
+.know-more-btn-font span {
   font-size: 12px !important;
 }
 
 /* ============= ripple effect ============= */
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
 .no-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 
 
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
 .hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
+  /* Chrome, Safari, Opera */
 }
+
 /* Enable touch scrolling smoothly */
-html, body {
+html,
+body {
   overscroll-behavior-x: contain;
   scroll-behavior: smooth;
 }
+
 html {
   scroll-padding-top: 120px;
 }
 
 div {
-  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+  -webkit-overflow-scrolling: touch;
+  /* iOS smooth scroll */
 }
 
 .react-select-container {
-    font-family: Montserrat;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 100%;
-    text-transform: uppercase;
-    color: #545454;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #545454;
 }
 
 .react-select-container .react-select__control {
-    height: 56px;
-    border-radius: 0;
-    border: 2px #CDCCCC solid;
+  height: 56px;
+  border-radius: 0;
+  border: 2px #CDCCCC solid;
 }
 
 input {
-    font-family: Montserrat;
+  font-family: Montserrat;
 }
 
 
@@ -289,6 +317,7 @@ input {
     opacity: 0;
     transform: scale(0.9) translateY(10px);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -302,4 +331,40 @@ input {
 .swiper-button-next.rounded-full,
 .swiper-button-prev.rounded-full {
   opacity: 0;
+}
+
+.textWhite p {
+  color: #ffffff !important;
+}
+
+/* Uniform body-copy scale from just above tablet (768px) upward.
+   Display text opts out on its own rule with !important - the five p/li rules
+   set in var(--font-bebas-neue): stat numbers, hero lead line, milestone years,
+   journey card titles. */
+
+@media only screen and (max-width:575px) {
+  .textWhite p {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    font-weight: 500 !important;
+  }
+}
+
+@media (min-width: 769px) {
+
+  p,
+  li,
+  table tr td,
+  table tr th,
+  .display-text {
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+    font-weight: 500 !important;
+  }
+
+  ul.navlistnametext li {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    font-weight: 400 !important;
+  }
 }

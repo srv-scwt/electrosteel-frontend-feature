@@ -54,7 +54,7 @@
   letter-spacing: 0%;
   text-align: start;
   text-transform: uppercase;
-  color: #000205;
+  color: #000000;
   /* padding-bottom: clamp(16px, 3.8vw, 48px); */
 }
 
@@ -90,9 +90,8 @@
   font-family: var(--font-montserrat);
   font-weight: 500;
   font-style: Medium;
-  font-size: clamp(14px, 2.8vw, 22px);
-  line-height: 1.5;
-  letter-spacing: 0%;
+  font-size: 18px;
+  line-height: 1.4;
   color: #545454;
   word-break: normal;
   overflow-wrap: anywhere;
@@ -121,7 +120,7 @@
 
 @media (max-width: 1680px) {
   .sectionContent h3 {
-    font-size: clamp(14px, 1.5vw, 22px);
+    font-size: 18px;
   }
 
   .socialCardWrapper1 {
@@ -139,8 +138,8 @@
   }
 
   .sectionContent h3 {
-    font-size: clamp(14px, 1.5vw, 20px);
-    line-height: 1.5;
+    font-size: 18px;
+    line-height: 1.4;
   }
 
   .socialCardWrapper1 {

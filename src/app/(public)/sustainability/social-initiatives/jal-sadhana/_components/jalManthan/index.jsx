@@ -22,7 +22,7 @@ const JalManthan = ({ data = [] }) => {
           src="/images/gif/jalsamansevak.gif"
           alt="background"
           fill
-          className="object-contain"
+          className="object-fill"
         />
       </div>
 

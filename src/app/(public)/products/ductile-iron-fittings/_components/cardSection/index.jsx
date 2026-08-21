@@ -40,7 +40,7 @@ const CardSection = ({ data = [] }) => {
 
                                 <div className={cstyle.sectionContent}>
                                     <h4 className='text-[#05509E]'>{product?.title}</h4>
-                                    <HTMLRender htmlString={`${product?.description}`} />
+                                    <HTMLRender htmlString={`<p>${product?.description}</p>`} />
                                     <ButtonLink goto={product?.link ?? "#"} title={index % 2 === 0 ? "View Product Brochures" : "Enquire Now"} className={`${styles.viewBtn} mt-[16px]`} />
                                 </div>
                             </div>

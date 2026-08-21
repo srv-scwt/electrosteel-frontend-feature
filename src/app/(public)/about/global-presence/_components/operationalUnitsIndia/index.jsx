@@ -86,6 +86,7 @@ const OperationalUnitsIndia = ({ operationalUnits = [] }) => {
                         goto={unit.map_link}
                         title="Google Map"
                         className="mt-4"
+                        action={"external"}
                       />
                     )}
 

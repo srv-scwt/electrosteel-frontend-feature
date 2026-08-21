@@ -15,7 +15,7 @@
   letter-spacing: 0%;
   text-transform: uppercase;
   margin-bottom: clamp(16px, 2.5vw, 32px);
-  color: #000205;
+  color: #000000;
 }
 .sectionContent p {
   font-family: var(--font-montserrat);

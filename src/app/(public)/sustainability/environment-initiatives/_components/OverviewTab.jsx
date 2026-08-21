@@ -31,8 +31,8 @@ const CredentialCard = ({ title, desc, onKnowMore }) => (
       >
         {title}
       </h3>
-      <div
-        className="mt-4 text-[14px] sm:text-[16px] leading-[1.4] text-[#9cc0f0]"
+      <p
+        className="mt-4 text-[14px] sm:text-[16px] leading-[1.4] text-[#fff]!"
         style={{ fontFamily: "var(--font-montserrat)" }}
         dangerouslySetInnerHTML={{ __html: sanitizeHtml(desc) }}
       />
@@ -40,7 +40,7 @@ const CredentialCard = ({ title, desc, onKnowMore }) => (
         <OutlineButton
           title="Know More"
           action={onKnowMore}
-          className="!text-[#9cc0f0] hover:!text-white"
+          className="!text-[#fff] hover:!text-white"
         />
       </div>
     </div>

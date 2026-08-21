@@ -258,7 +258,9 @@ const Footer = async () => {
         <div className={styles.footerCopyRight}>
           <div className={styles.sectionContents}>
             <div className="flex lg:flex-row flex-col justify-between gap-3 items-center">
-              <ul className="flex flex-1 flex-row items-center mb-2 lg:mb-0 flex-wrap justify-center lg:justify-normal text-center lg:text-left">
+              <ul
+                className={`${styles.copyrightText} flex flex-1 flex-row items-center mb-2 lg:mb-0 flex-wrap justify-center lg:justify-normal text-center lg:text-left`}
+              >
                 {copyrightLinksDynamic?.map((item, index) => {
                   const isLast = index === copyrightLinksDynamic.length - 1;
                   const isSecondLast = index === copyrightLinksDynamic.length - 2;

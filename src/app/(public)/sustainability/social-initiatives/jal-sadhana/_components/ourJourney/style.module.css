@@ -48,7 +48,7 @@
   letter-spacing: 6%;
   text-align: center;
   text-transform: uppercase;
-  color: #444348;
+  color: #545454;
 }
 .sectionContentTitle h3 {
   font-family: var(--font-bebas-neue);
@@ -142,8 +142,8 @@
 .cardContent p {
   font-family: var(--font-bebas-neue);
   font-weight: 400;
-  font-size: 28px;
-  line-height: 100%;
+  font-size: 28px !important;
+  line-height: 100% !important;
   letter-spacing: 0%;
   color: #108f6e;
 }
@@ -154,7 +154,7 @@
   font-size: 14px;
   line-height: 100%;
   letter-spacing: 0%;
-  color: #444348;
+  color: #545454;
   padding-top: 10px;
   padding-bottom: 8px;
 }

@@ -51,7 +51,7 @@
   letter-spacing: 0%;
   text-align: start;
   text-transform: uppercase;
-  color: #000205;
+  color: #000000;
   padding-bottom: clamp(16px, 3.8vw, 48px);
 }
 
@@ -66,10 +66,7 @@
 .sectionContent>span {
   font-family: var(--font-montserrat);
   font-weight: 600;
-  font-style: SemiBold;
-  font-size: clamp(12px, 1.9vw, 16px);
-  line-height: 100%;
-  letter-spacing: 0%;
+  font-size: 18px;
   color: #034ea1;
 }
 
@@ -77,11 +74,9 @@
   font-family: var(--font-montserrat);
   font-weight: 500;
   font-style: Medium;
-  font-size: clamp(14px, 2.8vw, 22px);
-  line-height: 1.5;
-  letter-spacing: 0%;
+  font-size: 18px;
+  line-height: 1.4;
   color: #545454;
-  /* word-break: break-all; */
 }
 
 .socialCardWrapper {
@@ -101,8 +96,8 @@
   }
 
   .sectionContent h3 {
-    font-size: clamp(14px, 1.5vw, 20px);
-    line-height: 1.5;
+    font-size: 18px;
+    line-height: 1.4;
   }
 
   .sectionContent {

@@ -1289,15 +1289,22 @@ export default function Navbar() {
                 {/* DI Pipes */}
                 <div className="xl:col-span-3">
                   <div>
-                    <Link
-                      href={"/products/ductile-iron-pipes"}
-                      className="hover:opacity-85 flex items-start"
-                    >
-                      <h4 className="navlistheadernametext mt-4 mb-3">
-                        Ductile Iron Pipes
-                      </h4>
-                    </Link>
+                    <h4 className="navlistheadernametext mt-4 mb-3">
+                      Ductile Iron Pipes
+                    </h4>
                     <ul className="space-y-2 navlistnametext">
+                      <li className="flex items-start">
+                        <Link
+                          href={"/products/ductile-iron-pipes"}
+                          className="hover:text-yellow-400 flex items-start"
+                        >
+                          <ChevronRight
+                            size={16}
+                            className={styles.angleIcon}
+                          />
+                          <span className="ml-1">Overview</span>
+                        </Link>
+                      </li>
                       <li className="flex items-start">
                         <Link
                           href={"/products/ductile-iron-pipes#product-details"}
@@ -1353,15 +1360,24 @@ export default function Navbar() {
 
                   {/* Ductile Iron Flange Pipes */}
                   <div>
-                    <Link
-                      href={"/products/ductile-iron-flange-pipes"}
-                      className="hover:opacity-85 flex items-start"
-                    >
-                      <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
-                        Ductile Iron Flange Pipes
-                      </h4>
-                    </Link>
+                    <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
+                      Ductile Iron Flange Pipes
+                    </h4>
                     <ul className="space-y-2 navlistnametext">
+                      <li className="flex items-start">
+                        <Link
+                          href={
+                            "/products/ductile-iron-flange-pipes"
+                          }
+                          className="hover:text-yellow-400 flex items-start"
+                        >
+                          <ChevronRight
+                            size={16}
+                            className={styles.angleIcon}
+                          />
+                          <span className="ml-1">Overview</span>
+                        </Link>
+                      </li>
                       <li className="flex items-start">
                         <Link
                           href={
@@ -1409,15 +1425,24 @@ export default function Navbar() {
                 {/* DI Fittings */}
                 <div className="xl:col-span-3">
                   <div>
-                    <Link
-                      href={"/products/ductile-iron-fittings"}
-                      className="hover:opacity-85 flex items-start"
-                    >
-                      <h4 className="navlistheadernametext mt-4 mb-3">
-                        Ductile Iron Fittings
-                      </h4>
-                    </Link>
+                    <h4 className="navlistheadernametext mt-4 mb-3">
+                      Ductile Iron Fittings
+                    </h4>
                     <ul className="space-y-2 navlistnametext">
+                      <li className="flex items-start">
+                        <Link
+                          href={
+                            "/products/ductile-iron-fittings"
+                          }
+                          className="hover:text-yellow-400 flex items-start"
+                        >
+                          <ChevronRight
+                            size={16}
+                            className={styles.angleIcon}
+                          />
+                          <span className="ml-1">Overview</span>
+                        </Link>
+                      </li>
                       <li className="flex items-start">
                         <Link
                           href={
@@ -1490,18 +1515,13 @@ export default function Navbar() {
                     </ul>
                   </div> */}
                   <div>
-                    <Link
-                      href={"/products/valves"}
-                      className="hover:opacity-85 flex items-start"
-                    >
-                      <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
-                        Valves
-                      </h4>
-                    </Link>
+                    <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
+                      Valves
+                    </h4>
                     <ul className="space-y-2 navlistnametext">
                       <li className="flex items-start">
                         <Link
-                          href={"/products/valves#overview"}
+                          href={"/products/valves"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1551,18 +1571,13 @@ export default function Navbar() {
                   </div>
                   {/* Rubbber Products */}
                   <div>
-                    <Link
-                      href={"/products/rubber-products"}
-                      className="hover:opacity-85 flex items-start"
-                    >
-                      <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
-                        Rubber Products
-                      </h4>
-                    </Link>
+                    <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
+                      Rubber Products
+                    </h4>
                     <ul className="space-y-2 navlistnametext">
                       <li className="flex items-start">
                         <Link
-                          href={"/products/rubber-products#overview"}
+                          href={"/products/rubber-products"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1615,18 +1630,13 @@ export default function Navbar() {
                 {/* Others */}
                 <div className="xl:col-span-3">
                   <div>
-                    <Link
-                      href={"/products/cast-iron-pipes"}
-                      className="hover:opacity-85 flex items-start"
-                    >
-                      <h4 className="navlistheadernametext mt-4 mb-3">
-                        Cast iron pipes
-                      </h4>
-                    </Link>
+                    <h4 className="navlistheadernametext mt-4 mb-3">
+                      Cast iron pipes
+                    </h4>
                     <ul className="space-y-2 navlistnametext">
                       <li className="flex items-start">
                         <Link
-                          href={"/products/cast-iron-pipes#overview"}
+                          href={"/products/cast-iron-pipes"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1638,17 +1648,13 @@ export default function Navbar() {
                       </li>
                     </ul>
                   </div>
+
                   <div>
-                    <Link
-                      href={"/products/industrial-paint"}
-                      className="hover:opacity-85 flex items-start"
-                    >
-                      <h4 className="navlistheadernametext mt-4 mb-3">Industrial Paint</h4>
-                    </Link>
+                    <h4 className="navlistheadernametext mt-4 mb-3">Industrial Paints</h4>
                     <ul className="space-y-2 navlistnametext">
                       <li className="flex items-start">
                         <Link
-                          href={"/products/industrial-paint#overview"}
+                          href={"/products/industrial-paints"}
                           className="hover:text-yellow-400 flex items-start"
                           onClick={() => setHoveredLink(null)}
                         >
@@ -1661,7 +1667,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/industrial-paint#current-manufacturing-facilities"}
+                          href={"/products/industrial-paints#current-manufacturing-facilities"}
                           className="hover:text-yellow-400 flex items-start"
                           onClick={() => setHoveredLink(null)}
                         >
@@ -1674,7 +1680,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/industrial-paint#product-range"}
+                          href={"/products/industrial-paints#product-range"}
                           className="hover:text-yellow-400 flex items-start"
                           onClick={() => setHoveredLink(null)}
                         >
@@ -1687,7 +1693,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/industrial-paint#applications"}
+                          href={"/products/industrial-paints#applications"}
                           className="hover:text-yellow-400 flex items-start"
                           onClick={() => setHoveredLink(null)}
                         >
@@ -1700,16 +1706,24 @@ export default function Navbar() {
                       </li>
                     </ul>
                   </div>
+
                   <div>
-                    <Link
-                      href={"/products/others-products"}
-                      className="hover:opacity-85 flex items-start"
-                    >
-                      <h4 className="navlistheadernametext mt-4 mb-3">
-                        Others
-                      </h4>
-                    </Link>
+                    <h4 className="navlistheadernametext mt-4 mb-3">
+                      Others
+                    </h4>
                     <ul className="space-y-2 navlistnametext">
+                      <li className="flex items-start">
+                        <Link
+                          href={"/products/others-products"}
+                          className="hover:text-yellow-400 flex items-start"
+                        >
+                          <ChevronRight
+                            size={16}
+                            className={styles.angleIcon}
+                          />
+                          <span className="ml-1">Overview</span>
+                        </Link>
+                      </li>
                       <li className="flex items-start">
                         <Link
                           href={"/products/others-products#metallurgical-coke-"}
@@ -1724,7 +1738,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/others-products#sponge-iron"}
+                          href={"/products/others-products#sponge-iron-"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1737,7 +1751,7 @@ export default function Navbar() {
                       <li className="flex items-start">
                         <Link
                           href={
-                            "/products/others-products#silico-manganese-ferro-alloy"
+                            "/products/others-products#silico-manganese-ferro-alloy-"
                           }
                           className="hover:text-yellow-400 flex items-start"
                         >
@@ -1764,7 +1778,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/others-products#ferro-silicon"}
+                          href={"/products/others-products#ferro-silicon-"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1869,6 +1883,19 @@ export default function Navbar() {
                         >
                           <ChevronRight size={16} className={styles.angleIcon} />
                           <span className="ml-1">Energy</span>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">
+                      Environment compliance
+                    </h4>
+                    <ul className="space-y-2 navlistnametext">
+                      <li className="flex items-start">
+                        <Link href="/sustainability/governance-initiatives/csr-evironment-compliance-reports" className="hover:text-yellow-400 flex items-start">
+                          <ChevronRight size={16} className={styles.angleIcon} />
+                          <span className="ml-1">Overview</span>
                         </Link>
                       </li>
                     </ul>

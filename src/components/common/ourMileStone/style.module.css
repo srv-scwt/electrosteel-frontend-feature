@@ -116,7 +116,7 @@
   letter-spacing: 6%;
   text-align: center;
   text-transform: uppercase;
-  color: #444348;
+  color: #545454;
 }
 
 .sectionContentTitle h3 {
@@ -164,8 +164,8 @@
   font-family: var(--font-bebas-neue);
   font-weight: 400;
   font-style: Regular;
-  font-size: 28px;
-  line-height: 100%;
+  font-size: 28px !important;
+  line-height: 100% !important;
   letter-spacing: 0%;
   color: #004aa1;
 }
@@ -177,7 +177,7 @@
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0%;
-  color: #444348;
+  color: #545454;
   padding-block: 8px;
 }
 

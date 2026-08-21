@@ -65,6 +65,7 @@ const OptionalUnitsOverseas = ({ data }) => {
                                     goto={office.map_link}
                                     title="Google Map"
                                     className={`${commonStyles.manualCSSBTN}`}
+                                    action={"external"}
                                   />
                                 )}
 
@@ -103,6 +104,7 @@ const OptionalUnitsOverseas = ({ data }) => {
                               goto={offices[0].map_link}
                               title="Google Map"
                               className={`${commonStyles.manualCSSBTN}`}
+                              action={"external"}
                             />
                           )}
 

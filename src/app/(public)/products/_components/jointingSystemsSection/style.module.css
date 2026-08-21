@@ -22,6 +22,8 @@
 }
 .sectionContent p{
   font-family: var(--font-montserrat) ;
+  color:#545454;
+  font-weight: 500;
 }
 
 .productBoxContainer {
@@ -61,6 +63,7 @@
   /* max-width: max-content; */
   padding-block: clamp(8px,1.22vw,12px) !important;
 }
+
 
 @media (max-width: 1560px) {
   .sectionContentTitle h3 {

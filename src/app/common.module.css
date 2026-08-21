@@ -107,6 +107,10 @@ margin-bottom: 15px;
   background: url(/images/icons/caretBlue.png) no-repeat center right 30px;
 }
 
+.newStyleBox h4{
+  font-family: var(--font-bebas-neue), sans-serif;
+}
+
 @media (max-width: 1800px) {
   .sectionContent h2 {
     font-size: clamp(24px, 4.5vw, 52px);

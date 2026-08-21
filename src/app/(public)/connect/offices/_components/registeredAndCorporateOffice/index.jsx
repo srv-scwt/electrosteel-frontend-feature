@@ -16,6 +16,7 @@ const toArray = (value) => {
 };
 
 const RegisteredAndCorporateOffice = ({ data = [] }) => {
+  console.log("RegisteredAndCorporateOffice data:", data);
   return (
     <section>
       <div className={styles.containerLg}>
@@ -34,17 +35,21 @@ const RegisteredAndCorporateOffice = ({ data = [] }) => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-white">
                     <div className="border-b sm:border-b-0 sm:border-r border-[#7fa0c6] pb-4 sm:pb-0">
                       {toArray(office?.address).map((line, i) => (
-                        <p key={i} className="!text-white">
-                          {line}
-                        </p>
+                        <div
+                          key={i}
+                          className="!text-white textWhite"
+                          dangerouslySetInnerHTML={{ __html: line }}
+                        />
                       ))}
                     </div>
 
                     <div>
                       {toArray(office?.contact).map((line, i) => (
-                        <p key={i} className="!text-white">
-                          {line}
-                        </p>
+                        <div
+                          key={i}
+                          className="!text-white textWhite"
+                          dangerouslySetInnerHTML={{ __html: line }}
+                        />
                       ))}
                     </div>
                   </div>
@@ -55,6 +60,7 @@ const RegisteredAndCorporateOffice = ({ data = [] }) => {
                         goto={office.mapLink}
                         title="Google Map"
                         className="mt-4 text-white!"
+                        action={"external"}
                       />
                     </div>
                   )}

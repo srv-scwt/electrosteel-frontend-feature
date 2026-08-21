@@ -111,6 +111,7 @@ const OfficeInIndia = ({ selectedCountryParam, indiaData, officesOverseasData })
                             goto={office.map_link}
                             title="Google Map"
                             className="mt-4"
+                            action={"external"}
                           />
                         )}
                       </div>

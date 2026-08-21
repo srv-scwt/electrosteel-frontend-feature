@@ -29,7 +29,11 @@
   color: #ffffff;
 }
 .sectionContent p {
-  line-height: 28px;
+  line-height: 28px !important;
+  font-size: 16px !important;
+}
+.copyrightText li{
+  font-size: 16px !important;
 }
 .containerLg {
   width: 84vw;
@@ -80,5 +84,13 @@
   .footerGrid {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: auto;
+  }
+
+  .sectionContent p {
+    line-height: normal !important;
+    font-size: 11px !important;
+  }
+  .copyrightText li{
+    font-size: 11px !important;
   }
 }

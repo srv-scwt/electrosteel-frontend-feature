@@ -94,6 +94,7 @@ const ManufacturingUnits = () => {
                   <OutlineButton
                     goto={unit.mapLink}
                     title={"View in Google Maps"}
+                    action={"external"}
                   />
                 </div>
               </div>
