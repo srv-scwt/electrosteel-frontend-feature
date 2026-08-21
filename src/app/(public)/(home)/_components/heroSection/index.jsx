@@ -66,7 +66,7 @@ export default function HeroSection({ slides, miniStats }) {
                 //   muted={isMuted}
                 //   loop
                 //   playsInline
-                //   className="absolute inset-0 w-full h-full object-fill object-bottom z-0"
+                //   className="absolute inset-0 w-full h-full object-contain object-bottom z-0"
                 // />
                 <video
                   ref={videoRef}
@@ -75,7 +75,7 @@ export default function HeroSection({ slides, miniStats }) {
                   loop
                   playsInline
                   preload="metadata"
-                  className="absolute inset-0 w-full h-full object-fill object-bottom z-0"
+                  className="absolute inset-0 w-full h-full object-contain object-bottom z-0"
                 >
                   <source
                     src={createVideoSourceURL(slide?.src)}
@@ -88,7 +88,7 @@ export default function HeroSection({ slides, miniStats }) {
                   src={createImageSourceURL(slide?.src)}
                   alt={stripHtmlTags(slide?.src)}
                   fill
-                  className="absolute inset-0 object-fill object-center z-0"
+                  className="absolute inset-0 object-contain object-center z-0"
                 />
               )}
 

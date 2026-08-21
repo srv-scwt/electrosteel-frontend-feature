@@ -293,7 +293,7 @@ const Footer = async () => {
                         src={link.image}
                         alt={link.platform}
                         fill
-                        className="absolute w-[100%] h-[100%] object-fill object-center hover:opacity-75"
+                        className="absolute w-[100%] h-[100%] object-contain object-center hover:opacity-75"
                       />
                     </div>
                   </Link>

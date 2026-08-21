@@ -16,7 +16,7 @@ const JalSevakSanam = ({ data }) => {
           src="/images/gif/jalsamansevak.gif"
           alt="background"
           fill
-          className="object-fill"
+          className="object-contain"
         />
       </div>
 

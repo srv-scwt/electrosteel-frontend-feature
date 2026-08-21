@@ -53,7 +53,7 @@ export default function WhatisJalSadhana({ label, data = [], rotateImage = null 
             src={"/images/dighawaves.gif"}
             alt="digha waves"
             fill
-            className="w-[100%] h-[100%] object-fill object-center"
+            className="w-[100%] h-[100%] object-contain object-center"
           />
         </div>
       </div>

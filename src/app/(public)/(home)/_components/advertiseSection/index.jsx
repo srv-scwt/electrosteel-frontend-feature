@@ -38,7 +38,7 @@ const AdvertiseSection = ({ AdvertiseData, ulData }) => {
                             src={createImageSourceURL(AdvertiseData?.image1)}
                             alt="app store"
                             fill
-                            className="w-[100%] h-[100%] object-fill object-center"
+                            className="w-[100%] h-[100%] object-contain object-center"
                           />
                         </Link>
                       </div>
@@ -48,7 +48,7 @@ const AdvertiseSection = ({ AdvertiseData, ulData }) => {
                             src={createImageSourceURL(AdvertiseData?.image2)}
                             alt="app store"
                             fill
-                            className="w-[100%] h-[100%] object-fill object-center"
+                            className="w-[100%] h-[100%] object-contain object-center"
                           />
                         </Link>
                       </div>

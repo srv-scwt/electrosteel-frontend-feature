@@ -118,7 +118,7 @@ export default function ManufacturingFacilities({ data, facilities = [] }) {
       alt="Road"
       width={2400}
       height={187}
-      className="object-fill object-bottom"
+      className="object-contain object-bottom"
     />
 
     <div

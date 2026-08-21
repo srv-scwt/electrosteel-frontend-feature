@@ -87,7 +87,7 @@ const OurMileStoneSection = () => {
               src={"/images/gif/pipe.gif"}
               fill
               alt="pipe"
-              className="absolute object-fill object-center"
+              className="absolute object-contain object-center"
             />
             <div className={styles.mileStoneContent}>
               <ul>

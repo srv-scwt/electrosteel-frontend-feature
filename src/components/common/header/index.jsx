@@ -394,7 +394,7 @@ export default function Navbar() {
                 alt="icon"
                 width={44}
                 height={20}
-                className="transition-all object-fill object-center duration-300"
+                className="transition-all object-contain object-center duration-300"
               />
             </Link>
             <button
@@ -409,7 +409,7 @@ export default function Navbar() {
                 alt="Search"
                 width={32}
                 height={32}
-                className="transition-all object-fill object-center duration-300"
+                className="transition-all object-contain object-center duration-300"
               /> */}
             </button>
             <button
@@ -423,7 +423,7 @@ export default function Navbar() {
                 alt="icon"
                 width={19}
                 height={22}
-                className="transition-all object-fill object-center duration-300"
+                className="transition-all object-contain object-center duration-300"
               />
               {categoryDrawer ? (
                 <ChevronUp
@@ -662,7 +662,7 @@ export default function Navbar() {
                     alt="icon"
                     width={30}
                     height={28}
-                    className="transition-all object-fill object-center duration-300"
+                    className="transition-all object-contain object-center duration-300"
                   />
                 </Link>
                 <button onClick={toggleSearch}>

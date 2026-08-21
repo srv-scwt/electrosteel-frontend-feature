@@ -36,7 +36,7 @@ const H2HFacts = () => {
                     src={slides?.image ?? "/images/waterheros/h20hfacts.png"}
                     alt="H20H Facts"
                     fill
-                    className="absolute w-100 h-100 object-fill object-center"
+                    className="absolute w-100 h-100 object-contain object-center"
                   />
                 </div>
                 <div className={`${styles.sectionContent} ${styles.sectionSpacingY}`}>

@@ -49,7 +49,7 @@ export default function ElectroSteelSection({ data }) {
                   alt="Strength Video"
                   width={800}
                   height={507}
-                  className="object-fill object-center"
+                  className="object-contain object-center"
                 />
                 <button
                   onClick={() => setIsPlaying(true)}
