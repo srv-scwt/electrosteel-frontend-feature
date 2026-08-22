@@ -997,7 +997,7 @@ export default function Navbar() {
                         className="hover:text-yellow-400 flex items-start"
                       >
                         <ChevronRight size={16} className={styles.angleIcon} />
-                        <span className="ml-1">OverView</span>
+                        <span className="ml-1">Overview</span>
                       </Link>
                     </li>
                     <li className="">
@@ -1716,7 +1716,7 @@ export default function Navbar() {
                     <ul className="space-y-2 navlistnametext">
                       <li className="flex items-start">
                         <Link
-                          href={"/products/others-products"}
+                          href={"/products/other-products"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1728,7 +1728,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/others-products#metallurgical-coke-"}
+                          href={"/products/other-products#metallurgical-coke-"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1740,7 +1740,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/others-products#sponge-iron-"}
+                          href={"/products/other-products#sponge-iron-"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1753,7 +1753,7 @@ export default function Navbar() {
                       <li className="flex items-start">
                         <Link
                           href={
-                            "/products/others-products#silico-manganese-ferro-alloy-"
+                            "/products/other-products#silico-manganese-ferro-alloy-"
                           }
                           className="hover:text-yellow-400 flex items-start"
                         >
@@ -1768,7 +1768,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/others-products#spl-gold-cement"}
+                          href={"/products/other-products#spl-gold-cement"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1780,7 +1780,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/others-products#ferro-silicon-"}
+                          href={"/products/other-products#ferro-silicon-"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight
@@ -1792,7 +1792,7 @@ export default function Navbar() {
                       </li>
                       <li className="flex items-start">
                         <Link
-                          href={"/products/others-products#pig-iron"}
+                          href={"/products/other-products#pig-iron"}
                           className="hover:text-yellow-400 flex items-start"
                         >
                           <ChevronRight

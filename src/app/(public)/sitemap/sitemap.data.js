@@ -106,8 +106,8 @@ export const sitemapSections = [
       },
       { label: "Cast Iron Pipes", path: "/products/cast-iron-pipes" },
       { label: "Rubber Products", path: "/products/rubber-products" },
-      { label: "Industrial Paint", path: "/products/industrial-paint" },
-      { label: "Other Products", path: "/products/others-products" },
+      { label: "Industrial Paint", path: "/products/industrial-paints" },
+      { label: "Other Products", path: "/products/other-products" },
       { label: "Valves", path: "/products/valves" },
       {
         label: "Valves Jointing Systems",

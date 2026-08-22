@@ -40,7 +40,7 @@ const PSystemCommonModal = ({ open, onClose, modalData }) => {
                             )}
 
                             {item?.description1 && (
-                                <HTMLRender htmlString={item?.description1} />
+                                <HTMLRender htmlString={item?.description1} className="text-sentence-case" />
                             )}
 
                             {item?.title && <h3>{item?.title}</h3>}

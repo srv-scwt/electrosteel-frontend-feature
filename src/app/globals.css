@@ -336,7 +336,19 @@ input {
 .textWhite p {
   color: #ffffff !important;
 }
-
+.tooltip-text{
+  font-family: var(--font-montserrat);
+  font-size: 14px !important;
+  text-transform: none;
+}
+.text-sentence-case h4,
+.text-sentence-case h5,
+.text-sentence-case h6,
+.text-sentence-case p,
+.text-sentence-case li,
+.text-sentence-case span {
+  text-transform: none !important;
+}
 /* Uniform body-copy scale from just above tablet (768px) upward.
    Display text opts out on its own rule with !important - the five p/li rules
    set in var(--font-bebas-neue): stat numbers, hero lead line, milestone years,

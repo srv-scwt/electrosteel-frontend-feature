@@ -37,6 +37,7 @@ export default function ElectrolockJoint({ data }) {
                 goto={createImageSourceURL(data?.downloadLink ?? '#')}
                 title={"Download"}
                 iconActive={true}
+                action={"external"}
               />
               </div>
 

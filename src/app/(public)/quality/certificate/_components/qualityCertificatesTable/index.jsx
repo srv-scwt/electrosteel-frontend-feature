@@ -3,48 +3,28 @@ import CommonTable from '@/components/common/CommonTable';
 import styles from "@/app/common.module.css";
 import React from 'react';
 import { OutlineButtonLink } from "@/components/ui/Button";
-import { FiDownload } from "react-icons/fi";
 
-const DownloadButton = () => (
-    <OutlineButtonLink title="Download" action="_blank" goto="#" />
+// One download button per attached PDF. Rows can carry more than one file
+// (e.g. Khardah and Srikalahasthi), so the plant/title label stays alongside the
+// button to tell them apart - the API leaves it blank when there is only one.
+const PdfDownloadList = ({ options }) => (
+    <div className="flex flex-col gap-3">
+        {options.map((opt, index) => (
+            <div key={opt.url || index} className="flex flex-col gap-1">
+                {opt.label?.trim() && (
+                    <span className="whitespace-nowrap">{opt.label.trim()}</span>
+                )}
+                <OutlineButtonLink
+                    title="Download"
+                    goto={opt.url}
+                    action="_blank"
+                    download
+                    className=""
+                />
+            </div>
+        ))}
+    </div>
 );
-
-const RadioDownload = ({ name, options, instant = false }) => {
-    const [selectedUrl, setSelectedUrl] = React.useState(null);
-
-    return (
-        <div className="flex flex-col gap-2">
-            {options.map(opt => (
-                <label key={opt.label} className="flex items-center gap-2 cursor-pointer text-sm text-[#003366] hover:text-[#00aaff] transition-colors">
-                    <input 
-                        type="radio" 
-                        name={name} 
-                        value={opt.label} 
-                        onChange={(e) => {
-                            if (instant && e.target.checked) {
-                                window.open(opt.url, "_blank");
-                            } else {
-                                setSelectedUrl(opt.url);
-                            }
-                        }} 
-                        className="cursor-pointer accent-[#004aa1]"
-                    />
-                    {opt.label}
-                    {selectedUrl === opt.url && !instant && (
-                        <FiDownload 
-                            size={16} 
-                            className="text-[#004aa1] hover:text-[#00aaff] transition-colors"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                window.open(opt.url, "_blank");
-                            }}
-                        />
-                    )}
-                </label>
-            ))}
-        </div>
-    );
-};
 
 const QualityCertificatesTable = ({ data = [] }) => {
     
@@ -58,7 +38,7 @@ const QualityCertificatesTable = ({ data = [] }) => {
             item.accreditation,
             item.certificate,
             item.standard,
-            options.length > 0 ? <RadioDownload name={`sys_row${index}`} options={options} /> : ""
+            options.length > 0 ? <PdfDownloadList options={options} /> : ""
         ];
     }) || [];
 
@@ -74,7 +54,7 @@ const QualityCertificatesTable = ({ data = [] }) => {
             item.standard,
             item.range,
             item.scope,
-            options.length > 0 ? <RadioDownload name={`prod_row${index}`} options={options} /> : ""
+            options.length > 0 ? <PdfDownloadList options={options} /> : ""
         ];
     }) || [];
 
@@ -88,7 +68,7 @@ const QualityCertificatesTable = ({ data = [] }) => {
             item.product,
             item.plant,
             item.standard,
-            options.length > 0 ? <RadioDownload name={`lic_row${index}`} options={options} /> : ""
+            options.length > 0 ? <PdfDownloadList options={options} /> : ""
         ];
     }) || [];
 

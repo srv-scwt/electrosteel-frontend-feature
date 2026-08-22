@@ -8,6 +8,7 @@ import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import { getCareersData } from "@/services/career.api";
 import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { createImageSourceURL } from "@/utils";
+import Image from "next/image";
 
 // Helper to ensure raw text is wrapped in <p> so `.sectionContent p` CSS applies Montserrat font
 const wrapInParagraph = (htmlString) => {
@@ -48,8 +49,13 @@ const Checklist = ({ title, description, items }) => {
       )}
       <ul className="space-y-3">
         {items.map((item, index) => (
-          <li key={index} className="flex items-start">
-            <Check size={20} className="text-[#004aa1] mt-1 mr-3 flex-shrink-0" />
+          <li key={index} className="flex items-start align-center gap-2">
+            {/* <Check size={20} className="text-[#004aa1] mt-1 mr-3 flex-shrink-0" /> */}
+            <Image src="/images/tickblue.png"
+              alt="Check Icon"
+              width={25}
+              height={25}
+            />
             <span className="text-[14px] md:text-[18px] text-[#333] md:text-[#545454] leading-relaxed [&_*]:font-[500]">
               <HTMLRender htmlString={item} />
             </span>

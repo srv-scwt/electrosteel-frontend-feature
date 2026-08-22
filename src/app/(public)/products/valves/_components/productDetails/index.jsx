@@ -59,6 +59,7 @@ const ProductDetailsSection = ({ sectionID, label, products = [], jointingSystem
             goto={jointingSystemLink}
             title="Download"
             className="font-700"
+            action={"external"}
           />
         </div>
       </div>

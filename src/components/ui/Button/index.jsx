@@ -33,10 +33,10 @@ const Button = ({ action, title , className, iconActive = true, type = "button",
 };
 
 
-const OutlineButtonLink = ({ goto, title, className , action }) => {
+const OutlineButtonLink = ({ goto, title, className , action, download }) => {
   return (
     <>
-      <Link href={normalizeHref(goto)} target={action} className={`btn-outline-text ${className}`}>
+      <Link href={normalizeHref(goto)} target={action} download={download} className={`btn-outline-text ${className}`}>
         <span>{title}</span>
          {title?.toLowerCase() === "download" ? <FiDownload size={20} /> :     <HiOutlineArrowLongRight size={20} />}
       </Link>

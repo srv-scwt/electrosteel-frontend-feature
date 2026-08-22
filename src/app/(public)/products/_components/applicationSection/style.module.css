@@ -20,7 +20,7 @@
 
 .leftUlList ul li {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 14px !important;
     padding: 38px 30px 38px 0;
     width: 80%;
     position: relative;

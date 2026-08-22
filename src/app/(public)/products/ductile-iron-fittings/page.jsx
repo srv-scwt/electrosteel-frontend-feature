@@ -54,7 +54,7 @@ const page = async () => {
       />
 
       <ProtectionSystemSection data={DuctileIronFittingsData?.data?.protectionInternal} className={"!pb-0"} sectionID={"protection-system"} />
-      <ProtectionSystemSection data={DuctileIronFittingsData?.data?.protectionExternal} />
+      <ProtectionSystemSection data={DuctileIronFittingsData?.data?.protectionExternal} sectionID={"protection-system-external"} />
       <CardSection data={boxdata || []} />
     </>
   )

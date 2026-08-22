@@ -24,11 +24,12 @@ const GridTwoSection = ({
   objectPosition = "object-cover",
   isDownloadLink = false,
   isDarkSection = false,
-  isIFrame=false,
+  isIFrame = false,
   gridColsClass = "lg:grid-cols-2",
   preContent = null,
   bannerClassName = "",
 }) => {
+
   if (!data) return null;
 
   return (
@@ -39,7 +40,7 @@ const GridTwoSection = ({
             className={`relative w-full flex items-center justify-center h-64 md:h-80 lg:h-full min-h-[320px] lg:min-h-[420px] overflow-hidden ${bannerOrder} ${bannerClassName}`}
           >
             {isVideo && data?.link ? (
-              <VideoWithModal thumbnail={createVideoSourceURL(data?.image)} title="Video" videoLink={isIFrame ? data?.link : data?.video } isIFrame={isIFrame}/>
+              <VideoWithModal thumbnail={createVideoSourceURL(data?.image)} title="Video" videoLink={isIFrame ? data?.link : data?.video} isIFrame={isIFrame} />
             ) : (
               Array.isArray(data?.image ?? data.images) ? (
                 <BannerSectionCarousel images={data?.image ?? data?.images} />

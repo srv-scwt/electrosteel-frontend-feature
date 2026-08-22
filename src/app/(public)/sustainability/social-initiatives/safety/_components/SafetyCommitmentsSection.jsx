@@ -45,7 +45,7 @@ export default function SafetyCommitmentsSection({ data }) {
                       <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-[#ffd306] text-[#004aa1] font-bold text-lg">
                         {index + 1}
                       </span>
-                      <h4 className="font-bebas text-2xl tracking-wide text-[#ffd306]">
+                      <h4 className="fontF-primary text-2xl tracking-wide text-[#ffd306]">
                         {item?.title}
                       </h4>
                     </div>

@@ -32,7 +32,7 @@ const JalSevakSanam = ({ data }) => {
             <HTMLRender htmlString={`<p>${data?.description}</p>`} />
             {data?.link && (
               <div className={styles.sectionLink}>
-                <OutlineButtonLink goto={data.link} title={"Know More"} className={`!text-white`} />
+                <OutlineButtonLink action={"external"} goto={data.link} title={"Know More"} className={`!text-white`} />
               </div>
             )}
           </div>

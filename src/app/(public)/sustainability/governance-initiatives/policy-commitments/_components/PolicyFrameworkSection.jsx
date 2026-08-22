@@ -42,7 +42,7 @@ export default function PolicyFrameworkSection({ data }) {
                   className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 transition-all duration-300 hover:bg-white/20"
                 >
                   <div className="flex flex-col gap-4">
-                    <h4 className="font-bebas text-2xl tracking-wide text-[#ffd306]">
+                    <h4 className="fontF-primary text-2xl tracking-wide text-[#ffd306]">
                       {item?.title}
                     </h4>
                     <p

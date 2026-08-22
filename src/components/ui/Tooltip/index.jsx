@@ -10,7 +10,7 @@ const Tooltip = ({ message }) => {
             </div>
 
             <div className="absolute left-1/2 -translate-x-1/2 bottom-8  bg-white text-[#004aa1] text-xs px-3 py-2 rounded shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition duration-300">
-                {message}
+                <p className="tooltip-text">{message}</p>
             </div>
         </div>
     )

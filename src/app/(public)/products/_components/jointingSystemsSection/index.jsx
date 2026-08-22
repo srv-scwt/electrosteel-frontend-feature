@@ -74,6 +74,7 @@ const JointingSystemSection = ({ sectionID, isDownloadLink = true, label, data =
                       <OutlineButtonLink
                         goto={createImageSourceURL(product.link)}
                         title={"Download"}
+                        action={"external"}
                       />
                     )}
                   </div>

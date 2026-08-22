@@ -107,7 +107,7 @@ const nextConfig = {
       },
       {
         source: "/investor/code_of_conduct_and_policies.php",
-        destination: "https://www.electrosteel.com/investors/code-of-conduct-and-policies#overview",
+        destination: "https://www.electrosteel.com/investors/code-of-conduct-and-policies",
         permanent: true,
       },
       {
@@ -152,22 +152,22 @@ const nextConfig = {
       },
       {
         source: "/products/ductile-iron-fittings-protection-system-external.php",
-        destination: "https://www.electrosteel.com/products/ductile-iron-fittings#protection-system",
+        destination: "https://www.electrosteel.com/products/ductile-iron-fittings#protection-system-external",
         permanent: true,
       },
       {
         source: "/products/other-products.php",
-        destination: "https://www.electrosteel.com/products/others-products",
+        destination: "https://www.electrosteel.com/products/other-products",
         permanent: true,
       },
       {
         source: "/products/technology-that-cares.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/about/innovation-and-technology/prestigious-projects",
         permanent: true,
       },
       {
         source: "/products/technological_advancements.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/about/innovation-and-technology/product-innovation",
         permanent: true,
       },
       {
@@ -187,6 +187,11 @@ const nextConfig = {
       },
       {
         source: "/facilities",
+        destination: "https://www.electrosteel.com/about#manufacturing-facilities",
+        permanent: true,
+      },
+      {
+        source: "/facilities/index.php",
         destination: "https://www.electrosteel.com/about#manufacturing-facilities",
         permanent: true,
       },
@@ -508,6 +513,16 @@ const nextConfig = {
       {
         source: "/investor/policies.php",
         destination: "https://www.electrosteel.com",
+        permanent: true,
+      },
+      {
+        source: "/business-enquiry.php",
+        destination: "https://www.electrosteel.com/connect/business-enquiry",
+        permanent: true,
+      },
+      {
+        source: "/pdf/quality_policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308929682-QUALITY_POLICY.pdf",
         permanent: true,
       },
     ];
