@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { markEnquirySubmitted } from "@/utils/enquirySubmission";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -13,6 +15,7 @@ import { submitShareholderEnquiry } from "@/services/enquiry.api";
 const ShareHolderEnquiryForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
+    const router = useRouter();
 
     const {
         control,
@@ -48,12 +51,16 @@ const ShareHolderEnquiryForm = () => {
 
         if (result.error) {
             setSubmitStatus({ type: "error", message: result.error });
-        } else {
-            setSubmitStatus({ type: "success", message: "Enquiry submitted successfully! We will get back to you soon." });
-            reset();
+            setIsSubmitting(false);
+            return;
         }
 
-        setIsSubmitting(false);
+        reset();
+        // Unlocks the thank-you route, which 404s without it.
+        markEnquirySubmitted("shareholder");
+        // Stay disabled through the navigation, so a slow route change can't be
+        // submitted a second time.
+        router.push("/shareholder-enquiry-thank-you");
     };
 
     const handleClear = () => {

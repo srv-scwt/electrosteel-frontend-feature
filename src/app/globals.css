@@ -354,8 +354,6 @@ input {
 
   p,
   li,
-  table tr td,
-  table tr th,
   .display-text {
     font-size: 18px !important;
     line-height: 1.4 !important;
@@ -367,4 +365,14 @@ input {
     line-height: 1.4 !important;
     font-weight: 400 !important;
   }
+
+  table tr td,
+  table tr th,
+  table tr td p,
+  table tr th p
+  {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+
 }
