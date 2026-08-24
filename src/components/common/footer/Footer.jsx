@@ -113,6 +113,10 @@ const Footer = async () => {
   const businessAreas = footerImagesData.business_areas || [];
   const certificates = footerImagesData.certificates || [];
 
+  // Keywords that identify a "label-style" contact type (Phone, Fax, Tel, etc.)
+  // Add more keywords here anytime — e.g. 'mobile', 'whatsapp'
+  const labelTypeKeywords = ['fax', 'ph', 'tel'];
+
   return (
     <footer className="bg-[#00418E] text-white">
       <div className={styles.containerLg}>
@@ -155,34 +159,37 @@ const Footer = async () => {
                         ))}
 
                         <div className="mt-3 space-y-1">
-                          {section.contacts.map((contact, i) => (
-                            <p key={i}>
-                              {contact.name ? (
-                                <>
-                                  <strong>{contact.name}</strong>{" "}
-                                  <Link
-                                    href={`tel:${contact.phone}`}
-                                    className="hover:underline"
-                                  >
-                                    {contact.phone}
-                                  </Link>
-                                </>
-                              ) : (
-                                <>
-                                  {contact.type && (contact.type.toLowerCase() === 'fax' || contact.type.toLowerCase().includes('ph')) ? <strong>{contact.type} </strong> : null}
-                                  <Link
-                                    href={`${contact.url}`}
-                                    className="hover:underline"
-                                  >
-                                    {contact.value?.split('(')[0]?.trim()}
-                                  </Link>
-                                  {contact.value?.includes('(')
-                                    ? ` (${contact.value.substring(contact.value.indexOf('(') + 1)}`
-                                    : (contact.type && contact.type.toLowerCase() !== 'fax' && !contact.type.toLowerCase().includes('ph') ? ` (${contact.type})` : "")}
-                                </>
-                              )}
-                            </p>
-                          ))}
+                          {section.contacts.map((contact, i) => {
+                            const type = contact.type?.toLowerCase() || "";
+                            const isLabelType = labelTypeKeywords.some(k => type.includes(k));
+                            const match = contact.value?.match(/\(([^)]+)\)/);
+
+                            // Clean the url: strip anything after the number (spaces, parens, etc.)
+                            const cleanUrl = contact.url?.split(/[\s(]/)[0]?.trim() || "#";
+
+                            return (
+                              <p key={i}>
+                                {contact.name ? (
+                                  <>
+                                    <strong>{contact.name}</strong>{" "}
+                                    <Link href={`tel:${contact.phone}`} className="hover:underline">
+                                      {contact.phone}
+                                    </Link>
+                                  </>
+                                ) : (
+                                  <>
+                                    {isLabelType ? <strong>{contact.type} </strong> : null}
+                                    <Link href={cleanUrl} className="hover:underline">
+                                      {contact.value?.split('(')[0]?.trim()}
+                                    </Link>
+                                    {match
+                                      ? ` (${match[1]})`
+                                      : (!isLabelType && contact.type ? ` (${contact.type})` : "")}
+                                  </>
+                                )}
+                              </p>
+                            );
+                          })}
                         </div>
                       </div>
                     )}

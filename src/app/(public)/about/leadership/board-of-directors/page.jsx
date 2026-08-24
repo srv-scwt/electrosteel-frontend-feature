@@ -35,26 +35,26 @@ const page = async () => {
 
       <section className={styles.containerLg}>
         <div className={styles.sectionContent}>
-          <h2>
+          {/* <h2>
             Details of Directorship and Full-time Position <span>in Body Corporates held by Directors</span>
-          </h2>
-          
+          </h2> */}
+
           {docs.length > 0 ? (
             <div className="flex flex-col gap-3 pb-8">
               {docs.map((item, index) => {
                 const linkTitle = item.title || "Details of Directorship and Full-time Position in Body Corporates held by Directors";
                 const linkUrl = item.download_link || "";
                 return (
-                  <h3 key={index} className="!mb-0">
+                  <h2 key={index} className="!mb-0">
                     <a
                       href={linkUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primaryBlue transition-colors block fontF-primary"
+                      dangerouslySetInnerHTML={{ __html: linkTitle }}
                     >
-                      {linkTitle}
                     </a>
-                  </h3>
+                  </h2>
                 );
               })}
             </div>
