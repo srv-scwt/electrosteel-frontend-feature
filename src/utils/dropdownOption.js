@@ -65,3 +65,43 @@ export const generateYearAndMonthOptions = (data = []) => {
     months: Array.from(months).map((item) => JSON.parse(item)),
   };
 };
+
+const NEWSLETTER_YEAR_PATTERN = /\b(?:19|20)\d{2}\b/;
+
+/**
+ * Calendar year a newsletter belongs to ("January, 2026" -> "2026"). The API
+ * groups these into financial years that straddle two calendar years, so the
+ * year comes from the item itself. The title wins over the date because it is
+ * what the card displays, and a few records carry a mistyped date.
+ */
+export const getNewsletterYear = (item) => {
+  const match =
+    String(item?.title ?? "").match(NEWSLETTER_YEAR_PATTERN) ||
+    String(item?.date ?? "").match(NEWSLETTER_YEAR_PATTERN);
+
+  return match ? match[0] : "";
+};
+
+/**
+ * Newest-first dropdown options built from the calendar years actually
+ * present in the newsletters, labelled and valued as "FY 2026" so the
+ * selection travels in the query params in that form.
+ */
+export const getNewsletterYearOptions = (data) => {
+  const years = new Set();
+
+  data?.financialYears?.forEach((financialYear) => {
+    financialYear?.results?.forEach((item) => {
+      const year = getNewsletterYear(item);
+      if (year) {
+        years.add(year);
+      }
+    });
+  });
+
+  const options = [...years]
+    .sort((a, b) => Number(b) - Number(a))
+    .map((year) => ({ label: `FY ${year}`, value: `FY ${year}` }));
+
+  return [{ label: "ALL", value: "all" }, ...options];
+};

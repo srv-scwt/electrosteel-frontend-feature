@@ -255,7 +255,7 @@ p:empty {
 
 @media (max-width: 1280px) {
   .jalImage img {
-    object-fit: fill;
+    object-fit: contain;
     aspect-ratio: 1/3;
   }
 }

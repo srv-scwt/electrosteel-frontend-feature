@@ -108,7 +108,7 @@
 
 @media (max-width:1280px) {
   .jalImage img {
-    object-fit: fill;
+    object-fit: contain;
     aspect-ratio: 1/3;
     padding-left: 0px;
   }

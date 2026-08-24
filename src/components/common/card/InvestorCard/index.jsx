@@ -41,7 +41,7 @@ export default function InvestorCard({ post }) {
             xl:!text-[28px]
           "
         >
-          {truncateText(title, 10)}
+          {truncateText(title, 100)}
         </h3>
 
 

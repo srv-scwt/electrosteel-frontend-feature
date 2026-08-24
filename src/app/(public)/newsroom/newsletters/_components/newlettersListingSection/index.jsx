@@ -6,7 +6,10 @@ import Link from "next/link";
 import { FiDownload } from "react-icons/fi";
 import commonStyles from "./style.module.css";
 import useAppendQueryParam from "@/hooks/useAppendQueryParam";
-import { getFinancialYearOptions } from "@/utils/dropdownOption";
+import {
+  getNewsletterYear,
+  getNewsletterYearOptions,
+} from "@/utils/dropdownOption";
 import { createImageSourceURL } from "@/utils";
 
 const DEFAULT_NEWSLETTER_IMAGE = "/images/newsletters/newLetterseptember.jpg";
@@ -30,21 +33,24 @@ function resolveAssetUrl(path, fallback = "") {
   return createImageSourceURL(normalizedPath, fallback);
 }
 
-const NewslettersListingSection = ({ data, yearData, searchParams }) => {
-
+const NewslettersListingSection = ({ data, searchParams }) => {
   const financialYears = data?.financialYears || [];
-  const financialsOption = getFinancialYearOptions(yearData);
+  const financialsOption = getNewsletterYearOptions(data);
   const appendQueryParam = useAppendQueryParam();
   const selectedYearParam = Array.isArray(searchParams?.year)
     ? searchParams.year[0]
     : searchParams?.year;
-  const activeYear = selectedYearParam || financialsOption?.[0]?.value || "all";
+  const isKnownYear = financialsOption.some(
+    (option) => option.value === selectedYearParam
+  );
+  const activeYear = isKnownYear ? selectedYearParam : "all";
   const allResults = financialYears.flatMap((item) => item?.results || []);
   const newsletters =
     activeYear === "all"
       ? allResults
-      : financialYears.find((item) => String(item?.year) === activeYear)
-          ?.results || [];
+      : allResults.filter(
+          (item) => `FY ${getNewsletterYear(item)}` === activeYear
+        );
 
   const titleYear = activeYear === "all" ? "All" : activeYear;
 
