@@ -2054,7 +2054,7 @@ export default function Navbar() {
                     </h4>
                     <ul className="space-y-2 navlistnametext">
                       <li className="flex items-start">
-                        <Link href="/sustainability/governance-initiatives/csr-evironment-compliance-reports" className="hover:text-yellow-400 flex items-start">
+                        <Link href="/sustainability/evironment-compliance/csr-evironment-compliance-reports" className="hover:text-yellow-400 flex items-start">
                           <ChevronRight size={16} className={styles.angleIcon} />
                           <span className="ml-1">Overview</span>
                         </Link>

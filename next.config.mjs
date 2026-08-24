@@ -212,7 +212,7 @@ const nextConfig = {
       },
       {
         source: "/csr/csr-evironment-compliance-reports.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/sustainability/evironment-compliance/csr-evironment-compliance-reports",
         permanent: true,
       },
       {

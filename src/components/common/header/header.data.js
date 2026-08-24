@@ -188,7 +188,7 @@ const sustainabilityData = [
   {
     section: "Environment compliance",
     links: [
-      { label: "Overview", url: "/sustainability/governance-initiatives/csr-evironment-compliance-reports" },
+      { label: "Overview", url: "/sustainability/evironment-compliance/csr-evironment-compliance-reports" },
     ],
   },
 ];
