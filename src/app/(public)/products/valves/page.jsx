@@ -14,8 +14,11 @@ import { getFinishedProductByCategory } from '@/services/product/otherProducts/F
 import { createImageSourceURL } from '@/utils';
 
 const page = async () => {
-  const valvesData = await getValves();
-  const ProductsData = await getFinishedProductByCategory("valvesprductlist");
+  // Independent requests, run concurrently instead of as a serial waterfall.
+  const [valvesData, ProductsData] = await Promise.all([
+    getValves(),
+    getFinishedProductByCategory("valvesprductlist"),
+  ]);
 
   if (!valvesData || valvesData.error) return <SomethingWentWrong />
 

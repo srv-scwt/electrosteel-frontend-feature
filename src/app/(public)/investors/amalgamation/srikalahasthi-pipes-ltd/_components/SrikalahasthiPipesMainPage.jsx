@@ -4,6 +4,15 @@ import { getCommonBanner } from "@/services/commonBanner/commonBanner.api";
 import { getSrikalahasthiMainResponse } from "@/services/investors/investor.api";
 import SrikalahasthiPipesSection from "./SrikalahasthiPipesSection";
 
+const DEFAULT_LIMIT = 12;
+
+function readNumberParam(value, fallback) {
+  const raw = Array.isArray(value) ? value[0] : value;
+  const parsed = Number(raw);
+
+  return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : fallback;
+}
+
 function normalizeFilterValue(value) {
   const normalizedValue = Array.isArray(value) ? value[0] : value;
 
@@ -121,6 +130,10 @@ export default async function SrikalahasthiPipesMainPage({
   commonBannerPageName,
 }) {
   const resolvedSearchParams = await searchParams;
+  // This endpoint returns every document at once, so the section paginates
+  // locally from these values.
+  const currentPage = readNumberParam(resolvedSearchParams?.page, 1);
+  const limit = readNumberParam(resolvedSearchParams?.limit, DEFAULT_LIMIT);
   const resolvedIsLatestValue = normalizeFilterValue(isLatestValue);
 
   const [investors, heroBanner] = await Promise.all([
@@ -153,6 +166,9 @@ export default async function SrikalahasthiPipesMainPage({
         data={normalizedData}
         searchParams={resolvedSearchParams}
         titleYearExceptional={titleYearExceptional}
+        paginate
+        currentPage={currentPage}
+        limit={limit}
       />
     </>
   );

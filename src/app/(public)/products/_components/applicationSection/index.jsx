@@ -16,6 +16,7 @@ const ApplicationSection = ({ sectionID, data = [] }) => {
 
     // const total = data.\.length;
     const total = data.length;
+    const step = total > 0 ? 360 / total : 0;
 
     const handleClick = (index) => {
         setActiveIndex(index);
@@ -129,18 +130,15 @@ const ApplicationSection = ({ sectionID, data = [] }) => {
                     <div
                         className={styles.circle}
                         style={{
-                            transform:
-                                typeof window !== "undefined" && window.innerWidth >= 640
-                                    ? `rotate(-${activeIndex * (360 / total)}deg)`
-                                    : "none",
+                            // Reading window during render made the server emit
+                            // "none" and the client "rotate(...)", which broke
+                            // hydration. This wrapper is `hidden md:block`, so the
+                            // small-screen branch was never visible anyway.
+                            transform: `rotate(-${activeIndex * step}deg)`,
                         }}
                     >
                         {data?.map((item, index) => {
-
-                            const isMobile =
-                                typeof window !== "undefined" && window.innerWidth < 640;
-
-                            const angle = (360 / total) * index - 180;
+                            const angle = step * index - 180;
 
                             const radius = circleSize / 2 - iconSize / 2;
 
@@ -155,21 +153,12 @@ const ApplicationSection = ({ sectionID, data = [] }) => {
                                     key={index}
                                     onClick={() => handleClick(index)}
                                     className={`${styles.iconCircle} ${activeIndex === index ? styles.activeCircle : ""}`}
-                                    style={
-                                        isMobile
-                                            ? {
-                                                position: "relative",
-                                                left: "unset",
-                                                top: "unset",
-                                                transform: `scale(${activeIndex === index ? 1.2 : 1})`,
-                                            }
-                                            : {
-                                                left: `calc(50% + ${x}px - ${iconSize / 2}px)`,
-                                                top: `calc(50% + ${y}px - ${iconSize / 2}px)`,
-                                                transform: `rotate(${activeIndex * (360 / total)}deg)
+                                    style={{
+                                        left: `calc(50% + ${x}px - ${iconSize / 2}px)`,
+                                        top: `calc(50% + ${y}px - ${iconSize / 2}px)`,
+                                        transform: `rotate(${activeIndex * step}deg)
                                 scale(${activeIndex === index ? 1.3 : 1})`,
-                                            }
-                                    }
+                                    }}
                                 >
                                     <Image
                                         src={createImageSourceURL(item?.icon)}

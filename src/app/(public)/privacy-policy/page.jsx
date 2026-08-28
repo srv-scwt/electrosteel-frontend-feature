@@ -7,8 +7,11 @@ import { getCommonBanner } from "@/services/commonBanner/commonBanner.api";
 import { createImageSourceURL } from "@/utils";
 
 const page = async () => {
-  const homeBanner = await getCommonBanner("PrivacyPolicyHeroSection");
-  const data1 = await getCommonProductsCategory("SettingsPrivacyPolicyContent");
+  // Independent requests, run concurrently instead of as a serial waterfall.
+  const [homeBanner, data1] = await Promise.all([
+    getCommonBanner("PrivacyPolicyHeroSection"),
+    getCommonProductsCategory("SettingsPrivacyPolicyContent"),
+  ]);
 
   const heroData = {
     banner:

@@ -1,9 +1,21 @@
+/**
+ * Options for the "find by year" dropdowns.
+ *
+ * Prefers the API's flat `years` list: it holds every year the category has,
+ * while `financialYears` only carries the years present in the current page of
+ * results, which would shrink the dropdown as you page through.
+ */
 export const getFinancialYearOptions = (data) => {
-   const data1 = data?.financialYears?.map((item) => ({
-    label: item.year,
-    value: item.year,
-  })) || [];
-  return [{label : "ALL" , value : "all"} , ...data1];
+  const years =
+    Array.isArray(data?.years) && data.years.length
+      ? data.years
+      : data?.financialYears?.map((item) => item?.year) || [];
+
+  const options = years
+    .filter(Boolean)
+    .map((year) => ({ label: year, value: year }));
+
+  return [{ label: "ALL", value: "all" }, ...options];
 };
 
  export const monthNames = [

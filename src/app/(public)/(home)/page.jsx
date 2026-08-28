@@ -13,11 +13,9 @@ import HorizontalCardSection from "./_components/HorizontalCardSection";
 import { businessData, businessTitle } from "./_components/HorizontalCardSection/bussiness.data";
 import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { getHomeListing } from "@/services/home.api";
-import { getSocialData } from "@/services/socialData.api";
 
 const page = async () => {
   const HomeData = await getHomeListing();
-  const SocialData = await getSocialData();
   
   if (!HomeData || HomeData?.error) return <SomethingWentWrong />
 

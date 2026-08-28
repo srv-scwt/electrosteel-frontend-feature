@@ -10,9 +10,12 @@ import { getFinishedProductByCategory } from "@/services/product/otherProducts/F
 import CardSection from "./_components/cardSection";
 
 const Page = async () => {
-  const OtherProductsData = await getOtherProductsAll();
-  const FinishedProductData = await getFinishedProductByCategory("otherProductsfinishedProduct");
-  const SemiFinishedProductData = await getFinishedProductByCategory("otherProductssemiFinishedProduct");
+  // Independent requests, run concurrently instead of as a serial waterfall.
+  const [OtherProductsData, FinishedProductData, SemiFinishedProductData] = await Promise.all([
+    getOtherProductsAll(),
+    getFinishedProductByCategory("otherProductsfinishedProduct"),
+    getFinishedProductByCategory("otherProductssemiFinishedProduct"),
+  ]);
 
   const boxdata = [
     {

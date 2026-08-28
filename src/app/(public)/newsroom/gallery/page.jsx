@@ -9,15 +9,18 @@ import { getBlogResponseByCategory } from "@/services/blogs/blog.api";
 
 const page = async () => {
 
-  const galleryData = await getBlogResponseByCategory({
+  // Independent requests, run concurrently instead of as a serial waterfall.
+  const [galleryData, videoData, newsData] = await Promise.all([
+    getBlogResponseByCategory({
       category : "galleryPage",
-     });
-  const videoData = await getBlogResponseByCategory({
+     }),
+    getBlogResponseByCategory({
       category : "galleryVideoPage",
-     });
-  const newsData = await getBlogResponseByCategory({
+     }),
+    getBlogResponseByCategory({
       category : "galleryNewsPage",
-     });
+     }),
+  ]);
   if (
     galleryData?.error &&
     videoData?.error &&

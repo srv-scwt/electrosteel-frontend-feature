@@ -12,10 +12,13 @@ import { getBlogResponseByCategory } from "@/services/blogs/blog.api";
 
 
 const page = async () => {
-  const PeopleData = await getPeoplePageData();
-  const LifeAtEclData = await getBlogResponseByCategory({
+  // Independent requests, run concurrently instead of as a serial waterfall.
+  const [PeopleData, LifeAtEclData] = await Promise.all([
+    getPeoplePageData(),
+    getBlogResponseByCategory({
     category: "people-life-at-ecl",
-  });
+  }),
+  ]);
 
   const pragatiImage = formatSliderData(PeopleData?.data?.reward?.pragatiData?.images);
   const pratibhaImage = formatSliderData(PeopleData?.data?.reward?.pratihbaImages?.images);

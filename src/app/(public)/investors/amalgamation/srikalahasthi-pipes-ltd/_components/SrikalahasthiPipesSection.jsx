@@ -2,6 +2,9 @@
 
 import styles from "@/app/common.module.css";
 import InvestorCard from "@/components/common/card/InvestorCard";
+import Pagination from "@/components/common/pagination";
+import useAppendQueryParam from "@/hooks/useAppendQueryParam";
+import { useRef } from "react";
 
 function groupSectionsBySectionTitle(sections) {
   const groupedSections = [];
@@ -56,11 +59,52 @@ function groupSectionsBySectionTitle(sections) {
   return groupedSections;
 }
 
+/**
+ * Keeps the sectionTitle -> heading -> year nesting intact while showing only
+ * the documents that fall in [start, end) of the flattened render order. Used
+ * when the endpoint returns everything at once instead of a page at a time.
+ */
+function sliceGroupedTree(sectionGroups, start, end) {
+  let seen = 0;
+
+  return sectionGroups
+    .map((sectionGroup) => {
+      const headings = sectionGroup.headings
+        .map((headingGroup) => {
+          const years = headingGroup.years
+            .map((yearBlock) => {
+              const blockStart = seen;
+              seen += yearBlock.results.length;
+
+              const from = Math.max(start - blockStart, 0);
+              const to = Math.min(end - blockStart, yearBlock.results.length);
+
+              return from >= to
+                ? null
+                : { ...yearBlock, results: yearBlock.results.slice(from, to) };
+            })
+            .filter(Boolean);
+
+          return years.length ? { ...headingGroup, years } : null;
+        })
+        .filter(Boolean);
+
+      return headings.length ? { ...sectionGroup, headings } : null;
+    })
+    .filter(Boolean);
+}
+
 export default function SrikalahasthiPipesSection({
   data,
   searchParams,
   showYearField = true,
+  paginate = false,
+  currentPage = 1,
+  limit = 12,
+  totalCount,
 }) {
+  const sectionRef = useRef(null);
+  const appendQueryParam = useAppendQueryParam();
   const selectedYearParam = Array.isArray(searchParams?.year)
     ? searchParams.year[0]
     : searchParams?.year;
@@ -85,6 +129,38 @@ export default function SrikalahasthiPipesSection({
       : normalizedSections.filter((section) => section.year === activeYear);
   const groupedSections = groupSectionsBySectionTitle(filteredSections).slice().reverse();
 
+  // The API pages these results, so the grouping below just renders whatever
+  // the current page contained; totalCount tells us how many pages exist.
+  const pageSize = Number(limit) > 0 ? Number(limit) : 12;
+  const visibleCount = filteredSections.reduce(
+    (sum, section) => sum + section.results.length,
+    0
+  );
+  // When the endpoint pages for us the response already holds one page; when
+  // it returns everything (srikalsti-main/all), slice here instead.
+  const sliceLocally = paginate && visibleCount > pageSize;
+  const totalItems = sliceLocally
+    ? visibleCount
+    : Number(totalCount) > 0
+      ? Number(totalCount)
+      : visibleCount;
+  const totalPages = paginate
+    ? Math.max(1, Math.ceil(totalItems / pageSize))
+    : 1;
+  const activePage = Math.min(Math.max(Number(currentPage) || 1, 1), totalPages);
+  const pagedGroups = sliceLocally
+    ? sliceGroupedTree(
+        groupedSections,
+        (activePage - 1) * pageSize,
+        (activePage - 1) * pageSize + pageSize
+      )
+    : groupedSections;
+
+  const handlePageChange = (nextPage) => {
+    appendQueryParam("page", nextPage);
+    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   const renderInvestorCards = (results = []) => (
     <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
       {results.map((item, index) => (
@@ -94,11 +170,11 @@ export default function SrikalahasthiPipesSection({
   );
 
   return (
-    <section className={styles.containerLg}>
+    <section ref={sectionRef} className={styles.containerLg}>
       <div className={styles.sectionContent}>
-        {groupedSections.length ? (
+        {pagedGroups.length ? (
           <div className="space-y-10">
-            {groupedSections.map((sectionGroup, sectionGroupIndex) => (
+            {pagedGroups.map((sectionGroup, sectionGroupIndex) => (
               <div
                 key={sectionGroup.sectionTitle || `section-${sectionGroupIndex}`}
                 className={`space-y-8 ${styles.sectionContent}`}
@@ -154,6 +230,14 @@ export default function SrikalahasthiPipesSection({
           </div>
         ) : (
           <p className="text-base text-[#545454]">No documents available.</p>
+        )}
+
+        {paginate && (
+          <Pagination
+            currentPage={activePage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
         )}
       </div>
     </section>

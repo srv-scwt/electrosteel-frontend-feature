@@ -25,14 +25,27 @@ const page = async ({ searchParams }) => {
     : resolvedSearchParams?.country
     ;
 
-  const CountriesData = await getGlobalPresence("global-presence-in-130-countries");
-  const RegisteredData = await getGlobalPresence("global-registered-office");
-  const CorporateData = await getGlobalPresence("global-corporate-office");
-  const indiaData = await getGlobalPresence("global-offices-india");
-  const officesOverseasData = await getGlobalPresence("global-offices-overseas");
-  const unitsData = await getGlobalPresence("global-operational-units");
-  const GlobalOverseas = await getGlobalOverseas();
-  const heroBanner = await getCommonBanner("global-presence");
+  // These eight requests are independent, so they run concurrently instead of
+  // as a serial waterfall.
+  const [
+    CountriesData,
+    RegisteredData,
+    CorporateData,
+    indiaData,
+    officesOverseasData,
+    unitsData,
+    GlobalOverseas,
+    heroBanner,
+  ] = await Promise.all([
+    getGlobalPresence("global-presence-in-130-countries"),
+    getGlobalPresence("global-registered-office"),
+    getGlobalPresence("global-corporate-office"),
+    getGlobalPresence("global-offices-india"),
+    getGlobalPresence("global-offices-overseas"),
+    getGlobalPresence("global-operational-units"),
+    getGlobalOverseas(),
+    getCommonBanner("global-presence"),
+  ]);
   
 
   const registeredOffice = RegisteredData?.data?.data?.[0];

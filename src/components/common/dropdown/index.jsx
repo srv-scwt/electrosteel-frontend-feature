@@ -50,7 +50,19 @@ import React from "react";
 import Select from "react-select";
 import style from "./style.module.css";
 
-const DropdownSelect = ({ options, value, onChange }) => {
+// react-select defaults to a 300px menu, which showed only ~6 of the 18
+// financial years and looked like the rest were missing. Grow the menu to fit
+// the options, capped so a long list still fits on screen instead of running
+// off the viewport.
+const OPTION_HEIGHT = 32;
+const MAX_MENU_HEIGHT = 640;
+
+const DropdownSelect = ({ options, value, onChange, maxMenuHeight }) => {
+  const fittedHeight = Math.min(
+    (options?.length || 0) * OPTION_HEIGHT + OPTION_HEIGHT,
+    MAX_MENU_HEIGHT
+  );
+
   return (
     <section>
       <div className="flex-1">
@@ -59,6 +71,8 @@ const DropdownSelect = ({ options, value, onChange }) => {
           value={value}
           onChange={onChange}
           placeholder="Select Year"
+          maxMenuHeight={maxMenuHeight ?? fittedHeight}
+          menuPlacement="auto"
           className={`react-select-container ${style.searchYear}`}
           classNamePrefix="react-select"
         />

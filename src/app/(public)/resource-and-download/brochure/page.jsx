@@ -7,8 +7,11 @@ import { createImageSourceURL } from "@/utils";
 import FollowUsSocialmedia from "@/components/common/followUsSection";
 
 const page = async () => {
-  const homeBanner = await getCommonBanner("assets-brouchers");
-  const data = await getCommonProductsCategory("assestsbrouchers");
+  // Independent requests, run concurrently instead of as a serial waterfall.
+  const [homeBanner, data] = await Promise.all([
+    getCommonBanner("assets-brouchers"),
+    getCommonProductsCategory("assestsbrouchers"),
+  ]);
 
   const heroData = {
     banner:

@@ -28,11 +28,14 @@ const INVESTOR_CATEGORY = {
   },
 };
 const page = async () => {
-  const heroBanner = await getCommonBanner(INVESTOR_PAGE_HERO_CATEGORY_MAP.investorInfoInvestorRelation.category);
-  const section1 = await getInvestorRelationData(INVESTOR_CATEGORY.registrarAndShareTransferAgent.category)
-  const section2 = await getInvestorRelationData(INVESTOR_CATEGORY.grievanceRedressal.category)
-  const section3 = await getInvestorRelationData(INVESTOR_CATEGORY.authorisedKMP.category)
-  const section4 = await getInvestorRelationData(INVESTOR_CATEGORY.stockExchangeInfo.category)
+  // Independent requests, run concurrently rather than as a serial waterfall.
+  const [heroBanner, section1, section2, section3, section4] = await Promise.all([
+    getCommonBanner(INVESTOR_PAGE_HERO_CATEGORY_MAP.investorInfoInvestorRelation.category),
+    getInvestorRelationData(INVESTOR_CATEGORY.registrarAndShareTransferAgent.category),
+    getInvestorRelationData(INVESTOR_CATEGORY.grievanceRedressal.category),
+    getInvestorRelationData(INVESTOR_CATEGORY.authorisedKMP.category),
+    getInvestorRelationData(INVESTOR_CATEGORY.stockExchangeInfo.category),
+  ]);
   
   const heroData = {
     title: heroBanner?.data?.title ?? "Investor Relations",

@@ -9,13 +9,16 @@ import { createImageSourceURL } from "@/utils";
 
 const page = async ({ searchParams }) => {
   const resolvedSearchParams = await searchParams; 
-  const homeBanner = await getCommonBanner("blogListPage");
-  const BlogData = await getBlogResponseByCategory({
+  // Independent requests, run concurrently instead of as a serial waterfall.
+  const [homeBanner, BlogData] = await Promise.all([
+    getCommonBanner("blogListPage"),
+    getBlogResponseByCategory({
     category: "blogListPage",
     year: resolvedSearchParams?.year,
     month: resolvedSearchParams?.month,
     keywords: resolvedSearchParams?.search_by,
-  });
+  }),
+  ]);
 
   if (!BlogData || BlogData?.error) return <SomethingWentWrong />;
   

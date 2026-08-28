@@ -31,6 +31,15 @@ const securityHeaders = [
 
 const nextConfig = {
   poweredByHeader: false,
+  // Strip console.log / warn / info from production builds so they don't leak to
+  // the browser console. console.error is kept -- ServerFetch and the error
+  // boundaries rely on it for API-failure logging. Dev is untouched, so logging
+  // still works while developing; flip this to `true` to drop console.error too,
+  // or remove the NODE_ENV check to strip in dev as well.
+  compiler: {
+    removeConsole:
+      process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -50,6 +59,21 @@ const nextConfig = {
       {
         source: "/:path*",
         headers: securityHeaders,
+      },
+      {
+        // Files in `public/` are served with `max-age=0` by default, so
+        // CloudFront re-fetches every one of them from the origin on every
+        // visit. These are build-time assets, so let the CDN hold them.
+        // Filenames are not content-hashed: if you replace an image in place
+        // without renaming it, viewers can see the old one for up to a day
+        // (or invalidate the CloudFront path on deploy).
+        source: "/images/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=2592000",
+          },
+        ],
       },
     ];
   },

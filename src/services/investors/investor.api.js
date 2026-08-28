@@ -6,6 +6,8 @@ export async function getInvestorResponse({
   category,
   year,
   is_latest,
+  page,
+  limit,
 } = {}) {
   try {
     const params = new URLSearchParams();
@@ -14,6 +16,8 @@ export async function getInvestorResponse({
     const normalizedIsLatest = Array.isArray(is_latest)
       ? is_latest[0]
       : is_latest;
+    const normalizedPage = Array.isArray(page) ? page[0] : page;
+    const normalizedLimit = Array.isArray(limit) ? limit[0] : limit;
 
     if (normalizedCategory) {
       params.set("category", normalizedCategory);
@@ -29,6 +33,14 @@ export async function getInvestorResponse({
       normalizedIsLatest !== ""
     ) {
       params.set("is_latest", String(normalizedIsLatest));
+    }
+
+    if (Number(normalizedPage) > 0) {
+      params.set("page", String(Number(normalizedPage)));
+    }
+
+    if (Number(normalizedLimit) > 0) {
+      params.set("limit", String(Number(normalizedLimit)));
     }
 
     const queryString = params.toString();

@@ -6,7 +6,30 @@ import Link from "next/link";
 import InvestorCard from "@/components/common/card/InvestorCard";
 import HTMLRender from "@/components/ui/HTMLRender";
 import useAppendQueryParam from "@/hooks/useAppendQueryParam";
+import Pagination from "@/components/common/pagination";
 import { getFinancialYearOptions } from "@/utils/dropdownOption";
+import { useRef } from "react";
+
+/**
+ * Keeps the year grouping intact while showing only the results that fall in
+ * [start, end) of the flattened list.
+ */
+function sliceGroupedSections(sections, start, end) {
+  let seen = 0;
+
+  return sections
+    .map((section) => {
+      const results = Array.isArray(section?.results) ? section.results : [];
+      const sectionStart = seen;
+      seen += results.length;
+
+      const from = Math.max(start - sectionStart, 0);
+      const to = Math.min(end - sectionStart, results.length);
+
+      return from >= to ? null : { ...section, results: results.slice(from, to) };
+    })
+    .filter(Boolean);
+}
 
 export default function FinancialReportsSection({
   data,
@@ -27,7 +50,12 @@ export default function FinancialReportsSection({
   containerClassName = styles.containerLg,
   subHeading = "",
   headingLink = null,
+  paginate = false,
+  currentPage = 1,
+  limit = 12,
+  totalCount,
 }) {
+  const sectionRef = useRef(null);
   const financialYears = data?.financialYears || [];
   const financialsOption = yearFieldDropdown
     ? getFinancialYearOptions(yearData)
@@ -61,8 +89,42 @@ export default function FinancialReportsSection({
     !latestFeild &&
     financialYears.some((item) => item?.heading);
 
+  // The API is meant to page the results itself. Until it does, it returns
+  // everything, so fall back to slicing here -- detected by getting back more
+  // rows than we asked for. Both paths agree once the API starts paging.
+  const pageSize = Number(limit) > 0 ? Number(limit) : 12;
+  const visibleCount = showGroupedSections
+    ? financialYears.reduce(
+        (sum, item) => sum + (item?.results?.length || 0),
+        0
+      )
+    : filteredData.length;
+  const sliceLocally = paginate && visibleCount > pageSize;
+  const totalItems = sliceLocally
+    ? visibleCount
+    : Number(totalCount) > 0
+      ? Number(totalCount)
+      : visibleCount;
+  const totalPages = paginate ? Math.max(1, Math.ceil(totalItems / pageSize)) : 1;
+  const activePage = Math.min(Math.max(Number(currentPage) || 1, 1), totalPages);
+  const sliceStart = (activePage - 1) * pageSize;
+  const sliceEnd = sliceStart + pageSize;
+
+  const pagedData = sliceLocally
+    ? filteredData.slice(sliceStart, sliceEnd)
+    : filteredData;
+  const pagedSections = sliceLocally
+    ? sliceGroupedSections(financialYears, sliceStart, sliceEnd)
+    : financialYears;
+
   const handleYearChange = (option) => {
-    appendQueryParam(yearQueryKey, option?.value);
+    // Reset to the first page: page 4 of the old filter rarely exists in the new one.
+    appendQueryParam({ [yearQueryKey]: option?.value, page: null });
+  };
+
+  const handlePageChange = (nextPage) => {
+    appendQueryParam("page", nextPage);
+    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const renderHeading = () =>
@@ -89,7 +151,7 @@ export default function FinancialReportsSection({
   );
 
   return (
-    <section className={containerClassName}>
+    <section ref={sectionRef} className={containerClassName}>
       <div className={styles.sectionContent}>
         {showTitle && (
           <div className="w-full flex flex-col lg:flex-row lg:items-center justify-between mb-4 gap-4">
@@ -165,7 +227,7 @@ export default function FinancialReportsSection({
 
         {showGroupedSections ? (
           <div className="space-y-10">
-            {financialYears.map((section, sectionIndex) => {
+            {pagedSections.map((section, sectionIndex) => {
               const sectionResults = Array.isArray(section?.results)
                 ? section.results
                 : [];
@@ -186,7 +248,15 @@ export default function FinancialReportsSection({
             })}
           </div>
         ) : (
-          renderInvestorCards(Array.isArray(filteredData) ? filteredData : [])
+          renderInvestorCards(Array.isArray(pagedData) ? pagedData : [])
+        )}
+
+        {paginate && (
+          <Pagination
+            currentPage={activePage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
         )}
       </div>
     </section>
