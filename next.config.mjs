@@ -5,11 +5,13 @@
 // always on.
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://xcdn.x0pa.ai",
+  // googletagmanager serves gtag.js; without it the CSP blocks Analytics in
+  // production only, which is easy to miss since dev has no CSP.
+  "script-src 'self' 'unsafe-inline' https://xcdn.x0pa.ai https://www.googletagmanager.com",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
   "font-src 'self' data:",
-  "connect-src 'self' https:",
+  "connect-src 'self' https: https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
   "frame-src 'self' https://www.youtube.com https://xcdn.x0pa.ai",
   "frame-ancestors 'self'",
   "base-uri 'self'",
