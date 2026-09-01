@@ -29,6 +29,11 @@ export async function ServerFetch(path, config = {}, init) {
 
   try {
     const API_PAGE = `${baseUrl}${path}`;
+
+    // Logs every outbound API URL to the terminal running `next dev`.
+    // Stripped from production builds by `compiler.removeConsole`.
+    console.log(`[API] ${API_PAGE}`);
+
     const res = await fetch(API_PAGE, {
       headers: {
         Accept: "application/json",

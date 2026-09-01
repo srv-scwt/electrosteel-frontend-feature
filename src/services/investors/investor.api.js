@@ -72,6 +72,59 @@ export async function getInvestorResponse({
   }
 }
 
+/**
+ * "Extra" investor sections, e.g. the Compliance Report page.
+ *
+ * /frontend/investor/extra-investors/all?category=...&page=&limit=
+ * Responds with { data: [sections], pagination: { total, page, limit, totalPages } },
+ * where each section nests year groups which in turn nest the documents.
+ */
+export async function getExtraInvestorResponse({ category, page, limit } = {}) {
+  try {
+    if (!category) {
+      return { data: null, error: "NO_CATEGORY" };
+    }
+
+    const params = new URLSearchParams({ category });
+
+    if (Number(page) > 0) {
+      params.set("page", String(Number(page)));
+    }
+
+    if (Number(limit) > 0) {
+      params.set("limit", String(Number(limit)));
+    }
+
+    const response = await ServerFetch(
+      `/frontend/investor/extra-investors/all?${params.toString()}`,
+      { mode: "SSR" }
+    );
+
+    if (!response) {
+      return { data: null, error: "NO_DATA" };
+    }
+
+    if (response.error) {
+      return {
+        data: null,
+        error: response.error,
+        status: response.status ?? null,
+      };
+    }
+
+    return {
+      data: {
+        sections: Array.isArray(response?.data) ? response.data : [],
+        pagination: response?.pagination ?? null,
+      },
+      error: null,
+      status: true,
+    };
+  } catch (error) {
+    return handleServerFetchError(error, "getExtraInvestorResponse");
+  }
+}
+
 export async function getSrikalahasthiMainResponse() {
   try {
     const response = await ServerFetch(`/frontend/investor/srikalsti-main/all`, {
