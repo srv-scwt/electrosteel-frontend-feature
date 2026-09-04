@@ -30,9 +30,10 @@ export async function ServerFetch(path, config = {}, init) {
   try {
     const API_PAGE = `${baseUrl}${path}`;
 
-    // Logs every outbound API URL to the terminal running `next dev`.
-    // Stripped from production builds by `compiler.removeConsole`.
-    console.log(`[API] ${API_PAGE}`);
+    // Logs every outbound API URL and how long it took, to the terminal
+    // running `next dev`. Stripped from production builds by
+    // `compiler.removeConsole`.
+    const __apiStart = Date.now();
 
     const res = await fetch(API_PAGE, {
       headers: {
@@ -43,6 +44,8 @@ export async function ServerFetch(path, config = {}, init) {
         ? { cache: "no-store" }
         : { next: { revalidate: config.revalidate } }),
     });
+
+    //console.log(`[API] ${Date.now() - __apiStart}ms ${res.status} ${API_PAGE}`);
 
     // res.status is always a number, so the previous `!res.status` check never
     // fired and error responses fell through to be parsed as data.
