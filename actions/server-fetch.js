@@ -19,6 +19,32 @@ export function handleServerFetchError(error, label = "SERVER_FETCH_ERROR") {
   };
 }
 
+// Default cache lifetime for CMS responses, in seconds. Content changes reach
+// the site immediately via /api/revalidate, so this is only the fallback for
+// when a webhook never fires. Set CACHE_TTL=0 to disable caching entirely.
+const DEFAULT_CACHE_TTL = Number.isFinite(Number(process.env.CACHE_TTL))
+  ? Number(process.env.CACHE_TTL)
+  : 300;
+
+/**
+ * Cache tags for one endpoint, so the backend can invalidate a whole area in
+ * one call. `/frontend/about/get-about-main-data` is tagged:
+ *   "all", "about", "/frontend/about/get-about-main-data"
+ * letting revalidateTag("about") clear every About request at once.
+ */
+function buildCacheTags(path, extraTags = []) {
+  const [pathname] = String(path).split("?");
+  const segments = pathname.split("/").filter(Boolean);
+  const area = segments[1];
+
+  return [
+    "all",
+    ...(area ? [area] : []),
+    pathname,
+    ...(Array.isArray(extraTags) ? extraTags : []),
+  ];
+}
+
 export async function ServerFetch(path, config = {}, init) {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -26,6 +52,11 @@ export async function ServerFetch(path, config = {}, init) {
     console.error("API_URL is not defined");
     return null;
   }
+
+  const resolvedRevalidate =
+    config.revalidate !== undefined && config.revalidate !== null
+      ? Number(config.revalidate)
+      : DEFAULT_CACHE_TTL;
 
   try {
     const API_PAGE = `${baseUrl}${path}`;
@@ -40,9 +71,16 @@ export async function ServerFetch(path, config = {}, init) {
         Accept: "application/json",
         ...(init?.headers || {}),
       },
-      ...(config.mode === "SSR"
+      // An explicit `revalidate` from the caller always wins; otherwise the
+      // shared TTL applies. `revalidate: 0` opts a request out of caching.
+      ...(resolvedRevalidate === 0
         ? { cache: "no-store" }
-        : { next: { revalidate: config.revalidate } }),
+        : {
+            next: {
+              revalidate: resolvedRevalidate,
+              tags: buildCacheTags(path, config.tags),
+            },
+          }),
     });
 
     //console.log(`[API] ${Date.now() - __apiStart}ms ${res.status} ${API_PAGE}`);

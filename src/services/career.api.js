@@ -2,9 +2,9 @@ import {ServerFetch} from "../../actions/server-fetch";
 
 export async function getCareersData() {
   try {
-    const response = await ServerFetch("/frontend/careers", {
-      revalidate: 10,
-    });
+    // No explicit revalidate: uses the shared CACHE_TTL and is cleared on
+    // demand via /api/revalidate (tag "careers").
+    const response = await ServerFetch("/frontend/careers");
   
     return response;
   } catch (error) {
