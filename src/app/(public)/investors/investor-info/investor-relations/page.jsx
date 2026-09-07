@@ -6,6 +6,15 @@ import StockExchangeInfo from './_components/stockExchange';
 import { getCommonBanner } from '@/services/commonBanner/commonBanner.api';
 import { INVESTOR_PAGE_HERO_CATEGORY_MAP } from '../../_components/investorsHero.data';
 import { getInvestorRelationData } from '@/services/investors/investor-relation.api';
+
+import { buildMetadataForPathname } from "@/utils/seo";
+
+// Declared per route so the pathname is known at build time. The shared
+// layout previously derived it from headers(), which is a request-time API
+// and opted every public page out of Next's Full Route Cache.
+export async function generateMetadata() {
+  return buildMetadataForPathname("/investors/investor-info/investor-relations");
+}
 const INVESTOR_CATEGORY = {
   registrarAndShareTransferAgent: {
     sectionName: "Registrar and Share Transfer Agent",

@@ -4,6 +4,15 @@ import { getInvestorResponse } from "@/services/investors/investor.api";
 import { getCommonBanner } from "@/services/commonBanner/commonBanner.api";
 import NewslettersListingSection from "./_components/newlettersListingSection";
 
+
+import { buildMetadataForPathname } from "@/utils/seo";
+
+// Declared per route so the pathname is known at build time. The shared
+// layout previously derived it from headers(), which is a request-time API
+// and opted every public page out of Next's Full Route Cache.
+export async function generateMetadata() {
+  return buildMetadataForPathname("/newsroom/newsletters");
+}
 const NEWSLETTER_CATEGORY = "newsLetterDocs";
 
 // Newsletters are filtered and paged by the calendar year printed on each

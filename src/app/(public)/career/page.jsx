@@ -10,6 +10,15 @@ import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { createImageSourceURL } from "@/utils";
 import Image from "next/image";
 
+
+import { buildMetadataForPathname } from "@/utils/seo";
+
+// Declared per route so the pathname is known at build time. The shared
+// layout previously derived it from headers(), which is a request-time API
+// and opted every public page out of Next's Full Route Cache.
+export async function generateMetadata() {
+  return buildMetadataForPathname("/career");
+}
 // Helper to ensure raw text is wrapped in <p> so `.sectionContent p` CSS applies Montserrat font
 const wrapInParagraph = (htmlString) => {
   if (!htmlString) return "";

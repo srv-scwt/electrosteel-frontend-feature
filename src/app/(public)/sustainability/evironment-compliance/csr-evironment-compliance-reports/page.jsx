@@ -10,6 +10,15 @@ import {
   csrEnvironmentComplianceSections,
 } from "./csr-environment-compliance-reports.data";
 
+
+import { buildMetadataForPathname } from "@/utils/seo";
+
+// Declared per route so the pathname is known at build time. The shared
+// layout previously derived it from headers(), which is a request-time API
+// and opted every public page out of Next's Full Route Cache.
+export async function generateMetadata() {
+  return buildMetadataForPathname("/sustainability/evironment-compliance/csr-evironment-compliance-reports");
+}
 // Each tab shows every report for its plant and filters by year in the browser,
 // so the whole category has to be fetched. The API defaults to 10 records per
 // request, which was hiding older reports and emptying the year filter.

@@ -6,6 +6,17 @@ import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { createImageSourceURL } from "@/utils";
 import { getEventsDetailsBySlug } from "@/services/events.api";
 
+import { buildMetadataForPathname } from "@/utils/seo";
+
+// Mirrors what the shared layout used to derive from headers(): metadata is
+// resolved from the full request path, slug included, so each article keeps
+// its own canonical URL.
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  return buildMetadataForPathname(`/newsroom/events/${id}`);
+}
+
+
 const page = async ({ params }) => {
   const { id } = await params;
   const PageDetails = await getEventsDetailsBySlug(id);

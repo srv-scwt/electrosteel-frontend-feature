@@ -8,6 +8,15 @@ import { createImageSourceURL } from "@/utils";
 import { getDirectorshipDetails } from "@/services/product/directorshipDetails.api";
 import styles from "@/app/common.module.css";
 
+
+import { buildMetadataForPathname } from "@/utils/seo";
+
+// Declared per route so the pathname is known at build time. The shared
+// layout previously derived it from headers(), which is a request-time API
+// and opted every public page out of Next's Full Route Cache.
+export async function generateMetadata() {
+  return buildMetadataForPathname("/about/leadership/board-of-directors");
+}
 const page = async () => {
   const [DirectorsData, heroBanner, directorshipDetails] = await Promise.all([
     getAllDirectors(),

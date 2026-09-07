@@ -11,6 +11,15 @@ import { getDuctileIronPipes } from "@/services/product/ductileIronPipes.api";
 import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import CardSection from "./_components/cardSection";
 
+
+import { buildMetadataForPathname } from "@/utils/seo";
+
+// Declared per route so the pathname is known at build time. The shared
+// layout previously derived it from headers(), which is a request-time API
+// and opted every public page out of Next's Full Route Cache.
+export async function generateMetadata() {
+  return buildMetadataForPathname("/products/ductile-iron-pipes");
+}
 const page = async () => {
   const DuctileIronPipesData = await getDuctileIronPipes();
   if (!DuctileIronPipesData || DuctileIronPipesData.error) return <SomethingWentWrong />

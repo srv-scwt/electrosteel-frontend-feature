@@ -513,7 +513,7 @@ export async function buildMetadataForPathname(pathname = "/") {
   }
 
   const seoResponse = await getFinishedProductByCategory(routeConfig.category);
-
+  //console.log("seoResponse", seoResponse?.data, "currentURL", currentURL);
   return buildMetadata({
     seoData: seoResponse?.data ?? null,
     currentURL,

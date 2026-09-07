@@ -10,6 +10,15 @@ import { getTrainingPageData } from "@/services/training.api";
 import { splitLabelAndTitle } from "@/utils";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
+
+import { buildMetadataForPathname } from "@/utils/seo";
+
+// Declared per route so the pathname is known at build time. The shared
+// layout previously derived it from headers(), which is a request-time API
+// and opted every public page out of Next's Full Route Cache.
+export async function generateMetadata() {
+  return buildMetadataForPathname("/sustainability/social-initiatives/training");
+}
 const page = async () => {
   const trainingRes = await getTrainingPageData();
   const apiData = trainingRes?.data;

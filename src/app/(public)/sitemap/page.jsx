@@ -3,6 +3,15 @@ import Link from "next/link";
 import HeroSection from "@/components/common/heroSection";
 import { sitemapSections } from "./sitemap.data";
 
+
+import { buildMetadataForPathname } from "@/utils/seo";
+
+// Declared per route so the pathname is known at build time. The shared
+// layout previously derived it from headers(), which is a request-time API
+// and opted every public page out of Next's Full Route Cache.
+export async function generateMetadata() {
+  return buildMetadataForPathname("/sitemap");
+}
 const page = () => {
   const heroData = {
     banner: "/images/blog/blogBanner.jpg",

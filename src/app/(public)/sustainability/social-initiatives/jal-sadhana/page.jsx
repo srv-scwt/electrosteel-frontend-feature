@@ -17,6 +17,15 @@ import {
 import { getJolsadhana } from "@/services/jolsadhana.api";
 import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 
+
+import { buildMetadataForPathname } from "@/utils/seo";
+
+// Declared per route so the pathname is known at build time. The shared
+// layout previously derived it from headers(), which is a request-time API
+// and opted every public page out of Next's Full Route Cache.
+export async function generateMetadata() {
+  return buildMetadataForPathname("/sustainability/social-initiatives/jal-sadhana");
+}
 const page = async () => {
   const jolsadhanaData = await getJolsadhana();
   if (!jolsadhanaData || jolsadhanaData.error) return <SomethingWentWrong />

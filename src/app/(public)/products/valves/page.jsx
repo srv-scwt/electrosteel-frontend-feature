@@ -13,6 +13,15 @@ import SomethingWentWrong from '@/components/common/SomethingWentWrong';
 import { getFinishedProductByCategory } from '@/services/product/otherProducts/FinishedProductByCategory.api';
 import { createImageSourceURL } from '@/utils';
 
+
+import { buildMetadataForPathname } from "@/utils/seo";
+
+// Declared per route so the pathname is known at build time. The shared
+// layout previously derived it from headers(), which is a request-time API
+// and opted every public page out of Next's Full Route Cache.
+export async function generateMetadata() {
+  return buildMetadataForPathname("/products/valves");
+}
 const page = async () => {
   // Independent requests, run concurrently instead of as a serial waterfall.
   const [valvesData, ProductsData] = await Promise.all([

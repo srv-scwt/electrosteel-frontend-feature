@@ -7,6 +7,17 @@ import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import { createImageSourceURL } from "@/utils";
 import { getBlogResponseByCategory } from "@/services/blogs/blog.api";
 
+import { buildMetadataForPathname } from "@/utils/seo";
+
+// Mirrors what the shared layout used to derive from headers(): metadata is
+// resolved from the full request path, slug included, so each article keeps
+// its own canonical URL.
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  return buildMetadataForPathname(`/newsroom/press-and-media/${id}`);
+}
+
+
 const page = async ({ params }) => {
   const { id } = await params;
   const PageDetails = await getBlogDetailsBySlug(id);
