@@ -9,6 +9,7 @@ import ApplicationSection from "../_components/applicationSection";
 import { getDuctileIronFlangePipes } from "@/services/product/ductileIronFlangePipe.api";
 import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import CardSection from "./_components/cardSection";
+import JsonLd from "@/components/common/JsonLd";
 
 
 import { buildMetadataForPathname } from "@/utils/seo";
@@ -19,9 +20,60 @@ import { buildMetadataForPathname } from "@/utils/seo";
 export async function generateMetadata() {
   return buildMetadataForPathname("/products/ductile-iron-flange-pipes");
 }
+
+// Product structured data for search engines.
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": "https://www.electrosteel.com/products/ductile-iron-flange-pipes#product",
+  name: "Electrosteel Ductile Iron Flange Pipes",
+  description:
+    "Electrosteel Ductile Iron Flange Pipes are engineered for reliable above-ground, vertical and plant pipeline installations, offering welded-on, screwed-on and integrally cast flange configurations with pressure ratings up to PN 40.",
+  url: "https://www.electrosteel.com/products/ductile-iron-flange-pipes",
+  brand: {
+    "@type": "Brand",
+    name: "Electrosteel",
+  },
+  manufacturer: {
+    "@type": "Organization",
+    name: "Electrosteel Castings Limited",
+    url: "https://www.electrosteel.com/",
+  },
+  category: "Ductile Iron Flange Pipes",
+  material: "Ductile Iron",
+  additionalProperty: [
+    { "@type": "PropertyValue", name: "Product Type", value: "Ductile Iron Flange Pipes" },
+    {
+      "@type": "PropertyValue",
+      name: "Flange Pipe Types",
+      value: "Welded Flange Pipes, Screwed Flange Pipes, As Cast Flange Pipes",
+    },
+    { "@type": "PropertyValue", name: "Pressure Ratings", value: "PN 10, PN 16, PN 25 and PN 40" },
+    {
+      "@type": "PropertyValue",
+      name: "Applicable Standards",
+      value: "IS 8329, IS 9523, ISO 2531, EN 545 and AWWA C115",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Application",
+      value:
+        "Over-ground pipelines, vertical pipelines, water treatment plants, sewage treatment plants, pump houses and pipeline interconnections",
+    },
+  ],
+};
+
 const page = async () => {
   const DiFlangePipesData = await getDuctileIronFlangePipes();
-  if (!DiFlangePipesData || DiFlangePipesData.error) return <SomethingWentWrong />
+  // Schema is static, so keep it even when the CMS call fails.
+  if (!DiFlangePipesData || DiFlangePipesData.error) {
+    return (
+      <>
+        <JsonLd data={productJsonLd} />
+        <SomethingWentWrong />
+      </>
+    );
+  }
   const boxdata = [
     {
       title: "Explore our Product Range",
@@ -40,6 +92,7 @@ const page = async () => {
   ];
   return (
     <>
+      <JsonLd data={productJsonLd} />
       <HeroSection data={DiFlangePipesData?.data?.heroSection} />
       <FlangePipeTable
         data={DiFlangePipesData?.data?.flangeTable?.data}

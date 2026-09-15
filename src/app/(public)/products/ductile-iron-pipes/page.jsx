@@ -10,6 +10,7 @@ import DipProductDetails from "../_components/dipProductDetailsTable";
 import { getDuctileIronPipes } from "@/services/product/ductileIronPipes.api";
 import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 import CardSection from "./_components/cardSection";
+import JsonLd from "@/components/common/JsonLd";
 
 
 import { buildMetadataForPathname } from "@/utils/seo";
@@ -20,9 +21,60 @@ import { buildMetadataForPathname } from "@/utils/seo";
 export async function generateMetadata() {
   return buildMetadataForPathname("/products/ductile-iron-pipes");
 }
+
+// Product structured data for search engines.
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": "https://www.electrosteel.com/products/ductile-iron-pipes",
+  name: "Electrosteel Ductile Iron Pipes",
+  description:
+    "Electrosteel manufactures high-quality Ductile Iron Pipes for water supply, pressure sewerage and other demanding pipeline applications. The pipes are manufactured to Indian and international standards including IS 8329, IS 9523, ISO 2531, ISO 7186, EN 545, EN 598 and AWWA C151.",
+  url: "https://www.electrosteel.com/products/ductile-iron-pipes-overview.php",
+  image: [
+    "https://www.electrosteel.com/electrosteel-static-assets/1785403407658-New-Project-(16).webp",
+  ],
+  brand: {
+    "@type": "Brand",
+    name: "Electrosteel",
+  },
+  manufacturer: {
+    "@type": "Organization",
+    name: "Electrosteel Castings Limited",
+    url: "https://www.electrosteel.com/",
+  },
+  category: "Ductile Iron Pipes",
+  material: "Ductile Iron",
+  additionalProperty: [
+    { "@type": "PropertyValue", name: "Product Type", value: "Ductile Iron Pipe" },
+    { "@type": "PropertyValue", name: "Nominal Diameter Range", value: "DN 80 to DN 1200 mm" },
+    { "@type": "PropertyValue", name: "Tensile Strength", value: "Minimum 420 MPa" },
+    { "@type": "PropertyValue", name: "Yield Strength", value: "300 MPa" },
+    { "@type": "PropertyValue", name: "Elongation", value: "Minimum 10%" },
+    { "@type": "PropertyValue", name: "Hardness", value: "Maximum 230 BHN" },
+    {
+      "@type": "PropertyValue",
+      name: "Applicable Standards",
+      value: "IS 8329, IS 9523, ISO 2531, ISO 7186, EN 545, EN 598, AWWA C151",
+    },
+  ],
+  audience: {
+    "@type": "BusinessAudience",
+    audienceType: "Water Supply, Sewerage and Infrastructure Projects",
+  },
+};
+
 const page = async () => {
   const DuctileIronPipesData = await getDuctileIronPipes();
-  if (!DuctileIronPipesData || DuctileIronPipesData.error) return <SomethingWentWrong />
+  // Schema is static, so keep it even when the CMS call fails.
+  if (!DuctileIronPipesData || DuctileIronPipesData.error) {
+    return (
+      <>
+        <JsonLd data={productJsonLd} />
+        <SomethingWentWrong />
+      </>
+    );
+  }
   const boxdata = [
     {
       title: "Explore our Product Range",
@@ -41,6 +93,7 @@ const page = async () => {
   ];
   return (
     <>
+      <JsonLd data={productJsonLd} />
       <HeroSection data={DuctileIronPipesData?.data?.heroSection} />
       <GridTwoSection
         data={DuctileIronPipesData?.data?.overview}
