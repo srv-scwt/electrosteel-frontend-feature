@@ -5,7 +5,7 @@ import styles from "./style.module.css";
 import cstyles from "@/app/common.module.css";
 import { OutlineButtonLink } from "@/components/ui/Button";
 import HTMLRender from "@/components/ui/HTMLRender";
-import { createImageSourceURL, createVideoSourceURL } from "../../../../../utils";
+import { createImageSourceURL, createVideoSourceURL } from "@/utils";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 export default function ElectroSteelSection({ data }) {

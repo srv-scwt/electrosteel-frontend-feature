@@ -12,7 +12,6 @@ import {
 import HorizontalCardSection from "./_components/HorizontalCardSection";
 import { businessData, businessTitle } from "./_components/HorizontalCardSection/bussiness.data";
 import SomethingWentWrong from "@/components/common/SomethingWentWrong";
-import JsonLd from "@/components/common/JsonLd";
 import { getHomeListing } from "@/services/home.api";
 
 
@@ -25,33 +24,13 @@ export async function generateMetadata() {
   return buildMetadataForPathname("/");
 }
 
-// Organization structured data for search engines. Home page only.
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://www.electrosteel.com/#webpage",
-  "url": "https://www.electrosteel.com/",
-  "name": "Electrosteel Castings Limited",
-  "description": "Electrosteel Castings Limited is a leading manufacturer of ductile iron pipes, fittings and related pipeline products for water and infrastructure applications.",
-  "inLanguage": "en-IN"
-};
-
 const page = async () => {
   const HomeData = await getHomeListing();
 
-  // Schema is static, so keep it even when the CMS call fails.
-  if (!HomeData || HomeData?.error) {
-    return (
-      <>
-        <JsonLd data={organizationJsonLd} />
-        <SomethingWentWrong />
-      </>
-    );
-  }
+  if (!HomeData || HomeData?.error) return <SomethingWentWrong />
 
   return (
     <>
-      <JsonLd data={organizationJsonLd} />
       <HeroSection slides={HomeData?.data?.slides} miniStats={HomeData?.data?.mini_stats} />
       <StatSection overview={HomeData?.data?.overview_section} />
       <OurProductSection data={HomeData?.data?.ecl_products} />
