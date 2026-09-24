@@ -2040,13 +2040,37 @@ export default function Navbar() {
                       Governance Initiatives
                     </h4>
                     <ul className="space-y-2 navlistnametext">
-                      <li className="flex items-start">
-                        <Link href="/sustainability/governance-initiatives/policy-commitments" className="hover:text-yellow-400 flex items-start">
-                          <ChevronRight size={16} className={styles.angleIcon} />
-                          <span className="ml-1">Policy Commitments</span>
-                        </Link>
-                      </li>
-                    </ul>
+                        <li className="flex items-start">
+                          <Link href="/sustainability/governance-initiatives/policy-commitments" className="hover:text-yellow-400 flex items-start">
+                            <ChevronRight size={16} className={styles.angleIcon} />
+                            <span className="ml-1">Policy Commitments</span>
+                          </Link>
+                        </li>
+                        <li className="flex items-start">
+                          <Link href="/sustainability/governance-initiatives/ecovadis-commitment" className="hover:text-yellow-400 flex items-start">
+                            <ChevronRight size={16} className={styles.angleIcon} />
+                            <span className="ml-1">Ecovadis Commitment</span>
+                          </Link>
+                        </li>
+                        <li className="flex items-start">
+                          <Link href="/sustainability/governance-initiatives/environmental-product-declarations" className="hover:text-yellow-400 flex items-start">
+                            <ChevronRight size={16} className={styles.angleIcon} />
+                            <span className="ml-1">Environmental Product Declarations (EPDs)</span>
+                          </Link>
+                        </li>
+                        <li className="flex items-start">
+                          <Link href="/sustainability/governance-initiatives/gri-reporting" className="hover:text-yellow-400 flex items-start">
+                            <ChevronRight size={16} className={styles.angleIcon} />
+                            <span className="ml-1">GRI Reporting</span>
+                          </Link>
+                        </li>
+                        <li className="flex items-start">
+                          <Link href="/sustainability/governance-initiatives/sustainable-procurement" className="hover:text-yellow-400 flex items-start">
+                            <ChevronRight size={16} className={styles.angleIcon} />
+                            <span className="ml-1">Sustainable Procurement</span>
+                          </Link>
+                        </li>
+                      </ul>
                   </div>
                   <div>
                     <h4 className="navlistheadernametext mt-4 lg:mt-7 mb-3">

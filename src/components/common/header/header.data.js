@@ -183,6 +183,10 @@ const sustainabilityData = [
     section: "Governance Initiatives",
     links: [
       { label: "Policy Commitments", url: "/sustainability/governance-initiatives/policy-commitments" },
+      { label: "Ecovadis Commitment", url: "/sustainability/governance-initiatives/ecovadis-commitment" },
+      { label: "Environmental Product Declarations (EPDs)", url: "/sustainability/governance-initiatives/environmental-product-declarations" },
+      { label: "GRI Reporting", url: "/sustainability/governance-initiatives/gri-reporting" },
+      { label: "Sustainable Procurement", url: "/sustainability/governance-initiatives/sustainable-procurement" },
     ],
   },
   {
