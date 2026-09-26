@@ -1,0 +1,27 @@
+import { handleServerFetchError, ServerFetch } from "../../actions/server-fetch";
+
+export async function getGriReportingData() {
+  try {
+    const response = await ServerFetch(`/frontend/sustainability/gri-reporting-data`, { mode: "SSR" });
+
+    if (!response) {
+      return { data: null, error: "NO_DATA" };
+    }
+
+    if (response.error) {
+      return {
+        data: null,
+        error: response.error,
+        status: response.status ?? null,
+      };
+    }
+
+    return {
+      data: response.data || response,
+      error: null,
+      status: response.statusCode === 200 ? true : false,
+    };
+  } catch (error) {
+    return handleServerFetchError(error, "GRI_SSR_ERROR");
+  }
+}

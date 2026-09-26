@@ -11,7 +11,7 @@ import { createImageSourceURL } from "@/utils";
 const CommonTableMore = ({ className, data }) => {
   const [openModal, setOpenModal] = useState(false);
   const [modalData, setModalData] = useState([]);
-  console.log(data, 'data data');
+
   if (!data) return null;
 
   const { table } = data;

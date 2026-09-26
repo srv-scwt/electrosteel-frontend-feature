@@ -187,6 +187,7 @@ const sustainabilityData = [
       { label: "Environmental Product Declarations (EPDs)", url: "/sustainability/governance-initiatives/environmental-product-declarations" },
       { label: "GRI Reporting", url: "/sustainability/governance-initiatives/gri-reporting" },
       { label: "Sustainable Procurement", url: "/sustainability/governance-initiatives/sustainable-procurement" },
+      { label: "UNGC Commitment", url: "/sustainability/governance-initiatives/ungc-commitment" },
     ],
   },
   {

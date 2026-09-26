@@ -16,7 +16,7 @@ const toArray = (value) => {
 };
 
 const RegisteredAndCorporateOffice = ({ data = [] }) => {
-  console.log("RegisteredAndCorporateOffice data:", data);
+
   return (
     <section>
       <div className={styles.containerLg}>

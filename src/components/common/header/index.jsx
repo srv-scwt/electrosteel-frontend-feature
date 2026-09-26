@@ -2070,6 +2070,12 @@ export default function Navbar() {
                             <span className="ml-1">Sustainable Procurement</span>
                           </Link>
                         </li>
+                        <li className="flex items-start">
+                          <Link href="/sustainability/governance-initiatives/ungc-commitment" className="hover:text-yellow-400 flex items-start">
+                            <ChevronRight size={16} className={styles.angleIcon} />
+                            <span className="ml-1">UNGC Commitment</span>
+                          </Link>
+                        </li>
                       </ul>
                   </div>
                   <div>

@@ -23,7 +23,7 @@ const page = async() => {
       banner: createImageSourceURL(data.heroSection?.image) ?? "/images/board/policies_banner_large.jpg",
       title: data.heroSection?.title ?? "Certificate",
     };
-    console.log("data", data);
+
   return (
     <>
       <HeroSection data={heroData} />

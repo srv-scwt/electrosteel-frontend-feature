@@ -3,6 +3,8 @@ import HeroSection from "@/components/common/heroSection";
 import cstyles from "@/app/common.module.css";
 import Image from "next/image";
 import { buildMetadataForPathname } from "@/utils/seo";
+import { getEcovadisData } from "@/services/ecovadis.api";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 
 export async function generateMetadata() {
   return buildMetadataForPathname(
@@ -23,7 +25,7 @@ const formatHeading = (text) => {
 };
 
 // ── Checklist row — identical markup to Career page Checklist component
-const ChecklistItem = ({ children }) => (
+const ChecklistItem = ({ htmlContent }) => (
   <li className="flex items-start gap-2">
     <Image
       src="/images/tickblue.png"
@@ -32,13 +34,25 @@ const ChecklistItem = ({ children }) => (
       height={25}
       className="mt-0.5 flex-shrink-0"
     />
-    <span className="text-[14px] md:text-[18px] text-[#545454] leading-relaxed">
-      {children}
-    </span>
+    <span 
+      className="text-[14px] md:text-[18px] text-[#545454] leading-relaxed [&_strong]:font-semibold"
+      dangerouslySetInnerHTML={{ __html: htmlContent }}
+    />
   </li>
 );
 
-const Page = () => {
+export default async function Page() {
+  const { data, error } = await getEcovadisData();
+  
+  if (error || !data || data.length === 0) {
+    return <SomethingWentWrong />;
+  }
+
+  // The API returns an array of section objects grouped by "category"
+  const tab1 = data.find(item => item.category === "ecovedis-tab-1");
+  const tab2 = data.find(item => item.category === "ecovedis-tab-2");
+  const tab3 = data.find(item => item.category === "ecovedis-tab-3");
+
   return (
     <>
       {/* ── Hero Banner ─────────────────────────────────────────────── */}
@@ -50,118 +64,71 @@ const Page = () => {
       />
 
       {/* ── Introduction ─────────────────────────────────────────────── */}
-      <section id="introduction" className="scroll-mt-24">
-        <div className={cstyles.containerLg}>
-          <div className={`${cstyles.sectionContent} mb-8`}>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `<h2>${formatHeading(
-                  "EcoVadis 2025 Committed Badge"
-                )}</h2>`,
-              }}
-            />
-            <p>
-              <strong>
-                Electrosteel Castings has won the EcoVadis 2025 Committed Badge
-                for the year 2025.
-              </strong>
-            </p>
-            <p>
-              It reflects a &quot;Good&quot; performance according to the EcoVadis
-              evaluation methodology. EcoVadis is the global benchmark for
-              assessing Corporate Social and Environmental Responsibility (CSR).
-              The organization analyzes 21 criteria across four main themes:
-              Environment, Social and Human Rights, Ethics, and Sustainable
-              Purchases. Each rating is based on concrete evidence of performance
-              and the implementation of a continuous improvement strategy.
-            </p>
+      {tab1 && (
+        <section id="introduction" className="scroll-mt-24">
+          <div className={cstyles.containerLg}>
+            <div className={`${cstyles.sectionContent} mb-8`}>
+              <div dangerouslySetInnerHTML={{ __html: tab1.description }} />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── Section 1 : Environmental & Sustainability Initiatives ─────── */}
-      <section id="sustainability-initiatives" className="scroll-mt-24 bg-[#f5f5f5]">
-        <div className={`${cstyles.containerLg}`}>
-          <div className={`${cstyles.sectionContent} mb-6`}>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `<h2>${formatHeading(
-                  "Environmental and Sustainability Performance"
-                )}</h2>`,
-              }}
-            />
-            <p>
-              For FY 2024–25, Electrosteel Castings demonstrated significant
-              progress in strengthening its environmental and sustainability
-              performance through initiatives such as:
-            </p>
-          </div>
+      {tab2 && (
+        <section id="sustainability-initiatives" className="scroll-mt-24 bg-[#f5f5f5]">
+          <div className={`${cstyles.containerLg}`}>
+            <div className={`${cstyles.sectionContent} mb-6`}>
+              {tab2.title && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: `<h2>${formatHeading(tab2.title)}</h2>`,
+                  }}
+                />
+              )}
+              {tab2.description && (
+                <div dangerouslySetInnerHTML={{ __html: tab2.description }} />
+              )}
+            </div>
 
-          <ul className="space-y-4 pb-2">
-            <ChecklistItem>
-              Transitioning its furnaces to cleaner Blast Furnace Gas (BFG) to
-              improve energy efficiency and reduce emissions.
-            </ChecklistItem>
-            <ChecklistItem>
-              Expanding its 12 MW Waste Heat Recovery System (WHRS) to recover
-              waste energy and enhance operational sustainability.
-            </ChecklistItem>
-            <ChecklistItem>
-              Conserving over 1.7 million kilolitres (17 lakh KL) of water
-              through the recycling of municipal sewage using advanced treatment
-              facilities.
-            </ChecklistItem>
-            <ChecklistItem>
-              Maintaining internationally recognized management systems,
-              including ISO 50001 (Energy Management), ISO 14001 (Environmental
-              Management), ISO 45001 (Occupational Health &amp; Safety), and SA
-              8000 (Social Accountability), supported by regular audits, employee
-              awareness programmes, and continuous improvement initiatives.
-            </ChecklistItem>
-          </ul>
-        </div>
-      </section>
+            {tab2.table_data2 && tab2.table_data2.length > 0 && (
+              <ul className="space-y-4 pb-2">
+                {tab2.table_data2.map((item, index) => (
+                  <ChecklistItem key={index} htmlContent={item} />
+                ))}
+              </ul>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* ── Section 2 : Best Practices ────────────────────────────────── */}
-      <section id="best-practices" className="scroll-mt-24">
-        <div className={`${cstyles.containerLg} !pt-0`}>
-          <div className={`${cstyles.sectionContent} mb-6 pt-[clamp(32px,4vw,96px)]`}>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `<h2>${formatHeading("Best Practices and Distinctions")}</h2>`,
-              }}
-            />
-            <p>
-              The company also distinguishes itself through its best practices
-              in the following areas:
-            </p>
-          </div>
+      {tab3 && (
+        <section id="best-practices" className="scroll-mt-24">
+          <div className={`${cstyles.containerLg} !pt-0`}>
+            <div className={`${cstyles.sectionContent} mb-6 pt-[clamp(32px,4vw,96px)]`}>
+              {tab3.title && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: `<h2>${formatHeading(tab3.title)}</h2>`,
+                  }}
+                />
+              )}
+              {tab3.description && (
+                <div dangerouslySetInnerHTML={{ __html: tab3.description }} />
+              )}
+            </div>
 
-          <ul className="space-y-4">
-            <ChecklistItem>
-              <span>
-                <strong>Social and Human Rights:</strong> Working conditions,
-                social dialogue, prevention and training measures.
-              </span>
-            </ChecklistItem>
-            <ChecklistItem>
-              <span>
-                <strong>Ethics:</strong> Assessment of corruption risks,
-                information security, and combating anti-competitive practices.
-              </span>
-            </ChecklistItem>
-            <ChecklistItem>
-              <span>
-                <strong>Sustainable Purchases:</strong> Integration of social
-                and environmental clauses for suppliers and analysis of CSR
-                risks.
-              </span>
-            </ChecklistItem>
-          </ul>
-        </div>
-      </section>
+            {tab3.table_data2 && tab3.table_data2.length > 0 && (
+              <ul className="space-y-4">
+                {tab3.table_data2.map((item, index) => (
+                  <ChecklistItem key={index} htmlContent={item} />
+                ))}
+              </ul>
+            )}
+          </div>
+        </section>
+      )}
     </>
   );
-};
-
-export default Page;
+}

@@ -29,7 +29,7 @@ export async function generateMetadata() {
 const page = async () => {
   const jolsadhanaData = await getJolsadhana();
   if (!jolsadhanaData || jolsadhanaData.error) return <SomethingWentWrong />
-  console.log("jolsadhanaData", jolsadhanaData?.data);
+
   return (
     <>
       <HeroSection data={jolsadhanaData?.data?.heroData} />
