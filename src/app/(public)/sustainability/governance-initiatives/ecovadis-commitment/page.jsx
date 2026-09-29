@@ -67,8 +67,19 @@ export default async function Page() {
       {tab1 && (
         <section id="introduction" className="scroll-mt-24">
           <div className={cstyles.containerLg}>
-            <div className={`${cstyles.sectionContent} mb-8`}>
-              <div dangerouslySetInnerHTML={{ __html: tab1.description }} />
+            <div className="flex flex-col md:flex-row items-center gap-8 lg:gap-16">
+              <div className={`${cstyles.sectionContent} w-full md:w-5/12`}>
+                <div dangerouslySetInnerHTML={{ __html: tab1.description }} />
+              </div>
+              {tab1.image && (
+                <div className="w-full md:w-7/12 flex justify-center md:justify-end">
+                  <img
+                    src={tab1.image}
+                    alt="EcoVadis Certificate"
+                    className="w-full max-w-[280px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-[500px] h-auto object-contain drop-shadow-md"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </section>

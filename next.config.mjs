@@ -228,12 +228,12 @@ const nextConfig = {
       },
       {
         source: "/csr/csr-overview.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/sustainability/social-initiatives/external-social-support",
         permanent: true,
       },
       {
         source: "/csr/community_development.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/sustainability/social-initiatives/external-social-support",
         permanent: true,
       },
       {
@@ -258,12 +258,12 @@ const nextConfig = {
       },
       {
         source: "/digital/events.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/newsroom/events",
         permanent: true,
       },
       {
         source: "/digital/digital_videos.php",
-        destination: "https://www.electrosteel.com",
+        destination: " https://www.electrosteel.com/newsroom/gallery#video",
         permanent: true,
       },
       {
@@ -273,7 +273,7 @@ const nextConfig = {
       },
       {
         source: "/careers-enquiry.php",
-        destination: "https://www.electrosteel.com/career",
+        destination: "https://www.electrosteel.com/career/career-enquiry",
         permanent: true,
       },
       {
@@ -403,7 +403,7 @@ const nextConfig = {
       },
       {
         source: "/careers/life_electrosteel.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/about/people#life-at-ecl",
         permanent: true,
       },
       {
@@ -503,7 +503,7 @@ const nextConfig = {
       },
       {
         source: "/investor/quarterly-results-archive.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/investors/financials/quarterly-results/archive",
         permanent: true,
       },
       {
@@ -518,27 +518,27 @@ const nextConfig = {
       },
       {
         source: "/investor/compliance-report.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/investors/compliance-report",
         permanent: true,
       },
       {
         source: "/investor/amalgamation.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/investors/amalgamation",
         permanent: true,
       },
       {
         source: "/investor/agm-egm.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/investors/agm-egm",
         permanent: true,
       },
       {
         source: "/investor/shareholder-information.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/investors/shareholder-information",
         permanent: true,
       },
       {
         source: "/investor/policies.php",
-        destination: "https://www.electrosteel.com",
+        destination: "https://www.electrosteel.com/investors/policies",
         permanent: true,
       },
       {
@@ -549,6 +549,256 @@ const nextConfig = {
       {
         source: "/pdf/quality_policy.pdf",
         destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308929682-QUALITY_POLICY.pdf",
+        permanent: true,
+      },
+      {
+        source: "/disclaimer.php",
+        destination: "https://www.electrosteel.com/disclaimer",
+        permanent: true,
+      },
+      {
+        source: "/privacy-policy.php",
+        destination: "https://www.electrosteel.com/privacy-policy",
+        permanent: true,
+      },
+      {
+        source: "/about/umang-kejriwal.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/umang-kejriwal.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/mayank-kejriwal.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/amrendra-prasad-verma.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/mohua-banerjee.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/rajkumar_khanna.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/jitendra_kumar_jain.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/vyas-mitre-ralli.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/bal_kishan_choudhury.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/virendra_sinha.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/sangeeta_singh.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/bikramjit_ghosh.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/sunil_katial.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/uddhav-kejriwal.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/priya_manjari_todi.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/radha_kejriwal_agarwal.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/nityangi_kejriwal_jaiswal.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/madhav_kejriwal.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/about/ashutosh_agarwal.php",
+        destination: "https://www.electrosteel.com/about/leadership/board-of-directors",
+        permanent: true,
+      },
+      {
+        source: "/document/Shareholding-Pattern-as-on-30-June-2026.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787547947706-Shareholding-Pattern-as-on-30-June-2026.pdf",
+        permanent: true,
+      },
+      {
+        source: "/document/Financial-Resuls-for-the-Quarter-ended-30-June-2026.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787650703966-Financial-Resuls-for-the-Quarter-ended-30-June-2026.pdf",
+        permanent: true,
+      },
+      {
+        source: "/document/Annual-Report-2025-26.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787306702816-Annual-Report-2025-26.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/1608017827code-of-conduct-49.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787309381640-code-of-conduct-49.pdf",
+        permanent: true,
+      },
+      {
+        source: "/document/164582479-Code-of-Conduct-SEBI-PIT-Regulations.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787309387263-Code-of-Conduct-SEBI-PIT-Regulations.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/1608017904business-responsibility-policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787309387263-Code-of-Conduct-SEBI-PIT-Regulations.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/1608017945QUALITY_POLICY.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308929682-QUALITY_POLICY.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/1608017985Environmental_Policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308635566-Environmental_Policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/6328547-Health-&-Safety-Policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787813677875-6328547-Health---Safety-Policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/13625485-SA-8000-POLICY-REAFFIRMED-MAR24.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308702651-SA-8000-POLICY-REAFFIRMED-MAR24.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/1654857-Energy-Policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308997259-Energy-Policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/1608019994Policy-for-determining-Material-Subsidiaries.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308711095-Policy-for-determining-Material-Subsidiaries.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/1630859-Version-5-Related-Party-Transaction-Policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787309021049-Version-5-Related-Party-Transaction-Policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/1608020082nominationRemunerationPolicy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308735312-nominationRemunerationPolicy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/1608020082nominationRemunerationPolicy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308735312-nominationRemunerationPolicy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/19642584-Policy-for-determination-of-Materiality-of-Events-Information-for-Disclosure.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787309040947-Vigil-Mechanism-Whistle-Blower-Policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/16136369078CSR-policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308768837-CSR-policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/19642584-Policy-for-determination-of-Materiality-of-Events-Information-for-Disclosure.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787309064180-Policy-for-determination-of-Materiality-of-Events-Information-for-Disclosure.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/Familiarisation-Programme-for-the-Independent-Directors.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308790176-Familiarisation-Programme-for-the-Independent-Directors.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/1613637038policy-for-preservation-of-documents-and-archival.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787309085821-policy-for-preservation-of-documents-and-archival.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/1064444546454-Dividend-Distribution-Policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308808454-Dividend-Distribution-Policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/5623585696-Electrosteel-AntiCompetition-Policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787309108008-Electrosteel-AntiCompetition-Policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/18562356-Electrosteel-Sustainable-Procurement-Policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308830251-Electrosteel-Sustainable-Procurement-Policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/385692356-Electrosteel-Antibribery-Policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787309243121-Electrosteel-Antibribery-Policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/385692356-Electrosteel-Antibribery-Policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787309243121-Electrosteel-Antibribery-Policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/Risk-Management-Policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308850855-Risk-Management-Policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/3125879-24_ECL_Non_Discrimination_Policy.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787309262471-ECL_Non_Discrimination_Policy.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/3258781-24_ECL_Compensatory_Leave.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787308901347-24_ECL_Compensatory_Leave.pdf",
+        permanent: true,
+      },
+      {
+        source: "/admin/pdf/1826357-3Tier_Grievance_Eng_Beng_Hindi.pdf",
+        destination: "https://www.electrosteel.com/electrosteel-static-assets/1787309290744-3Tier_Grievance_Eng_Beng_Hindi.pdf",
         permanent: true,
       },
     ];
