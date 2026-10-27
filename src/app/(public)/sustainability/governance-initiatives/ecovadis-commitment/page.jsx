@@ -12,6 +12,8 @@ export async function generateMetadata() {
   );
 }
 
+export const revalidate = 0;
+
 // ── Shared helper: make the last half of words blue (same pattern as Career page)
 const formatHeading = (text) => {
   if (!text) return "";
