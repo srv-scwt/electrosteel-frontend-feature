@@ -12,6 +12,8 @@ export async function generateMetadata() {
   );
 }
 
+export const revalidate = 0;
+
 // ── Same formatHeading helper used on the Career and EcoVadis pages
 const formatHeading = (text) => {
   if (!text) return "";
@@ -49,9 +51,6 @@ export default async function Page() {
 
   // Parse tab-1 (Introduction)
   const tab1 = apiData.find(item => item.category === "epd_publications-tab-1");
-  const tab1Paragraphs = tab1?.description 
-    ? tab1.description.split("\n\n").filter(p => p.trim() !== "")
-    : [];
 
   // Parse tab-2 (Commitments & PDFs)
   // There might be multiple objects for tab-2 if they added multiple PDFs/Rows
@@ -98,9 +97,15 @@ export default async function Page() {
               />
             )}
             
-            {tab1Paragraphs.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+            {tab1?.description && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: tab1.description.trim().startsWith("<p")
+                    ? tab1.description
+                    : `<p>${tab1.description.replace(/\n\n/g, "</p><p>")}</p>`,
+                }}
+              />
+            )}
           </div>
         </div>
       </section>

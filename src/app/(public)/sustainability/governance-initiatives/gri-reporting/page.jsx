@@ -12,6 +12,8 @@ export async function generateMetadata() {
   );
 }
 
+export const revalidate = 0;
+
 // ── Same formatHeading helper used on the Career and EPD pages
 const formatHeading = (text) => {
   if (!text) return "";

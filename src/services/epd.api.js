@@ -2,7 +2,10 @@ import { handleServerFetchError, ServerFetch } from "../../actions/server-fetch"
 
 export async function getEpdPublications() {
   try {
-    const response = await ServerFetch(`/frontend/sustainability/epd-publications-data`, { mode: "SSR" });
+    const response = await ServerFetch(
+      `/frontend/sustainability/epd-publications-data`,
+      { mode: "SSR", revalidate: 0 }
+    );
 
     if (!response) {
       return { data: null, error: "NO_DATA" };
