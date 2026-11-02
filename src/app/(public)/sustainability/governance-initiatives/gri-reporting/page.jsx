@@ -27,40 +27,43 @@ const formatHeading = (text) => {
 };
 
 export default async function Page() {
-  // Fetch dynamic GRI documents from the backend
   const { data, error } = await getGriReportingData();
 
-  // Use API data if it's an array and has items.
-  const apiData = Array.isArray(data) && data.length > 0 ? data : [];
+  const heroSection = data?.heroSection || {};
+  const tabsList = Array.isArray(data?.tabs) ? data.tabs : Array.isArray(data) ? data : [];
 
   // Parse tab-1 (Introduction) - fallback to first item if category name is wrong
-  const tab1 = apiData.find(item => item.category?.includes("tab-1")) || apiData[0];
+  const tab1 = tabsList.find(item => item.category?.includes("tab-1")) || tabsList[0];
 
   // Parse tab-2 (Why GRI Reporting Matters & PDFs)
-  let tab2Items = apiData.filter(item => item.category?.includes("tab-2"));
-  if (tab2Items.length === 0 && apiData.length > 1) {
-    tab2Items = [apiData[1]];
+  let tab2Items = tabsList.filter(item => item.category?.includes("tab-2"));
+  if (tab2Items.length === 0 && tabsList.length > 1) {
+    tab2Items = [tabsList[1]];
   }
   
-  // Combine all PDF cards from ALL items' table_data3 array (ensuring download_link exists)
-  const pdfCards = apiData.reduce((acc, item) => {
+  // Combine all PDF cards: checks both table_data3 array and direct download_link
+  const pdfCards = tabsList.reduce((acc, item) => {
     if (item.table_data3 && Array.isArray(item.table_data3)) {
       const validPdfs = item.table_data3.filter(pdf => pdf.download_link);
       return [...acc, ...validPdfs];
+    }
+    if (item.download_link) {
+      return [...acc, { title: item.title || "GRI Report", download_link: item.download_link }];
     }
     return acc;
   }, []);
 
   // If there's an error and no data, show error state in the cards section
-  const hasError = !!error && apiData.length === 0;
+  const hasError = !!error && tabsList.length === 0;
 
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <HeroSection
         data={{
-          title: "GRI Reporting",
-          banner: "/images/blog/blogBanner.jpg",
+          title: heroSection.title || "GRI Reporting",
+          image: heroSection.image || "",
+          banner: heroSection.image || "/images/blog/blogBanner.jpg",
         }}
       />
 

@@ -43,21 +43,27 @@ const ChecklistItem = ({ children }) => (
 
 export default async function Page() {
   const { data } = await getUngcData();
-  const apiData = Array.isArray(data) && data.length > 0 ? data : [];
 
-  // Parse tabs safely from the API response
-  const tab1 = apiData.find((item) => item.category?.includes("tab-1"));
-  const tab2 = apiData.find((item) => item.category?.includes("tab-2"));
-  const tab3 = apiData.find((item) => item.category?.includes("tab-3"));
-  const tab4 = apiData.find((item) => item.category?.includes("tab-4"));
+  const heroSection = data?.heroSection || {};
+  const tabsList = Array.isArray(data?.tabs) ? data.tabs : Array.isArray(data) ? data : [];
+
+  // Parse hero item (supports data.heroSection or fallback in tabs)
+  const heroTitle = heroSection.title || tabsList.find((item) => item.category === "ungc-commitment")?.title;
+  const heroImage = heroSection.image || tabsList.find((item) => item.category === "ungc-commitment")?.image;
+
+  const tab1 = tabsList.find((item) => item.category?.includes("tab-1"));
+  const tab2 = tabsList.find((item) => item.category?.includes("tab-2"));
+  const tab3 = tabsList.find((item) => item.category?.includes("tab-3"));
+  const tab4 = tabsList.find((item) => item.category?.includes("tab-4"));
 
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <HeroSection
         data={{
-          title: "UNGC Commitment", 
-          banner: "/images/blog/blogBanner.jpg",
+          title: heroTitle || "UNGC Commitment", 
+          image: heroImage || "",
+          banner: heroImage || "/images/blog/blogBanner.jpg",
         }}
       />
 

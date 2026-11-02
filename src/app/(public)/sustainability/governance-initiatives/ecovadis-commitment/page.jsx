@@ -45,23 +45,32 @@ const ChecklistItem = ({ htmlContent }) => (
 
 export default async function Page() {
   const { data, error } = await getEcovadisData();
-  
-  if (error || !data || data.length === 0) {
+  console.log(error)
+  if (error || !data) {
     return <SomethingWentWrong />;
   }
 
-  // The API returns an array of section objects grouped by "category"
-  const tab1 = data.find(item => item.category === "ecovedis-tab-1");
-  const tab2 = data.find(item => item.category === "ecovedis-tab-2");
-  const tab3 = data.find(item => item.category === "ecovedis-tab-3");
+  // Support both new { heroSection, tabs } structure and previous array structure
+  const heroSection = data.heroSection || {};
+  const tabsList = Array.isArray(data.tabs) ? data.tabs : Array.isArray(data) ? data : [];
+
+  if (tabsList.length === 0 && !data.heroSection) {
+    return <SomethingWentWrong />;
+  }
+
+  // The API returns section objects grouped by "category"
+  const tab1 = tabsList.find(item => item.category === "ecovedis-tab-1");
+  const tab2 = tabsList.find(item => item.category === "ecovedis-tab-2");
+  const tab3 = tabsList.find(item => item.category === "ecovedis-tab-3");
 
   return (
     <>
       {/* ── Hero Banner ─────────────────────────────────────────────── */}
       <HeroSection
         data={{
-          title: "Ecovadis Commitment",
-          banner: "/images/blog/blogBanner.jpg",
+          title: heroSection.title || "Ecovadis Commitment",
+          image: heroSection.image || "",
+          banner: heroSection.image || "/images/blog/blogBanner.jpg",
         }}
       />
 

@@ -6,7 +6,7 @@ export async function getEcovadisData() {
       `/frontend/sustainability/ecovedis-data`,
       { mode: "SSR", revalidate: 0 }
     );
-
+    console.log(response)
     if (!response) {
       return { data: null, error: "NO_DATA" };
     }

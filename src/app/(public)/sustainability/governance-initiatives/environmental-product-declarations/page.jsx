@@ -43,18 +43,16 @@ const ChecklistItem = ({ children }) => (
 );
 
 export default async function Page() {
-  // Fetch dynamic EPD documents from the backend
   const { data, error } = await getEpdPublications();
 
-  // Use API data if it's an array and has items.
-  const apiData = Array.isArray(data) && data.length > 0 ? data : [];
+  const heroSection = data?.heroSection || {};
+  const tabsList = Array.isArray(data?.tabs) ? data.tabs : Array.isArray(data) ? data : [];
 
   // Parse tab-1 (Introduction)
-  const tab1 = apiData.find(item => item.category === "epd_publications-tab-1");
+  const tab1 = tabsList.find(item => item.category === "epd_publications-tab-1");
 
   // Parse tab-2 (Commitments & PDFs)
-  // There might be multiple objects for tab-2 if they added multiple PDFs/Rows
-  const tab2Items = apiData.filter(item => item.category === "epd_publications-tab-2");
+  const tab2Items = tabsList.filter(item => item.category === "epd_publications-tab-2");
   
   // Combine all bullets from all tab2 items
   const tab2Bullets = tab2Items.reduce((acc, item) => {
@@ -64,24 +62,28 @@ export default async function Page() {
     return acc;
   }, []);
 
-  // Combine all PDF cards from tab2 items' table_data3
+  // Combine all PDF cards: checks both table_data3 array and direct download_link
   const pdfCards = tab2Items.reduce((acc, item) => {
     if (item.table_data3 && Array.isArray(item.table_data3)) {
       return [...acc, ...item.table_data3];
+    }
+    if (item.download_link) {
+      return [...acc, { title: item.title || "EPD Document", download_link: item.download_link }];
     }
     return acc;
   }, []);
 
   // If there's an error and no data, show error state in the cards section
-  const hasError = !!error && apiData.length === 0;
+  const hasError = !!error && tabsList.length === 0;
 
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <HeroSection
         data={{
-          title: "Environmental Product Declarations (EPDs)",
-          banner: "/images/blog/blogBanner.jpg",
+          title: heroSection.title || "Environmental Product Declarations (EPDs)",
+          image: heroSection.image || "",
+          banner: heroSection.image || "/images/blog/blogBanner.jpg",
         }}
       />
 

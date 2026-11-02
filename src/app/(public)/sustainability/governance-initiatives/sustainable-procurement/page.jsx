@@ -4,6 +4,7 @@ import Image from "next/image";
 import cstyles from "@/app/common.module.css";
 import { buildMetadataForPathname } from "@/utils/seo";
 import { getSustainableProcurementData } from "@/services/sustainable-procurement.api";
+import SomethingWentWrong from "@/components/common/SomethingWentWrong";
 
 export async function generateMetadata() {
   return buildMetadataForPathname(
@@ -43,20 +44,31 @@ const ChecklistItem = ({ children }) => (
 
 export default async function Page() {
   const { data, error } = await getSustainableProcurementData();
-  const apiData = Array.isArray(data) && data.length > 0 ? data : [];
+
+  if (error || !data) {
+    return <SomethingWentWrong />;
+  }
+
+  const heroSection = data.heroSection || {};
+  const tabsList = Array.isArray(data.tabs) ? data.tabs : Array.isArray(data) ? data : [];
+
+  if (tabsList.length === 0 && !data.heroSection) {
+    return <SomethingWentWrong />;
+  }
 
   // Safely extract tabs based on 'tab-1', 'tab-2', 'tab-3' in the category string
-  const tab1 = apiData.find(item => item.category?.includes("tab-1"));
-  const tab2 = apiData.find(item => item.category?.includes("tab-2"));
-  const tab3 = apiData.find(item => item.category?.includes("tab-3"));
+  const tab1 = tabsList.find(item => item.category?.includes("tab-1"));
+  const tab2 = tabsList.find(item => item.category?.includes("tab-2"));
+  const tab3 = tabsList.find(item => item.category?.includes("tab-3"));
 
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <HeroSection
         data={{
-          title: "Sustainable Procurement",
-          banner: "/images/blog/blogBanner.jpg",
+          title: heroSection.title || "Sustainable Procurement",
+          image: heroSection.image || "",
+          banner: heroSection.image || "/images/blog/blogBanner.jpg",
         }}
       />
 
