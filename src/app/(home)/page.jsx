@@ -26,7 +26,6 @@ export async function generateMetadata() {
 
 const page = async () => {
   const HomeData = await getHomeListing();
-
   if (!HomeData || HomeData?.error) return <SomethingWentWrong />
 
   return (

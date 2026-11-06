@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import Image from "next/image";
 import "./style.css";
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
@@ -18,22 +18,32 @@ export default function HeroSection({ slides, miniStats }) {
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
 
+  // Video slides always lead; the rest keep the order the CMS sent them in.
+  const orderedSlides = useMemo(() => {
+    if (!Array.isArray(slides)) return slides;
+
+    return [
+      ...slides.filter((slide) => slide?.type === "video"),
+      ...slides.filter((slide) => slide?.type !== "video"),
+    ];
+  }, [slides]);
+
   const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? slides?.length - 1 : prev - 1));
+    setCurrent((prev) => (prev === 0 ? orderedSlides?.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    setCurrent((prev) => (prev === orderedSlides.length - 1 ? 0 : prev + 1));
   };
 
   // Auto-slide every 10 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev === slides?.length - 1 ? 0 : prev + 1));
+      setCurrent((prev) => (prev === orderedSlides?.length - 1 ? 0 : prev + 1));
     }, 12000);
 
     return () => clearInterval(interval);
-  }, [slides?.length]);
+  }, [orderedSlides?.length]);
 
   // Handle mute/unmute toggle
   const toggleMute = () => {
@@ -47,8 +57,8 @@ export default function HeroSection({ slides, miniStats }) {
     <>
       <div className="relative w-full max-w-[1920px] m-auto overflow-hidden">
         {/* Slides */}
-        {Array.isArray(slides) ? (
-          slides?.map((slide, index) => (
+        {Array.isArray(orderedSlides) ? (
+          orderedSlides?.map((slide, index) => (
             <div
               key={slide?.id}
               className={`absolute inset-0 w-full transition-opacity duration-700 ${
@@ -140,7 +150,7 @@ export default function HeroSection({ slides, miniStats }) {
         >
           <div className={"relative"}>
             <div
-              className={`${slides?.[current].type !== "video" ? styles.bgArrowHeroCut : styles.bgArrowHeroCutFull}`}
+              className={`${orderedSlides?.[current]?.type !== "video" ? styles.bgArrowHeroCut : styles.bgArrowHeroCutFull}`}
             ></div>
             <div className={styles.bgArrowContainer}>
               <div

@@ -3,7 +3,6 @@ import { handleServerFetchError, ServerFetch } from "../../actions/server-fetch"
 export async function getHomeListing() {
   try {
     const response = await ServerFetch(`/frontend/home`, { mode: "SSR"});
-
     if (!response) {
       return { data: null, error: "NO_DATA" };
     }
