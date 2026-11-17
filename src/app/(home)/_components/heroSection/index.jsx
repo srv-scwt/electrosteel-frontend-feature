@@ -116,7 +116,7 @@ export default function HeroSection({ slides, miniStats }) {
                         {slide?.title ?? ""} <br />
                         <span>{slide?.highlight ?? ""}</span>
                       </h1>
-                      <ButtonLink goto={slide?.url} title={"view more"} />
+                      <ButtonLink goto={slide?.url} title={slide?.button_text ?? "view more"} />
                     </div>
 
                     {/* Controller */}
