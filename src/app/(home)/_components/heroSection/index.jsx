@@ -61,11 +61,10 @@ export default function HeroSection({ slides, miniStats }) {
           orderedSlides?.map((slide, index) => (
             <div
               key={slide?.id}
-              className={`absolute inset-0 w-full transition-opacity duration-700 ${
-                index === current
+              className={`absolute inset-0 w-full transition-opacity duration-700 ${index === current
                   ? "opacity-100 relative z-20"
                   : "opacity-0 pointer-events-none z-0"
-              }`}
+                }`}
             >
               {/* Background: Image or Video */}
               {slide?.type === "video" ? (
@@ -116,7 +115,11 @@ export default function HeroSection({ slides, miniStats }) {
                         {slide?.title ?? ""} <br />
                         <span>{slide?.highlight ?? ""}</span>
                       </h1>
-                      <ButtonLink goto={slide?.url} title={slide?.button_text ?? "view more"} />
+                      <ButtonLink
+                        action={slide?.button_text === 'Join Now' ? '_blank' : '_self'}
+                        goto={slide?.url}
+                        title={slide?.button_text ?? 'view more'}
+                      />
                     </div>
 
                     {/* Controller */}
